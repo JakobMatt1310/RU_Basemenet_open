@@ -1,3 +1,5 @@
 21.11.22
 
 Bjuggum til repository
+Höfðum discord hitting kl 15 og ákváðum hvernig væri best að byrja á verkefninu.
+Fórum í user cases og noun identification method til þess að finna klasana.
