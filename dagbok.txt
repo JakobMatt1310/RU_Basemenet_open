@@ -3,3 +3,7 @@
 Bjuggum til repository
 Höfðum discord hitting kl 15 og ákváðum hvernig væri best að byrja á verkefninu.
 Fórum í user cases og noun identification method til þess að finna klasana.
+Byrjað að gera noun identification svo var farið saman yfir til þess að sía listann 
+af nafnorðum. Síðan gerðum við klasana og breytur. Markmið morgundagsins verður að 
+búa til class diagram, byrja á hinum verkefnunum state diagram, notendagreiningu og
+svo ætti þetta bara að ganga koll af kolli.
