@@ -12,3 +12,12 @@ svo ætti þetta bara að ganga koll af kolli.
 
 22.11.22
 
+Hverjir unnu þennan dag: Emil, Gunnar, Hjörtur, Ólafur, Þórarinn, Jakob
+
+Reyndum okkar besta við það að klára bæði 3 laga class diagram og model class diagram
+erum á réttri leið en þurfum á aðstoð að halda með skilning á 3-laga högun/hjúpun.
+Fórum langt með use cases og gerðum notendahópagreiningu.
+Markmið morgundagsins er að klára 3 laga class diagramið og fá skoðanir frá
+Gylfa eða TA sem getur lýst hjúpuninni betur. Byrja á state diagram ef það gengur upp
+og annað svo skoða útlitshönnun eftirá.
+
