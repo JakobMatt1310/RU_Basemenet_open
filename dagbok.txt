@@ -1,5 +1,7 @@
 21.11.22
 
+Hverjir unnu þennan dag: Emil, Gunnar, Hjörtur, Ólafur, Þórarinn, Jakob
+
 Bjuggum til repository
 Höfðum discord hitting kl 15 og ákváðum hvernig væri best að byrja á verkefninu.
 Fórum í user cases og noun identification method til þess að finna klasana.
@@ -7,3 +9,6 @@ Byrjað að gera noun identification svo var farið saman yfir til þess að sí
 af nafnorðum. Síðan gerðum við klasana og breytur. Markmið morgundagsins verður að 
 búa til class diagram, byrja á hinum verkefnunum state diagram, notendagreiningu og
 svo ætti þetta bara að ganga koll af kolli.
+
+22.11.22
+
