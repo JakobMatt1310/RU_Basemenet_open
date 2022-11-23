@@ -21,3 +21,10 @@ Markmið morgundagsins er að klára 3 laga class diagramið og fá skoðanir fr
 Gylfa eða TA sem getur lýst hjúpuninni betur. Byrja á state diagram ef það gengur upp
 og annað svo skoða útlitshönnun eftirá.
 
+23.11.22
+
+Hverjir unnu þennan dag: Emil, Gunnar, Hjörtur, Ólafur, Þórarinn, Jakob
+
+Erum að klára 3 layer class diagram. Byrjuðum á state diagram og komnir með template fyrir TUI. Getum byrjað að búa til happy paths.
+Meðað við verkefnavinnuna ættum við að ná að klára á föstudaginn. Markmið morgundagsins er að byrja á happy paths, reyna að klára 
+3 laga class diagram og komast áfram með state diagram.
