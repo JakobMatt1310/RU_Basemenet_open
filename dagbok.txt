@@ -28,3 +28,18 @@ Hverjir unnu þennan dag: Emil, Gunnar, Hjörtur, Ólafur, Þórarinn, Jakob
 Erum að klára 3 layer class diagram. Byrjuðum á state diagram og komnir með template fyrir TUI. Getum byrjað að búa til happy paths.
 Meðað við verkefnavinnuna ættum við að ná að klára á föstudaginn. Markmið morgundagsins er að byrja á happy paths, reyna að klára 
 3 laga class diagram og komast áfram með state diagram.
+
+24.11.22
+
+Hverjir unnu þennan dag: Emil, Gunnar, Hjörtur, Ólafur, Þórarinn, Jakob
+
+Emil: Var að vinna í Docs.
+Gunnar: Var að vinna í State Diagram, Tier 3 Design og Docs.
+Hjörtur: Var að vinna í Wireframe og í Tier 3 Design.
+Ólafur: Var að vinna í Wireframe.
+Þórarinn: Var að vinna í State Diagram og Tier 3 Design.
+Jakob: Tier 3 Design og Docs.
+
+Við kláruðum að útfæra Tier 3 Design, Wireframe-ið og State-Diagram-ið í dag. 
+Miðað við allt sem við náðum að klára í dag þá ætti föstudagurinn að fara í það að 
+fínisera Docs skjalið og leggja lokahönd á allt saman fyrir þessa viku.
