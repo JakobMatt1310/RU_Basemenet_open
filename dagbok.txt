@@ -31,6 +31,7 @@ Meðað við verkefnavinnuna ættum við að ná að klára á föstudaginn. Mar
 
 24.11.22
 
+<<<<<<< HEAD
 Hverjir unnu þennan dag: Emil, Gunnar, Hjörtur, Ólafur, Þórarinn, Jakob
 
 Emil: Var að vinna í Docs.
@@ -43,3 +44,13 @@ Jakob: Tier 3 Design og Docs.
 Við kláruðum að útfæra Tier 3 Design, Wireframe-ið og State-Diagram-ið í dag. 
 Miðað við allt sem við náðum að klára í dag þá ætti föstudagurinn að fara í það að 
 fínisera Docs skjalið og leggja lokahönd á allt saman fyrir þessa viku.
+=======
+Hverjir unnu þennan dag: Emil?, Gunnar, Hjörtur, Ólafur, Þórarinn, Jakob
+
+Kláruðum state diagram, Ólafur gerði geggjaða TUI forsíðu og er að halda áfram með TUI almennt. Þurftum að breyta 3 lögunar Class diagraminu
+af því að okkur vantaði skilning en fengum aðstoð frá Friðrik og Jakob talaði við Gylfa í lok dagsins og við höldum að við getum klárað
+diagramið fyrir skil á föstudaginn. Annars fáum við meiri upplýsingar um 3 laga högun í næstu viku þannig að svo lengi sem að við höldum okkur
+við efnið þá ætti allt að klárast í seinasta lagi þá. Töluðum um CS:GO og tókum fagmannlegar samræður um Vöfflur og Pönnukökur. Annars gekk
+dagurinn mjög vel. Markmið morgundagsins er að klára allt. Eftir að við klárum 3 lögunar Class diagramið og skýrsluna getum við gert happy 
+path og byrjað að prufað það einhvern tímann í næstu viku.
+>>>>>>> 9f587b8650d5576e36561e0fcb862fafe6ab91f8
