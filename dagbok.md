@@ -31,7 +31,7 @@ Meðað við verkefnavinnuna ættum við að ná að klára á föstudaginn. Mar
 
 # 24.11.22
 
-Hverjir unnu þennan dag: Emil?, Gunnar, Hjörtur, Ólafur, Þórarinn, Jakob
+Hverjir unnu þennan dag: Emil, Gunnar, Hjörtur, Ólafur, Þórarinn, Jakob
 
 Kláruðum state diagram, Ólafur gerði geggjaða TUI forsíðu og er að halda áfram með TUI almennt. Þurftum að breyta 3 lögunar Class diagraminu
 af því að okkur vantaði skilning en fengum aðstoð frá Friðrik og Jakob talaði við Gylfa í lok dagsins og við höldum að við getum klárað
@@ -43,6 +43,11 @@ path og byrjað að prufað það einhvern tímann í næstu viku.
 
 # 25.11.22
 
-Hv.....
+Hverjir unnu þennan dag: Emil, Gunnar, Hjörtut, Ólafur, Þórarinn, Jakob
 
-WEFEF
+Hópurinn hittist í persónu í fyrsta skipti í dag til að vinna í og klára 
+hönnunarskýrsluna. Mesti tíminn fór í að vinna í Happy Path og fullkomnun 
+á 3ja laga stöffinu. Hópurinn skellti sér svo á Braggann í löns og 
+kjaftaði um spennandi hluti eins og lokaeinkunnir og tölvuleiki. Við bíðum 
+nú umsagnar frá kennara/TA og munum byrja að forrita snemma á 
+mánudagsmorgni út frá hönnunarskýrslunni.
