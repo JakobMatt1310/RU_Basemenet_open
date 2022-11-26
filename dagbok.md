@@ -1,6 +1,6 @@
 # 21.11.22
 
-Hverjir unnu þennan dag: Emil, Gunnar, Hjörtur, Ólafur, Þórarinn, Jakob
+## Hverjir unnu þennan dag: Emil, Gunnar, Hjörtur, Ólafur, Þórarinn, Jakob
 
 Bjuggum til repository
 Höfðum discord hitting kl 15 og ákváðum hvernig væri best að byrja á verkefninu.
