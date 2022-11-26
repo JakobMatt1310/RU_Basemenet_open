@@ -12,7 +12,7 @@ svo ætti þetta bara að ganga koll af kolli.
 
 # 22.11.22
 
-Hverjir unnu þennan dag: Emil, Gunnar, Hjörtur, Ólafur, Þórarinn, Jakob
+## Hverjir unnu þennan dag: Emil, Gunnar, Hjörtur, Ólafur, Þórarinn, Jakob
 
 Reyndum okkar besta við það að klára bæði 3 laga class diagram og model class diagram
 erum á réttri leið en þurfum á aðstoð að halda með skilning á 3-laga högun/hjúpun.
@@ -23,7 +23,7 @@ og annað svo skoða útlitshönnun eftirá.
 
 # 23.11.22
 
-Hverjir unnu þennan dag: Emil, Gunnar, Hjörtur, Ólafur, Þórarinn, Jakob
+## Hverjir unnu þennan dag: Emil, Gunnar, Hjörtur, Ólafur, Þórarinn, Jakob
 
 Erum að klára 3 layer class diagram. Byrjuðum á state diagram og komnir með template fyrir TUI. Getum byrjað að búa til happy paths.
 Meðað við verkefnavinnuna ættum við að ná að klára á föstudaginn. Markmið morgundagsins er að byrja á happy paths, reyna að klára 
@@ -31,7 +31,7 @@ Meðað við verkefnavinnuna ættum við að ná að klára á föstudaginn. Mar
 
 # 24.11.22
 
-Hverjir unnu þennan dag: Emil, Gunnar, Hjörtur, Ólafur, Þórarinn, Jakob
+## Hverjir unnu þennan dag: Emil, Gunnar, Hjörtur, Ólafur, Þórarinn, Jakob
 
 Kláruðum state diagram, Ólafur gerði geggjaða TUI forsíðu og er að halda áfram með TUI almennt. Þurftum að breyta 3 lögunar Class diagraminu
 af því að okkur vantaði skilning en fengum aðstoð frá Friðrik og Jakob talaði við Gylfa í lok dagsins og við höldum að við getum klárað
@@ -43,7 +43,7 @@ path og byrjað að prufað það einhvern tímann í næstu viku.
 
 # 25.11.22
 
-Hverjir unnu þennan dag: Emil, Gunnar, Hjörtur, Ólafur, Þórarinn, Jakob
+## Hverjir unnu þennan dag: Emil, Gunnar, Hjörtur, Ólafur, Þórarinn, Jakob
 
 Hópurinn hittist í persónu í fyrsta skipti í dag til að vinna í og klára 
 hönnunarskýrsluna. Mesti tíminn fór í að vinna í Happy Path og fullkomnun 
