@@ -31,7 +31,7 @@ Meðað við verkefnavinnuna ættum við að ná að klára á föstudaginn. Mar
 
 24.11.22
 
-Hverjir unnu þennan dag: Emil?, Gunnar, Hjörtur, Ólafur, Þórarinn, Jakob
+Hverjir unnu þennan dag: Emil, Gunnar, Hjörtur, Ólafur, Þórarinn, Jakob
 
 Kláruðum state diagram, Ólafur gerði geggjaða TUI forsíðu og er að halda áfram með TUI almennt. Þurftum að breyta 3 lögunar Class diagraminu
 af því að okkur vantaði skilning en fengum aðstoð frá Friðrik og Jakob talaði við Gylfa í lok dagsins og við höldum að við getum klárað
