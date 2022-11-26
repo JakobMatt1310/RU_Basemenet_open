@@ -43,7 +43,7 @@ path og byrjað að prufað það einhvern tímann í næstu viku.
 
 # 25.11.22
 
-Hverjir unnu þennan dag: Emil, Gunnar, Hjörtut, Ólafur, Þórarinn, Jakob
+Hverjir unnu þennan dag: Emil, Gunnar, Hjörtur, Ólafur, Þórarinn, Jakob
 
 Hópurinn hittist í persónu í fyrsta skipti í dag til að vinna í og klára 
 hönnunarskýrsluna. Mesti tíminn fór í að vinna í Happy Path og fullkomnun 
