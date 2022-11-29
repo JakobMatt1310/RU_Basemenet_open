@@ -1,6 +1,6 @@
 from logic.player_logic import Player_Logic
 from model.player import Player
-from ui.player_ui import Player_UI
+from ui.player_menu_ui import Player_UI
 from logic.logic_wrapper import Logic_Wrapper
 
 class MainMenu_UI:
