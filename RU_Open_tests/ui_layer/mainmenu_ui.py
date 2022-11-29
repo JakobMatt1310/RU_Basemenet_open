@@ -1,10 +1,9 @@
 
-
-from logic.player_logic import Player_Logic
-from model.player import Player
-from uilayer import Player_UI
-from logic.logic_wrapper import Logic_Wrapper
-
+from player_model_dummy import Player
+from moderator_ui import Moderator_UI
+from player_ui import Player_UI
+from logic_wrapper_dummy import Logic_Wrapper
+from print_layouts import print_current_menu
 
 
 class MainMenu_UI:
@@ -19,10 +18,7 @@ class MainMenu_UI:
         self.logic_wrapper = Logic_Wrapper()
 
     def menu_output(self):
-        print("{}".format("Main Menu"))
-        print("{}".format("1. Player Menu"))
-        print("{}".format("2. Associations Menu"))
-        print("{}".format("q. to exit"))
+        print_current_menu(self.Menu_selection)
 
     def input_prompt(self):
         while True:
@@ -33,12 +29,18 @@ class MainMenu_UI:
                 print("Goodbye")
                 break
             elif command == "1":
-                menu = Player_UI(self.logic_wrapper)
+                menu = Moderator_UI(self.logic_wrapper)
                 back_method = menu.input_prompt()
                 if back_method == "q":
                     return "q"
             elif command == "2":
-                pass
+                menu = Player_UI(self.logic_wrapper)
+                back_method = menu.input_prompt()
+                if back_method == "q":
+                    return "q"
             else:
                 print("invalid input, try again")
                 
+
+test = MainMenu_UI()
+test.input_prompt()

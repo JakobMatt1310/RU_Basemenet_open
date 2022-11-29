@@ -30,10 +30,14 @@ def print_border():
     print(X*WIDTH)
 
 def clear_screen():
-    """Clears the screen"""
+    """Clears the screen, prints header and 1 empty line"""
     os.system('cls')
+    print_header_logo()
     
-def print_current_menu(dict_to_print):
+def print_current_menu(dict_to_print: dict):
+    """Prints a listed menu, with numbering and explination
+    argument needs to be dict"""
+    clear_screen()
     menu_name = dict_to_print['Current Menu']
     back = ["b. Go back", ">>> To go back to previous Menu"]
     quit_prog = ["q. Quit Program", ">>> Select if you want to quit program"]
@@ -52,7 +56,7 @@ def print_current_menu(dict_to_print):
     print(f"{X:<{MENU_PAD}}{quit_prog[0]:<{MENU_LEN}}{quit_prog[1]:<{MENU_LEN}}{X:>{MENU_PAD}}")
     print_empty_line()
     print_border()    
-    pass
+    
 # def print_current_menu(list_to_print):
 #     menu_name = list_to_print[0]
 #     back = "b. Go back"
@@ -84,4 +88,4 @@ Menu_selection = {"Current Menu": "Main Menu",
                   "Statistics": ">>> View statistics for teams and players", 
                   "Tournaments": ">>> View all registered yournaments"}
 
-print_current_menu(Menu_selection)
+# print_current_menu(Menu_selection)
