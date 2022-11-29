@@ -1,9 +1,14 @@
+
+
 from logic.player_logic import Player_Logic
 from model.player import Player
-from ui.player_ui import Player_UI
+from uilayer import Player_UI
 from logic.logic_wrapper import Logic_Wrapper
 
+
+
 class MainMenu_UI:
+    Menu_selection = ["Main Menu", "Player", "Teams", "Association", "Statistics", "Tournaments"]
     def __init__(self):
         self.logic_wrapper = Logic_Wrapper()
 
@@ -30,3 +35,4 @@ class MainMenu_UI:
                 pass
             else:
                 print("invalid input, try again")
+                
