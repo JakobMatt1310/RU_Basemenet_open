@@ -3,7 +3,7 @@ from model.player import Player
 
 class Player_Data:
     def __init__(self):
-        self.file_name = "files/players.csv"
+        self.file_name = "RU Open/files/players.csv"
 
     def read_all_players(self):
         ret_list = []

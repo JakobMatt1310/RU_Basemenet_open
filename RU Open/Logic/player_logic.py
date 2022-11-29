@@ -9,4 +9,4 @@ class Player_Logic:
         self.data_wrapper.create_player(player)
 
     def get_all_players(self):
-        return self.data_wrapper.get_all_players
+        return self.data_wrapper.get_all_players()
