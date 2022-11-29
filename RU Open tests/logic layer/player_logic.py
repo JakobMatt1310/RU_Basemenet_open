@@ -10,3 +10,21 @@ class Player_Logic:
 
     def get_all_players(self):
         return self.data_wrapper.get_all_players()
+
+    def validate_player_entry(self):
+        pass
+
+    def edit_player(self):
+        pass
+
+    def assign_captain(self):
+        pass
+
+    def view_player(self):
+        pass
+
+    def view_player_stats(self):
+        pass
+    
+    def delete_player(self):
+        pass
