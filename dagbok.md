@@ -51,3 +51,9 @@ hönnunarskýrsluna. Mesti tíminn fór í að vinna í Happy Path og fullkomnun
 kjaftaði um spennandi hluti eins og lokaeinkunnir og tölvuleiki. Við bíðum 
 nú umsagnar frá kennara/TA og munum byrja að forrita snemma á 
 mánudagsmorgni út frá hönnunarskýrslunni.
+
+# 28.11.22
+## Hverjir unnu þennan dag: Emil, Gunnar, Hjörtur, Ólafur, Þórarinn, Jakob
+
+Óli kláraði að búa til user interface fyrir low-fi testing. Getum þá núna notað í notenda prufu til þess að fá feedback á UIið okkar.
+Annars vorum við ekki vissir hvernig átti að byrja að gera forritið sjálft og byrjuðum að pæla aðeins í branching í git. Löguðum það sem vantaði í skjalið eða það feedback sem við fengum frá Gylfa.
