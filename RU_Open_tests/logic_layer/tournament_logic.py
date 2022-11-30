@@ -1,7 +1,7 @@
 from data_layer.tournaments_data import Tournaments_Data
 from model.tournaments import Tournaments
 
-class Tournaments_logic:
+class Tournament_Logic:
     def __init__(self, data_connection):
         self.data_wrapper = data_connection
     
