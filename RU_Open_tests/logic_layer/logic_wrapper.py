@@ -3,6 +3,7 @@ from logic_layer.player_logic import Player_Logic
 from logic_layer.association_logic import Association_Logic
 from logic_layer.statistic_logic import Statistic_Logic
 from logic_layer.team_logic import Team_Logic
+from logic_layer.tournament_logic import Tournament_Logic
 
 class Logic_Wrapper:
     def __init__(self):
@@ -11,6 +12,7 @@ class Logic_Wrapper:
         self.association_logic = Association_Logic(self.data_wrapper)
         self.statistic_logic = Statistic_Logic(self.data_wrapper)
         self.team_logic = Team_Logic(self.data_wrapper)
+        self.tournament_logic = Tournament_Logic(self.data_wrapper)
 
 #------------------Player_Logic------------------------------------#
     def create_player(self, player):
@@ -113,17 +115,20 @@ class Logic_Wrapper:
         return self.team_logic.delete_team()
 
 #------------------Tournament_Logic------------------------------------#
+    def create_tournament(self, tournament):
+        return self.tournament_logic.create_tournament(tournament)
+
     def update_tournament(self):
-        pass
+        return self.tournament_logic.update_tournament()
 
     def validate_tournament_entry(self):
-        pass
+        return self.tournament_logic.validate_tournament_entry()
 
     def delete_tournament(self):
-        pass
+        return self.tournament_logic.delete_tournament()
 
     def get_all_tournaments(self):
-        pass
+        return self.tournament_logic.get_all_tournaments()
 
     def get_tournament(self):
-        pass
+        return self.tournament_logic.get_tournament()
