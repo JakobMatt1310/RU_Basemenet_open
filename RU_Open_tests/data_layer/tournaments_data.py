@@ -1,7 +1,7 @@
 
 # import os
 import csv
-from tournaments import Tournaments
+from tournament import Tournament
 
 
 class Tournaments_Data():
@@ -20,7 +20,7 @@ class Tournaments_Data():
         with open(self.file_name, newline='', encoding="utf-8") as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                ret_list.append(Tournaments(row["name"], row["ssn"], row["phone"], row["email"], row["address"]))
+                ret_list.append(Tournament(row["name"], row["address"]))
         return ret_list
 
 
@@ -28,7 +28,7 @@ class Tournaments_Data():
         '''Creates a new tournament in the file'''
 
         with open(self.file_name, 'a', newline='', encoding="utf-8") as csvfile:
-            fieldnames = ["name", "ssn", "phone", "email", "address"]
+            fieldnames = ["name", "address"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
             writer.writerow({'name': tournament.name, 'address': tournament.address})
