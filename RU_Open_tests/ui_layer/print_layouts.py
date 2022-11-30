@@ -6,6 +6,7 @@ THIRD_WIDTH = int(WIDTH/3)
 MENU_LEN = 47 # How long the menu is
 MENU_PAD = HALF_WIDTH-MENU_LEN # How much is padded from left to right
 X = 'x' #letter representing seperation in program, header, main, etc..
+DASH = "-"
 
 
 
@@ -65,6 +66,54 @@ def create_menu(list_to_print):
 
 def edit_menu(list_to_edit):
     pass
+
+def view_players(file_object):
+    pass
+
+
+
+def view_teams(file_object: classmethod):
+    print()
+    print_border()
+    
+    #Example of the outcome below
+# x   Team Number : 4           xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                             x
+# x                             x               Association : Stjarnan                     x                             x
+# x                             x                      Team : 123.flokkur                  x                             x
+# x                             x         ----------------------------------------         x                             x
+# x                             x               Name                         Role          x                             x
+# x                             x            Máni Freyr                    Captain         x                             x
+# x                             x            Jakob Matt                     Player         x                             x
+# x                             x          Sigurður Tómas                   Player         x                             x
+# x                             x           Hannes Aron                     Player         x                             x
+# x                             xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                             x
+    
+    for i, el in enumerate(file_object, 1):
+        print_empty_line()
+    
+
+        print(f"{X:4}{'Team Number : ':<5}{i:<12}{(X*60):<60}{X:>30}")                     #Border for box surrounding team information
+        print(f"{X:<30}{X}{'Association : ':>29}{el.association_name:<29}{X:<30}{X}")
+        print(f"{X:<30}{X}{'Team : ':>29}{el.team_name:<29}{X:<30}{X}")                 
+        print(f"{X:<30}{X:<10}{(DASH*40):40}{X:>10}{X:>30}")                             #Seperation line with dashes --------
+        print(f"{X:30}{X}{('Name'):^34}{'Role':^24}{X}{X:>30}")
+        print(f"{X:30}{X}{(el.captain_name):^34}{'Captain':^24}{X}{X:>30}")
+        players_list = el.team_players
+        players_list.sort()
+        for player in players_list:
+            if player != el.captain_name:
+                print(f"{X:30}{X}{(player):^34}{'Player':^24}{X}{X:>30}")
+            
+        print(f"{X:30}{(X*60):<60}{X:>30}")      
+    
+    print_empty_line()
+    print_border() 
+    ret = input("Press Enter to go back")
+
+
+def view_association(file_object):
+    pass
+
 
 
 # print_current_menu(Menu_selection)
