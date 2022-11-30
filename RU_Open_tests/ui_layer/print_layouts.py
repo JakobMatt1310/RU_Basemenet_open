@@ -13,13 +13,14 @@ DASH = "-"
 
 def print_header_logo():
     """Prints the header with title printed"""
+    print("\033[1;32;40m", end="")
     print_border()
     print_empty_line()   
     logo_text = "RU Basement Open"
     print(f"{X}{logo_text:^{WIDTH-2}}{X}")
     print_empty_line()   
     print_border()
-    print()
+    print("\033[0m")
 
 def print_empty_line():
     """Prints and empty line with symbols at each end of witdh
@@ -38,7 +39,10 @@ def clear_screen():
 def print_current_menu(dict_to_print: dict):
     """Prints a listed menu, with numbering and explination
     argument needs to be dict"""
+    
+
     clear_screen()
+    print("\033[1;32;40m", end="")
     menu_name = dict_to_print['Current Menu']
     back = ["b. Go back", ">>> To go back to previous Menu"]
     quit_prog = ["q. Quit Program", ">>> Select if you want to quit program"]
@@ -59,8 +63,9 @@ def print_current_menu(dict_to_print: dict):
     print(f"{X:<{MENU_PAD}}{quit_prog[0]:<{MENU_LEN}}{quit_prog[1]:<{MENU_LEN}}{X:>{MENU_PAD}}")
     
     print_empty_line()
-    print_border()    
-
+    print_border()
+    print("\033[0m") 
+    
 def create_menu(list_to_print):
     pass
 
@@ -73,7 +78,7 @@ def view_players(file_object):
 
 
 def view_teams(file_object: classmethod):
-    print()
+    print("\033[1;32;40m", end="")
     print_border()
     
     #Example of the outcome below
@@ -108,6 +113,7 @@ def view_teams(file_object: classmethod):
     
     print_empty_line()
     print_border() 
+    print("\033[0m")
     ret = input("Press Enter to go back")
 
 
