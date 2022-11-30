@@ -4,8 +4,11 @@ from input_validators import *
 from print_layouts import print_current_menu
 
 
-class Player_UI:
-    player_menu = {"Current Menu": "Player/Captain options", "Register points": ">>> Select to register points for finished game"}
+class Captain_UI:
+    
+    player_menu = {"Current Menu": "Player/Captain options", 
+                   "Register points": ">>> Select to register points for finished game"}
+    
     def __init__(self, logic_connection):
         self.logic_wrapper = logic_connection
 
@@ -18,10 +21,9 @@ class Player_UI:
             command= input("Enter your command: ")
             command = command.lower()
             if command == "b":
-                print("going back")
-                return "b"
+                return
             elif command == "q":
-                print("quitting")
+                print("Quitting")
                 return "q"
             elif command == "1":
                 c = Player()
