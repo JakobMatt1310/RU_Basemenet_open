@@ -1,5 +1,4 @@
 # from logic.player_logic import Player_Logic
-import time
 from player_model_dummy import Player
 from input_validators import *
 from print_layouts import print_current_menu
@@ -21,7 +20,7 @@ class Moderator_UI:
             self.menu_output()
             command= input("Enter your command: ").lower()
             if command == "b":
-                return "b"
+                return
             elif command == "q":
                 print("quitting")
                 return "q"
