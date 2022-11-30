@@ -16,13 +16,13 @@ def validate_ssn(ssn):
 
 class PhoneNumberLengthException(Exception):
     pass
-def check_phone_length(phone)
+def check_phone_length(phone):
     if len(phone) != 7:
         raise PhoneNumberLengthException()
         
 class PhoneNumberCharacterException(Exception):
     pass
-def check_phone_isdigit(phone)
+def check_phone_isdigit(phone):
     if int(phone).isdigit() == False:
         raise PhoneNumberLengthException()
 
