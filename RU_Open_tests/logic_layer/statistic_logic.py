@@ -1,5 +1,10 @@
+from data_layer.statistics_data import Statistics_Data
+from model.statistics import Statistics
 
 class Statistic_Logic:
+    def __init__(self, data_connection):
+        self.data_wrapper = data_connection
+        
     def get_win_percentage(self):
         pass
 

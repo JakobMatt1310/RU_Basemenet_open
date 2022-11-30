@@ -31,6 +31,6 @@ class Player_Data():
             fieldnames = ["name", "ssn", "phone", "email", "address"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
-            writer.writerow({'name': player.name, 'ssn': player.ssn, 'phone': player.phone, 'email': player.email, 'address': player.address})
+            writer.writerow({'name': player.player_name, 'ssn': player.ssn, 'phone': player.phone, 'email': player.email, 'address': player.address})
             
 

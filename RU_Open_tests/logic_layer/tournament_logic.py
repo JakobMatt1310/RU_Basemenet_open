@@ -1,19 +1,24 @@
+from data_layer.tournaments_data import Tournaments_Data
+from model.tournaments import Tournaments
 
 class Tournaments_logic:
+    def __init__(self, data_connection):
+        self.data_wrapper = data_connection
+    
+    def create_tournament(self, tournament):
+        self.data_wrapper.create_tournament(tournament)
+    
     def update_tournament(self):
-        pass
+        self.data_wrapper.update_tournament()
 
     def validate_tournament_entry(self):
-        pass
+        return self.data_wrapper.validate_tournament_entry()
 
     def delete_tournament(self):
-        pass
+        self.data_wrapper.delete_tournament()
 
     def get_all_tournaments(self):
-        pass
+        return self.data_wrapper.get_all_tournaments()
 
     def get_tournament(self):
-        pass
-    
-    def create_tournament(self):
-        pass
+        return self.data_wrapper.get_tournament()

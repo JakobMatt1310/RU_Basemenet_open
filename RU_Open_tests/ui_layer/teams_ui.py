@@ -1,13 +1,12 @@
+from player_model_dummy import Player
 from logic_wrapper_dummy import Logic_Wrapper
-from print_layouts import print_current_menu
-from team_model_dummy import Team
-from input_validators import *
+from print_layouts import *
 
-class Teams_UI:
+
+class Statistics_UI:
     Menu_selection = {"Current Menu": "Team Menu", 
-                    "Create Team": ">>> Create a team within a chosen association", 
-                    "Edit Team": ">>> Gives the user options to make changes to the team", 
-                    "View Teams": ">>> Shows the list of every team below their respected associations"}    
+                    "View Teams": ">>> Shows the list of every team in our database"}    
+    
     def __init__(self):
         self.logic_wrapper = Logic_Wrapper()
 
@@ -21,27 +20,11 @@ class Teams_UI:
             command = command.lower()
             if command == "b":
                 print("Going back")
-                return
+                break
             elif command == "1":
-                team = Team()
-                while True:
-                    team.team_name = input("Enter the name of the player: ")
-                    try:
-                        validate_team_name(team.name)
-                        break
-                    except TeamNameLengthException:
-                        print("name was too long")
-                    except:
-                        print("some error")
-                team.association_name = input("Enter the association this team should belong to: ")
-                team.captain_name = input("Enter the name of the teams captain: ")
-                team.team_players = input("Enter the players email address: ")
-                self.logic_wrapper.create_team(team)
-                
-            elif command == "2":
-                
-                
-                    return "q"
+                result = self.logic_wrapper.get_all_teams()
+                view_teams(result)
+                    
             else:
                 print("invalid input, try again")
                 

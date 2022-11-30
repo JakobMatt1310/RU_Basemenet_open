@@ -1,8 +1,9 @@
-
+from data_layer.team_data import Team_Data
+from model.team import Team
 
 class Team_Logic:
-    def __init__(self):
-        pass
+    def __init__(self, data_connection):
+        self.data_wrapper = data_connection
 
     def validate_team_entry(self):
         pass
