@@ -26,7 +26,7 @@ class Statistics_UI:
                 view_player_stats(players_result)
             elif command == "2":
                 team_result = self.logic_wrapper.get_team_statistics()
-                view_player_stats(team_result)
+                view_team_stats(team_result)
                 
             else:
                 print("invalid input, try again")

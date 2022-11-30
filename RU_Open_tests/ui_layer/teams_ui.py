@@ -4,7 +4,7 @@ from print_layouts import *
 
 
 class Statistics_UI:
-    Menu_selection = {"Current Menu": "Statistics", 
+    Menu_selection = {"Current Menu": "Team Menu", 
                     "View Teams": ">>> Shows the list of every team in our database"}    
     
     def __init__(self):
