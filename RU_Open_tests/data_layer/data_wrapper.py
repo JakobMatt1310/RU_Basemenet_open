@@ -1,5 +1,5 @@
 
-from data.player_data import Player_Data
+from player_data import Player_Data
 
 
 class Data_Wrapper():
@@ -26,5 +26,3 @@ class Data_Wrapper():
         print(self.player_data.create_player(player))
         res2 = self.player_data.create_player(player)
         return self.player_data.create_player(player)
-        
-        
