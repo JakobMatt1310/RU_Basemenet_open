@@ -1,14 +1,13 @@
 from player_model_dummy import Player
-from logic_wrapper_dummy import Logic_Wrapper
 from print_layouts import *
 
 
-class Statistics_UI:
+class Teams_View_UI:
     Menu_selection = {"Current Menu": "Team Menu", 
                     "View Teams": ">>> Shows the list of every team in our database"}    
     
-    def __init__(self):
-        self.logic_wrapper = Logic_Wrapper()
+    def __init__(self, logic_connection):
+        self.logic_wrapper = logic_connection()
 
     def menu_output(self):
         print_current_menu(self.Menu_selection)
@@ -16,8 +15,7 @@ class Statistics_UI:
     def input_prompt(self):
         while True:
             self.menu_output()
-            command = input("Enter your command: ")
-            command = command.lower()
+            command = input("Enter your command: ").lower()
             if command == "b":
                 print("Going back")
                 break
