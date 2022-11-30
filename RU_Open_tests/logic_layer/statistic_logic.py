@@ -1,3 +1,5 @@
+from data_layer.statistics_data import Statistics_Data
+from model.statistics import Statistics
 
 class Statistic_Logic:
     def get_win_percentage(self):

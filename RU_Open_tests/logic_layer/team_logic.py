@@ -1,4 +1,5 @@
-
+from data_layer.team_data import Team_Data
+from model.team import Team
 
 class Team_Logic:
     def __init__(self):

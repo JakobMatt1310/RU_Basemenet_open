@@ -1,3 +1,5 @@
+from data_layer.tournaments_data import Tournaments_Data
+from model.tournaments import Tournaments
 
 class Tournaments_logic:
     def update_tournament(self):
