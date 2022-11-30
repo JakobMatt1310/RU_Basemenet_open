@@ -51,29 +51,14 @@ def print_current_menu(dict_to_print: dict):
         selection = str(index)+'. '+element
         text = values[index]
         print(f"{X:<{MENU_PAD}}{selection:<{MENU_LEN}}{text:<{MENU_LEN}}{X:>{MENU_PAD}}")
+    
     print_empty_line()
-    print(f"{X:<{MENU_PAD}}{back[0]:<{MENU_LEN}}{back[1]:<{MENU_LEN}}{X:>{MENU_PAD}}")
+    if values[0] != "Main Menu": # Do not display go back if current menu is main menu
+        print(f"{X:<{MENU_PAD}}{back[0]:<{MENU_LEN}}{back[1]:<{MENU_LEN}}{X:>{MENU_PAD}}")
     print(f"{X:<{MENU_PAD}}{quit_prog[0]:<{MENU_LEN}}{quit_prog[1]:<{MENU_LEN}}{X:>{MENU_PAD}}")
+    
     print_empty_line()
     print_border()    
-    
-# def print_current_menu(list_to_print):
-#     menu_name = list_to_print[0]
-#     back = "b. Go back"
-#     quit_prog = "q. Quit Program"
-#     print_border()
-#     print_empty_line()
-#     print(f"{X}{menu_name:^{WIDTH-2}}{X}") # prints out name of current menu selected
-#     print_empty_line()
-#     for index, word in enumerate(list_to_print[1:], 1): #element no 0 in all lists is the menu name
-#         selection = str(index)+'. '+word
-#         print(f"{X:<{MENU_PAD}}{selection:<{MENU_LEN}}{X:>{HALF_WIDTH}}")
-#     print_empty_line()
-#     print(f"{X:<{MENU_PAD}}{back:<{MENU_LEN}}{X:>{HALF_WIDTH}}")
-#     print(f"{X:<{MENU_PAD}}{quit_prog:<{MENU_LEN}}{X:>{HALF_WIDTH}}")
-#     print_empty_line()
-#     print_border()    
-#     pass
 
 def create_menu(list_to_print):
     pass
