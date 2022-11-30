@@ -1,6 +1,6 @@
-from data.customer_data import Customer_Data
+from data.player_data import Player_Data
 
-data_class = Customer_Data()
-result = data_class.read_all_customers()
+data_class = Player_Data()
+result = data_class.read_all_players()
 for elem in result:
     print(elem)

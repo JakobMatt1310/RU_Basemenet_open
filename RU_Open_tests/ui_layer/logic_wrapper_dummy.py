@@ -1,4 +1,5 @@
 from player_model_dummy import Player 
+from team_model_dummy import Team
 
 class Logic_Wrapper:
     def __init__(self):
@@ -15,6 +16,9 @@ class Logic_Wrapper:
                 Player("Hákarl Ofsaveður", "9181827846", "4545454", "Hammi@yamz.com", "Absírtú 6"),
                 Player("Siðferði Þingi", "6497135689", "4567891", "Siiidd@jolajapl.is", "Kárlhög 49"),
                 Player("Málmundur Árbjarg", "0528598945", "4569873", "Malli@halli.is", "Kringum 11"),]
+
+    def get_all_teams(self):
+        return [Team("3.flokkur", "Stjarnan", "Máni Freyr", ["Jakob Matt", "Máni Freyr", "Sigurður Tómas", "Hannes Aron"])]
         # return self.player_logic.get_all_players()
         
         # self, name="", ssn="", phone="", email="", address=""
