@@ -65,12 +65,6 @@ def create_menu(list_to_print):
 
 def edit_menu(list_to_edit):
     pass
-Menu_selection = {"Current Menu": "Main Menu", 
-                  "Moderator": ">>> Select Moderator to create and/or edit", 
-                  "Player": ">>> Select player to register new points", 
-                  "Teams": ">>> Select teams to view all registered teams", 
-                  "Association": ">>> View all registered associations", 
-                  "Statistics": ">>> View statistics for teams and players", 
-                  "Tournaments": ">>> View all registered yournaments"}
+
 
 # print_current_menu(Menu_selection)
