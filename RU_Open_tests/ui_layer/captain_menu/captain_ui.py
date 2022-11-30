@@ -26,11 +26,18 @@ class Captain_UI:
                 print("Quitting")
                 return "q"
             elif command == "1":
+                #Here we could ask for teams playing in match as home / guest team
+                #Then have a simple point register, as when filling in points for home team
+                #You do not have to enter entire name, but only the number of the player.
+                #That is, the list of names would appear
+                #So input could be 
+                #select player: 2 ----- nr. 2 would be f.x. Helgi Jóns
+                #
+                print("Enter name of match")
                 print("A function has to be created for this to work ")
-                self.logic_wrapper.create_player(c)
-            elif command == "2":
-                result = self.logic_wrapper.get_all_players()
-                for elem in result:
-                    print(f"Name: {elem.name}, SSN: {elem.ssn}, Phone number: {elem.phone}, Email: {elem.email}, Home address: {elem.address}")
+                
+                # self.logic_wrapper.register_points(c)
+                # self.logic_wrapper.get_points()
+            
             else:
                 print("invalid input, try again")
