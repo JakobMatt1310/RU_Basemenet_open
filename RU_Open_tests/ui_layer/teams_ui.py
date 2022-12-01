@@ -1,4 +1,4 @@
-from player_model_dummy import Player
+from model.player_model_dummy import Player
 from print_layouts import *
 
 
