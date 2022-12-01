@@ -1,8 +1,12 @@
 class Game:
-    def __init__(self, home_team_player="", away_team_player="", home_player_legs=[0,0], away_player_legs=[0,0], match_score=None, gamemode=""):
-        self.home_team_player = home_team_player
-        self.away_team_player = away_team_player
-        self.gamemode = gamemode
+    def __init__(self, player_amount="", home_team_players=None, away_team_players=None, home_player_legs=[0,0], away_player_legs=[0,0], match_score=None):
+        self.player_amount = player_amount
+        if home_team_players == None:
+            home_team_players = []
+        if away_team_players == None:
+            away_team_players = []
+        self.home_team_player = home_team_players
+        self.away_team_player = away_team_players
         self.home_player_legs = home_player_legs
         self.away_player_legs = away_player_legs
         if match_score == None:
@@ -10,7 +14,7 @@ class Game:
         self.match_score = match_score
 
     def __get_match_score__(self, home_player_legs_won="", away_player_legs_won=""):
-        #Please enter how many legs 
+ 
         if home_player_legs_won == 0:
             self.home_player_legs == [0,0]
         elif home_player_legs_won == 1:
@@ -26,7 +30,6 @@ class Game:
 
         self.match_score == [self.home_player_legs, self.away_player_legs]
     
-    #
         
 
 
