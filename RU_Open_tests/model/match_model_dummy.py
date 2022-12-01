@@ -8,10 +8,3 @@ class Match:
 
     def __get_games__():
         pass
-'''    def read_all_players(self):
-        ret_list = []
-        with open(self.file_name, newline='', encoding="utf-8") as csvfile:
-            reader = csv.DictReader(csvfile)
-            for row in reader:
-                ret_list.append(Player(row["home_team"], row["away_team"], row["match_scheduled"], row["e"], row["address"]))
-        return ret_list'''
