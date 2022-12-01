@@ -20,7 +20,7 @@ class Associations_Data():
         with open(self.file_name, newline='', encoding="utf-8") as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                ret_list.append(Association(row["name"], row["ssn"], row["phone"], row["email"], row["address"]))
+                ret_list.append(Association(row["name"], row["phone"], row["address"]))
         return ret_list
 
 
@@ -28,7 +28,7 @@ class Associations_Data():
         '''Creates a new association in the file'''
 
         with open(self.file_name, 'a', newline='', encoding="utf-8") as csvfile:
-            fieldnames = ["name", "ssn", "phone", "email", "address"]
+            fieldnames = ["name", "phone", "address"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
-            writer.writerow({'name': association.name, 'ssn': association.ssn, 'phone': association.phone, 'email': association.email, 'address': association.address})
+            writer.writerow({'name': association.name, 'phone': association.phone, 'address': association.address})

@@ -18,62 +18,33 @@ class Data_Wrapper():
 #------------------Get---------------------------------------------#
     def get_all_users(self):
         '''Gets all users'''
-        data_class_user = User_Data()
-        result = data_class_user.read_all_users()
-
-        for elem in result:
-            print(elem)
-
         print(self.user_data.read_all_users())
         res = self.user_data.read_all_users()
-
-        return self.user_data.read_all_users()
+        return res
 
     def get_all_players(self):
         '''Gets all players'''
-        data_class_player = Player_Data()
-        result = data_class_player.read_all_players()
-
-        for elem in result:
-            print(elem)
-
         print(self.player_data.read_all_players())
         res = self.player_data.read_all_players()
-
-        return self.player_data.read_all_players()
+        return res
 
     def get_all_tournaments(self):
         '''Gets all tournaments'''
-        data_class_tournament = Tournaments_Data()
-        result = data_class_tournament.read_all_tournaments()
-
-        for elem in result:
-            print(elem)
-
         print(self.player_data.read_all_players())
         res = self.player_data.read_all_players()
+        return res
 
-        return self.player_data.read_all_players()
-
-    def get_all_association(self):
+    def get_all_associations(self):
         '''Gets all associations'''
-
-        data_class_association = Associations_Data()
-        result = data_class_association.read_all_associations()
-
-        for elem in result:
-            print(elem)
-        pass
+        print(self.association_data.read_all_associations())
+        res = self.association_data.read_all_associations()
+        return res
 
     def get_all_teams(self):
         '''Gets all teams'''
-
-        data_class_teams = Teams_Data()
-        result = data_class_teams.read_all_teams()
-
-        for elem in result:
-            print(elem)
-        pass
+        print(self.team_data.read_all_teams())
+        res = self.team_data.read_all_teams()
+        return res
 
 
 #------------------Create------------------------------------------#
@@ -106,3 +77,37 @@ class Data_Wrapper():
         print(self.team_data.create_team(team))
         res2 = self.team_data.create_team(team)
         return self.team_data.create_team(team)
+
+
+
+def main_data():
+    '''Main function for the data wrapper in data layer'''
+    data_class_user = User_Data()
+    res_user = data_class_user.read_all_users()
+    for us in res_user:
+        print(us)
+        
+    data_class_player = Player_Data()
+    res_player = data_class_player.read_all_players()
+    for py in res_player:
+        print(py)
+        
+    data_class_tournament = Tournaments_Data()
+    res_tournament = data_class_tournament.read_all_tournaments()
+    for tur in res_tournament:
+        print(tur)
+        
+    data_class_association = Associations_Data()
+    res_association = data_class_association.read_all_associations()
+    for ass in res_association:
+        print(ass)
+            
+    data_class_teams = Teams_Data()
+    res_teams = data_class_teams.read_all_teams()
+    for tea in res_teams:
+        print(tea)
+
+
+
+if main_data() == '__main__':
+    main_data()

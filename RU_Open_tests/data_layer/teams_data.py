@@ -28,7 +28,7 @@ class Teams_Data():
         '''Creates a new team in the file'''
 
         with open(self.file_name, 'a', newline='', encoding="utf-8") as csvfile:
-            fieldnames = ["team", "assocition", "captain_name", ["player_names", "player_names", "player_names"]]
+            fieldnames = ["team", "assocition", "captain_name", team_list]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
             writer.writerow({'team': team.team_name, 'association': team.assocition_name, 'captain': team.captain_name, 'player_list': team.list})
