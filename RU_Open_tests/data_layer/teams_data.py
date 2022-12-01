@@ -1,7 +1,8 @@
 
-# import os
+#import os
 import csv
 from team import Team
+#_location_ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 
 class Teams_Data():
@@ -15,7 +16,7 @@ class Teams_Data():
 
     def read_all_teams(self):
         '''Reads all teams from the file'''
-
+        #_location_ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
         ret_list = []
         with open(self.file_name, newline='', encoding="utf-8") as csvfile:
             reader = csv.DictReader(csvfile)

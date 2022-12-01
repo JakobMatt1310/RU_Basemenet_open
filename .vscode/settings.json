@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./RU_Open_tests/data_layer"
+    ]
+}
