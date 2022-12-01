@@ -38,3 +38,10 @@ class TeamNameLengthException(Exception):
 def validate_team_name(team_name):
     if len(team_name) < 3 or len(team_name) > 25:
         raise TeamNameLengthException()
+
+class CaptainNotInTeamException(Exception):
+    pass
+
+def validate_team_captain(captain_name, team_players):
+    if captain_name not in team_players:
+        raise CaptainNotInTeamException()

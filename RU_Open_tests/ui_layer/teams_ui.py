@@ -3,7 +3,7 @@ from logic_wrapper_dummy import Logic_Wrapper
 from print_layouts import *
 
 
-class Statistics_UI:
+class Teams_UI:
     Menu_selection = {"Current Menu": "Team Menu", 
                     "View Teams": ">>> Shows the list of every team in our database"}    
     
