@@ -57,3 +57,13 @@ mánudagsmorgni út frá hönnunarskýrslunni.
 
 Óli kláraði að búa til user interface fyrir low-fi testing. Getum þá núna notað í notenda prufu til þess að fá feedback á UIið okkar.
 Annars vorum við ekki vissir hvernig átti að byrja að gera forritið sjálft og byrjuðum að pæla aðeins í branching í git. Löguðum það sem vantaði í skjalið eða það feedback sem við fengum frá Gylfa.
+
+# 29.11.22
+
+Vorum að kynna okkur hvað þyrfti að gera, reyna að finna út því hvernig við áttum að byrja. Óli kláraði að gera main menu functional að einhverju leyti. 
+
+# 30.11.22
+
+Byrjuðum allir að vinna tveir, tveir og tveir í data (Hjörtur og Emil), logic(Helgi og Þórarinn) og ui(Ólafur og Jakob) layerunum. Gerðum beinagrind fyrir logic layerið, bættum við input validators og nokkrum models. Unnum í ui menus og layout.
+
+# 01.12.22
