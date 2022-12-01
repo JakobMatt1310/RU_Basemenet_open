@@ -1,7 +1,7 @@
 
 # import os
 import csv
-from associations import Associations
+from association import Association
 
 
 class Associations_Data():
@@ -20,7 +20,7 @@ class Associations_Data():
         with open(self.file_name, newline='', encoding="utf-8") as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                ret_list.append(Associations(row["name"], row["ssn"], row["phone"], row["email"], row["address"]))
+                ret_list.append(Association(row["name"], row["ssn"], row["phone"], row["email"], row["address"]))
         return ret_list
 
 

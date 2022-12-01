@@ -1,17 +1,17 @@
 
 class User():
 
-    def __init__(self, name="", ssn="", phone="", email="", address=""):
+    def __init__(self, user_name="", user_ssn="", user_phone="", user_email="", user_address=""):
         '''Constructor for the User class'''
 
-        self.name = name
-        self.ssn = ssn
-        self.phone = phone
-        self.email = email
-        self.address = address
+        self.user_name = user_name
+        self.user_ssn = user_ssn
+        self.user_phone = user_phone
+        self.user_email = user_email
+        self.user_address = user_address
 
     
     def __str__(self):
         '''Returns a string representation of the User object'''
 
-        return f"Name:{self.name>5}, SSN:{self.ssn:>5}, Phone:{self.phone:>5}, Email: {self.email:>5}, Address:{self.address:>5}"
+        return f"Name: {self.user_name:>5}, SSN: {self.user_ssn:>5}, Phone: {self.user_phone:>5}, Email: {self.user_email:>5}, Address: {self.user_address:>5}"

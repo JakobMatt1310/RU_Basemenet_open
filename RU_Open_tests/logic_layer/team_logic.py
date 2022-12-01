@@ -1,36 +1,36 @@
-from data_layer.team_data import Team_Data
+from data_layer.teams_data import Team_Data
 from model.team import Team
 
 class Team_Logic:
-    def __init__(self):
-        pass
+    def __init__(self, data_connection):
+        self.data_wrapper = data_connection
+
+    def create_team(self, team):
+        self.data_wrapper.create_team(team)
 
     def validate_team_entry(self):
-        pass
+        return self.data_wrapper.validate_team_entry()
     
     def get_all_teams(self):
-        pass
+        return self.data_wrapper.get_all_teams()
 
     def get_team_stats(self):
-        pass
+        return self.data_wrapper.get_team_stast()
 
     def get_team(self):
-        pass
+        return self.data_wrapper.get_team()
 
     def update_team(self):
-        pass
-
-    def create_team(self):
-        pass
+        self.data_wrapper.update_team()
     
     def edit_team(self):
-        pass
+        self.data_wrapper.edit_team()
 
     def view_team(self):
-        pass
+        return self.data_wrapper.view_team()
 
     def view_team_players(self):
-        pass
+        return self.data_wrapper.view_team_players()
 
     def delete_team(self):
-        pass
+        self.data_wrapper.delete_team()

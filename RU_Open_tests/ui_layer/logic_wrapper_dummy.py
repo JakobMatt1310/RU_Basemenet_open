@@ -16,10 +16,16 @@ class Logic_Wrapper:
                 Player("Hákarl Ofsaveður", "9181827846", "4545454", "Hammi@yamz.com", "Absírtú 6"),
                 Player("Siðferði Þingi", "6497135689", "4567891", "Siiidd@jolajapl.is", "Kárlhög 49"),
                 Player("Málmundur Árbjarg", "0528598945", "4569873", "Malli@halli.is", "Kringum 11"),]
+        # return self.player_logic.get_all_players()
 
     def get_all_teams(self):
-        return [Team("3.flokkur", "Stjarnan", "Máni Freyr", ["Jakob Matt", "Máni Freyr", "Sigurður Tómas", "Hannes Aron"])]
-        # return self.player_logic.get_all_players()
+        return [Team("3.flokkur", "Stjarnan", "Máni Freyr", ["Jakob Matt", "Máni Freyr", "Sigurður Tómas", "Hannes Aron"]),
+                Team("2.flokkur", "Botsja", "Mohammed Stevenson", ["Mohammed Stevenson","Mohammed Riddle", "Kristen Cantrell", "Elsie Travis"]),
+                Team("1.flokkur", "ÍBV", "Marshall Campos", ["Marshall Campos", "Cheyenne Meyers", "Jeremiah Gordon", "Maximus Flowers"]),
+                Team("Meistaraflokkur", "HK", "Marquise Collins", ["Marquise Collins", "Raegan Valenzuela", "Giovanni Cochran", "Makenzie French"]),]
+    
+
+
         
         # self, name="", ssn="", phone="", email="", address=""
 
