@@ -1,10 +1,11 @@
 class Player:
-    def __init__(self, name="", ssn="", phone="", email="", address="", team=""):
+    def __init__(self, name="", ssn="", phone="", email="", address="", team_name=""):
         self.name = name
         self.ssn = ssn
         self.phone = phone
         self.email = email
         self.address = address
+        self.team = team_name
 
     
     def __str__(self):
