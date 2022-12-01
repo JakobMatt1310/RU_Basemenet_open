@@ -24,7 +24,7 @@ class Teams_Data():
         return ret_list
 
 
-    def create_teams(self, team):
+    def create_team(self, team):
         '''Creates a new team in the file'''
 
         with open(self.file_name, 'a', newline='', encoding="utf-8") as csvfile:
