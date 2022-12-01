@@ -1,12 +1,10 @@
 
-#import os
+# import os
 import csv
 from team import Team
-#_location_ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
-
 
 class Teams_Data():
-
+    
     def __init__(self):
         '''Constructor for the Teams_Data class'''
 
@@ -16,12 +14,12 @@ class Teams_Data():
 
     def read_all_teams(self):
         '''Reads all teams from the file'''
-        #_location_ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
+
         ret_list = []
         with open(self.file_name, newline='', encoding="utf-8") as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                ret_list.append(Team(row["team_name"], row["assocition_name"], row["captain_name"], [row["player_names"], row["player_names"], row["player_names"]]))
+                ret_list.append(Team(row["name"], row["assocition"], row["captain"], row["members"]))
         return ret_list
 
 
@@ -29,10 +27,10 @@ class Teams_Data():
         '''Creates a new team in the file'''
 
         with open(self.file_name, 'a', newline='', encoding="utf-8") as csvfile:
-            fieldnames = ["team", "assocition", "captain_name", team_list]
+            fieldnames = ["name", "assocition", "captain", "member_list"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
-            writer.writerow({'team': team.team_name, 'association': team.assocition_name, 'captain': team.captain_name, 'player_list': team.list})
+            writer.writerow({'name': team.name, 'association': team.assocition, 'captain': team.captain, 'member list': team.member_list})
             
 
 
