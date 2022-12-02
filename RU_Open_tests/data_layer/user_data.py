@@ -3,13 +3,12 @@
 import csv
 from user import User
 
-
 class User_Data():
 
     def __init__(self):
         '''Constructor for the User_Data class'''
 
-        self.file_name = "users.csv"
+        self.file_name = "RU_Basemenet_open/RU_Open_tests/data_files/data_users.csv"
         print("User_Data init")
 
 

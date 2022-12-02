@@ -9,7 +9,7 @@ class Associations_Data():
     def __init__(self):
         '''Constructor for the Associations_Data class'''
 
-        self.file_name = "associations.csv"
+        self.file_name = "RU_Basemenet_open/RU_Open_tests/data_files/data_associations.csv"
         print("Associations_Data init")
 
 
