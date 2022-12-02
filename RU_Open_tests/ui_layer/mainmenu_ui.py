@@ -9,7 +9,6 @@ from statistics_ui import Statistics_UI
 from logic_wrapper_dummy import Logic_Wrapper
 from print_layouts import print_current_menu
 
-
 class MainMenu_UI:
     Menu_selection = {"Current Menu": "Main Menu", 
                     "Moderator": ">>> Select Moderator to create and/or edit", 

@@ -28,8 +28,8 @@ class Data_Wrapper():
 
     def get_all_tournaments(self):
         '''Gets all tournaments'''
-        print(self.player_data.read_all_players())
-        return self.player_data.read_all_players()
+        print(self.player_data.read_all_tournaments())
+        return self.player_data.read_all_tournaments()
 
     def get_all_associations(self):
         '''Gets all associations'''
@@ -68,7 +68,7 @@ class Data_Wrapper():
         return self.team_data.create_team(team)
 
 
-
+#------------------Main--------------------------------------------#
 def main_data():
     '''Main function for the data wrapper in data layer'''
     data_class_user = User_Data()

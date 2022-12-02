@@ -2,7 +2,7 @@ from model.player_model_dummy import Player
 from print_layouts import *
 
 
-class Teams_UI:
+class Teams_View_UI:
     Menu_selection = {"Current Menu": "Team Menu", 
                     "View Teams": ">>> Lists all teams in our database"}    
     
