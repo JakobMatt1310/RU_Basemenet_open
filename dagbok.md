@@ -72,3 +72,8 @@ Byrjuðum allir að vinna tveir, tveir og tveir í data (Hjörtur og Emil), logi
 ## Hverjir unnu þennan dag: Emil, Hjörtur, Ólafur, Jakob
 
 Unnum allir jafnt og þétt yfir daginn. Óli vann í print layouts, Emil og Hjörtur unnu í data_layer, Jakob vann í modelum.
+
+# 01.12.22
+## Hverjir unnu þennan dag: Emil, Hjörtur, Ólafur, Jakob
+
+Þetta var mjög góður dagur, kláruðum mikið og erum kominn með grunn í data layer þannig að við getum sótt players og teams með ids á báðu. Næst á dagskrá er að búa til associations og setja association ids á teams og halda áfram í að vinna með uis og options þar semsagt gera allt virkt sem er í boði á UI inu.
