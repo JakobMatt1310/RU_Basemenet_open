@@ -1,6 +1,6 @@
-name,ssn,phone,email,address
-Jakob Matthíasson,1310939322,699-6883,jakob123@gmail.com,Guantanamo Bay
-Helgi Björnsson,0902793875,581-2345,helgiBj@hotmail.com,los leones
-Alda Reynisdóttir,1008462359,478-8673,aldareynisdottir@jourrapide.com,Egilsgata 42
-Sigurður Theódórsson,1505754369,432-9925,sigurdurtheodorsson@teleworm.us,Árbraut 46
-Elva Agnarsdóttir,0209415359,433-6658,elvaagnarsdottir@rhyta.com,Hverafold 14
+id,name,ssn,phone,email,address,team_id
+1,Jakob Matthíasson,1310939322,699-6883,jakob123@gmail.com,Guantanamo Bay,1
+2,sdf,sdf,sdf,sdf,sdf,4
+3,ergfdsgdfsg,dfg,dfg,dfg,fd,4
+4,safg,dfg,dsfg,df,gdfsg,4
+5,sdf,sdf,sd,fds,fsdf,4
