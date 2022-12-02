@@ -1,5 +1,6 @@
 # from data.user_data import User_Data
 from data.player_data import Player_Data
+from data.teams_data import Teams_Data
 # from data.tournaments_data import Tournaments_Data
 # from data.associations_data import Associations_Data
 # from data.teams_data import Teams_Data
@@ -11,6 +12,7 @@ class Data_Wrapper():
 
         # self.user_data = User_Data()
         self.player_data = Player_Data()
+        self.team_data = Teams_Data()
         # self.tournament_data = Tournaments_Data()
         # self.association_data = Associations_Data()
         # self.team_data = Teams_Data()
@@ -62,10 +64,10 @@ class Data_Wrapper():
     #     print(self.association_data.create_association(association))
     #     return self.association_data.create_association(association)
 
-    # def create_team(self, team):
-    #     '''Creates a new team'''
-    #     print(self.team_data.create_team(team))
-    #     return self.team_data.create_team(team)
+    def create_team(self, team):
+        '''Creates a new team'''
+        print(self.team_data.create_team(team))
+        return self.team_data.create_team(team)
 
 
 #------------------Main--------------------------------------------#

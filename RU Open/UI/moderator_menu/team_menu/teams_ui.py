@@ -6,8 +6,9 @@ from ui.input_validators import *
 class Teams_UI:
     Menu_selection = {"Current Menu": "Team Menu", 
                     "Create Team": ">>> Create a team within a chosen association", 
-                    "Edit Team": ">>> Gives the user options to make changes to the team", 
-                    "View Teams": ">>> Shows the list of every team below their respected associations"}    
+                    "Edit Team": ">>> Select to edit team", 
+                    "View Teams": ">>> Lists all teams"}    
+                    # "View Teams": ">>> Shows the list of every team below their respected associations"}    
     def __init__(self, logic_connection):
         self.logic_wrapper = logic_connection
 
