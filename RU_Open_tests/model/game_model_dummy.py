@@ -1,6 +1,5 @@
 class Game:
-    def __init__(self, player_amount="", home_team_players=None, away_team_players=None, home_player_legs=[0,0], away_player_legs=[0,0], match_score=None):
-        self.player_amount = player_amount
+    def __init__(self, home_team_players=None, away_team_players=None, home_player_legs=[0,0], away_player_legs=[0,0], match_score=None):
         if home_team_players == None:
             home_team_players = []
         if away_team_players == None:
