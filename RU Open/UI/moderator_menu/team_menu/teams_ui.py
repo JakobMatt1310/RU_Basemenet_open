@@ -10,8 +10,8 @@ class Teams_UI:
                     "Create Team": ">>> Create a team within a chosen association", 
                     "Edit Team": ">>> Gives the user options to make changes to the team", 
                     "View Teams": ">>> Shows the list of every team below their respected associations"}    
-    def __init__(self):
-        self.logic_wrapper = Logic_Wrapper()
+    def __init__(self, logic_connection):
+        self.logic_wrapper = logic_connection
 
     def menu_output(self):
         print_current_menu(self.Menu_selection)
