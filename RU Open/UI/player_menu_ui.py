@@ -1,6 +1,6 @@
 from logic.player_logic import Player_Logic
 from model.player import Player
-from ui.input_validators import *
+from input_validators import *
 
 
 class Player_UI:
