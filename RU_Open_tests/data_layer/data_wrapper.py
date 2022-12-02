@@ -28,8 +28,8 @@ class Data_Wrapper():
 
     def get_all_tournaments(self):
         '''Gets all tournaments'''
-        print(self.player_data.read_all_tournaments())
-        return self.player_data.read_all_tournaments()
+        print(self.tournament_data.read_all_tournaments())
+        return self.tournament_data.read_all_tournaments()
 
     def get_all_associations(self):
         '''Gets all associations'''
