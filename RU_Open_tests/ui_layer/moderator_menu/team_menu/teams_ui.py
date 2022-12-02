@@ -1,8 +1,6 @@
-from model.player_model_dummy import Player
 from logic_wrapper_dummy import Logic_Wrapper
 from print_layouts import print_current_menu
 from model.team_model_dummy import Team
-from logic_layer.player_logic import Player_Logic
 from input_validators import *
 
 class Teams_UI:
@@ -27,47 +25,23 @@ class Teams_UI:
             elif command == "1":
                 team = Team()
                 while True:
-                    team.team_name = input("Enter the name of the team: ")
+                    team.team_name = input("Enter the name of the player: ")
                     try:
-                        validate_team_name(team.team_name)
+                        validate_team_name(team.name)
                         break
                     except TeamNameLengthException:
                         print("name was too long")
                     except:
                         print("some error")
-                team.association_name = input("Enter the name of the association this team should belong to: ")
+                team.association_name = input("Enter the association this team should belong to: ")
                 team.captain_name = input("Enter the name of the teams captain: ")
+                team.team_players = input("Enter the players email address: ")
                 self.logic_wrapper.create_team(team)
-                ask_to_create_players = input("Would you like to add players to this team(yes/no)?: ")
-                if ask_to_create_players == 'yes':
-                    add_another = 'yes'
-                    while add_another == 'yes':
-                        yes_or_no = input("Would you like create a new player? (yes/no): ")
-                        if yes_or_no == 'yes':
-                            player = Player()
-                            while True:
-                                player.name = input("Enter the name of the player: ")
-                                try:
-                                    validate_name(player.name)
-                                    break
-                                except NameLengthException:
-                                    print("name was too long")
-                                except:
-                                    print("some error")
-                            player.ssn = input("Enter the social security number of the player: ")
-                            player.phone = input("Enter the players phone number: ")
-                            player.email = input("Enter the players email address: ")
-                            player.address = input("Enter the players home address: ")
-                            player.team_id = team.id
-                            self.logic_wrapper.create_player(player)
-                        else:
-                            print("Invalid input, try again")
-                elif ask_to_create_players == 'no':
-                    pass
-            elif command == "3":
-                result = self.logic_wrapper.get_all_teams()
-                view_teams(result)
-                return "q"
+                
+            elif command == "2":
+                
+                
+                    return "q"
             else:
                 print("invalid input, try again")
                 

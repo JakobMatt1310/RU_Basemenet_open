@@ -2,10 +2,11 @@
 from model.player_model_dummy import Player
 from input_validators import *
 from print_layouts import print_current_menu
-
+RU_Open_tests/model/player_model_dummy.py
 
 class Moderator_UI:
-    Moderator_menu = {"Current Menu": "Moderator Menu", "Tournament Options": ">>> Register or edit tournaments",
+    Moderator_menu = {"Current Menu": "Moderator Menu", 
+                    "Tournament Options": ">>> Register or edit tournaments",
                       "Player options": ">>> Register or edit players",
                       "Teams options": ">>> Register or edit teams ",
                       "Associations option":">>> Register or edit associations"}
