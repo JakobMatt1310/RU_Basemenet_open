@@ -1,5 +1,3 @@
-from data_layer.data_wrapper import Data_Wrapper
-
 class Team:
     team_counter = 1
     def __init__(self, team_name="", association_name="", captain_name=""):
@@ -8,4 +6,3 @@ class Team:
         self.association_name = association_name
         self.captain_name = captain_name
         self.team_counter += 1
-        

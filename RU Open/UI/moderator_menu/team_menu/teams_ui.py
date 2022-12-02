@@ -1,8 +1,8 @@
-from model.player_model_dummy import Player
-from logic_wrapper_dummy import Logic_Wrapper
+from model.player import Player
+from logic_wrapper import Logic_Wrapper
 from print_layouts import print_current_menu
-from model.team_model_dummy import Team
-from logic_layer.player_logic import Player_Logic
+from model.team import Team
+from player_logic import Player_Logic
 from input_validators import *
 
 class Teams_UI:
@@ -70,4 +70,3 @@ class Teams_UI:
                 return "q"
             else:
                 print("invalid input, try again")
-                
