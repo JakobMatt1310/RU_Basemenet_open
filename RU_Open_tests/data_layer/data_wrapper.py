@@ -19,63 +19,52 @@ class Data_Wrapper():
     def get_all_users(self):
         '''Gets all users'''
         print(self.user_data.read_all_users())
-        res = self.user_data.read_all_users()
-        return res
+        return self.user_data.read_all_users()
 
     def get_all_players(self):
         '''Gets all players'''
         print(self.player_data.read_all_players())
-        res = self.player_data.read_all_players()
-        return res
+        return self.player_data.read_all_players()
 
     def get_all_tournaments(self):
         '''Gets all tournaments'''
         print(self.player_data.read_all_players())
-        res = self.player_data.read_all_players()
-        return res
+        return self.player_data.read_all_players()
 
     def get_all_associations(self):
         '''Gets all associations'''
         print(self.association_data.read_all_associations())
-        res = self.association_data.read_all_associations()
-        return res
+        return self.association_data.read_all_associations()
 
     def get_all_teams(self):
         '''Gets all teams'''
         print(self.team_data.read_all_teams())
-        res = self.team_data.read_all_teams()
-        return res
-
+        return self.team_data.read_all_teams()
 
 #------------------Create------------------------------------------#
     def create_user(self, user):
         '''Creates a new user'''
         print(self.user_data.create_user(user))
-        # res2 = self.user_data.create_user(user)
         return self.user_data.create_user(user)
 
     def create_player(self, player):
         '''Creates a new player'''
         print(self.player_data.create_player(player))
-        # res2 = self.player_data.create_player(player)
         return self.player_data.create_player(player)
 
     def create_tournament(self, tournament):
         '''Creates a new tournament'''
         print(self.tournament_data.create_tournament(tournament))
-        # res2 = self.tournament_data.create_tournament(tournament)
         return self.tournament_data.create_tournament(tournament)
 
     def create_association(self,association):
         '''Creates a new association'''
         print(self.association_data.create_association(association))
-        # res2 = self.association_data.create_association(association)
         return self.association_data.create_association(association)
 
     def create_team(self, team):
         '''Creates a new team'''
         print(self.team_data.create_team(team))
-        # res2 = self.team_data.create_team(team)
         return self.team_data.create_team(team)
 
 
