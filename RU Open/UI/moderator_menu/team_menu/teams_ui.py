@@ -67,5 +67,8 @@ class Teams_UI:
             #    result = self.logic_wrapper.get_all_teams()
             #    view_teams(result)
             #    return "q"
+            elif command == "q":
+                print("Goodbye")
+                return "q"
             else:
                 print("invalid input, try again")
