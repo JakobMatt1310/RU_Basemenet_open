@@ -1,8 +1,8 @@
-# from user_data import User_Data
-from player_data import Player_Data
-# from tournaments_data import Tournaments_Data
-# from associations_data import Associations_Data
-# from teams_data import Teams_Data
+# from data.user_data import User_Data
+from data.player_data import Player_Data
+# from data.tournaments_data import Tournaments_Data
+# from data.associations_data import Associations_Data
+# from data.teams_data import Teams_Data
 
 class Data_Wrapper():
 
@@ -28,8 +28,8 @@ class Data_Wrapper():
 
     # def get_all_tournaments(self):
     #     '''Gets all tournaments'''
-    #     print(self.player_data.read_all_tournaments())
-    #     return self.player_data.read_all_tournaments()
+    #     print(self.tournament_data.read_all_tournaments())
+    #     return self.tournament_data.read_all_tournaments()
 
     # def get_all_associations(self):
     #     '''Gets all associations'''
