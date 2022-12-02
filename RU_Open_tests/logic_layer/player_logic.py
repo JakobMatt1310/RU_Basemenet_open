@@ -31,3 +31,11 @@ class Player_Logic:
     
     def delete_player(self):
         self.data_wrapper.delete_player()
+    
+    def get_all_players_of_team(self, team):
+        all_players = self.get_all_players()
+        players_of_team = []
+        for p in all_players:
+            if p.team_id == team.id:
+                players_of_team.append(p)
+        return players_of_team
