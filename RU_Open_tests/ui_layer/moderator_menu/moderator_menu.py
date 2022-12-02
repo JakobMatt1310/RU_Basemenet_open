@@ -1,5 +1,5 @@
 # from logic.player_logic import Player_Logic
-from player_model_dummy import Player
+from model.player_model_dummy import Player
 from input_validators import *
 from print_layouts import print_current_menu
 
