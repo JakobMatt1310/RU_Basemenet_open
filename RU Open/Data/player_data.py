@@ -10,7 +10,7 @@ class Player_Data():
     def __init__(self):
         '''Constructor for the Player_Data class'''
 
-        self.file_name = "RU_Basemenet_open/RU_Open_tests/data_files/data_players.csv"
+        self.file_name = "RU_Basemenet_open/RU Open/files/players.csv"
         print("Player_Data init")
         
 

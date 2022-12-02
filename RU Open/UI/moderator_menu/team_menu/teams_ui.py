@@ -1,8 +1,8 @@
 from model.player import Player
 from logic.logic_wrapper import Logic_Wrapper
-from print_layouts import print_current_menu
+from ui.print_layouts import print_current_menu
 from model.team import Team
-from player_logic import Player_Logic
+from logic.player_logic import Player_Logic
 from input_validators import *
 
 class Teams_UI:
