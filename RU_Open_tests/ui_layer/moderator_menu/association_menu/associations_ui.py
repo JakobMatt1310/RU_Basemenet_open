@@ -7,10 +7,10 @@ from input_validators import *
 
 class Associations_UI:
     Menu_selection = {"Current Menu": "Associations", 
-                    "View Associations": ">>> Shows statistics of all players",
-                    "Create Association": ">>> Shows statistics of all players",
-                    "Edit Association": ">>> Shows statistics of all players",
-                    "Remove Association": ">>> Shows statistics of all players"}    
+                    "View Associations": ">>> Lists every association",
+                    "Create Association": ">>> Creates an association",
+                    "Edit Association": ">>> Modification menu for the selected association",
+                    "Remove Association": ">>> Deletes an association and the teams within"}    
     def __init__(self, logic_connection):
         self.logic_wrapper = logic_connection
 
@@ -27,10 +27,6 @@ class Associations_UI:
                 print("Goodbye")
                 return "q"
             elif command == "1":
-                print("Listi af öllum associations hérna")
-                input()
-                return
-            elif command == "1":
                 self.logic_wrapper.get_all_associations()
                 return
             elif command == "2":
@@ -40,13 +36,15 @@ class Associations_UI:
                     association.association_phone = input("Enter the phone number for the association: ")
                     association.association_address = input("Enter the address of the association: ")
                     try:
-                        validate_association_name(association.name)
+                        validate_association_name(association.association_name)
+                        check_phone_length(association.association_phone)
+                        check_phone_isdigit(association.association_phone)
                         
                         break
                     except AssociationNameLengthException:
                         print("name was too long")
                     except PhoneNumberCharacterException:
-                        print("The phone number can only consist of NUMBERS and no other character.")
+                        print("The phone number can only consist of NUMBERS and no other characters.")
                     except PhoneNumberLengthException:
                         print("Phone number length invalid, the phone number must be a 7 digit number.")
                     except:

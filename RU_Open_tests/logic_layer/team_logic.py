@@ -30,4 +30,4 @@ class Team_Logic:
         return self.data_wrapper.view_team_players()
 
     def delete_team(self):
-        self.data_wrapper.delete_team()
+            self.data_wrapper.delete_team()
