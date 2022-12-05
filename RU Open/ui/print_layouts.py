@@ -8,7 +8,7 @@ MENU_LEN = 47 # How long the menu is
 MENU_PAD = HALF_WIDTH-MENU_LEN # How much is padded from left to right
 X = 'x' #letter representing seperation in program, header, main, etc..
 DASH = "-"
-
+BACK = ["b. Go back", ">>> To go back to previous Menu"]
 
 
 
@@ -67,12 +67,6 @@ def print_current_menu(dict_to_print: dict):
     print_border()
     print("\033[0m") 
     
-def create_menu(list_to_print):
-    pass
-
-def edit_menu(list_to_edit):
-    pass
-
 def view_players(file_object):
     print("\033[1;32;40m", end="")
     print(f"{' ':30}{(X*60):<60}") 
@@ -144,7 +138,6 @@ def edit_menu_selected_team(team: classmethod, ):
     print(f"{X:<{35}}{back[0]:<{33}}{back[1]:<{25}}{X:>{21}}")
     print_border()
     return input("\033[0mEnter selection and press enter: ")
-
 
 def view_association(associations: list, teams_dict: dict):
     """Hér vil ég fá get all associations og get all teams"""
