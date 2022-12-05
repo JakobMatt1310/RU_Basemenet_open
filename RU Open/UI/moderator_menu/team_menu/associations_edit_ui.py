@@ -2,8 +2,8 @@ from association import Association
 from model.team import Team
 from model.player import Player
 from logic.logic_wrapper import Logic_Wrapper
-from print_layouts import *
-from input_validators import *
+from ui.print_layouts import *
+from ui.input_validators import *
 
 
 class Associations_editing_UI:
