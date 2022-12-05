@@ -11,7 +11,7 @@ class Team:
     def __str__(self):
         '''Returns a string representation of the Team object'''
         # team_str = ""
-        team_str = "".join(i for i in self.team_players[:])
+        # team_str = "".join(i for i in self.team_players[:])
         # for player in self.team_players[:]:
         #     return_team_list += f'{str(player)}'
 

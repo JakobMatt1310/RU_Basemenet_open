@@ -2,6 +2,7 @@ from model.association_model_dummy import Association
 from model.team_model_dummy import Team
 from logic_wrapper_dummy import Logic_Wrapper
 from print_layouts import *
+from input_validators import *
 
 
 class Associations_UI:
@@ -34,8 +35,29 @@ class Associations_UI:
                 return
             elif command == "2":
                 association = Association()
+                while True:
+                    association.association_name = input("Enter the name of the association: ")
+                    association.association_phone = input("Enter the phone number for the association: ")
+                    association.association_address = input("Enter the address of the association: ")
+                    try:
+                        validate_association_name(association.name)
+                        
+                        break
+                    except AssociationNameLengthException:
+                        print("name was too long")
+                    except PhoneNumberCharacterException:
+                        print("The phone number can only consist of NUMBERS and no other character.")
+                    except PhoneNumberLengthException:
+                        print("Phone number length invalid, the phone number must be a 7 digit number.")
+                    except:
+                        print("some error")
                 
                 self.logic_wrapper.create_association(association)
+            elif command == "3":
+                print("edit the association")
+                pass
+            elif command == "4":
+                self.logic_wrapper.remove_association(association)
                 
             else:
                 print("invalid input, try again")
