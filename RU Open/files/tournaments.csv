@@ -1,4 +1,4 @@
-name,address,start_date,end_date,game_count,teams_submitted,game_id,player_nr,game_type,leg_nr
+name,address,start_date,end_date,game_count,teams_submitted,game_id,player_nr,game_type,leg_nr,player_id,q_points
 Landsbankamótið,Kópavogi
 Pæjumótið,Vestmanneyjum
 Shellmótið,Vestmanneyjum
