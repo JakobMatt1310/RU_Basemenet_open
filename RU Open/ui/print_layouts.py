@@ -100,10 +100,34 @@ def view_players(file_object):
 
     input("\033[0m Press Enter to go back")
 
-def view_teams(file_object: classmethod):
-    pass
-
-def edit_menu_selected_team(team: classmethod, players: list):
+def view_teams(teams_list: list):
+    os.system('cls')
+    print("\033[1;32;40m", end="")
+    print(f"{' ':30}{(X*60):<60}") 
+    print(f"{' ':30}{X:<59}{X}") 
+    print(f"{' ':30}{X}{'Viewing all teams':^58}{X}")    
+    print(f"{' ':30}{X:<59}{X}") 
+    print(f"{' ':30}{(X*60):<60}")
+    time.sleep(2.0) 
+    print()
+    print_border()
+    for i, el in enumerate(teams_list, 1):
+        print_empty_line()
+        print(f"{X:4}{'Team Number : ':<5}{i:<12}{(X*60):<60}{X:>30}")                     #Border for box surrounding team information
+        print(f"{X:<30}{X}{'Association : ':>29}{el.association_name:<29}{X:<30}{X}")
+        print(f"{X:<30}{X}{'Team : ':>29}{el.team_name:<29}{X:<30}{X}")                 
+        print(f"{X:<30}{X:<10}{(DASH*40):40}{X:>10}{X:>30}")                             #Seperation line with dashes --------
+        print(f"{X:30}{X}{('Name'):^34}{'Role':^24}{X}{X:>30}")
+        print(f"{X:30}{X}{(el.captain_name):^34}{'Captain':^24}{X}{X:>30}")
+            
+        print(f"{X:30}{(X*60):<60}{X:>30}")      
+    
+    print_empty_line()
+    print_border() 
+    print("\033[0m")
+    input("Press Enter to go back: ")
+    
+def edit_menu_selected_team(team: classmethod, ):
     """prints out the edit menu, for tournament, association, team and player"""
     back = ["b. Go back", ">>> To go back to previous Menu"]
     clear_screen()
@@ -122,8 +146,34 @@ def edit_menu_selected_team(team: classmethod, players: list):
     return input("\033[0mEnter selection and press enter: ")
 
 
-def view_association(file_object):
-    pass
+def view_association(associations: list, teams_dict: dict):
+    """Hér vil ég fá get all associations og get all teams"""
+    os.system('cls')
+    print("\033[1;32;40m", end="")
+    print(f"{' ':30}{(X*60):<60}") 
+    print(f"{' ':30}{X:<59}{X}") 
+    print(f"{' ':30}{X}{'Viewing all associations':^58}{X}")    
+    print(f"{' ':30}{X:<59}{X}") 
+    print(f"{' ':30}{(X*60):<60}")
+    # time.sleep(2.0) 
+    print()
+    print_border()
+    print_empty_line()
+    print(f"{X:<7}{'Name':<25}{'Street address':<27}{'Tel. no.':<16}{'Address':<25}{'#no teams':<19}{X}")
+    associations.sort(key = lambda x : x.association_name)
+    for element in associations:
+        phone_no = element.association_phone[0:3] +'-'+ element.association_phone[3:]
+        home_address = element.association_address
+        try:
+            no_of_teams = teams_dict[element.id]
+        except KeyError:
+            no_of_teams = 0
+            
+        print(f"{X:<7}{element.association_name:<25}{home_address:<27}{phone_no:<16}{element.association_address:<30}{no_of_teams:<14}{X}")    
+    
+    print_empty_line()
+    print_border() 
+    input("\033[0m Press Enter to go back: ")
 
 def edit_menu_selected_association(association: classmethod, teams: list):
     """prints out the edit menu, for tournament, association, team and player"""
@@ -146,5 +196,23 @@ def edit_menu_selected_association(association: classmethod, teams: list):
     print_border()
     return input("\033[0mEnter selection and press enter: ")
 
+def edit_association_only_menu(association: classmethod, teams: list):
+    """prints out the edit menu, for tournament, association, team and player"""
+    
+    
+    clear_screen()
+    print("\033[32m", end="")
+    print_border()
+    print_empty_line()
+    print(f"{X}{association.association_name:^{WIDTH-2}}{X}")
+    print_empty_line()
+    print(f"{X:<{30}}1. {association.association_name:<30}{'// Edit name':<25}{X:>32}")
+    print(f"{X:<{30}}2. {association.association_phone:<30}{'// Edit phone number':<25}{X:>32}")
+    print(f"{X:<{30}}3. {association.association_address:<30}{'// Edit address':<25}{X:>32}")
+    print_empty_line()
+    print(f"{X:<{30}}{BACK[0]:<{33}}{BACK[1]:<{25}}{X:>{26}}")
+
+    print_border()
+    return input("\033[0mEnter selection and press enter: ")
 
 # print_current_menu(Menu_selection)
