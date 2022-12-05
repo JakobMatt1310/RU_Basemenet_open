@@ -1,7 +1,7 @@
 
 # import os
 import csv
-from data.user import User
+from model.user import User
 
 class User_Data():
 
