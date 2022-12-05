@@ -8,12 +8,9 @@ class Team_Logic:
     def create_team(self, team):
         self.data_wrapper.create_team(team)
 
-    def validate_team_entry(self):
-        return self.data_wrapper.validate_team_entry()
-    
-    def get_all_teams(self):
-        return self.data_wrapper.get_all_teams()
-
+    def get_all_teams(self, teams):
+        return self.data_wrapper .get_all_teams()
+        
     def get_team_stats(self):
         return self.data_wrapper.get_team_stast()
 

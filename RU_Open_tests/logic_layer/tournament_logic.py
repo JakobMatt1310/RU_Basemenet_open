@@ -11,9 +11,6 @@ class Tournament_Logic:
     def update_tournament(self):
         self.data_wrapper.update_tournament()
 
-    def validate_tournament_entry(self):
-        return self.data_wrapper.validate_tournament_entry()
-
     def delete_tournament(self):
         self.data_wrapper.delete_tournament()
 

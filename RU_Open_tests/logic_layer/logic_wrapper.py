@@ -21,9 +21,6 @@ class Logic_Wrapper:
     def get_all_players(self):
         return self.player_logic.get_all_players()
 
-    def validate_player_entry(self):
-        return self.player_logic.validate_player_entry()
-
     def edit_player(self):
         return self.player_logic.edit_player()
 
@@ -42,9 +39,6 @@ class Logic_Wrapper:
 #------------------Association_Logic------------------------------------#
     def create_association(self, association):
         return self.association_logic.create_association(association)
-
-    def validate_association_entry(self):
-        return self.association_logic.validate_association_entry()
     
     def update_association(self):
         return self.association_logic.update_association()
@@ -87,9 +81,6 @@ class Logic_Wrapper:
     def create_team(self, team):
         return self.team_logic.create_team(team)
     
-    def validate_team_entry(self):
-        return self.team_logic.validate_team_entry()
-    
     def get_all_teams(self):
         return self.team_logic.get_all_teams()
 
@@ -120,9 +111,6 @@ class Logic_Wrapper:
 
     def update_tournament(self):
         return self.tournament_logic.update_tournament()
-
-    def validate_tournament_entry(self):
-        return self.tournament_logic.validate_tournament_entry()
 
     def delete_tournament(self):
         return self.tournament_logic.delete_tournament()

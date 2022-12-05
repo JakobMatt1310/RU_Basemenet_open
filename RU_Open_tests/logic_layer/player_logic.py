@@ -1,5 +1,6 @@
 from data_layer.player_data import Player_data
-from model.player import Player
+from model.player_model_dummy import Player
+from logic_layer.team_logic import Team_Logic
 
 class Player_Logic:
     def __init__(self, data_connection):
@@ -9,13 +10,17 @@ class Player_Logic:
         self.data_wrapper.create_player(player)
 
     def get_all_players(self):
-        return self.data_wrapper.get_all_players()
+        all_teams = Team_Logic.get_all_teams(self)
+        team_id_dict = {}
+
+        for id in all_teams:
+            tmp_dict = {id.team_id: id.team_name}
+            team_id_dict.update(tmp_dict)
+
+        return team_id_dict, self.data_wrapper.get_all_players(self)
 
     def update_player(self):
         self.data_wrapper.update_player()
-    
-    def validate_player_entry(self):
-        return self.data_wrapper.validate_player_entry()
 
     def edit_player(self):
         self.data_wrapper.edit_player()
@@ -39,3 +44,4 @@ class Player_Logic:
             if p.team_id == team.id:
                 players_of_team.append(p)
         return players_of_team
+        
