@@ -1,8 +1,6 @@
-
 # import os
 import csv
 from data.association import Association
-
 
 class Associations_Data():
 
