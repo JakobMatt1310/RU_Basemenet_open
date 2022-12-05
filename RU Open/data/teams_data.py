@@ -8,7 +8,7 @@ class Teams_Data():
     def __init__(self):
         '''Constructor for the Teams_Data class'''
 
-        self.file_name = "RU Open/data_files/data_teams.csv"
+        self.file_name = "RU Open/files/data_teams.csv"
         print("Teams_Data init")
         
 
@@ -19,18 +19,19 @@ class Teams_Data():
         with open(self.file_name, newline='', encoding="utf-8") as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                ret_list.append(Team(row["name"], row["assocition"], row["captain"], row["members"]))
+                ret_list.append(Team(row["id"], row["name"], row["assocition"], row["captain"], row["association_id"]))
         return ret_list
 
     def create_team(self, team):
         '''Creates a new team in the file'''
-        current_id = len(self.read_all_teams()) + 1
+        team.id = len(self.read_all_teams()) + 1
         with open(self.file_name, 'a', newline='', encoding="utf-8") as csvfile:
-            fieldnames = ["name", "assocition", "captain", "members"]
+            fieldnames = ["id", "name", "association", "captain", "association_id"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
-            writer.writerow({'id': current_id, 'name': team.name, 'association': team.assocition, 'captain': team.captain, 'member list': team.members})
+            writer.writerow({'id': team.id, 
+                            'name': team.team_name, 
+                            'association': team.association_name, 
+                            'captain': team.captain_name, 
+                            'association_id': team.association_id})
             
-
-
-

@@ -25,7 +25,6 @@ class Data_Wrapper():
 
     def get_all_players(self):
         '''Gets all players'''
-        print(self.player_data.read_all_players())
         return self.player_data.read_all_players()
 
     # def get_all_tournaments(self):
@@ -51,7 +50,6 @@ class Data_Wrapper():
 
     def create_player(self, player):
         '''Creates a new player'''
-        print(self.player_data.create_player(player))
         return self.player_data.create_player(player)
 
     # def create_tournament(self, tournament):
@@ -66,7 +64,6 @@ class Data_Wrapper():
 
     def create_team(self, team):
         '''Creates a new team'''
-        print(self.team_data.create_team(team))
         return self.team_data.create_team(team)
 
 
