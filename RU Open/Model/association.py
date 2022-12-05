@@ -1,7 +1,7 @@
 
 class Association():
 
-    def __init__(self, association_name="", association_phone="", association_address=""):
+    def __init__(self, id="", association_name="", association_phone="", association_address=""):
         '''Constructor for the Associations class'''
 
         self.association_name = association_name
