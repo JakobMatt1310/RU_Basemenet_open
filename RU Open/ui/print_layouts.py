@@ -1,4 +1,5 @@
 import os
+import time
 
 WIDTH = 120 # Default width of the program
 HALF_WIDTH = int(WIDTH/2)
@@ -100,6 +101,24 @@ def view_players(file_object):
     input("\033[0m Press Enter to go back")
 
 def view_teams(file_object: classmethod):
+    pass
+
+def edit_menu_selected_team(team: classmethod, players: list):
+    """prints out the edit menu, for tournament, association, team and player"""
+    
+    clear_screen()
+    print("\033[32m", end="")
+    print_border()
+    print_empty_line()
+    print(f"{X}{team.association_name+' - '+team.team_name:^{WIDTH-2}}{X}")
+    print_empty_line()
+    print(f"{X:<{MENU_PAD}}1. {team.team_name:<20}{'//Edit name':<25}{'|':<3}--> {players[0].name:<{MENU_LEN}}{X:>{MENU_PAD-8}}")
+    print(f"{X:<{MENU_PAD}}2. {team.association_name:<20}{'//Edit association':<25}{'|':<3}--> {players[1].name:<{MENU_LEN}}{X:>{MENU_PAD-8}}")
+    print(f"{X:<{MENU_PAD}}3. {team.captain_name:<20}{'//Edit captain':<25}{'|':<3}--> {players[2].name:<{MENU_LEN}}{X:>{MENU_PAD-8}}")
+    print(f"{X:<{MENU_PAD}}4. {'Players':<20}{'//Edit players ----------':<25}{'--':<3}--> {players[3].name:<{MENU_LEN}}{X:>{MENU_PAD-8}}")
+    print_empty_line()
+    print_border()
+    return input("\033[0mEnter selection and press enter: ")    
     print("\033[1;32;40m", end="")
     print_border()
     
