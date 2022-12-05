@@ -4,7 +4,6 @@ import csv
 from model.player import Player
 #_location_ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
-
 class Player_Data():
 
     def __init__(self):
@@ -25,8 +24,6 @@ class Player_Data():
         return ret_list
 
 
-
-
     def create_player(self, player):
         '''Creates a new player in the file'''
         player.id = len(self.read_all_players()) + 1
@@ -41,5 +38,3 @@ class Player_Data():
                             'email': player.email, 
                             'address': player.address, 
                             'team_id': player.team_id})
-            
-
