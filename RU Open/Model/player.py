@@ -15,4 +15,4 @@ class Player:
     def __str__(self):
         '''Returns a string representation of the Player object'''
 
-        return "Name:{:>5}, SSN:{:>5}, Phone:{:>5}, Email: {:>5}, Address:{:>5}".format(self.name, self.ssn, self.phone, self.email, self.address)
+        return "ID: {self.id:>5}, Name: {self.name:>5}, SSN: {self.ssn:>5}, Phone: {self.phone:>5}, Email: {self.email:>5}, Address: {self.address:>5}, Team ID: {self.team_id:>5}"
