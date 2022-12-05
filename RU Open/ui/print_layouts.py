@@ -75,7 +75,7 @@ def view_players(player: list, teams: dict):
     print(f"{' ':30}{X}{'Viewing all players':^58}{X}")    
     print(f"{' ':30}{X:<59}{X}") 
     print(f"{' ':30}{(X*60):<60}")
-    # time.sleep(2.0) 
+    time.sleep(1.0) 
     print()
     print_border()
     print_empty_line()
@@ -90,6 +90,8 @@ def view_players(player: list, teams: dict):
         phone_no = element.phone[0:3] +'-'+ element.phone[3:]
         player_team = teams[element.team_id]
         print(f"{X:<7}{element.name:<30}{player_team:<20}{date_of_birth:<16}{phone_no:<16}{element.email:<30}{X}")    
+        time.sleep(0.1)    
+
    
     print_empty_line()
     print_border() 
@@ -104,7 +106,7 @@ def view_teams(teams_list: list):
     print(f"{' ':30}{X}{'Viewing all teams':^58}{X}")    
     print(f"{' ':30}{X:<59}{X}") 
     print(f"{' ':30}{(X*60):<60}")
-    time.sleep(2.0) 
+    time.sleep(1.0) 
     print()
     print_border()
     for i, el in enumerate(teams_list, 1):
@@ -116,7 +118,8 @@ def view_teams(teams_list: list):
         print(f"{X:30}{X}{('Name'):^34}{'Role':^24}{X}{X:>30}")
         print(f"{X:30}{X}{(el.captain_name):^34}{'Captain':^24}{X}{X:>30}")
             
-        print(f"{X:30}{(X*60):<60}{X:>30}")      
+        print(f"{X:30}{(X*60):<60}{X:>30}")  
+        time.sleep(0.1)    
     
     print_empty_line()
     print_border() 
@@ -150,7 +153,7 @@ def view_association(associations: list, teams_dict: dict):
     print(f"{' ':30}{X}{'Viewing all associations':^58}{X}")    
     print(f"{' ':30}{X:<59}{X}") 
     print(f"{' ':30}{(X*60):<60}")
-    # time.sleep(2.0) 
+    time.sleep(1.0) 
     print()
     print_border()
     print_empty_line()
@@ -165,6 +168,8 @@ def view_association(associations: list, teams_dict: dict):
             no_of_teams = 0
             
         print(f"{X:<7}{element.association_name:<25}{home_address:<27}{phone_no:<16}{element.association_address:<30}{no_of_teams:<14}{X}")    
+        time.sleep(0.1)    
+
     
     print_empty_line()
     print_border() 

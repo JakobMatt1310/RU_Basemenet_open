@@ -7,7 +7,7 @@ from ui.moderator_menu.moderator_ui import Moderator_UI
 # from statistics_ui import Statistics_UI
 # from tournaments_ui import Tournaments_UI
 from logic.logic_wrapper import Logic_Wrapper
-from ui.print_layouts import print_current_menu, view_association, view_players
+from ui.print_layouts import print_current_menu, view_association, view_players, view_teams
 
 class MainMenu_UI:
     Menu_selection = {"Current Menu": "Main Menu", 
@@ -42,24 +42,25 @@ class MainMenu_UI:
             #     if back_method == "q":
             #         return "q"
             elif command == "3":
-                players, teams = self.logic_wrapper.get_all_players()
+                players = self.logic_wrapper.get_all_players()
+                teams = self.logic_wrapper.team_id_for_player()
                 view_players(players, teams)
-                return
-            # elif command == "3":
-            #     menu = Teams_View_UI(self.logic_wrapper)
-            #     back_method = menu.input_prompt()
-            #     if back_method == "q":
-            #         return "q"
-            # elif command == "4":
-            #     view_association()
-            #     if back_method == "q":
-            #         return "q"
-            # elif command == "5":
+                
+            elif command == "4":
+                teams_all = self.logic_wrapper.get_all_teams()
+                view_teams(teams_all)
+                
+            elif command == "5":
+                associations_all = self.logic_wrapper.get_all_associations()
+                teams_no = self.logic_wrapper.teams_in_association()
+                view_association(associations_all, teams_no)
+                
+            # elif command == "6":
             #     menu = Statistics_UI(self.logic_wrapper)
             #     back_method = menu.input_prompt()
             #     if back_method == "q":
             #         return "q"
-            # elif command == "6":
+            # elif command == "7":
             #     menu = Tournaments_UI(self.logic_wrapper)
             #     back_method = menu.input_prompt()
             #     if back_method == "q":

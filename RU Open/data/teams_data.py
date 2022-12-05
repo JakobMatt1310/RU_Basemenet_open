@@ -17,7 +17,7 @@ class Teams_Data():
         with open(self.file_name, newline='', encoding="utf-8") as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                ret_list.append(Team(row["id"], row["name"], row["assocition"], row["captain"], row["association_id"]))
+                ret_list.append(Team(row["id"], row["name"], row["association"], row["captain"], row["association_id"]))
         return ret_list
 
     def create_team(self, team):

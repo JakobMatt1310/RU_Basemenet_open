@@ -13,6 +13,16 @@ class Team_Logic:
     
     def get_all_teams(self):
         return self.data_wrapper.get_all_teams()
+    
+    def teams_in_association(self):
+        all_teams = self.get_all_teams()
+        ret_dict = {}
+        for element in all_teams:
+            if element.association_id not in ret_dict:
+                ret_dict[element.association_id] = 1
+            else:
+                ret_dict[element.association_id] += 1
+        return ret_dict
 
     def get_team_stats(self):
         return self.data_wrapper.get_team_stast()

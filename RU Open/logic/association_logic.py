@@ -1,5 +1,4 @@
-from data_layer.associations_data import Associations_Data
-from model.associations import Associations
+from model.association import Association
 
 class Association_Logic:
     def __init__(self, data_connection):
@@ -17,16 +16,7 @@ class Association_Logic:
     def delete_association(self):
         self.data_wrapper.delete_association()
         
-    def team_in_association(self):
-        get_all_associations = self.get_all_associations()
-        ret_dict = {}
-        for ass in get_all_associations:
-            tmp_dict = {ass.id: ass.association_name}
-            ret_dict.update(tmp_dict)
-        return ret_dict
-
     def get_all_associations(self, associations):
-            
         return self.data_wrapper.get_all_associations()
 
     def get_association(self, association):

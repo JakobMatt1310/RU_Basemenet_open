@@ -1,13 +1,13 @@
 class Team:
 
-    def __init__(self, id="",team_name="", association_name="", association_id="", captain_name=""):
+    def __init__(self, id="",team_name="", association_name="", captain_name="", association_id=""):
         '''Constructor for the Team class'''
 
         self.id = id
         self.team_name = team_name
         self.association_name = association_name
-        self.association_id = association_id
         self.captain_name = captain_name
+        self.association_id = association_id
 
 
     def __str__(self):
