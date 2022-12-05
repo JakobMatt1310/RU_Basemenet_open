@@ -1,10 +1,17 @@
-class Association:
-    association_counter = 1
-    def __init__(self, association_name="", association_phone_number="", association_address="", association_teams=None):
-        if association_teams == None:
-            association_teams = []
+class Association():
+
+    def __init__(self, id="", association_name="", association_phone="", association_address=""):
+        '''Constructor for the Associations class'''
+
         self.association_name = association_name
-        self.association_phone_number = association_phone_number
+        # self.association_ssn = association_ssn
+        self.association_phone = association_phone
+        # self.association_email = association_email
         self.association_address = association_address
-        Association.association_id = self.association_counter
-        self.association_counter += 1
+        self.id = id
+
+    
+    def __str__(self):
+        '''Returns a string representation of the Association object'''
+
+        return f"Name: {self.association_name:>5}, Phone: {self.association_phone:>5}, Address: {self.association_address:>5}"
