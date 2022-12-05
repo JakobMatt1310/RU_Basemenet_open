@@ -1,8 +1,6 @@
 
 class Team:
 
-
-
     def __init__(self, id="", association_id="", team_name="", association_name="", captain_name=""):
         self.id = id
         self.association_id = association_id

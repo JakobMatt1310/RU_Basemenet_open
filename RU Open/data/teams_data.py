@@ -1,4 +1,3 @@
-
 # import os
 import csv
 from model.team import Team
@@ -34,4 +33,3 @@ class Teams_Data():
                             'association': team.association_name, 
                             'captain': team.captain_name, 
                             'association_id': team.association_id})
-            

@@ -31,7 +31,7 @@ class Teams_UI:
                         validate_team_name(team.team_name)
                         break
                     except TeamNameLengthException:
-                        print("name was too long")
+                        print("name was too short or too long")
                     except:
                         print("some error")
                 team.association_name = input("Enter the name of the association this team should belong to: ")
