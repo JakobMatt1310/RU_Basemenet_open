@@ -1,7 +1,7 @@
-from model.association_model_dummy import Association
-from model.team_model_dummy import Team
-from model.player_model_dummy import Player
-from logic_wrapper_dummy import Logic_Wrapper
+from association import Association
+from model.team import Team
+from model.player import Player
+from logic.logic_wrapper import Logic_Wrapper
 from print_layouts import *
 from input_validators import *
 
@@ -124,4 +124,3 @@ class Associations_editing_UI:
 
             else:
                 print("Invalid input, please try again.")
-
