@@ -7,7 +7,7 @@ class Teams_Data():
     def __init__(self):
         '''Constructor for the Teams_Data class'''
 
-        self.file_name = "RU Open/files/data_teams.csv"
+        self.file_name = "RU Open/files/teams.csv"
         print("Teams_Data init")
         
 
