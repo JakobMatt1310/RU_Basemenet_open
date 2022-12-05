@@ -21,7 +21,7 @@ def print_header_logo():
     print(f"{X}{logo_text:^{WIDTH-2}}{X}")
     print_empty_line()   
     print_border()
-    print("\033[0m")
+    print("\033[0m", end="")
 
 def print_empty_line():
     """Prints and empty line with symbols at each end of witdh
@@ -68,19 +68,30 @@ def print_current_menu(dict_to_print: dict):
     print("\033[0m") 
     
 def view_players(player: list, teams: dict):
-    os.system('cls')
-    print("\033[1;32;40m", end="")
-    print(f"{' ':30}{(X*60):<60}") 
-    print(f"{' ':30}{X:<59}{X}") 
-    print(f"{' ':30}{X}{'Viewing all players':^58}{X}")    
-    print(f"{' ':30}{X:<59}{X}") 
+    clear_screen()
+    time.sleep(0.5)
+    print("\033[32m", end="")
     print(f"{' ':30}{(X*60):<60}")
-    time.sleep(1.0) 
-    print()
+    time.sleep(0.1) 
+    print(f"{' ':30}{X:<59}{X}") 
+    time.sleep(0.1)
+    print(f"{' ':30}{X}{'Viewing all players':^58}{X}")    
+    time.sleep(0.1)
+    print(f"{' ':30}{X:<59}{X}") 
+    time.sleep(0.1)
+    print(f"{' ':30}{(X*60):<60}\033[32m")
+    time.sleep(0.5) 
     print_border()
     print_empty_line()
-    print(f"{X:<7}{'Name':<30}{'Team':<20}{'DoB (d/m/y)':<16}{'Tel. no.':<16}{'Email address':<30}{X}")
+    print(f"{X:<7}{'Name':<22}{'Team':<24}{'DoB (d/m/y)':<16}{'Tel. no.':<16}{'Email address':<34}{X}")
     player.sort(key = lambda x : x.name)
+    if len(player) > 100:
+        population = len(player) * 0.00001
+    elif len(player) > 30:
+        population = len(player) * 0.001
+    else:
+        population = len(player) * 0.01
+        
     for element in player:
         if element.ssn[4:6] <'22':
             year = '20' + element.ssn[4:6]
@@ -89,8 +100,8 @@ def view_players(player: list, teams: dict):
         date_of_birth = element.ssn[0:2] +'.'+ element.ssn[2:4] +'.'+ year
         phone_no = element.phone[0:3] +'-'+ element.phone[3:]
         player_team = teams[element.team_id]
-        print(f"{X:<7}{element.name:<30}{player_team:<20}{date_of_birth:<16}{phone_no:<16}{element.email:<30}{X}")    
-        time.sleep(0.1)    
+        print(f"{X:<7}{element.name:<22}{player_team:<24}{date_of_birth:<16}{phone_no:<16}{element.email:<34}{X}")    
+        time.sleep(population)    
 
    
     print_empty_line()
@@ -99,26 +110,28 @@ def view_players(player: list, teams: dict):
     input("\033[0m Press Enter to go back: ")
 
 def view_teams(teams_list: list):
-    os.system('cls')
+    clear_screen()
+    time.sleep(0.5)
+
     print("\033[1;32;40m", end="")
-    print(f"{' ':30}{(X*60):<60}") 
-    print(f"{' ':30}{X:<59}{X}") 
-    print(f"{' ':30}{X}{'Viewing all teams':^58}{X}")    
-    print(f"{' ':30}{X:<59}{X}") 
     print(f"{' ':30}{(X*60):<60}")
-    time.sleep(1.0) 
-    print()
+    time.sleep(0.1) 
+    print(f"{' ':30}{X:<59}{X}") 
+    time.sleep(0.1) 
+    print(f"{' ':30}{X}{'Viewing all teams':^58}{X}")    
+    time.sleep(0.1)
+    print(f"{' ':30}{X:<59}{X}") 
+    time.sleep(0.1)
+    print(f"{' ':30}{(X*60):<60}")
+    time.sleep(0.5)
     print_border()
-    for i, el in enumerate(teams_list, 1):
-        print_empty_line()
-        print(f"{X:4}{'Team Number : ':<5}{i:<12}{(X*60):<60}{X:>30}")                     #Border for box surrounding team information
-        print(f"{X:<30}{X}{'Association : ':>29}{el.association_name:<29}{X:<30}{X}")
-        print(f"{X:<30}{X}{'Team : ':>29}{el.team_name:<29}{X:<30}{X}")                 
-        print(f"{X:<30}{X:<10}{(DASH*40):40}{X:>10}{X:>30}")                             #Seperation line with dashes --------
-        print(f"{X:30}{X}{('Name'):^34}{'Role':^24}{X}{X:>30}")
-        print(f"{X:30}{X}{(el.captain_name):^34}{'Captain':^24}{X}{X:>30}")
-            
-        print(f"{X:30}{(X*60):<60}{X:>30}")  
+    print(f"{X:<7}{'Team name':<{THIRD_WIDTH}}{'Team association':<{THIRD_WIDTH}}{'Team captain':<{THIRD_WIDTH-8}}{X}")
+    print(f"{X:<30}{(DASH*60):60}{X:>30}")                             #Seperation line with dashes --------
+
+    for el in teams_list:
+    
+        print(f"{X:<7}{el.team_name:<{THIRD_WIDTH}}{el.association_name:<{THIRD_WIDTH}}{el.captain_name:<{THIRD_WIDTH-8}}{X}")    
+
         time.sleep(0.1)    
     
     print_empty_line()
@@ -146,15 +159,20 @@ def edit_menu_selected_team(team: classmethod, ):
 
 def view_association(associations: list, teams_dict: dict):
     """Hér vil ég fá get all associations og get all teams"""
-    os.system('cls')
+    clear_screen()
     print("\033[1;32;40m", end="")
+    time.sleep(0.5)
     print(f"{' ':30}{(X*60):<60}") 
+    time.sleep(0.1)
     print(f"{' ':30}{X:<59}{X}") 
+    time.sleep(0.1)
     print(f"{' ':30}{X}{'Viewing all associations':^58}{X}")    
+    time.sleep(0.1)
     print(f"{' ':30}{X:<59}{X}") 
+    time.sleep(0.1)
     print(f"{' ':30}{(X*60):<60}")
-    time.sleep(1.0) 
-    print()
+    time.sleep(0.5) 
+
     print_border()
     print_empty_line()
     print(f"{X:<7}{'Name':<25}{'Street address':<27}{'Tel. no.':<16}{'Address':<25}{'#no teams':<19}{X}")
