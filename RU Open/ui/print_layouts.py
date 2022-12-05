@@ -67,34 +67,32 @@ def print_current_menu(dict_to_print: dict):
     print_border()
     print("\033[0m") 
     
-def view_players(player: list, teams: dict):
-    os.system('cls')
+def view_players(file_object):
     print("\033[1;32;40m", end="")
     print(f"{' ':30}{(X*60):<60}") 
     print(f"{' ':30}{X:<59}{X}") 
     print(f"{' ':30}{X}{'Viewing all players':^58}{X}")    
     print(f"{' ':30}{X:<59}{X}") 
     print(f"{' ':30}{(X*60):<60}")
-    # time.sleep(2.0) 
+    time.sleep(2.0) 
     print()
     print_border()
     print_empty_line()
     print(f"{X:<7}{'Name':<30}{'Team':<20}{'DoB (d/m/y)':<16}{'Tel. no.':<16}{'Email address':<30}{X}")
-    player.sort(key = lambda x : x.name)
-    for element in player:
+    file_object.sort(key = lambda x : x.name)
+    for element in file_object:
         if element.ssn[4:6] <'22':
             year = '20' + element.ssn[4:6]
         else:
             year = '19' + element.ssn[4:6]
         date_of_birth = element.ssn[0:2] +'.'+ element.ssn[2:4] +'.'+ year
         phone_no = element.phone[0:3] +'-'+ element.phone[3:]
-        player_team = teams[element.team_id]
-        print(f"{X:<7}{element.name:<30}{player_team:<20}{date_of_birth:<16}{phone_no:<16}{element.email:<30}{X}")    
-   
+        print(f"{X:<7}{element.name:<30}{'element.team':<20}{date_of_birth:<16}{phone_no:<16}{element.email:<30}{X}")    
+    
     print_empty_line()
     print_border() 
 
-    input("\033[0m Press Enter to go back: ")
+    input("\033[0m Press Enter to go back")
 
 def view_teams(teams_list: list):
     os.system('cls')

@@ -7,13 +7,12 @@ from ui.moderator_menu.moderator_ui import Moderator_UI
 # from statistics_ui import Statistics_UI
 # from tournaments_ui import Tournaments_UI
 from logic.logic_wrapper import Logic_Wrapper
-from ui.print_layouts import print_current_menu, view_association, view_players
+from ui.print_layouts import print_current_menu
 
 class MainMenu_UI:
     Menu_selection = {"Current Menu": "Main Menu", 
                     "Moderator": ">>> Select Moderator to create and/or edit", 
-                    "Captain": ">>> Select player to register new points",
-                    "Player": ">>> View all players registered", 
+                    "Player": ">>> Select player to register new points", 
                     "Teams": ">>> Select teams to view all registered teams", 
                     "Association": ">>> View all registered associations", 
                     "Statistics": ">>> View statistics for teams and players", 
@@ -41,17 +40,14 @@ class MainMenu_UI:
             #     back_method = menu.input_prompt()
             #     if back_method == "q":
             #         return "q"
-            elif command == "3":
-                players, teams = self.logic_wrapper.get_all_players()
-                view_players(players, teams)
-                return
             # elif command == "3":
             #     menu = Teams_View_UI(self.logic_wrapper)
             #     back_method = menu.input_prompt()
             #     if back_method == "q":
             #         return "q"
             # elif command == "4":
-            #     view_association()
+            #     menu = Associations_UI(self.logic_wrapper)
+            #     back_method = menu.input_prompt()
             #     if back_method == "q":
             #         return "q"
             # elif command == "5":
