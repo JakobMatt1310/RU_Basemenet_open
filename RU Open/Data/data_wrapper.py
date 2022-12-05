@@ -19,26 +19,27 @@ class Data_Wrapper():
 #------------------Get---------------------------------------------#
     def get_all_users(self):
         '''Gets all users'''
-        print(self.user_data.read_all_users())
+        # print(self.user_data.read_all_users())
         return self.user_data.read_all_users()
 
     def get_all_players(self):
         '''Gets all players'''
+        # print(self.player_data.read_all_players())
         return self.player_data.read_all_players()
 
     def get_all_tournaments(self):
         '''Gets all tournaments'''
-        print(self.tournament_data.read_all_tournaments())
+        # print(self.tournament_data.read_all_tournaments())
         return self.tournament_data.read_all_tournaments()
 
     def get_all_associations(self):
         '''Gets all associations'''
-        print(self.association_data.read_all_associations())
+        # print(self.association_data.read_all_associations())
         return self.association_data.read_all_associations()
 
     def get_all_teams(self):
         '''Gets all teams'''
-        print(self.team_data.read_all_teams())
+        # print(self.team_data.read_all_teams())
         return self.team_data.read_all_teams()
 
 #------------------Create------------------------------------------#
