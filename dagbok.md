@@ -77,3 +77,10 @@ Unnum allir jafnt og þétt yfir daginn. Óli vann í print layouts, Emil og Hj�
 ## Hverjir unnu þennan dag: Emil, Hjörtur, Ólafur, Jakob
 
 Þetta var mjög góður dagur, kláruðum mikið og erum kominn með grunn í data layer þannig að við getum sótt players og teams með ids á báðu. Næst á dagskrá er að búa til associations og setja association ids á teams og halda áfram í að vinna með uis og options þar semsagt gera allt virkt sem er í boði á UI inu.
+
+
+# 03.12.22
+
+## Hverjir unnu þennan dag: Emil, Gunnar, Hjörtur, Jakob, Ólafur, Þórarinn
+
+Hjörtur vann í tournaments, Emil vann í stigaskráningu, Gunnar og Þórarinn í Logic layer, Óli í print layouts og hjálpa til með annað, Jakob vann í UI.
