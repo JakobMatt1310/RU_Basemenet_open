@@ -9,6 +9,7 @@ class Association():
         self.association_phone = association_phone
         # self.association_email = association_email
         self.association_address = association_address
+        self.id = id
 
     
     def __str__(self):
