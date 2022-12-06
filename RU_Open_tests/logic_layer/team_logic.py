@@ -6,16 +6,26 @@ class Team_Logic:
         self.data_wrapper = data_connection
 
     def create_team(self, team):
-        self.data_wrapper.create_team(team)
+        teams = self.data_wrapper.create_team(self, team)
+        team_input = team
+        if team_input in teams:
+            return ValueError
+        else:
+            self.data_wrapper.create_team(self, team)
+            return True
 
-    def get_all_teams(self, teams):
-        return self.data_wrapper .get_all_teams()
+    def get_all_teams(self):
+        return self.data_wrapper.get_all_teams()
         
     def get_team_stats(self):
-        return self.data_wrapper.get_team_stast()
+        return self.data_wrapper.get_team_stats()
 
     def get_team(self):
-        return self.data_wrapper.get_team()
+        get_association = self.get_association()
+        if association_input in get_association:
+            return association_input
+        else:
+            return ValueError
 
     def update_team(self):
         self.data_wrapper.update_team()
@@ -30,4 +40,4 @@ class Team_Logic:
         return self.data_wrapper.view_team_players()
 
     def delete_team(self):
-            self.data_wrapper.delete_team()
+        self.data_wrapper.delete_team()
