@@ -81,8 +81,10 @@ class Associations_editing_UI:
                             break
                         else:
                             print('Invalid input, please answer with "yes" or "no" ')
+                else:
+                    print("Team does not exist, please enter the name of a team that exists")
             elif command == '3':
-                association_name = input("Please enter the new name of the association you want to make changes to: ")
+                association_name = input("Please enter the name of the association you want to make changes to: ")
                 association_to_change = self.logic_wrapper.get_association(association_name)
                 edit_info = input("What details would you like to make changes to? (1. Association Name // 2. Phone Number // 3. Address): ").islower()
                 if edit_info == '1':
