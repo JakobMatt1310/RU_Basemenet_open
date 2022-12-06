@@ -4,12 +4,9 @@ from data.tournaments_data import Tournaments_Data
 from data.associations_data import Associations_Data
 from data.teams_data import Teams_Data
 
-
 class Data_Wrapper():
-
     def __init__(self):
         '''Constructor for the Data_Wrapper class'''
-
         self.user_data = User_Data()
         self.player_data = Player_Data()
         self.tournament_data = Tournaments_Data()
@@ -57,7 +54,6 @@ class Data_Wrapper():
     def create_team(self, team):
         '''Creates a new team'''
         return self.team_data.create_team(team)
-
 
 #------------------Main--------------------------------------------#
 def main_data():

@@ -1,16 +1,12 @@
-
 #import os
 import csv
 from model.player import Player
 #_location_ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 class Player_Data():
-
     def __init__(self):
         '''Constructor for the Player_Data class'''
-
         self.file_name = "RU Open/files/players.csv"
-
 
     def read_all_players(self):
         '''Reads all players from the file'''
@@ -21,7 +17,6 @@ class Player_Data():
             for row in reader:
                 ret_list.append(Player(row['id'], row["name"], row["ssn"], row["phone"], row["email"], row["address"], row['team_id']))
         return ret_list
-
 
     def create_player(self, player):
         '''Creates a new player in the file'''

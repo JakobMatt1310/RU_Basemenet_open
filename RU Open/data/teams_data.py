@@ -6,13 +6,10 @@ class Teams_Data():
     
     def __init__(self):
         '''Constructor for the Teams_Data class'''
-
         self.file_name = "RU Open/files/teams.csv"
-
 
     def read_all_teams(self):
         '''Reads all teams from the file'''
-
         ret_list = []
         with open(self.file_name, newline='', encoding="utf-8") as csvfile:
             reader = csv.DictReader(csvfile)
