@@ -100,8 +100,8 @@ class Logic_Wrapper:
     def view_team(self):
         return self.team_logic.view_team()
 
-    def view_team_players(self):
-        return self.team_logic.view_team_players()
+    def get_team_players(self):
+        return self.team_logic.get_team_players()
     
     def teams_in_association(self):
         return self.team_logic.teams_in_association()

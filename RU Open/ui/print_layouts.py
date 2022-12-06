@@ -28,9 +28,18 @@ def print_empty_line():
     """
     print(f"{X:<{WIDTH-1}}{X}")
     
+def print_empty_line_half():
+    """Prints and empty line with symbols at each end of witdh
+    """
+    print(f"{X:<{HALF_WIDTH-1}}{X}")
+    
 def print_border():
     "Prints the border in correct length"
     print(X*WIDTH)
+
+def print_border_half():
+    "Prints the border in correct length"
+    print(X*HALF_WIDTH)
 
 def clear_screen():
     """Clears the screen, prints header and 1 empty line"""
@@ -233,4 +242,32 @@ def edit_association_only_menu(association: classmethod, teams: list):
     print_border()
     return input("\033[0mEnter selection and press enter: ")
 
+def print_current_team_player_list(players: list, team_name: str):
+    clear_screen()
+    print_border_half()
+    print_empty_line_half()
+    print(f"{X}{team_name +' Players ':^{HALF_WIDTH-2}}{X}") # prints out name of current menu selected
+    print_empty_line_half()
+    if len(players) == 1:
+        print(f"{X}1. {players[0]^{HALF_WIDTH-5}}{X}")
+        print_empty_line_half()
+        print_empty_line_half()
+        print_empty_line_half()
+    elif len(players) == 2:
+        print(f"{X}1. {players[0]^{HALF_WIDTH-5}}{X}")
+        print(f"{X}2. {players[1]^{HALF_WIDTH-5}}{X}")
+        print_empty_line_half()
+        print_empty_line_half()
+    elif len(players) == 3:
+        print(f"{X}1. {players[0]^{HALF_WIDTH-5}}{X}")
+        print(f"{X}2. {players[1]^{HALF_WIDTH-5}}{X}")
+        print(f"{X}3. {players[2]^{HALF_WIDTH-5}}{X}")
+        print_empty_line_half()
+    else:
+        print(f"{X}1. {players[0]^{HALF_WIDTH-5}}{X}")
+        print(f"{X}2. {players[1]^{HALF_WIDTH-5}}{X}")
+        print(f"{X}3. {players[2]^{HALF_WIDTH-5}}{X}")
+        print(f"{X}4. {players[3]^{HALF_WIDTH-5}}{X}")
+    print_empty_line_half()
+    print_border_half
 # print_current_menu(Menu_selection)

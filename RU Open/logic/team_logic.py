@@ -39,8 +39,8 @@ class Team_Logic:
     def view_team(self):
         return self.data_wrapper.view_team()
 
-    def view_team_players(self):
-        return self.data_wrapper.view_team_players()
+    def get_team_players(self):
+        return self.data_wrapper.get_team_players()
 
     def delete_team(self):
         self.data_wrapper.delete_team()

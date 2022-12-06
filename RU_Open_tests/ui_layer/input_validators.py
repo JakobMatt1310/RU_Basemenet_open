@@ -1,36 +1,56 @@
-#from email_validator import validate_email, EmailNotValidError
+# from email_validator import validate_email, EmailNotValidError
 
 class NameLengthException(Exception):
     pass
-
 def validate_name(name):
-    if len(name) >= 45:
+    if len(name) < 3 or len(name) > 30:
         raise NameLengthException()
+
+
 
 class SsnLengthException(Exception):
     pass
-
 def validate_ssn(ssn):
     if len(ssn) != 10:
         raise SsnLengthException()
+    try:
+        ssn = int(ssn)
+    except ValueError:
+        raise SsnLengthException()
 
-class PhoneNumberLengthException(Exception):
+      
+class PhoneNumberException(Exception):
     pass
-def check_phone_length(phone):
+def validate_phonenumber(phone):
     if len(phone) != 7:
-        raise PhoneNumberLengthException()
-        
-class PhoneNumberCharacterException(Exception):
-    pass
-def check_phone_isdigit(phone):
-    if int(phone).isdigit() == False:
-        raise PhoneNumberLengthException()
+        raise PhoneNumberException()
+    try:
+        phone = int(phone)
+    except ValueError:
+        raise PhoneNumberException()
 
-#class InvalidEmailException(Exception):
-#    pass
-#def is_valid_email(email):
-#    if validate_email(email) == False:
-#        raise InvalidEmailException
+class InvalidEmailException(Exception):
+   pass
+def is_valid_email(email):
+        if len(email) < 12 or len(email) > 30:
+            raise InvalidEmailException()
+
+        else:
+            att = 0
+            ending = 0
+            for letter in email:
+                if letter == "@":
+                    att += 1
+            if letter[-3:] == ".is":
+                ending += 1
+            elif letter[-4:] == ".com":
+                ending += 1
+            elif letter[-4:] == ".net":
+                ending += 1
+                    
+                    
+            if att != 1 and ending != 1:
+                raise InvalidEmailException()
 
 class TeamNameLengthException(Exception):
     pass
@@ -39,8 +59,20 @@ def validate_team_name(team_name):
     if len(team_name) < 3 or len(team_name) > 30:
         raise TeamNameLengthException()
 
+class HomeAddressException(Exception):
+    pass
+def validate_home_address(home_address):
+    if len(home_address > 30):
+        raise HomeAddressException
+    if home_address[-1].isdigit() == False:
+        raise HomeAddressException
+
 class AssociationNameLengthException(Exception):
     pass
+def validate_association_name(association_name):
+    if association_name < 3 or association_name > 30:
+        raise AssociationNameLengthException()
+    
     
 def validate_association_name(association_name):
     if len(association_name) < 3 or len(association_name) > 45:
