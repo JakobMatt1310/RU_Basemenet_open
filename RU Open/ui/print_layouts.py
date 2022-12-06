@@ -132,7 +132,7 @@ def view_teams(teams_list: list):
     
         print(f"{X:<7}{el.team_name:<{THIRD_WIDTH}}{el.association_name:<{THIRD_WIDTH}}{el.captain_name:<{THIRD_WIDTH-8}}{X}")    
 
-        time.sleep(0.1)    
+        time.sleep(0.01)    
     
     print_empty_line()
     print_border() 
@@ -175,7 +175,7 @@ def view_association(associations: list, teams_dict: dict):
 
     print_border()
     print_empty_line()
-    print(f"{X:<7}{'Name':<25}{'Street address':<27}{'Tel. no.':<16}{'Address':<25}{'#no teams':<19}{X}")
+    print(f"{X:<13}{'Name':<30}{'Street address':<32}{'Tel. no.':<21}{'Number of teams':<19}{X:>5}")
     associations.sort(key = lambda x : x.association_name)
     for element in associations:
         phone_no = element.association_phone[0:3] +'-'+ element.association_phone[3:]
@@ -185,7 +185,7 @@ def view_association(associations: list, teams_dict: dict):
         except KeyError:
             no_of_teams = 0
             
-        print(f"{X:<7}{element.association_name:<25}{home_address:<27}{phone_no:<16}{element.association_address:<30}{no_of_teams:<14}{X}")    
+        print(f"{X:<13}{element.association_name:<30}{home_address:<32}{phone_no:<21}{no_of_teams:<19}{X:>5}")    
         time.sleep(0.1)    
 
     
