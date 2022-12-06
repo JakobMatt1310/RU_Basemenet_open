@@ -1,4 +1,5 @@
 # from logic.player_logic import Player_Logic
+from ui.moderator_menu.tournament_menu.tournament_ui import Tournament_UI
 from ui.moderator_menu.team_menu.teams_ui import Teams_UI
 from model.player import Player
 from ui.input_validators import *
@@ -26,7 +27,10 @@ class Moderator_UI:
                 print("quitting")
                 return "q"
             elif command == "1":
-                pass
+                menu = Tournament_UI(self.logic_wrapper)
+                back_method = menu.input_prompt()
+                if back_method == "q":
+                    return "q"
             elif command == "2":
                 menu = Teams_UI(self.logic_wrapper)
                 back_method = menu.input_prompt()
