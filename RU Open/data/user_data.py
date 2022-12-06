@@ -9,7 +9,6 @@ class User_Data():
         '''Constructor for the User_Data class'''
 
         self.file_name = "RU Open/files/users.csv"
-        print("User_Data init")
 
 
     def read_all_users(self):

@@ -10,7 +10,6 @@ class Tournaments_Data():
         '''Constructor for the Tournaments_Data class'''
 
         self.file_name = "RU Open/files/tournaments.csv"
-        print("Tournaments_Data init")
 
 
     def read_all_tournaments(self):

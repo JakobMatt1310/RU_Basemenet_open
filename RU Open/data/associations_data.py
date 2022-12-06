@@ -8,7 +8,6 @@ class Associations_Data():
         '''Constructor for the Associations_Data class'''
 
         self.file_name = "RU Open/files/associations.csv"
-        print("Associations_Data init")
 
 
     def read_all_associations(self):

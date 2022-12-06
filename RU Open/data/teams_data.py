@@ -8,7 +8,7 @@ class Teams_Data():
         '''Constructor for the Teams_Data class'''
 
         self.file_name = "RU Open/files/teams.csv"
-        print("Teams_Data init")
+
 
     def read_all_teams(self):
         '''Reads all teams from the file'''

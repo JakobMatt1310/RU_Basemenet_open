@@ -10,8 +10,7 @@ class Player_Data():
         '''Constructor for the Player_Data class'''
 
         self.file_name = "RU Open/files/players.csv"
-        print("Player_Data init")
-        
+
 
     def read_all_players(self):
         '''Reads all players from the file'''
