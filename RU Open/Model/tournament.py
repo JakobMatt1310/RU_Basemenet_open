@@ -11,11 +11,9 @@ class Tournament():
         self.game_count = game_count            # Number of games played in the tournament
         self.teams_submitted = teams_submitted  # Number of teams submitted to the tournament
         self.game_id = game_id                  # Game ID
-        self.player_nr = player_nr              # Player number are somehow paired with the player ID and picked by random to play apposite teams players
-        self.game_type = game_type              # Game type 7 games in whole, 501 1vs1 4 games, 301 2vs2 1 game, Cricket 2vs2 1 game, 501 4vs4 1 game ==== 7 games in whole
+        self.game_type = game_type              # Game type (7 games in whole), 501 1vs1 4 games, 301 2vs2 1 game, Cricket 2vs2 1 game, 501 4vs4 1 game ==== 7 games in whole
         self.leg_nr = leg_nr                    # Leg number is "round" in each game, there is always 3 legs in each game and winner is the one who wins 2 legs or best of 3
         self.player_id = player_id              # Player ID is the ID of the player in the tournament
-        # self.q_points = q_points                # Q points (B-krafa)
 
     
     def __str__(self):
