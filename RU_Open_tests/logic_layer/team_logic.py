@@ -1,5 +1,5 @@
 from data_layer.teams_data import Team_Data
-from model.team import Team
+from model.team_model_dummy import Team
 
 class Team_Logic:
     def __init__(self, data_connection):
