@@ -29,7 +29,12 @@ class Player_Logic:
         self.data_wrapper.assign_captain()
 
     def view_player(self):
-        return self.data_wrapper.view_player()
+        all_player = self.data_wrapper.get_all_players()
+        player_input = ???????
+        if player_input in all_player:
+            return player_input
+        else:
+            return ValueError
 
     def view_player_stats(self):
         return self.data_wrapper.view_player_stats()
