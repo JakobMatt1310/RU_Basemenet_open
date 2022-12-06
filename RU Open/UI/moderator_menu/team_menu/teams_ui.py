@@ -42,57 +42,62 @@ class Teams_UI:
             if team_to_edit != None:
                 edit_info = input("What details would you like to make changes to? (1. Edit Team Name // 2. Change Association // 3. Change Captains): ")
                 if edit_info == '1':
-                    new_team_name = input("Please enter a new name for the team: ")
-                    confirm_name = input(f"The team will be renamed {new_team_name}. Confirm (yes/no): ").islower()
-                    while True:
-                        if confirm_name == 'yes':
-                            team_to_edit.team_name = new_team_name
-                            break
-                        elif confirm_name =='no':
-                            print("No changes made, returning to editing menu.")
-                            break
-                        else:
-                            print('Invalid input, please answer with "yes" or "no"')
+                    self.change_team_name(team_to_edit)
                 elif edit_info == '2':
-                    while True:
-                        new_association_name = input("Please enter the association you would like to transfer this team to: ")
-                        association_list = self.logic_wrapper.get_all_associations()
-                        if new_association_name in association_list:
-                            confirm_association = input(f"The name of the association the team should transfer to is {new_association_name}. Confirm (yes/no): ").islower()
-                            while True:
-                                if confirm_association == 'yes':
-                                    new_association = self.logic_wrapper.get_association(new_association_name)
-                                    team_to_edit.association_id = new_association.id
-                                    break
-                                elif confirm_association =='no':
-                                    print("No changes made, returning to editing menu.")
-                                    break
-                                else:
-                                    print('Invalid input, please answer with "yes" or "no"')
-                        else:
-                            print("Association does not exist, please enter the name of an existing association.")
+                    self.change_team_association(team_to_edit)
                 elif edit_info == '3':
-                    players_in_team = self.logic_wrapper.get_all_players_of_team(team_to_edit)
-                    for i, player in enumerate(players_in_team, 1):
-                        print(f"{i}. {player.name}")
-                    new_captain = input("Please enter the player number for new captain role. ")
-                    while True:
-                        if int(new_captain) <= len(players_in_team):
-                            new_captain = players_in_team[int(new_captain)-1].name
-                            team_to_edit.captain_name = new_captain
-                            success = self.logic_wrapper.update_team_captain(team_to_edit)
-                            
-                            
-                            break
-                        else:
-                            print(f"Invalid input, please enter a number within 1 to {len(players_in_team)}")
-                            
-                
-                        
-
+                    self.edit_team_captain(team_to_edit)
             else:
                 print("Team doesn't exist, try again.")
-    
+                
+    def change_team_name(self, team_to_edit):    
+        new_team_name = input("Please enter a new name for the team: ")
+        confirm_name = input(f"The team will be renamed {new_team_name}. Confirm (yes/no): ").islower()
+        while True:
+            if confirm_name == 'yes':
+                team_to_edit.team_name = new_team_name
+                break
+            elif confirm_name =='no':
+                print("No changes made, returning to editing menu.")
+                break
+            else:
+                print('Invalid input, please answer with "yes" or "no"')
+                
+    def change_team_association(self, team_to_edit):
+        while True:
+            new_association_name = input("Please enter the association you would like to transfer this team to: ")
+            association_list = self.logic_wrapper.get_all_associations()
+            if new_association_name in association_list:
+                confirm_association = input(f"The name of the association the team should transfer to is {new_association_name}. Confirm (yes/no): ").islower()
+                while True:
+                    if confirm_association == 'yes':
+                        new_association = self.logic_wrapper.get_association(new_association_name)
+                        team_to_edit.association_id = new_association.id
+                        break
+                    elif confirm_association =='no':
+                        print("No changes made, returning to editing menu.")
+                        break
+                    else:
+                        print('Invalid input, please answer with "yes" or "no"')
+            else:
+                print("Association does not exist, please enter the name of an existing association.")
+                
+    def edit_team_captain(self, team_to_edit):
+        players_in_team = self.logic_wrapper.get_all_players_of_team(team_to_edit)
+        for i, player in enumerate(players_in_team, 1):
+            print(f"{i}. {player.name}")
+        new_captain = input("Please enter the player number for new captain role. ")
+        while True:
+            if int(new_captain) <= len(players_in_team):
+                new_captain = players_in_team[int(new_captain)-1].name
+                team_to_edit.captain_name = new_captain
+                success = self.logic_wrapper.update_team_captain(team_to_edit)
+                
+                
+                break
+            else:
+                print(f"Invalid input, please enter a number within 1 to {len(players_in_team)}")
+
     def create_new_team(self):
         """Creates a new team, when selected Moderator HAS to create a team, with all four players and a captain.
         """
