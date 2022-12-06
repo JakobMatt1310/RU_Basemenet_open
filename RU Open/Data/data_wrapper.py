@@ -55,24 +55,39 @@ class Data_Wrapper():
         '''Creates a new team'''
         return self.team_data.create_team(team)
 
-#------------------Main--------------------------------------------#
-def main_data():
-    '''Main function for the data wrapper in data layer'''
-    data_class_user = User_Data()
-    res_user = data_class_user.read_all_users()
-
-    data_class_player = Player_Data()
-    res_player = data_class_player.read_all_players()
-
-    data_class_tournament = Tournaments_Data()
-    res_tournament = data_class_tournament.read_all_tournaments()
-
-    data_class_association = Associations_Data()
-    res_association = data_class_association.read_all_associations()
-
-    data_class_teams = Teams_Data()
-    res_teams = data_class_teams.read_all_teams()
+#------------------Update------------------------------------------#
+    def update_team_captain(self, team_to_edit):
+        '''Updates '''
+        return self.team_data.update_team_captain(team_to_edit)
 
 
-if main_data() == '__main__':
-    main_data()
+
+
+
+
+
+
+
+
+
+# #------------------Main--------------------------------------------#
+# def main_data():
+#     '''Main function for the data wrapper in data layer'''
+#     data_class_user = User_Data()
+#     res_user = data_class_user.read_all_users()
+
+#     data_class_player = Player_Data()
+#     res_player = data_class_player.read_all_players()
+
+#     data_class_tournament = Tournaments_Data()
+#     res_tournament = data_class_tournament.read_all_tournaments()
+
+#     data_class_association = Associations_Data()
+#     res_association = data_class_association.read_all_associations()
+
+#     data_class_teams = Teams_Data()
+#     res_teams = data_class_teams.read_all_teams()
+
+
+# if main_data() == '__main__':
+#     main_data()

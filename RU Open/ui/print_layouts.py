@@ -9,6 +9,7 @@ MENU_PAD = HALF_WIDTH-MENU_LEN # How much is padded from left to right
 X = 'x' #letter representing seperation in program, header, main, etc..
 DASH = "-"
 BACK = ["b. Go back", ">>> To go back to previous Menu"]
+QUIT_PROG = ["q. Quit Program", ">>> Select if you want to quit program"]
 
 
 
@@ -31,7 +32,7 @@ def print_empty_line():
 def print_empty_line_half():
     """Prints and empty line with symbols at each end of witdh
     """
-    print(f"{X:<{HALF_WIDTH-1}}{X}")
+    print(f"{' ':30}{X:<{HALF_WIDTH-1}}{X}")
     
 def print_border():
     "Prints the border in correct length"
@@ -39,7 +40,7 @@ def print_border():
 
 def print_border_half():
     "Prints the border in correct length"
-    print(X*HALF_WIDTH)
+    print(f"{' ':30}{X*HALF_WIDTH}")
 
 def clear_screen():
     """Clears the screen, prints header and 1 empty line"""
@@ -70,7 +71,7 @@ def print_current_menu(dict_to_print: dict):
     print_empty_line()
     if values[0] != "Main Menu": # Do not display go back if current menu is main menu
         print(f"{X:<{MENU_PAD}}{back[0]:<{MENU_LEN}}{back[1]:<{MENU_LEN}}{X:>{MENU_PAD}}")
-    print(f"{X:<{MENU_PAD}}{quit_prog[0]:<{MENU_LEN}}{quit_prog[1]:<{MENU_LEN}}{X:>{MENU_PAD}}")
+    print(f"{X:<{MENU_PAD}}{QUIT_PROG[0]:<{MENU_LEN}}{QUIT_PROG[1]:<{MENU_LEN}}{X:>{MENU_PAD}}")
     
     print_empty_line()
     print_border()
@@ -250,32 +251,36 @@ def print_current_team_player_list(players: list, team_name: str):
         team_name (str): 
     """
     clear_screen()
+    print("\033[1;33;40m", end="")
     print_border_half()
     print_empty_line_half()
-    print(f"{X}{team_name +' Players ':^{HALF_WIDTH-2}}{X}") # prints out name of current menu selected
+    print(f"{' ':30}{X}{'Assigned players to team -> ' + team_name:^{HALF_WIDTH-2}}{X}") # prints out name of current menu selected
     print_empty_line_half()
     if len(players) == 1:
-        print(f"{X}1. {players[0]:^{HALF_WIDTH-5}}{X}")
+        print(f"{' ':<30}{X:<15}{'1. ' + players[0]:<{44}}{X}")
         print_empty_line_half()
         print_empty_line_half()
         print_empty_line_half()
     elif len(players) == 2:
-        print(f"{X:<30}1. {players[0]:^{HALF_WIDTH-5}}{X}")
-        print(f"{X}2. {players[1]:^{HALF_WIDTH-5}}{X}")
+        print(f"{' ':<30}{X:<15}{'1. ' + players[0]:<{44}}{X}")
+        print(f"{' ':<30}{X:<15}{'2. ' + players[1]:<{44}}{X}")
         print_empty_line_half()
         print_empty_line_half()
     elif len(players) == 3:
-        print(f"{X}1. {players[0]:^{HALF_WIDTH-5}}{X}")
-        print(f"{X}2. {players[1]:^{HALF_WIDTH-5}}{X}")
-        print(f"{X}3. {players[2]:^{HALF_WIDTH-5}}{X}")
+        print(f"{' ':<30}{X:<15}{'1. ' + players[0]:<{44}}{X}")
+        print(f"{' ':<30}{X:<15}{'2. ' + players[1]:<{44}}{X}")
+        print(f"{' ':<30}{X:<15}{'3. ' + players[2]:<{44}}{X}")
         print_empty_line_half()
     else:
-        print(f"{X}1. {players[0]:^{HALF_WIDTH-5}}{X}")
-        print(f"{X}2. {players[1]:^{HALF_WIDTH-5}}{X}")
-        print(f"{X}3. {players[2]:^{HALF_WIDTH-5}}{X}")
-        print(f"{X}4. {players[3]:^{HALF_WIDTH-5}}{X}")
+        print(f"{' ':<30}{X:<15}{'1. ' + players[0]:<{44}}{X}")
+        print(f"{' ':<30}{X:<15}{'2. ' + players[1]:<{44}}{X}")
+        print(f"{' ':<30}{X:<15}{'3. ' + players[2]:<{44}}{X}")
+        print(f"{' ':<30}{X:<15}{'4. ' + players[3]:<{44}}{X}")
     print_empty_line_half()
-    print_border_half
+    print_border_half()
+    print("\033[0m")
 
 def print_edit_menu_team():
     pass
+
+# print_current_team_player_list(["joi joa",  "siggi sigg", "benni bull"], "eitthvað")

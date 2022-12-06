@@ -52,10 +52,11 @@ def validate_email(email):
 class HomeAddressException(Exception):
     pass
 def validate_home_address(home_address):
-    if len(home_address > 30):
-        raise HomeAddressException
+    if len(home_address) > 30 or len(home_address) < 3:
+        raise HomeAddressException()
     if home_address[-1].isdigit() == False:
-        raise HomeAddressException
+        if home_address[-2].isdigit() == False:
+            raise HomeAddressException()
 
 class TeamNameLengthException(Exception):
     pass
@@ -67,5 +68,10 @@ class AssociationNameLengthException(Exception):
     pass
 def validate_association_name(association_name):
     if len(association_name) < 3 or len(association_name) > 30:
-        raise NameLengthException()
+        raise TournamentNameLengthException()
 
+class TournamentNameLengthException(Exception):
+    pass
+def validate_tournament_name(tournament_name):
+    if len(tournament_name) < 3 or len(tournament_name) > 30:
+        raise TournamentNameLengthException()

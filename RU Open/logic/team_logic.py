@@ -34,11 +34,11 @@ class Team_Logic:
                 return team
         return None
 
-    def update_team(self):
-        self.data_wrapper.update_team()
+    def update_team_captain(self, team_to_edit):
+        self.data_wrapper.update_team_captain(team_to_edit)
     
-    def edit_team(self):
-        self.data_wrapper.edit_team()
+    def edit_team(self, team_to_edit):
+        self.data_wrapper.edit_team(team_to_edit)
 
     def view_team(self):
         return self.data_wrapper.view_team()

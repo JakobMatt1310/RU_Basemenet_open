@@ -40,7 +40,7 @@ class Teams_UI:
             team_to_edit = "Awful Tossers"#input("Please enter the name of the team you want to edit: ")
             team_to_edit = self.logic_wrapper.get_team(team_to_edit)
             if team_to_edit != None:
-                edit_info = input("What details would you like to make changes to? (1. Edit Team Name // 2. Change Association // 3. Change Captains): ").islower()
+                edit_info = input("What details would you like to make changes to? (1. Edit Team Name // 2. Change Association // 3. Change Captains): ")
                 if edit_info == '1':
                     new_team_name = input("Please enter a new name for the team: ")
                     confirm_name = input(f"The team will be renamed {new_team_name}. Confirm (yes/no): ").islower()
@@ -72,42 +72,54 @@ class Teams_UI:
                         else:
                             print("Association does not exist, please enter the name of an existing association.")
                 elif edit_info == '3':
+                    players_in_team = self.logic_wrapper.get_all_players_of_team(team_to_edit)
+                    for i, player in enumerate(players_in_team, 1):
+                        print(f"{i}. {player.name}")
+                    new_captain = input("Please enter the player number for new captain role. ")
                     while True:
-                        list_of_team_players = self.logic_wrapper.get_team_players(team_to_edit)
-                        new_captain = input("Please enter the name of the player you would like to replace the current captain: ")
-                        if new_captain in list_of_team_players:
+                        if int(new_captain) <= len(players_in_team):
+                            new_captain = players_in_team[int(new_captain)-1].name
                             team_to_edit.captain_name = new_captain
+                            success = self.logic_wrapper.update_team_captain(team_to_edit)
+                            
+                            
                             break
                         else:
-                            print("Player not in team, please try again.")
+                            print(f"Invalid input, please enter a number within 1 to {len(players_in_team)}")
+                            
+                
                         
 
             else:
                 print("Team doesn't exist, try again.")
     
     def create_new_team(self):
+        """Creates a new team, when selected Moderator HAS to create a team, with all four players and a captain.
+        """
         team = Team()
         team.team_name = self.new_team_name()
         team.association_name = self.association_name()
+        
         self.logic_wrapper.create_team(team)
         print_current_team_player_list([" "], team.team_name)
-        for i in range(3): # moredator has to create 4 players and select a captain
-            player_list = []
+        player_list = []
+        for i in range(4): # Moderator has to create 4 players and select a captain
             player = Player()
-            player.name = self.new_player_name()
             player.ssn = self.new_player_ssn()
+            player.name = self.new_player_name()
             player.phone = self.new_player_phone()
             player.email = self.new_player_email()
             player.address = self.new_player_address()
             player.team_id = team.id
-            
+                        
             self.logic_wrapper.create_player(player)
             player_list.append(player.name)
             print_current_team_player_list(player_list, team.team_name)
+            
         while True:
-            selection = input("Select player to be captain for team")
+            selection = input("Select player to be captain for team: ")
             if selection == "1" or selection == "2" or selection == "3" or selection == "4":
-                team.captain_name = player_list[selection]
+                team.captain_name = player_list[int(selection)-1]
                 break
             else:
                 print("Invalid input, please try again (A captain must be chosen")
@@ -170,11 +182,15 @@ class Teams_UI:
             ssn = input("Enter the social security number of the player: ")
             try:
                 validate_ssn(ssn)
-                break
+                check = self.logic_wrapper.check_if_player_exists(ssn)
+                if check == False:
+                    break
+                else:
+                    print(f"Player {check.name} already exists, try again")
             except SsnLengthException:
                 print("Input incorrect, please try again.")
-            except:
-                print("Something went wrong, please try again.")
+            # except:
+            #     print("Something went wrong, please try again.")
         return ssn
     
     def new_player_phone(self):
@@ -230,3 +246,7 @@ class Teams_UI:
         return address           
 
 #---------------------------------------------------#
+
+
+
+ 

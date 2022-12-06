@@ -24,8 +24,8 @@ class Logic_Wrapper:
     def edit_player(self):
         return self.player_logic.edit_player()
 
-    def assign_captain(self):
-        return self.player_logic.assign_captain()
+    def check_if_player_exists(self, ssn):
+        return self.player_logic.check_if_player_exists(ssn)
 
     def view_player(self):
         return self.player_logic.view_player()
@@ -36,6 +36,8 @@ class Logic_Wrapper:
     def delete_player(self):
         return self.player_logic.delete_player()
 
+    def get_all_players_of_team(self, team):
+        return self.player_logic.get_all_players_of_team(team)
 #------------------Association_Logic------------------------------------#
     def create_association(self, association):
         return self.association_logic.create_association(association)
@@ -50,7 +52,7 @@ class Logic_Wrapper:
         return self.association_logic.delete_association()
 
     def get_all_associations(self):
-        return self.association_logic.get_all_associations(self)
+        return self.association_logic.get_all_associations()
     
     def validate_association_name_with_all(self, name):
         return self.association_logic.validate_association_name_with_all(name)
@@ -94,11 +96,11 @@ class Logic_Wrapper:
     def get_team(self, team_to_edit):
         return self.team_logic.get_team(team_to_edit)
 
-    def update_team(self):
-        return self.team_logic.update_team()
+    def update_team_captain(self, team_to_edit):
+        return self.team_logic.update_team_captain(team_to_edit)
     
-    def edit_team(self):
-        return self.team_logic.edit_team()
+    def edit_team(self, team_to_edit):
+        return self.team_logic.edit_team(team_to_edit)
 
     def view_team(self):
         return self.team_logic.view_team()

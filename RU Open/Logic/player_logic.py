@@ -29,8 +29,12 @@ class Player_Logic:
     def edit_player(self):
         self.data_wrapper.edit_player()
 
-    def assign_captain(self):
-        self.data_wrapper.assign_captain()
+    def check_if_player_exists(self, ssn):
+        all_players = self.get_all_players()
+        for player in all_players:
+            if ssn == player.ssn:
+                return player
+        return False
 
     def view_player(self):
         return self.data_wrapper.view_player()
