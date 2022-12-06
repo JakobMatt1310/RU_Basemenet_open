@@ -1,5 +1,5 @@
 from data_layer.player_data import Player_data
-from model.player_model_dummy import Player
+from model.player import Player
 from logic_layer.team_logic import Team_Logic
 
 class Player_Logic:
