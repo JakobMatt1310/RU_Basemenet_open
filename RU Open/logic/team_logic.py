@@ -27,8 +27,12 @@ class Team_Logic:
     def get_team_stats(self):
         return self.data_wrapper.get_team_stast()
 
-    def get_team(self):
-        return self.data_wrapper.get_team()
+    def get_team(self, team_to_edit):
+        all_teams = self.get_all_teams()
+        for team in all_teams:
+            if team_to_edit == team.team_name:
+                return team
+        return None
 
     def update_team(self):
         self.data_wrapper.update_team()

@@ -68,6 +68,3 @@ class MainMenu_UI:
             else:
                 print("invalid input, try again")
                 
-
-test = MainMenu_UI()
-test.input_prompt()

@@ -132,7 +132,6 @@ class Teams_UI:
         return address
     
     def edit_a_team(self):
-        self.edit_a_team()
         list_of_teams = self.logic_wrapper.get_all_teams()
         team_to_edit = input("Please enter the name of the team you want to edit: ")
         if team_to_edit in list_of_teams:
@@ -190,7 +189,7 @@ class Teams_UI:
                 print("Going back")
                 return
             elif command == "1":
-               self.create_new_team()
+                self.create_new_team()
             elif command == "2":
                 self.edit_a_team()
             elif command == "q":

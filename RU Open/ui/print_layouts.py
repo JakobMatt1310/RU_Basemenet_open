@@ -243,31 +243,39 @@ def edit_association_only_menu(association: classmethod, teams: list):
     return input("\033[0mEnter selection and press enter: ")
 
 def print_current_team_player_list(players: list, team_name: str):
+    """Previews the players that will be added to current team
+
+    Args:
+        players (list): contains names of players being added
+        team_name (str): 
+    """
     clear_screen()
     print_border_half()
     print_empty_line_half()
     print(f"{X}{team_name +' Players ':^{HALF_WIDTH-2}}{X}") # prints out name of current menu selected
     print_empty_line_half()
     if len(players) == 1:
-        print(f"{X}1. {players[0]^{HALF_WIDTH-5}}{X}")
+        print(f"{X}1. {players[0]:^{HALF_WIDTH-5}}{X}")
         print_empty_line_half()
         print_empty_line_half()
         print_empty_line_half()
     elif len(players) == 2:
-        print(f"{X}1. {players[0]^{HALF_WIDTH-5}}{X}")
-        print(f"{X}2. {players[1]^{HALF_WIDTH-5}}{X}")
+        print(f"{X:<30}1. {players[0]:^{HALF_WIDTH-5}}{X}")
+        print(f"{X}2. {players[1]:^{HALF_WIDTH-5}}{X}")
         print_empty_line_half()
         print_empty_line_half()
     elif len(players) == 3:
-        print(f"{X}1. {players[0]^{HALF_WIDTH-5}}{X}")
-        print(f"{X}2. {players[1]^{HALF_WIDTH-5}}{X}")
-        print(f"{X}3. {players[2]^{HALF_WIDTH-5}}{X}")
+        print(f"{X}1. {players[0]:^{HALF_WIDTH-5}}{X}")
+        print(f"{X}2. {players[1]:^{HALF_WIDTH-5}}{X}")
+        print(f"{X}3. {players[2]:^{HALF_WIDTH-5}}{X}")
         print_empty_line_half()
     else:
-        print(f"{X}1. {players[0]^{HALF_WIDTH-5}}{X}")
-        print(f"{X}2. {players[1]^{HALF_WIDTH-5}}{X}")
-        print(f"{X}3. {players[2]^{HALF_WIDTH-5}}{X}")
-        print(f"{X}4. {players[3]^{HALF_WIDTH-5}}{X}")
+        print(f"{X}1. {players[0]:^{HALF_WIDTH-5}}{X}")
+        print(f"{X}2. {players[1]:^{HALF_WIDTH-5}}{X}")
+        print(f"{X}3. {players[2]:^{HALF_WIDTH-5}}{X}")
+        print(f"{X}4. {players[3]:^{HALF_WIDTH-5}}{X}")
     print_empty_line_half()
     print_border_half
-# print_current_menu(Menu_selection)
+
+def print_edit_menu_team():
+    pass

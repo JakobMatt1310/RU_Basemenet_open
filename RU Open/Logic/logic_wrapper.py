@@ -51,6 +51,9 @@ class Logic_Wrapper:
 
     def get_all_associations(self):
         return self.association_logic.get_all_associations(self)
+    
+    def validate_association_name_with_all(self, name):
+        return self.association_logic.validate_association_name_with_all(name)
 
     def get_association(self):
         return self.association_logic.get_association()
@@ -88,8 +91,8 @@ class Logic_Wrapper:
     def get_team_stats(self):
         return self.team_logic.get_team_stats()
 
-    def get_team(self):
-        return self.team_logic.get_team()
+    def get_team(self, team_to_edit):
+        return self.team_logic.get_team(team_to_edit)
 
     def update_team(self):
         return self.team_logic.update_team()

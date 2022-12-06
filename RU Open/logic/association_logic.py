@@ -16,8 +16,15 @@ class Association_Logic:
     def delete_association(self):
         self.data_wrapper.delete_association()
         
-    def get_all_associations(self, associations):
+    def get_all_associations(self):
         return self.data_wrapper.get_all_associations()
+    
+    def validate_association_name_with_all(self, name):
+        all_associations = self.get_all_associations()
+        for association in all_associations:
+            if name == association.association_name:
+                return True
+        return None
 
     def get_association(self, association):
         get_association = self.get_association()
