@@ -1,5 +1,11 @@
 class Player():
-    def __init__(self,id="", name="", ssn="", phone="", email="", address="", team_id=""):
+    def __init__(self,id="", 
+                 name="", 
+                 ssn="", 
+                 phone="",
+                 email="", 
+                 address="", 
+                 team_id=""):
         '''Constructor for the Player class'''
         self.name = name
         self.ssn = ssn

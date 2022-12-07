@@ -12,14 +12,22 @@ class Teams_Data():
         with open(self.file_name, newline='', encoding="utf-8") as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                ret_list.append(Team(row["id"], row["name"], row["association"], row["captain"], row["association_id"]))
+                ret_list.append(Team(row["id"],
+                                     row["name"], 
+                                     row["association"], 
+                                     row["captain"], 
+                                     row["association_id"]))
         return ret_list
 
     def create_team(self, team):
         '''Creates a new team in the file'''
         team.id = str(len(self.read_all_teams()) + 1)
         with open(self.file_name, 'a', newline='', encoding="utf-8") as csvfile:
-            fieldnames = ["id", "name", "association", "captain", "association_id"]
+            fieldnames = ["id",
+                          "name", 
+                          "association", 
+                          "captain", 
+                          "association_id"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writerow({'id': team.id, 
                             'name': team.team_name, 
@@ -33,7 +41,11 @@ class Teams_Data():
         new_team_name = team_to_edit.team_name
         read_all_teams = self.read_all_teams()
         with open(self.file_name, 'w', newline='', encoding="utf-8") as csvfile:
-            fieldnames = ["id", "name", "association", "captain", "association_id"]
+            fieldnames = ["id", 
+                          "name", 
+                          "association", 
+                          "captain", 
+                          "association_id"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
             for team in read_all_teams:
@@ -54,7 +66,11 @@ class Teams_Data():
         new_association = team_to_edit.association_name
         read_all_teams = self.read_all_teams()
         with open(self.file_name, 'w', newline='', encoding="utf-8") as csvfile:
-            fieldnames = ["id", "name", "association", "captain", "association_id"]
+            fieldnames = ["id", 
+                          "name", 
+                          "association", 
+                          "captain", 
+                          "association_id"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
             for team in read_all_teams:
@@ -75,7 +91,11 @@ class Teams_Data():
         new_captain = team_to_edit.captain_name
         read_all_teams = self.read_all_teams()
         with open(self.file_name, 'w', newline='', encoding="utf-8") as csvfile:
-            fieldnames = ["id", "name", "association", "captain", "association_id"]
+            fieldnames = ["id", 
+                          "name", 
+                          "association", 
+                          "captain", 
+                          "association_id"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
             for team in read_all_teams:
