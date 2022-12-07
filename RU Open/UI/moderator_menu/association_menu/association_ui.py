@@ -5,11 +5,11 @@ from ui.print_layouts import *
 from ui.input_validators import *
 
 
-class Associations_UI:
+class Association_UI:
     Menu_selection = {"Current Menu": "Associations", 
                     "View Associations": ">>> Lists every association",
                     "Create Association": ">>> Creates an association",
-                    "Edit Association": ">>> Modification menu for the selected association",
+                    "Edit Association": ">>> Modify menu for selected association",
                     "Remove Association": ">>> Deletes an association and the teams within"}    
     def __init__(self, logic_connection):
         self.logic_wrapper = logic_connection
