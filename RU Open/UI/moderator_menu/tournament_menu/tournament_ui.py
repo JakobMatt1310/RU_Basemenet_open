@@ -38,11 +38,11 @@ class Tournament_UI:
                         validate_home_address(tournament.tournament_address)
                         break
                     except TournamentNameLengthException:
-                        print("name was too long")
+                        print("name was too long, try again")
                     except HomeAddressException:
-                        print("The address was too long")
+                        print("The address is invalid, try again")
                     except:
-                        print("some error")
+                        print("Something went wrong, please try again")
                 
                 self.logic_wrapper.create_tournament(tournament)
             elif command == "3":
