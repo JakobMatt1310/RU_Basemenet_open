@@ -43,7 +43,7 @@ class Teams_UI:
         return_command = ""
         while True:
             if return_command != "back":
-                team_to_edit = "Awful Tossers"#input("Please enter the name of the team you want to edit: ")
+                team_to_edit = input("Please enter the name of the team you want to edit: ")
                 team_to_edit = self.logic_wrapper.get_team(team_to_edit)
             else:
                 return_command = ""
