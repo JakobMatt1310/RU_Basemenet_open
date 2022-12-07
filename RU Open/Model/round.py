@@ -46,7 +46,7 @@ class Round:
         
        
     def function(self):
-        print("{:>5} {} {} {} {} {} {:<5}".format(self.home_player1, self.home_leg1, self.home_leg2, self.gamemode, self.away_leg1, self.away_leg2, self.away_player1))
+        print("{} {:>5} {} {} {} {:<5} {}".format(self.home_player1, self.home_leg1, self.home_leg2, self.gamemode, self.away_leg1, self.away_leg2, self.away_player1))
     
     #def __str__(self):
         '''Returns a string representation of the Fixture object'''
