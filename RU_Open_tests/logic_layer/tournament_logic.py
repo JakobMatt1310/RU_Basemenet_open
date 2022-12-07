@@ -1,5 +1,5 @@
 from data_layer.tournaments_data import Tournaments_Data
-from model.tournaments import Tournaments
+from model.tournament_model_dummy import Tournaments
 
 class Tournament_Logic:
     def __init__(self, data_connection):
