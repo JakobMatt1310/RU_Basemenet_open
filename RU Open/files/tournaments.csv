@@ -1,5 +1,6 @@
-name,address,start_date,end_date,game_count,teams_submitted,game_id,player_nr,game_type,leg_nr,player_id
-Landsbankamótið,Kópavogi
-Pæjumótið,Vestmanneyjum
-Shellmótið,Vestmanneyjum
-Símamótið,Akranesi
+name,address,start_date,end_date,game_count,teams_submitted,game_id,game_type,leg_nr,player_id
+Landsbankamótið,Kópavogi 2,,,,,,,,
+Pæjumótið,Vestmanneyjum 5,,,,,,,,
+Shellmótið,Vestmanneyjum 6,,,,,,,,
+Símamótið,Akranesi 7,,,,,,,,
+Pæjumót,Vestmannaeyjar 9,,,,,,,,
