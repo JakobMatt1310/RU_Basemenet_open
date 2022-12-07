@@ -1,7 +1,7 @@
 # import os
 import csv
 from model.team import Team
-
+from model.player import Player
 class Teams_Data():
     
     def __init__(self):
@@ -32,5 +32,19 @@ class Teams_Data():
             
     def update_team_captain(self, team_to_edit):
         '''Updates teams captain'''
-        print(team_to_edit)
-        return team_to_edit, True
+        new_captain = team_to_edit.captain_name
+        read_all_teams = self.read_all_teams()
+        
+        with open(self.file_name, 'w', newline='', encoding="utf-8") as csvfile:
+            fieldnames = ["id", "name", "association", "captain", "association_id"]
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writeheader()
+            for team in read_all_teams:
+                if team.id == team_to_edit.id:
+                    team.captain_name = new_captain
+                writer.writerow({'id': team.id, 
+                                'name': team.team_name, 
+                                'association': team.association_name, 
+                                'captain': team.captain_name, 
+                                'association_id': team.association_id})
+        return True
