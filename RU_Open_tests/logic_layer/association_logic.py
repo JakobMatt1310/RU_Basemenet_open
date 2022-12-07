@@ -17,9 +17,6 @@ class Association_Logic:
     def update_association(self):
         self.data_wrapper.update_association()
 
-    def view_association(self):
-        return self.data_wrapper.view_association()
-
     def delete_association(self):
         self.data_wrapper.delete_association()
         

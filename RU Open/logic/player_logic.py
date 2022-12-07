@@ -41,9 +41,9 @@ class Player_Logic:
                 return player
         return False
 
-    def view_player(self):
+    def get_player(self,player):
         all_player = self.data_wrapper.get_all_players()
-        player_input = something
+        player_input = player
         if player_input in all_player:
             return player_input
         else:
