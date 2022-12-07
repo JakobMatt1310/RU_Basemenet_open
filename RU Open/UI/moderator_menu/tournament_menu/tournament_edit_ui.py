@@ -41,7 +41,7 @@ class Tournament_editing_UI:
                 team.captain_name = input("Enter the name of the teams captain: ")
                 self.logic_wrapper.create_team(team)
                 print("You must now add 4 players to the team to make it valid, otherwise the team will be deleted.")
-                continue_or_no = input("Would you like to continue? (yes/no): ").islower()
+                continue_or_no = input("Would you like to continue? (yes/no): ").lower()
                 if continue_or_no == 'yes':
                     list_of_team_players = []                
                     while len(list_of_team_players) != 4:
@@ -71,7 +71,7 @@ class Tournament_editing_UI:
                 team_to_delete = input("Please enter the name of the team that you want to remove: ")
                 if team_to_delete in list_of_teams:
                     print("Removing this team will delete all players within the association.")
-                    confirm = input("Are you sure you want to remove this team? (yes/no)").islower()
+                    confirm = input("Are you sure you want to remove this team? (yes/no)").lower()
                     while True:
                         if confirm == 'yes':
                             self.logic_wrapper.remove_team(team_to_delete)
@@ -84,10 +84,10 @@ class Tournament_editing_UI:
             elif command == '3':
                 association_name = input("Please enter the new name of the association you want to make changes to: ")
                 association_to_change = self.logic_wrapper.get_association(association_name)
-                edit_info = input("What details would you like to make changes to? (1. Tournament Name // 2. Address): ").islower()
+                edit_info = input("What details would you like to make changes to? (1. Tournament Name // 2. Address): ").lower()
                 if edit_info == '1':
                     new_tournament_name = input("Please enter a new name for the tournament: ")
-                    confirm_name = input(f"The association will be renamed {new_tournament_name}. Confirm (yes/no): ").islower()
+                    confirm_name = input(f"The association will be renamed {new_tournament_name}. Confirm (yes/no): ").lower()
                     while True:
                         if confirm_name == 'yes':
                             tournament_to_change.tournament_name = new_tournament_name
@@ -99,7 +99,7 @@ class Tournament_editing_UI:
                             print('Invalid input, please answer with "yes" or "no"')
                 elif edit_info == '2':
                     new_tournament_number = input("Please enter a new phone number for the tournament: ")
-                    confirm_number = input(f"The new phone number of the tournament will be {new_tournament_number}. Confirm (yes/no): ").islower()
+                    confirm_number = input(f"The new phone number of the tournament will be {new_tournament_number}. Confirm (yes/no): ").lower()
                     while True:
                         if confirm_number == 'yes':
                             tournament_to_change.tournament_phone = new_tournament_number
@@ -112,7 +112,7 @@ class Tournament_editing_UI:
                 elif edit_info == '3':
                     while True:
                         new_tournament_address = input("Please enter a new address for the tournament: ")
-                        confirm_address = input(f"The new tournament address will be {new_tournament_address}. Confirm (yes/no): ").islower()
+                        confirm_address = input(f"The new tournament address will be {new_tournament_address}. Confirm (yes/no): ").lower()
                         if confirm_address == 'yes':
                             tournament_to_change.tournament_address = new_tournament_address
                             break
