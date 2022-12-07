@@ -1,5 +1,10 @@
 class User():
-    def __init__(self, user_name="", user_ssn="", user_phone="", user_email="", user_address=""):
+    def __init__(self, 
+                 user_name="", 
+                 user_ssn="", 
+                 user_phone="", 
+                 user_email="", 
+                 user_address=""):
         '''Constructor for the User class'''
         self.user_name = user_name
         self.user_ssn = user_ssn
