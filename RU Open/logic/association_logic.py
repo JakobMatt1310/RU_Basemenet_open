@@ -1,4 +1,4 @@
-from Model.association import Association
+from model.association import Association
 
 class Association_Logic:
     def __init__(self, data_connection):

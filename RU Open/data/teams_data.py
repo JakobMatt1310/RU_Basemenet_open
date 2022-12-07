@@ -1,6 +1,6 @@
 # import os
 import csv
-from Model.team import Team
+from model.team import Team
 class Teams_Data():
     def __init__(self):
         '''Constructor for the Teams_Data class'''

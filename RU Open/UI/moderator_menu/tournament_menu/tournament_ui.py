@@ -1,8 +1,8 @@
-from Model.tournament import Tournament
-from Model.team import Team
-from Logic.logic_wrapper import Logic_Wrapper
-from UI.print_layouts import *  # print_current_menu
-from UI.input_validators import *
+from model.tournament import Tournament
+from model.team import Team
+from logic.logic_wrapper import Logic_Wrapper
+from ui.print_layouts import *  # print_current_menu
+from ui.input_validators import *
 
 class Tournament_UI:
     Menu_selection = {"Current Menu": "Tournament",

@@ -1,6 +1,6 @@
 # import os
 import csv
-from Model.tournament import Tournament
+from model.tournament import Tournament
 
 class Tournaments_Data():
 

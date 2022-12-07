@@ -1,6 +1,6 @@
 # import os
 import csv
-from Model.association import Association
+from model.association import Association
 
 class Associations_Data():
     def __init__(self):

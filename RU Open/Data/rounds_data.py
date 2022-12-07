@@ -1,5 +1,5 @@
 import csv
-from Model.round import Round
+from model.round import Round
 
 class Rounds_Data:
     def create_round(self, round):

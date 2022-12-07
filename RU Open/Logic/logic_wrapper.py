@@ -1,9 +1,9 @@
-from Logic.association_logic import Association_Logic
-from Logic.player_logic import Player_Logic 
-from Logic.team_logic import Team_Logic
+from logic.association_logic import Association_Logic
+from logic.player_logic import Player_Logic 
+from logic.team_logic import Team_Logic
 # from logic.statistic_logic import Statistic_Logic
-from Logic.tournament_logic import Tournament_Logic
-from Data.data_wrapper import Data_Wrapper
+from logic.tournament_logic import Tournament_Logic
+from data.data_wrapper import Data_Wrapper
 
 class Logic_Wrapper:
     def __init__(self):
