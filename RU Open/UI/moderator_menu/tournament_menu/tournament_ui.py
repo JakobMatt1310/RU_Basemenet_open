@@ -1,7 +1,7 @@
 from model.tournament import Tournament
 from model.team import Team
 from logic.logic_wrapper import Logic_Wrapper
-from ui.print_layouts import print_current_menu
+from ui.print_layouts import *  # print_current_menu
 from ui.input_validators import *
 
 class Tournament_UI:
@@ -19,17 +19,16 @@ class Tournament_UI:
         while True:
             self.menu_output()
             command = input("Enter your command: ").lower()
-
             if command == "b":
                 return
-
             if command == "q":
                 print("Goodbye")
                 return "q"
-
             elif command == "1":
-                return self.logic_wrapper.get_all_tournaments()
-                
+                tournaments_all = self.logic_wrapper.get_all_tournaments()
+                # teams_no = self.logic_wrapper.teams_in_association()
+                view_tournaments(tournaments_all)
+
             elif command == "2":
                 tournament = Tournament()
 

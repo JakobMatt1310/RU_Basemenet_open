@@ -30,26 +30,25 @@ class Tournaments_Data():
         '''Creates a new tournament in the file'''
         #þarf að bæta við tournament ID hérna eins og fyrir players eða teams
         with open(self.file_name, 'a', newline='', encoding="utf-8") as csvfile:
-            fieldnames = ["name", 
-                          "address", 
-                          "start_date", 
-                          "end_date", 
-                          "game_count", 
-                          "teams_submitted", 
-                          "game_id", 
-                          "game_type", 
-                          "leg_nr", 
+            fieldnames = ["name",
+                          "address",
+                          "start_date",
+                          "end_date",
+                          "game_count",
+                          "teams_submitted",
+                          "game_id",
+                          "game_type",
+                          "leg_nr",
                           "player_id"]
-            
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
-            writer.writerow({'name': tournament.name, 
-                             'address': tournament.address, 
-                             'start_date': tournament.start_date, 
-                             'end_date': tournament.end_date, 
-                             'game_count': tournament.game_count, 
-                             'teams_submitted': tournament.teams_submitted, 
-                             'game_id': tournament.game_id, 
-                             'game_type': tournament.game_type, 
-                             'leg_nr': tournament.leg_nr, 
+            writer.writerow({'name': tournament.tournament_name,
+                             'address': tournament.tournament_address,
+                             'start_date': tournament.start_date,
+                             'end_date': tournament.end_date,
+                             'game_count': tournament.game_count,
+                             'teams_submitted': tournament.teams_submitted,
+                             'game_id': tournament.game_id,
+                             'game_type': tournament.game_type,
+                             'leg_nr': tournament.leg_nr,
                              'player_id': tournament.player_id})

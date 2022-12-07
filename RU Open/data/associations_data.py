@@ -13,14 +13,23 @@ class Associations_Data():
         with open(self.file_name, newline='', encoding="utf-8") as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                ret_list.append(Association(row["id"], row["name"], row["phone"], row["address"]))
+                ret_list.append(Association(row["id"],
+                                            row["name"],
+                                            row["phone"],
+                                            row["address"]))
         return ret_list
 
     def create_association(self, association):
         '''Creates a new association in the file'''
         association.id = len(self.read_all_associations()) + 1    
         with open(self.file_name, 'a', newline='', encoding="utf-8") as csvfile:
-            fieldnames = ["id", "name", "phone", "address"]
+            fieldnames = ["id",
+                          "name",
+                          "phone",
+                          "address"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
-            writer.writerow({'id': association.id, 'name': association.name, 'phone': association.phone, 'address': association.address})
+            writer.writerow({'id': association.id,
+                             'name': association.name,
+                             'phone': association.phone,
+                             'address': association.address})
