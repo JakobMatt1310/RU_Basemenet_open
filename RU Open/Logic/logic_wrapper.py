@@ -99,9 +99,12 @@ class Logic_Wrapper:
     def update_team_captain(self, team_to_edit):
         return self.team_logic.update_team_captain(team_to_edit)
     
-    def edit_team(self, team_to_edit):
-        return self.team_logic.edit_team(team_to_edit)
-
+    def update_team_name(self, team_to_edit):
+        return self.team_logic.update_team_name(team_to_edit)
+    
+    def update_team_association(self, team_to_edit):
+        return self.team_logic.update_team_association(team_to_edit)
+    
     def view_team(self):
         return self.team_logic.view_team()
 

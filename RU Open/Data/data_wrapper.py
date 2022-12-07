@@ -57,9 +57,17 @@ class Data_Wrapper():
 
 #------------------Update------------------------------------------#
     def update_team_captain(self, team_to_edit):
-        '''Updates '''
+        '''Updates team captain'''
+        #Team to edit er með nýjan captain
         return self.team_data.update_team_captain(team_to_edit)
 
+    def update_team_name(self, team_to_edit):
+        #Team to edit er með breytt nafn
+        return self.team_data.update_team_name(team_to_edit)
+    
+    def update_team_association(self, team_to_edit):
+        #Team to edit er með breytt association nafn og association id
+        return self.team_data.update_team_association(team_to_edit)
 
 
 

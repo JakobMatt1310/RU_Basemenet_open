@@ -280,7 +280,36 @@ def print_current_team_player_list(players: list, team_name: str):
     print_border_half()
     print("\033[0m")
 
-def print_edit_menu_team():
-    pass
+def print_edit_menu_team(team_to_edit: classmethod):
+    clear_screen()
+    print("\033[1;33;40m", end="")
+    print_border_half()
+    print_empty_line_half()
+    print(f"{' ':30}{X}{'Editing team ->  ' + team_to_edit.team_name:^{HALF_WIDTH-2}}{X}") # prints out name of current menu selected
+    print_empty_line_half()
+    print(f"{' ':<30}{X:<12}{'   Options':<{25}}{'Current':<22}{X}")
+    print(f"{' ':<30}{X:<12}{'1. Edit team name':<{25}}{team_to_edit.team_name:<22}{X}")
+    print(f"{' ':<30}{X:<12}{'2. Change association':<{25}}{team_to_edit.association_name:<22}{X}")
+    print(f"{' ':<30}{X:<12}{'3. Change captain':<{25}}{team_to_edit.captain_name:<22}{X}")
+    print_empty_line_half()
+    print(f"{' ':<30}{X:<12}{BACK[0]:<{47}}{X}")
+    print_border_half()
+    print("\033[0m")
 
+def small_menu_setup(team_to_edit: classmethod):
+    clear_screen()
+    print("\033[1;33;40m", end="")
+    print_border_half()
+    print_empty_line_half()
+    print(f"{' ':30}{X}{'Assigned players to team -> ' + team_name:^{HALF_WIDTH-2}}{X}") # prints out name of current menu selected
+    print_empty_line_half()
+    print(f"{' ':<30}{X:<15}{'1. ' + players[0]:<{44}}{X}")
+    print_empty_line_half()
+    print_empty_line_half()
+    print_empty_line_half()
+    print_empty_line_half()
+    print_border_half()
+    print("\033[0m")
 # print_current_team_player_list(["joi joa",  "siggi sigg", "benni bull"], "eitthvað")
+
+                           
