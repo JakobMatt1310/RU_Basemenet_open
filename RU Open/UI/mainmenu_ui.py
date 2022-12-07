@@ -17,7 +17,7 @@ class MainMenu_UI:
                     "Teams": ">>> Select teams to view all registered teams", 
                     "Association": ">>> View all registered associations", 
                     "Statistics": ">>> View statistics for teams and players", 
-                    "Tournaments": ">>> View all registered yournaments"}    
+                    "Tournaments": ">>> View all registered Tournaments"}    
     def __init__(self):
         self.logic_wrapper = Logic_Wrapper()
 
