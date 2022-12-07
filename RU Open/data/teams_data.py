@@ -17,7 +17,7 @@ class Teams_Data():
 
     def create_team(self, team):
         '''Creates a new team in the file'''
-        team.id = len(self.read_all_teams()) + 1
+        team.id = str(len(self.read_all_teams()) + 1)
         with open(self.file_name, 'a', newline='', encoding="utf-8") as csvfile:
             fieldnames = ["id", "name", "association", "captain", "association_id"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -29,6 +29,7 @@ class Teams_Data():
 
     def update_team_name(self, team_to_edit):
         '''Updates team name'''
+        found = False
         new_team_name = team_to_edit.team_name
         read_all_teams = self.read_all_teams()
         with open(self.file_name, 'w', newline='', encoding="utf-8") as csvfile:
@@ -38,15 +39,18 @@ class Teams_Data():
             for team in read_all_teams:
                 if team.id == team_to_edit.id:
                     team.team_name = new_team_name
+                    found = True
                 writer.writerow({'id': team.id,
                                 'name': team.team_name,
                                 'association': team.association_name,
                                 'captain': team.captain_name,
                                 'association_id': team.association_id})
-        return True
+                if found == True:
+                    return found
 
     def update_team_association(self, team_to_edit):
         '''Updates team association'''
+        found = False
         new_association = team_to_edit.association_name
         read_all_teams = self.read_all_teams()
         with open(self.file_name, 'w', newline='', encoding="utf-8") as csvfile:
@@ -56,15 +60,18 @@ class Teams_Data():
             for team in read_all_teams:
                 if team.id == team_to_edit.id:
                     team.association_name = new_association
+                    found = True
                 writer.writerow({'id': team.id,
                                 'name': team.team_name,
                                 'association': team.association_name,
                                 'captain': team.captain_name,
                                 'association_id': team.association_id})
-        return True
+                if found == True:
+                    return found
 
     def update_team_captain(self, team_to_edit):
         '''Updates team captain'''
+        found = False
         new_captain = team_to_edit.captain_name
         read_all_teams = self.read_all_teams()
         with open(self.file_name, 'w', newline='', encoding="utf-8") as csvfile:
@@ -74,9 +81,11 @@ class Teams_Data():
             for team in read_all_teams:
                 if team.id == team_to_edit.id:
                     team.captain_name = new_captain
+                    found = True
                 writer.writerow({'id': team.id,
                                 'name': team.team_name,
                                 'association': team.association_name,
                                 'captain': team.captain_name,
                                 'association_id': team.association_id})
-        return True
+                if found == True:
+                    return found

@@ -129,7 +129,7 @@ class Teams_UI:
                     if success == True:
                         print(f"Team captain has successfully been updated to {new_captain}")
                         input("Press enter to return: ")
-                        return
+                        return "back"
                     else:
                         print("Team name failed to update, try again. ")
                 
@@ -164,9 +164,14 @@ class Teams_UI:
             selection = input("Select player to be captain for team: ")
             if selection == "1" or selection == "2" or selection == "3" or selection == "4":
                 team.captain_name = player_list[int(selection)-1]
-                break
+                success = self.logic_wrapper.update_team_captain(team)
+                if success == True:
+                    return "back"
+                else:
+                    print("Team not found, an error has occoured")
+                    return
             else:
-                print("Invalid input, please try again (A captain must be chosen")
+                print("Invalid input, please try again (A captain must be chosen)")
 
     def new_team_name(self, rename=0):
         while True:
