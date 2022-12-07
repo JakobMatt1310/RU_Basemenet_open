@@ -1,6 +1,6 @@
 #import os
 import csv
-from model.player import Player
+from Model.player import Player
 #_location_ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 class Player_Data():

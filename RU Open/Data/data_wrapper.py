@@ -1,8 +1,8 @@
-from data.user_data import User_Data
-from data.player_data import Player_Data
-from data.tournaments_data import Tournaments_Data
-from data.associations_data import Associations_Data
-from data.teams_data import Teams_Data
+from Data.user_data import User_Data
+from Data.player_data import Player_Data
+from Data.tournaments_data import Tournaments_Data
+from Data.associations_data import Associations_Data
+from Data.teams_data import Teams_Data
 
 class Data_Wrapper():
     def __init__(self):

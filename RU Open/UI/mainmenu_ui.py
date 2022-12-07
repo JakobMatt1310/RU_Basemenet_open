@@ -1,13 +1,13 @@
 
 # from player_model_dummy import Player
-from ui.moderator_menu.moderator_ui import Moderator_UI
+from UI.moderator_menu.moderator_ui import Moderator_UI
 # from captain_menu.captain_ui import Captain_UI
 # from teams_ui import Teams_View_UI
-from ui.moderator_menu.association_menu.association_ui import Association_UI
+from UI.moderator_menu.association_menu.association_ui import Association_UI
 # from statistics_ui import Statistics_UI
-from ui.moderator_menu.tournament_menu.tournament_ui import Tournament_UI
-from logic.logic_wrapper import Logic_Wrapper
-from ui.print_layouts import print_current_menu, view_association, view_players, view_teams
+from UI.moderator_menu.tournament_menu.tournament_ui import Tournament_UI
+from Logic.logic_wrapper import Logic_Wrapper
+from UI.print_layouts import print_current_menu, view_association, view_players, view_teams
 
 class MainMenu_UI:
     Menu_selection = {"Current Menu": "Main Menu", 

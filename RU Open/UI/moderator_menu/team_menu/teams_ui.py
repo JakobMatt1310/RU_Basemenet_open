@@ -1,11 +1,11 @@
-from model.player import Player
+from Model.player import Player
 import time
-from ui.print_layouts import (  print_current_menu, 
+from UI.print_layouts import (  print_current_menu, 
                                 print_current_team_player_list, 
                                 view_teams, 
                                 print_edit_menu_team )
-from model.team import Team
-from ui.input_validators import *
+from Model.team import Team
+from UI.input_validators import *
 
 class Teams_UI:
     Menu_selection = {"Current Menu": "Team Menu", 

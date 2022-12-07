@@ -1,6 +1,6 @@
 # from data.player_data import Player_Data
 # from model.player import Player
-from logic.team_logic import Team_Logic
+from Logic.team_logic import Team_Logic
 
 
 class Player_Logic:

@@ -1,8 +1,8 @@
-from model.association import Association
-from model.team import Team
-from logic.logic_wrapper import Logic_Wrapper
-from ui.print_layouts import *
-from ui.input_validators import *
+from Model.association import Association
+from Model.team import Team
+from Logic.logic_wrapper import Logic_Wrapper
+from UI.print_layouts import *
+from UI.input_validators import *
 
 class Association_UI:
     Menu_selection = {"Current Menu": "Associations", 

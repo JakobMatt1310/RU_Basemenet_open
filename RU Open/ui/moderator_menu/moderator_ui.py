@@ -1,10 +1,10 @@
 # from logic.player_logic import Player_Logic
-from ui.moderator_menu.tournament_menu.tournament_ui import Tournament_UI
-from ui.moderator_menu.team_menu.teams_ui import Teams_UI
-from ui.moderator_menu.association_menu.association_ui import Association_UI
-from model.player import Player
-from ui.input_validators import *
-from ui.print_layouts import print_current_menu
+from UI.moderator_menu.tournament_menu.tournament_ui import Tournament_UI
+from UI.moderator_menu.team_menu.teams_ui import Teams_UI
+from UI.moderator_menu.association_menu.association_ui import Association_UI
+from Model.player import Player
+from UI.input_validators import *
+from UI.print_layouts import print_current_menu
 
 class Moderator_UI:
     Moderator_menu = {"Current Menu": "Moderator Menu", 

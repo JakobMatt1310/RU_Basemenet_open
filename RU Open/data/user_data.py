@@ -1,6 +1,6 @@
 # import os
 import csv
-from model.user import User
+from Model.user import User
 
 class User_Data():
     def __init__(self):
