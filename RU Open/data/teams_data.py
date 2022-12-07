@@ -45,8 +45,8 @@ class Teams_Data():
                                 'association': team.association_name,
                                 'captain': team.captain_name,
                                 'association_id': team.association_id})
-                if found == True:
-                    return found
+            if found == True:
+                return found
 
     def update_team_association(self, team_to_edit):
         '''Updates team association'''
@@ -66,8 +66,8 @@ class Teams_Data():
                                 'association': team.association_name,
                                 'captain': team.captain_name,
                                 'association_id': team.association_id})
-                if found == True:
-                    return found
+            if found == True:
+                return found
 
     def update_team_captain(self, team_to_edit):
         '''Updates team captain'''
@@ -87,5 +87,5 @@ class Teams_Data():
                                 'association': team.association_name,
                                 'captain': team.captain_name,
                                 'association_id': team.association_id})
-                if found == True:
-                    return found
+            if found == True:
+                return found
