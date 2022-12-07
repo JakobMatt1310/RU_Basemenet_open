@@ -1,7 +1,7 @@
 
 # from player_model_dummy import Player
 from ui.moderator_menu.moderator_ui import Moderator_UI
-# from captain_menu.captain_ui import Captain_UI
+from ui.moderator_menu.captain.captain_ui import Captain_UI
 # from teams_ui import Teams_View_UI
 # # from association_ui import Association_UI
 # from statistics_ui import Statistics_UI
@@ -36,11 +36,11 @@ class MainMenu_UI:
                 back_method = menu.input_prompt()
                 if back_method == "q":
                     return "q"
-            # elif command == "2":
-            #     menu = Captain_UI(self.logic_wrapper)
-            #     back_method = menu.input_prompt()
-            #     if back_method == "q":
-            #         return "q"
+            elif command == "2":
+                menu = Captain_UI(self.logic_wrapper)
+                back_method = menu.input_prompt()
+                if back_method == "q":
+                    return "q"
             elif command == "3":
                 players = self.logic_wrapper.get_all_players()
                 teams = self.logic_wrapper.team_id_for_player()

@@ -33,4 +33,4 @@ class Teams_Data():
     def update_team_captain(self, team_to_edit):
         '''Updates teams captain'''
         print(team_to_edit)
-        return team_to_edit, True
+        return True

@@ -243,7 +243,7 @@ def edit_association_only_menu(association: classmethod, teams: list):
     print_border()
     return input("\033[0mEnter selection and press enter: ")
 
-def print_current_team_player_list(players: list, team_name: str):
+def print_current_team_player_list(players: list, team: classmethod):
     """Previews the players that will be added to current team
 
     Args:
@@ -254,7 +254,8 @@ def print_current_team_player_list(players: list, team_name: str):
     print("\033[1;33;40m", end="")
     print_border_half()
     print_empty_line_half()
-    print(f"{' ':30}{X}{'Assigned players to team -> ' + team_name:^{HALF_WIDTH-2}}{X}") # prints out name of current menu selected
+    print(f"{' ':30}{X}{'Association -> ' + team.association_name:^{HALF_WIDTH-2}}{X}") # prints out name of current menu selected
+    print(f"{' ':30}{X}{'Assign players to -> ' + team.team_name:^{HALF_WIDTH-2}}{X}") # prints out name of current menu selected
     print_empty_line_half()
     if len(players) == 1:
         print(f"{' ':<30}{X:<15}{'1. ' + players[0]:<{44}}{X}")

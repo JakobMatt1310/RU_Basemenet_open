@@ -12,7 +12,7 @@ class Teams_UI:
                     "Create Team": ">>> Create a team within a chosen association", 
                     "Edit Team": ">>> Select to edit team", 
                     "View Teams": ">>> Lists all teams"}    
-                    # "View Teams": ">>> Shows the list of every team below their respected associations"}    
+                    
     def __init__(self, logic_connection):
         self.logic_wrapper = logic_connection
 
@@ -69,17 +69,14 @@ class Teams_UI:
             if confirm_name == 'yes':
                 team_to_edit.team_name = new_team_name
                 success = self.logic_wrapper.update_team_name(team_to_edit)
-                if success == True:
-                    print(f"Team name has successfully been updated to {new_team_name}")
-                    input("Press enter to return: ")
-                    return "back"
+                if success != True:
+                    print("An error occurred, try again. ")
                 else:
-                    print("Team name failed to update, try again or go back")
+                    return "back"
             elif confirm_name =='no':
                 return self.back_command()
             else:
                 print('Invalid input, please answer with "yes" or "no"')
-    
           
     def change_team_association(self, team_to_edit):
         while True:
@@ -103,8 +100,11 @@ class Teams_UI:
                         confirm_association = input(f"Change team association to -> {new_association.association_name}. Confirm (yes/no): ").lower()
                         if confirm_association == 'yes':
                             team_to_edit.association_id, team_to_edit.association_name = new_association.id, new_association.association_name
-                            self.logic_wrapper.update_team_association(team_to_edit)
-                            return "back"
+                            success = self.logic_wrapper.update_team_association(team_to_edit)
+                            if success != True:
+                                print("An error occurred, try again. ")
+                            else:
+                                return "back"
                         elif confirm_association =='no':
                             return self.back_command()
                     else:
@@ -126,26 +126,24 @@ class Teams_UI:
                     new_captain = players_in_team[int(new_captain)-1].name
                     team_to_edit.captain_name = new_captain
                     success = self.logic_wrapper.update_team_captain(team_to_edit)
-                    if success == True:
-                        print(f"Team captain has successfully been updated to {new_captain}")
-                        input("Press enter to return: ")
-                        return
+                    if success != True:
+                        print("An error occurred, try again. ")
                     else:
-                        print("Team name failed to update, try again. ")
+                        return "back"
                 
                 else:
                     print(f"Invalid input, please enter a number within 1 to {len(players_in_team)} or c to cancel")
                 
-
     def create_new_team(self):
         """Creates a new team, when selected Moderator HAS to create a team, with all four players and a captain.
         """
         team = Team()
         team.team_name = self.new_team_name()
-        team.association_name = self.association_name()
+        all_associations = self.logic_wrapper.get_all_associations()
+        team.association_name, team.association_id = self.association_name(all_associations)
         
         self.logic_wrapper.create_team(team)
-        print_current_team_player_list([" "], team.team_name)
+        print_current_team_player_list([" "], team)
         player_list = []
         for i in range(4): # Moderator has to create 4 players and select a captain
             player = Player()
@@ -158,12 +156,14 @@ class Teams_UI:
                         
             self.logic_wrapper.create_player(player)
             player_list.append(player.name)
-            print_current_team_player_list(player_list, team.team_name)
+            print_current_team_player_list(player_list, team)
             
         while True:
             selection = input("Select player to be captain for team: ")
             if selection == "1" or selection == "2" or selection == "3" or selection == "4":
                 team.captain_name = player_list[int(selection)-1]
+                self.logic_wrapper.update_team_captain(team)
+                print("***************Team has been created****************")
                 break
             else:
                 print("Invalid input, please try again (A captain must be chosen")
@@ -183,25 +183,21 @@ class Teams_UI:
                 print("Something went wrong, please try again.")
         return team_name
                 
-    def association_name(self):
+    def association_name(self, associations):
+        for i, association in enumerate(associations, 1):
+            print(f"{i}. {association.association_name}")
         while True:
-            association_name = input("Enter the association this team should belong to (max 30 char): ")
+            selection = input("Enter the number of the association this teams should belong to:  ")
             try:
-                validate_association_name(association_name)
-                test = self.logic_wrapper.validate_association_name_with_all(association_name)
-                if test == True:
-                    break
-                else:
-                    print("Name already exists, please choose another name")
-            except TeamNameLengthException:
-                print("Name to long or to short")
+                selection = int(selection)
+                if 0 < selection <= len(associations):
+                    return associations[selection-1].association_name, associations[selection-1].id
+            except ValueError:
+                print(f"Invalid input, please enter a number between 1 and {len(associations)}")
             except:
                 print("Something went wrong, please try again.")
-        return association_name
-
 
 #---------------Player validation-------------------#
-
 
     def new_player_name(self):
         """Asks for player name until it's valid
