@@ -1,19 +1,5 @@
 class Tournament():
-<<<<<<< HEAD
     def __init__(self, tournament_name="", tournament_address="", organizer="", organizer_number="", start_date="", end_date=""):
-=======
-    def __init__(self, 
-                 tournament_name="", 
-                 tournament_address="", 
-                 start_date="", 
-                 end_date="", 
-                 game_count="", 
-                 teams_submitted="", 
-                 game_id="", 
-                 game_type="", 
-                 leg_nr="", 
-                 player_id=""):
->>>>>>> 0ef3cd102ce705ac7b3a713a4f47af662d3beab7
         '''Constructor for the Tournament class'''
         self.tournament_name = tournament_name          # Name of the tournament
         self.tournament_address = tournament_address    # Address of the tournament
