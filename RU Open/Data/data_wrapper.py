@@ -57,7 +57,8 @@ class Data_Wrapper():
 
 #------------------Update------------------------------------------#
     def update_team_captain(self, team_to_edit):
-        '''Updates '''
+        '''Updates teams captain'''
+        # print(self.team_data.update_team_captain(team_to_edit))
         return self.team_data.update_team_captain(team_to_edit)
 
 
