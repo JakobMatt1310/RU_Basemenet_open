@@ -13,3 +13,5 @@ class Match:
 
 oli = Match('1', '18', 'Stjarnan', 'Selfoss', '28.12.2022', '17:10')
 oli.function() 
+oli = Match('1', '18', 'Stjarnan', 'Selfoss')
+oli.function() 

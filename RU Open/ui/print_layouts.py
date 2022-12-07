@@ -243,6 +243,10 @@ def edit_association_only_menu(association: classmethod, teams: list):
     print_border()
     return input("\033[0mEnter selection and press enter: ")
 
+def view_tournaments(tournaments: None):
+    """Hér vil ég fá get all tournaments og......???"""
+    print('pleeeeehhh',tournaments)
+    
 def print_current_team_player_list(players: list, team_name: str):
     """Previews the players that will be added to current team
 

@@ -5,8 +5,22 @@ class Association_Logic:
         self.data_wrapper = data_connection
 
     def create_association(self, association):
-        self.data_wrapper.create_association(association)
-    
+        associations = self.data_wrapper.create_association(self, association)
+        association_input = association
+        if association_input in associations:
+            return ValueError
+        else:
+            self.data_wrapper.create_association(self, association)
+            return True
+
+    def team_in_association(self):
+        get_all_associations = self.get_all_associations()
+        ret_dict = {}
+        for ass in get_all_associations:
+            tmp_dict = {ass.id: ass.association_name}
+            ret_dict.update(tmp_dict)
+        return ret_dict
+
     def update_association(self):
         self.data_wrapper.update_association()
 
@@ -26,13 +40,13 @@ class Association_Logic:
                 return True
         return None
 
-    def get_association(self, association):
-        get_association = self.get_association()
-        association = []
-        for p in get_association:
-            if p.association_id == association.id:
-                association.append(p)
-        return association
+    def get_association(self):
+        get_association = self.data_wrapper.get_all_associations()
+        association_input = something
+        if association_input in get_association:
+            return association_input
+        else:
+            return ValueError
     
     def edit_association(self):
         self.data_wrapper.edit_association()

@@ -4,7 +4,6 @@ from logic.logic_wrapper import Logic_Wrapper
 from ui.print_layouts import *
 from ui.input_validators import *
 
-
 class Association_UI:
     Menu_selection = {"Current Menu": "Associations", 
                     "View Associations": ">>> Lists every association",

@@ -1,9 +1,9 @@
 from tournament_ui import Tournament
-from model.team import Team
-from model.player import Player
-from logic.logic_wrapper import Logic_Wrapper
-from ui.print_layouts import *
-from ui.input_validators import *
+from Model.team import Team
+from Model.player import Player
+from Logic.logic_wrapper import Logic_Wrapper
+from UI.print_layouts import *
+from UI.input_validators import *
 
 
 class Tournament_editing_UI:

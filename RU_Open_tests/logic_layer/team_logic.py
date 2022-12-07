@@ -13,9 +13,6 @@ class Team_Logic:
         else:
             self.data_wrapper.create_team(self, team)
             return True
-
-    def validate_team_entry(self):
-        return self.data_wrapper.validate_team_entry()
     
     def get_all_teams(self):
         return self.data_wrapper.get_all_teams()
@@ -55,14 +52,5 @@ class Team_Logic:
     def edit_team(self):
         self.data_wrapper.edit_team()
 
-    def view_team(self):
-        return self.data_wrapper.view_team()
-
-    def get_team_players(self):
-        return self.data_wrapper.get_team_players()
-
-    def view_team_players(self):
-        return self.data_wrapper.view_team_players()
-
-    def delete_team(self):
+    def remove_team(self):
         self.data_wrapper.delete_team()
