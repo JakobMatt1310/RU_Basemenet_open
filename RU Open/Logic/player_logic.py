@@ -21,7 +21,12 @@ class Player_Logic:
         return team_id_dict
 
     def get_all_players(self):
-        return self.data_wrapper.get_all_players()
+        all_players = self.data_wrapper.get_all_players()
+        player_list = []
+        for player in all_players:
+            if player.name != "":
+                player_list.append(player)
+                return player_list
     
     def update_player(self):
         self.data_wrapper.update_player()
@@ -37,7 +42,12 @@ class Player_Logic:
         return False
 
     def view_player(self):
-        return self.data_wrapper.view_player()
+        all_player = self.data_wrapper.get_all_players()
+        player_input = something
+        if player_input in all_player:
+            return player_input
+        else:
+            return ValueError
 
     def view_player_stats(self):
         return self.data_wrapper.view_player_stats()
@@ -52,4 +62,22 @@ class Player_Logic:
             if p.team_id == team.id:
                 players_of_team.append(p)
         return players_of_team
+    
+    def all_captains(self):
+        #líklega virkar ekki
+        all_teams = self.data_wrapper.read_all_teams(self)
+        all_players = self.get_all_players()
+        captain_list = []
+        captain_list_all = []
+        for captains in all_teams:
+            if captains.id != "":
+                captain_list.append(captains)
+
+        for c in captain_list:
+            if c in all_players:
+                captain_list_all.append(c)
+        return captain_list_all
+                
         
+
+            
