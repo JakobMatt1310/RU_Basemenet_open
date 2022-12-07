@@ -4,7 +4,6 @@ from logic.logic_wrapper import Logic_Wrapper
 from ui.print_layouts import print_current_menu
 from ui.input_validators import *
 
-
 class Tournament_UI:
     Menu_selection = {"Current Menu": "Tournament",
                     "View Tournaments": ">>> Lists all tournaments",
@@ -20,16 +19,20 @@ class Tournament_UI:
         while True:
             self.menu_output()
             command = input("Enter your command: ").lower()
+
             if command == "b":
                 return
+
             if command == "q":
                 print("Goodbye")
                 return "q"
+
             elif command == "1":
                 return self.logic_wrapper.get_all_tournaments()
                 
             elif command == "2":
                 tournament = Tournament()
+
                 while True:
                     tournament.tournament_name = input("Enter the name of the tournament: ")
                     tournament.tournament_address = input("Enter the address of the tournament: ")
@@ -45,9 +48,11 @@ class Tournament_UI:
                         print("Something went wrong, please try again")
                 
                 self.logic_wrapper.create_tournament(tournament)
+
             elif command == "3":
                 print("edit the tournament")
                 pass
+
             elif command == "4":
                 self.logic_wrapper.remove_tournament(tournament)
                 
