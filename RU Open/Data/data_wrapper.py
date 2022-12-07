@@ -78,24 +78,24 @@ class Data_Wrapper():
 
 
 
-# #------------------Main--------------------------------------------#
-# def main_data():
-#     '''Main function for the data wrapper in data layer'''
-#     data_class_user = User_Data()
-#     res_user = data_class_user.read_all_users()
+#------------------Main--------------------------------------------#
+def main_data():
+    '''Main function for the data wrapper in data layer'''
+    data_class_user = User_Data()
+    res_user = data_class_user.read_all_users()
 
-#     data_class_player = Player_Data()
-#     res_player = data_class_player.read_all_players()
+    data_class_player = Player_Data()
+    res_player = data_class_player.read_all_players()
 
-#     data_class_tournament = Tournaments_Data()
-#     res_tournament = data_class_tournament.read_all_tournaments()
+    data_class_tournament = Tournaments_Data()
+    res_tournament = data_class_tournament.read_all_tournaments()
 
-#     data_class_association = Associations_Data()
-#     res_association = data_class_association.read_all_associations()
+    data_class_association = Associations_Data()
+    res_association = data_class_association.read_all_associations()
 
-#     data_class_teams = Teams_Data()
-#     res_teams = data_class_teams.read_all_teams()
+    data_class_teams = Teams_Data()
+    res_teams = data_class_teams.read_all_teams()
 
 
-# if main_data() == '__main__':
-#     main_data()
+if main_data() == '__main__':
+    main_data()
