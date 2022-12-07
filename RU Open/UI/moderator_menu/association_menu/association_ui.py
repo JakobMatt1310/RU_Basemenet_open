@@ -27,8 +27,10 @@ class Association_UI:
                 print("Goodbye")
                 return "q"
             elif command == "1":
-                self.logic_wrapper.get_all_associations()
-                return
+                associations_all = self.logic_wrapper.get_all_associations()
+                teams_no = self.logic_wrapper.teams_in_association()
+                view_association(associations_all, teams_no)
+
             elif command == "2":
                 association = Association()
                 while True:
@@ -37,16 +39,16 @@ class Association_UI:
                     association.association_address = input("Enter the address of the association: ")
                     try:
                         validate_association_name(association.association_name)
-                        check_phone_length(association.association_phone)
-                        check_phone_isdigit(association.association_phone)
+                        # check_phone_length(association.association_phone)
+                        # check_phone_isdigit(association.association_phone)
                         
                         break
                     except AssociationNameLengthException:
                         print("name was too long")
-                    except PhoneNumberCharacterException:
-                        print("The phone number can only consist of NUMBERS and no other characters.")
-                    except PhoneNumberLengthException:
-                        print("Phone number length invalid, the phone number must be a 7 digit number.")
+                    # except PhoneNumberCharacterException:
+                    #     print("The phone number can only consist of NUMBERS and no other characters.")
+                    # except PhoneNumberLengthException:
+                    #     print("Phone number length invalid, the phone number must be a 7 digit number.")
                     except:
                         print("some error")
                 

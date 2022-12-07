@@ -3,7 +3,7 @@
 from ui.moderator_menu.moderator_ui import Moderator_UI
 # from captain_menu.captain_ui import Captain_UI
 # from teams_ui import Teams_View_UI
-# # from association_ui import Association_UI
+from ui.moderator_menu.association_menu.association_ui import Association_UI
 # from statistics_ui import Statistics_UI
 from ui.moderator_menu.tournament_menu.tournament_ui import Tournament_UI
 from logic.logic_wrapper import Logic_Wrapper
