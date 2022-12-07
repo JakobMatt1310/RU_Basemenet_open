@@ -6,7 +6,7 @@ class Tournament_Logic:
         self.data_wrapper = data_connection
     
     def create_tournament(self, tournament):
-        tournaments = self.data_wrapper.get_all_tournaments(self, tournament)
+        tournaments = self.data_wrapper.get_all_tournaments()
         tournament_input = tournament
         if tournament_input in tournaments:
             return ValueError
