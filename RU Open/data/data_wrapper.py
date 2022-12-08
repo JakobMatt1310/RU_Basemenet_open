@@ -3,7 +3,7 @@ from data.player_data import Player_Data
 from data.tournaments_data import Tournaments_Data
 from data.associations_data import Associations_Data
 from data.teams_data import Teams_Data
-# from data.rounds_data import Rounds_Data
+from data.rounds_data import Rounds_Data
 from data.moderator_data import Mod_password
 
 class Data_Wrapper():
@@ -14,7 +14,7 @@ class Data_Wrapper():
         self.tournament_data = Tournaments_Data()
         self.association_data = Associations_Data()
         self.team_data = Teams_Data()
-        # self.rounds_data = Rounds_Data()
+        self.rounds_data = Rounds_Data()
         self.mod_password = Mod_password()
         
 
@@ -42,6 +42,10 @@ class Data_Wrapper():
     def get_all_teams(self):
         '''Gets all teams'''
         return self.team_data.read_all_teams()
+
+    def get_all_rounds(self):
+        '''Gets all rounds'''
+        return self.rounds_data.read_all_rounds()
 
 #------------------Create------------------------------------------#
     def create_user(self, user):
