@@ -2,74 +2,74 @@ import csv
 from model.round import Round
 
 class Rounds_Data():
+    round_counter = 1
+
     def __init__(self):
         self.file_name = "RU Open/files/teams.csv"
+        Rounds_Data.round_counter += 1
+        self.round_count = Rounds_Data.round_counter
 
-    def read_all_rounds():
-        pass
+    def read_all_rounds(self):
+        '''Reads all rounds from file'''
+        ret_list = []
+        with open(self.file_name, newline='', encoding="utf-8") as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                ret_list.append(Round(row['match_id'],
+                                       row["round_nr"],
+                                       row["gamemode"],
+                                       row["home_leg1"],
+                                       row["home_leg2"], 
+                                       row["away_leg1"], 
+                                       row['away_leg2'],
+                                       row["home_player1"],
+                                       row["home_player2"],
+                                       row["home_player3"],
+                                       row["home_player4"],
+                                       row["away_player1"],
+                                       row["away_player2"],
+                                       row["away_player3"],
+                                       row["away_player4"]))
+        return ret_list
     
-    def create_round(self, round: Round):
+    def create_round(self, round):
         '''Adds each round numbered 1-7 to the file'''
+        round.round_nr = self.round_count
         with open(self.file_name, 'a', newline='', encoding="utf-8") as csvfile:
-            fieldnames = ["match_id", 
-                            "round_nr", 
-                            "gamemode", 
-                            "home_p1", 
-                            "home_p2", 
-                            "home_p3", 
-                            "home_p4", 
-                            "home_leg1", 
+            fieldnames = ["match_id",
+                            "round_nr",
+                            "gamemode",
+                            "home_leg1",
                             "home_leg2",
-                            "away_leg1", 
-                            "away_leg2", 
-                            "away_p1", 
-                            "away_p2", 
-                            "away_p3", 
-                            "away_p4"]
+                            "away_leg1",
+                            "away_leg2",
+                            "home_player1",
+                            "home_player2",
+                            "home_player3",
+                            "home_player4",
+                            "away_player1",
+                            "away_player2",
+                            "away_player3",
+                            "away_player4"]
+
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-            for nr in range(1,8):
-                round.round_nr = str(nr)
-                writer.writerow({'match_id': round.match_id,
-                                'round_nr': round.round_nr,
-                                'gamemode': round.gamemode,
-                                'home_p1': round.home_p1,
-                                'home_p2': round.home_p2,
-                                'home_p3': round.home_p3,
-                                'home_p4': round.home_p4,
-                                'home_leg1': round.home_leg1,
-                                'home_leg2': round.home_leg2,
-                                'away_leg1': round.away_leg1,
-                                'away_leg2': round.away_leg2,
-                                'away_p1': round.away_p1,
-                                'away_p2': round.away_p2,
-                                'away_p3': round.away_p3,
-                                'away_p4': round.away_p4})
-                    
-                # writer.writerow({   'match_id': round.round_nr,
-                #                     'gamemode': round.gamemode,
-                #                     'home_p1': round.home_p1, 
-                #                     'home_p2': round.home_p2, 
-                #                     'home_p3': round.home_p3, 
-                #                     'home_p4': round.home_p4, 
-                #                     'home_leg1': round.home_leg1, 
-                #                     'home_leg2': round.home_leg2, 
-                #                     'away_leg1': round.away_leg1, 
-                #                     'away_leg2': round.away_leg2, 
-                #                     'away_p1': round.away_p1, 
-                #                     'away_p2': round.away_p2, 
-                #                     'away_p3': round.away_p3, 
-                #                     'away_p4': round.away_p4})
+
+            writer.writerow({'match_id': round.match_id,
+                            'round_nr': round.round_nr,
+                            'gamemode': round.gamemode,
+                            'home_player1': round.home_player1,
+                            'home_player2': round.home_player2,
+                            'home_player3': round.home_player3,
+                            'home_player4': round.home_player4,
+                            'home_leg1': round.home_leg1,
+                            'home_leg2': round.home_leg2,
+                            'away_leg1': round.away_leg1,
+                            'away_leg2': round.away_leg2,
+                            'away_player1': round.away_player1,
+                            'away_player2': round.away_player2,
+                            'away_player3': round.away_player3,
+                            'away_player4': round.away_player4})
 
     def updte_round(self, round_info_update):
         '''Udates round information'''
         pass
-    
-    
-# roundin eiga að vera með counter,    
-# sem telja upp frá 1 til 7, 
-# þegar komið er yfir 7 á að byrja aftur í 1
-
-
-# gera strax ráð fyrir update falli, fyrir moderator
-
-
