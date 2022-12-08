@@ -90,6 +90,14 @@ class Logic_Wrapper:
     def edit_association(self):
         return self.association_logic.edit_association()
     
+    def update_association_name(self, association_to_edit):
+        return self.association_logic.update_association_name(association_to_edit)
+
+    def update_association_phone(self, association_to_edit):
+        return self.association_logic.update_association_phone(association_to_edit)
+
+    def update_association_address(self, association_to_edit):
+        return self.association_logic.update_association_address(association_to_edit)
 
 #------------------statistic_Logic------------------------------------#
     # def get_win_percentage(self):

@@ -79,5 +79,121 @@ class Association_UI:
             if return_command != "back":
                  association_to_edit = input("Please type the name of the Association you wish to edit: ")
                  association_to_edit = self.logic_wrapper.get_association(association_to_edit)
-                 print(association_to_edit)
+                 #print(association_to_edit)
+            else:
+                return_command = ""
+            if association_to_edit != None:
+                edit_info = edit_association_only_menu(association_to_edit)
+                if edit_info == 'b':
+                    print("Going back")
+                    return
+                elif edit_info == "1":
+                    return_command = self.change_association_name(association_to_edit)
+                elif edit_info == "2":
+                    return_command = self.change_association_phone(association_to_edit)
+                elif edit_info == "3":
+                    return_command = self.change_association_address(association_to_edit)
                
+
+    def change_association_name(self, association_to_edit):
+        new_association_name = self.new_association_name(1)
+        confirm_name = input(f"The team will be renamed {new_association_name}. Would you like to confirm (yes/no)?  ").lower()
+        while True:
+            if confirm_name == 'yes':
+                association_to_edit.association_name = new_association_name
+                success = self.logic_wrapper.update_association_name(association_to_edit)
+                if success == True:
+                    print(f"Association name has successfully been updated to {new_association_name}")
+                    input("Press enter to return: ")
+                    return "back"
+                else:
+                    print("Association name failed to update, try again or go back")
+            elif confirm_name =='no':
+                return self.back_command()
+            else:
+                print('Invalid input, please answer with "yes" or "no"')
+
+    
+    def change_association_phone(self, association_to_edit: Association):
+        new_association_phone = self.new_association_phone(1)
+        confirm_name = input(f"The phone number will be changed to {new_association_phone}. Would you like to confirm (yes/no)?  ").lower()
+        while True:
+            if confirm_name == 'yes':
+                association_to_edit.association_phone = new_association_phone
+                success = self.logic_wrapper.update_association_phone(association_to_edit)
+                if success == True:
+                    print(f"Association phone number has successfully been updated to {new_association_phone}")
+                    input("Press enter to return: ")
+                    return "back"
+                else:
+                    print("Association phone failed to update, try again or go back")
+            elif confirm_name =='no':
+                return self.back_command()
+            else:
+                print('Invalid input, please answer with "yes" or "no"')
+
+    
+    def change_association_address(self, association_to_edit: Association):
+        new_association_address = self.new_association_address(1)
+        confirm_name = input(f"The address will be changed to {new_association_address}. Would you like to confirm (yes/no)?  ").lower()
+        while True:
+            if confirm_name == 'yes':
+                association_to_edit.association_address = new_association_address
+                success = self.logic_wrapper.update_association_address(association_to_edit)
+                if success == True:
+                    print(f"Association address has successfully been updated to {new_association_address}")
+                    input("Press enter to return: ")
+                    return "back"
+                else:
+                    print("Association address failed to update, try again or go back")
+            elif confirm_name =='no':
+                return self.back_command()
+            else:
+                print('Invalid input, please answer with "yes" or "no"')
+
+
+
+    def new_association_name(self, rename=0):
+        while True:
+            if rename == 0:            
+                association_name = input("Enter the name of the association (max 30 char): ")
+            else:
+                association_name = input("Enter the desired new name for the association (max 30 char): ")
+            try:
+                validate_association_name(association_name)
+                break
+            except AssociationNameLengthException:
+                print("Name was too long or to short")
+            except:
+                print("Something went wrong, please try again.")
+        return association_name
+
+    def new_association_phone(self, rename=0):
+        while True:
+            if rename == 0:            
+                association_phone = input("Enter the phone of the association (max 30 char): ")
+            else:
+                association_phone = input("Enter the desired new phone for the association (max 30 char): ")
+            try:
+                validate_phonenumber(association_phone)
+                break
+            except PhoneNumberException:
+                print("Phone number length incorrect.")
+            except:
+                print("Something went wrong, please try again.")
+        return association_phone
+
+    def new_association_address(self, rename=0):
+        while True:
+            if rename == 0:            
+                association_address = input("Enter the address of the association (max 30 char): ")
+            else:
+                association_address = input("Enter the desired new address for the association (max 30 char): ")
+            try:
+                validate_home_address(association_address)
+                break
+            except HomeAddressException:
+                print("Illegal home address.")
+            except:
+                print("Something went wrong, please try again.")
+        return association_address

@@ -92,6 +92,16 @@ class Data_Wrapper():
     
     def update_match(self, match):
         return self.match_data.update_match(match)
+        
+    def update_association_name(self, association_to_update):
+        return self.association_data.update_association_name(association_to_update)
+    
+    def update_association_phone(self, association_to_update):
+        return self.association_data.update_association_phone(association_to_update)
+
+    def update_association_address(self, association_to_update):
+        return self.association_data.update_association_address(association_to_update)
+
 
 
 
