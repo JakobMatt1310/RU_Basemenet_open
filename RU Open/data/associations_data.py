@@ -19,7 +19,7 @@ class Associations_Data():
                                             row["address"]))
         return ret_list
 
-    def create_association(self, association):
+    def create_association(self, association: Association):
         '''Creates a new association in the file'''
         association.id = len(self.read_all_associations()) + 1    
         with open(self.file_name, 'a', newline='', encoding="utf-8") as csvfile:
@@ -30,6 +30,6 @@ class Associations_Data():
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
             writer.writerow({'id': association.id,
-                             'name': association.name,
-                             'phone': association.phone,
-                             'address': association.address})
+                             'name': association.association_name,
+                             'phone': association.association_phone,
+                             'address': association.association_address})

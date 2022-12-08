@@ -5,12 +5,12 @@ class Association_Logic:
         self.data_wrapper = data_connection
 
     def create_association(self, association):
-        associations = self.data_wrapper.create_association(self, association)
+        associations = self.data_wrapper.get_all_associations()
         association_input = association
         if association_input in associations:
             return ValueError
         else:
-            self.data_wrapper.create_association(self, association)
+            self.data_wrapper.create_association(association)
             return True
 
     def team_in_association(self):
@@ -42,7 +42,7 @@ class Association_Logic:
 
     def get_association(self):
         get_association = self.data_wrapper.get_all_associations()
-        association_input = something
+        association_input = "2"
         if association_input in get_association:
             return association_input
         else:
