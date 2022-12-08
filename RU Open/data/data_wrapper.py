@@ -3,8 +3,9 @@ from data.player_data import Player_Data
 from data.tournaments_data import Tournaments_Data
 from data.associations_data import Associations_Data
 from data.teams_data import Teams_Data
-from data.rounds_data import Rounds_Data
+# from data.rounds_data import Rounds_Data
 from data.moderator_data import Mod_password
+from data.match_data import Match_Data
 
 class Data_Wrapper():
     def __init__(self):
@@ -14,14 +15,15 @@ class Data_Wrapper():
         self.tournament_data = Tournaments_Data()
         self.association_data = Associations_Data()
         self.team_data = Teams_Data()
-        self.rounds_data = Rounds_Data()
-        self.mod_password = Mod_password()
+        # self.rounds_data = Rounds_Data()
+        self.mod_password_data = Mod_password()
+        self.match_data = Match_Data
         
 
 #------------------Get---------------------------------------------#
 
     def get_moderator_password(self):
-        return self.mod_password.read_password()
+        return self.mod_password_data.read_password()
 
     def get_all_users(self):
         '''Gets all users'''
@@ -42,10 +44,9 @@ class Data_Wrapper():
     def get_all_teams(self):
         '''Gets all teams'''
         return self.team_data.read_all_teams()
-
-    def get_all_rounds(self):
-        '''Gets all rounds'''
-        return self.rounds_data.read_all_rounds()
+    
+    def get_all_matches(self):
+        return self.match_data.read_all_matches()
 
 #------------------Create------------------------------------------#
     def create_user(self, user):
@@ -67,6 +68,9 @@ class Data_Wrapper():
     def create_team(self, team):
         '''Creates a new team'''
         return self.team_data.create_team(team)
+    
+    def create_match(self, match):
+        return self.match_data.create_match(match)
 
 #------------------Update------------------------------------------#
     def update_team_captain(self, team_to_edit):
@@ -94,7 +98,10 @@ class Data_Wrapper():
     
     def update_password(self, password):
         '''Updates password'''
-        return self.mod_password.update_password(password)
+        return self.mod_password_data.update_password(password)
+    
+    def update_match(self, match):
+        return self.match_data.update_match(match)
 
 
 

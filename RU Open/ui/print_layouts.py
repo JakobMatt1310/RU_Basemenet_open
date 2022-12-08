@@ -78,8 +78,6 @@ def print_current_menu(dict_to_print: dict):
     clear_screen()
     print("\033[1;32;40m", end="")
     menu_name = dict_to_print['Current Menu']
-    back = ["b. Go back", ">>> To go back to previous Menu"]
-    quit_prog = ["q. Quit Program", ">>> Select if you want to quit program"]
     print_border()
     print_empty_line()
     print(f"{X}{menu_name:^{WIDTH-2}}{X}") # prints out name of current menu selected
@@ -93,7 +91,7 @@ def print_current_menu(dict_to_print: dict):
     
     print_empty_line()
     if values[0] != "Main Menu": # Do not display go back if current menu is main menu
-        print(f"{X:<{MENU_PAD}}{back[0]:<{MENU_LEN}}{back[1]:<{MENU_LEN}}{X:>{MENU_PAD}}")
+        print(f"{X:<{MENU_PAD}}{BACK[0]:<{MENU_LEN}}{BACK[1]:<{MENU_LEN}}{X:>{MENU_PAD}}")
     print(f"{X:<{MENU_PAD}}{QUIT_PROG[0]:<{MENU_LEN}}{QUIT_PROG[1]:<{MENU_LEN}}{X:>{MENU_PAD}}")
     
     print_empty_line()

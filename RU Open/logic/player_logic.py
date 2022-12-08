@@ -1,5 +1,3 @@
-# from data.player_data import Player_Data
-# from model.player import Player
 
 
 class Player_Logic:

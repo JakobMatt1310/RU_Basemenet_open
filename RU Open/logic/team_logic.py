@@ -1,5 +1,4 @@
-from data.teams_data import Teams_Data
-from model.team import Team
+
 
 class Team_Logic:
     def __init__(self, data_connection):

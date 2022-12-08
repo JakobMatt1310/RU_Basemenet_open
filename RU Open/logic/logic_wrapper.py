@@ -5,6 +5,7 @@ from logic.team_logic import Team_Logic
 from logic.tournament_logic import Tournament_Logic
 from data.data_wrapper import Data_Wrapper
 from logic.mod_pass_logic import Mod_Pass_Logic
+from logic.match_logic import Match_logic
 
 class Logic_Wrapper:
     def __init__(self):
@@ -15,6 +16,7 @@ class Logic_Wrapper:
         self.team_logic = Team_Logic(self.data_wrapper)
         self.tournament_logic = Tournament_Logic(self.data_wrapper)
         self.mod_pass_logic = Mod_Pass_Logic(self.data_wrapper)
+        self.match_logic = Match_logic(self.data_wrapper)
         
 #------------------mod_pass_Logic----------------------------------#
     def get_moderator_password(self):
@@ -22,6 +24,16 @@ class Logic_Wrapper:
     
     def update_password(self, password):
         return self.mod_pass_logic.update_password(password)    
+
+#------------------match_Logic-------------------------------------#
+    def create_match (self, match):
+        return self.match_logic.create_match(match)    
+    
+    def update_match(self, password):
+        return self.match_logic.update_match(password)    
+    
+    def get_all_matches(self):
+        return self.match_logic.get_all_matches()
 
 #------------------Player_Logic------------------------------------#
     def create_player(self, player):
