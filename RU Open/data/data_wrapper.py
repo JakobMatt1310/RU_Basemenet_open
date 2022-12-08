@@ -84,7 +84,7 @@ class Data_Wrapper():
     
     def update_rounds(self, rounds):
         '''Updates rounds'''
-        return self.rounds_data.update_rounds(rounds)
+        return self.update_rounds(rounds)
     
     def update_password(self, password):
         '''Updates password'''

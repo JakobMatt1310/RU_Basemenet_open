@@ -3,6 +3,9 @@ from model.team import Team
 from logic.logic_wrapper import Logic_Wrapper
 from ui.print_layouts import *  # print_current_menu
 from ui.input_validators import *
+from datetime import date
+from model.datetime import DateTime
+
 
 class Tournament_UI:
     Menu_selection = {"Current Menu": "Tournament",
@@ -10,12 +13,18 @@ class Tournament_UI:
                     "Create Tournament": ">>> Creates a tournament",
                     "Edit Tournament": ">>> Modify menu for a tournament"}
     def __init__(self, logic_connection):
+        today = date.today()
         self.logic_wrapper = logic_connection
+        self.logic_wrapper = Logic_Wrapper()
+        self.date = DateTime(today.day, today.month, today.year)
 
     def menu_output(self):
         print_current_menu(self.Menu_selection)
 
     def input_prompt(self):
+        
+        today_formated = today.strftime("%d %B, %Y")
+        print(today_formated)
         while True:
             self.menu_output()
             command = input("Enter your command: ").lower()
@@ -43,30 +52,111 @@ class Tournament_UI:
             else:
                 print("invalid input, try again")
 
+    def tournament_name(self):
+        name = input("Enter the name of the tournament: ")
+        if name == "c":
+            return True, "none"
+        all_names = self.logic_wrapper.get_all_associations()
+        try:
+            valid = validate_tournament_name(name, all_names)
+        except TournamentNameLengthException:
+            print("Name to long, try again")
+        except TournamentNameExists:
+            print("Name already exists, try another name (different year f.x.)")
+        if valid == True:
+            return False, name
+        
+    
+    def tournament_address(self):
+        address = input("Enter the address of the tournament: ")
+        if address == "c":
+            return True, "none"
+        try:
+            self.logic_wrapper.validate_home_address(address)
+            return False, address
+        except HomeAddressException:
+            print("Street address invalid, please try again")
+    
+    def tournament_start_date(self):
+        date = input("Please enter the first day of the tournament (dd.mm.yyyy): ").strip().split(".")
+        if date == "c":
+            return True, "none"
+        try:
+            date = DateTime(date[0],date[1],date[2])
+            self.logic_wrapper.validate_start_date(date, self.date)
+            return False, date
+        except StartDateException:
+            print("Date entered is not valid, please try again")
+        except :
+            print("An error occoured, please try again")
+        
+    def tournament_end_date(self, start_date):
+        date = input("Now enter the final day of the tournament (dd.mm.yyyy): ")
+        if date == "c":
+            return True, "none"
+        try:
+            date = DateTime(date[0],date[1],date[2])
+            self.logic_wrapper.validate_end_date(start_date, date)
+            return False, date
+        except EndDateException:
+            print("Invalid date, please try again")
+        except :
+            print("An error occoured, please try again")
+    
+    def tournament_organizer(self):
+        name = input("Enter the name of the tournament organizer: ")
+        if name == "c":
+            return True, "none"
+        try:
+            self.logic_wrapper.validate_name(name)
+            return False, name
+        except NameLengthException:
+            print("Name too short or too long, please try again(max 30 char)")
+        except:
+            print("An error occoured, please try again")
+    
+    def tournament_organizer_phonenumber(self):
+        number = input("Please enter a phone number where the organizer may be reached")
+        if number == "c":
+            return True, "none"
+        try:
+            self.logic_wrapper.validate_phonenumber(number)
+            return False, number
+        except PhoneNumberException:
+            print("Phone-number invalid, please try again")
+        except:
+            print("An error occoured, please try again")
+        
+        
+    
+
     def create_new_tournament(self):
         tournament = Tournament()
-        return_command = ""
+        
 
         while True:
-            tournament.tournament_name = input("Enter the name of the tournament: ")
-            tournament.tournament_address = input("Enter the address of the tournament: ")
-            tournament.start_date = input("Please enter the first day of the tournament (dd.mm.yyyy): ")
-            tournament.end_date = input("Now enter the final day of the tournament (dd.mm.yyyy): ")
-            tournament.organizer = input("Enter the name of the tournament organizer: ")
-            tournament.organizer_number = input("Please enter a phone number where the organizer may be reached")
-            try:
-                validate_tournament_name(tournament.tournament_name)
-                validate_home_address(tournament.tournament_address)
-                validate_phonenumber(tournament.organizer_number)
-                break
-            except TournamentNameLengthException:
-                print("name was too long, try again")
-            except HomeAddressException:
-                print("The address is invalid, try again")
-            except PhoneNumberException:
-                print("Invalid phonenumber (must be 7 digits long), please try again.")
-            except:
-                print("Something went wrong, please try again")
+            cancel, tournament.name = self.tournament_name()
+            if cancel == True:
+                return
+            cancel, tournament.address = self.tournament_address()
+            if cancel == True:
+                return
+            cancel, tournament.start_date = self.tournament_start_date()
+            if cancel == True:
+                return
+            cancel, tournament.end_date = self.tournament_end_date(tournament.start_date)
+            if cancel == True:
+                return
+            cancel, tournament.organizer = self.tournament_organizer()
+            if cancel == True:
+                return
+            cancel, tournament.organizer_number = self.tournament_organizer_phonenumber()
+            if cancel == True:
+                return
+            else:
+                return
+            
+            
         
         self.logic_wrapper.create_tournament(tournament)
         ask_add_teams = input("Would you like to add teams to the tourney right away? (yes/no): ")

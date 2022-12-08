@@ -72,6 +72,24 @@ def validate_association_name(association_name):
 
 class TournamentNameLengthException(Exception):
     pass
-def validate_tournament_name(tournament_name):
-    if len(tournament_name) < 3 or len(tournament_name) > 30:
+class TournamentNameExists(Exception):
+    pass
+def validate_tournament_name(tournament_name, list_of_associations):
+    all_names = [ass.association_name for ass in list_of_associations]
+    if len(tournament_name) > 30:
         raise TournamentNameLengthException()
+    if tournament_name in all_names:
+        raise TournamentNameExists()
+    
+class StartDateException(Exception):
+    pass
+class EndDateException(Exception):
+    pass
+
+def validate_start_date(start_date, current_date):
+    if start_date < current_date:
+        raise StartDateException
+
+def validate_end_date(start_date, end_date):
+    if start_date  > end_date:
+        raise EndDateException
