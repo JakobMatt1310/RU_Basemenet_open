@@ -49,14 +49,14 @@ class Association_UI:
                     # except PhoneNumberLengthException:
                     #     print("Phone number length invalid, the phone number must be a 7 digit number.")
                     except:
-                        print("some error")
+                        print("There was an error, something is wrong with your input.")
                 
                 self.logic_wrapper.create_association(association)
             elif command == "3":
-                print("edit the association")
+                ass_to_edit = input("Please type the name of the Association you wish to edit: ")
                 pass
             elif command == "4":
-                self.logic_wrapper.remove_association(association)
+                self.ass_to_delete = self.logic_wrapper.delete_association(association)
                 
             else:
                 print("invalid input, try again")
