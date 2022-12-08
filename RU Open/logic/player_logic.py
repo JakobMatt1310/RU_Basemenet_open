@@ -26,7 +26,7 @@ class Player_Logic:
         for player in all_players:
             if player.name != "":
                 player_list.append(player)
-                return player_list
+        return player_list
     
     def update_player(self):
         self.data_wrapper.update_player()
