@@ -3,6 +3,7 @@ from data.player_data import Player_Data
 from data.tournaments_data import Tournaments_Data
 from data.associations_data import Associations_Data
 from data.teams_data import Teams_Data
+# from data.rounds_data import Rounds_Data
 from data.moderator_data import Mod_password
 
 class Data_Wrapper():
@@ -13,6 +14,7 @@ class Data_Wrapper():
         self.tournament_data = Tournaments_Data()
         self.association_data = Associations_Data()
         self.team_data = Teams_Data()
+        # self.rounds_data = Rounds_Data()
         self.mod_password = Mod_password()
         
 
@@ -69,19 +71,26 @@ class Data_Wrapper():
         return self.team_data.update_team_captain(team_to_edit)
 
     def update_team_name(self, team_to_edit):
+        '''Updates team name'''
         #Team to edit er með breytt nafn
         return self.team_data.update_team_name(team_to_edit)
     
     def update_team_association(self, team_to_edit):
+        '''Updates team association'''
         #Team to edit er með breytt association nafn og association id
         return self.team_data.update_team_association(team_to_edit)
     
     def edit_player(self, player):
+        '''Edit player'''
         return self.player_data.update_player_name(player)
     
+    def update_rounds(self, rounds):
+        '''Updates rounds'''
+        return self.rounds_data.update_rounds(rounds)
+    
     def update_password(self, password):
+        '''Updates password'''
         return self.mod_password.update_password(password)
-
 
 
 
@@ -109,6 +118,8 @@ class Data_Wrapper():
 #     data_class_teams = Teams_Data()
 #     res_teams = data_class_teams.read_all_teams()
 
-
+#     data_class_rounds = Rounds_Data()
+#     res_rounds = data_class_rounds.read_all_rounds()
+    
 # if main_data() == '__main__':
 #     main_data()
