@@ -23,10 +23,6 @@ class Data_Wrapper():
     def get_moderator_password(self):
         return self.mod_password_data.read_password()
 
-    def get_all_users(self):
-        '''Gets all users'''
-        return self.user_data.read_all_users()
-
     def get_all_players(self):
         '''Gets all players'''
         return self.player_data.read_all_players()
@@ -47,7 +43,6 @@ class Data_Wrapper():
         return self.match_data.read_all_matches()
 
 #------------------Create------------------------------------------#
-
     def create_player(self, player):
         '''Creates a new player'''
         return self.player_data.create_player(player)
