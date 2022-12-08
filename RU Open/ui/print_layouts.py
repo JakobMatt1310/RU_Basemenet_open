@@ -167,7 +167,7 @@ def edit_menu_selected_team(team: classmethod, ):
     print_border()
     return input("\033[0mEnter selection and press enter: ")
 
-def view_association(associations: list, teams_dict: dict):
+def view_association(associations: classmethod, teams_dict: dict):
     """Hér vil ég fá get all associations og get all teams"""
     clear_screen()
     print("\033[1;32;40m", end="")
@@ -243,10 +243,34 @@ def edit_association_only_menu(association: classmethod, teams: list):
     print_border()
     return input("\033[0mEnter selection and press enter: ")
 
-def view_tournaments(tournaments: None):
-    """Hér vil ég fá get all tournaments og......???"""
-    for tournament in tournaments:
-        print(tournament)
+def view_tournaments(tournaments: classmethod):
+    clear_screen()
+    print("\033[1;32;40m", end="")
+    time.sleep(0.5)
+    print(f"{' ':30}{(X*60):<60}") 
+    time.sleep(0.1)
+    print(f"{' ':30}{X:<59}{X}") 
+    time.sleep(0.1)
+    print(f"{' ':30}{X}{'Viewing all tournaments':^58}{X}")    
+    time.sleep(0.1)
+    print(f"{' ':30}{X:<59}{X}") 
+    time.sleep(0.1)
+    print(f"{' ':30}{(X*60):<60}")
+    time.sleep(0.5) 
+    
+# "address","start_date","end_date","game_count","teams_submitted","game_id","game_type","leg_nr","player_id"
+
+    print_border()
+    print_empty_line()
+    print(f"{X:<13}{'Tournament: ':<30}{'Address':<32}{'Tel. no.':<21}{'Number of teams':<19}{X:>5}")
+    tournaments.sort(key = lambda x : x.tournament_name)
+    for element in tournaments:
+        print(f"{X:<13}{element.tournament_name:<30}{element.tournament_address:<32}{' ':<21}{' ':<19}{X:>5}")    
+        time.sleep(0.01)    
+
+    print_empty_line()
+    print_border() 
+    input("\033[0m Press Enter to go back: ")
     
 def print_current_team_player_list(players: list, team_name: str):
     """Previews the players that will be added to current team
