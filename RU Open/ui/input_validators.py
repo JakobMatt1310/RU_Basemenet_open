@@ -68,7 +68,7 @@ class AssociationNameLengthException(Exception):
     pass
 def validate_association_name(association_name):
     if len(association_name) < 3 or len(association_name) > 30:
-        raise TournamentNameLengthException()
+        raise AssociationNameLengthException()
 
 class TournamentNameLengthException(Exception):
     pass

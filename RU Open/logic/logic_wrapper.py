@@ -21,8 +21,8 @@ class Logic_Wrapper:
     def get_all_players(self):
         return self.player_logic.get_all_players()
 
-    def edit_player(self):
-        return self.player_logic.edit_player()
+    def edit_player(self, player):
+        return self.player_logic.edit_player(player)
 
     def check_if_player_exists(self, ssn):
         return self.player_logic.check_if_player_exists(ssn)
@@ -32,6 +32,9 @@ class Logic_Wrapper:
 
     def view_player_stats(self):
         return self.player_logic.view_player_stats()
+    
+    def get_player_by_name(self, name):
+        return self.player_logic.get_player_by_name(name)
     
     def delete_player(self):
         return self.player_logic.delete_player()

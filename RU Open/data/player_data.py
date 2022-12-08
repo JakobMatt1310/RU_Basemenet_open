@@ -44,3 +44,32 @@ class Player_Data():
                             'email': player.email, 
                             'address': player.address, 
                             'team_id': player.team_id})
+
+    def update_player_name(self, player_info_update):
+        '''Updates player information'''
+        read_all_players = self.read_all_players()
+        with open(self.file_name, 'w', newline='', encoding="utf-8") as csvfile:
+            fieldnames = ["id",
+                          "name",
+                          "ssn", 
+                          "phone", 
+                          "email", 
+                          "address", 
+                          "team_id"]
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writeheader()
+            for player in read_all_players:
+                if player.id == player_info_update.id:
+                    player.name = player_info_update.name
+                    player.ssn = player_info_update.ssn
+                    player.phone = player_info_update.phone
+                    player.email = player_info_update.email
+                    player.address = player_info_update.address
+                    
+                writer.writerow({'id': player.id, 
+                            'name': player.name, 
+                            'ssn': player.ssn, 
+                            'phone': player.phone, 
+                            'email': player.email, 
+                            'address': player.address, 
+                            'team_id': player.team_id})

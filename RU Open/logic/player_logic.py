@@ -31,8 +31,8 @@ class Player_Logic:
     def update_player(self):
         self.data_wrapper.update_player()
 
-    def edit_player(self):
-        self.data_wrapper.edit_player()
+    def edit_player(self, player):
+        self.data_wrapper.edit_player(player)
 
     def check_if_player_exists(self, ssn):
         all_players = self.get_all_players()
@@ -41,16 +41,16 @@ class Player_Logic:
                 return player
         return False
 
-    def get_players_by_name(self, player_name):
-        all_player = self.data_wrapper.get_all_players()
+    def get_player_by_name(self, name):
+        all_player = self.get_all_players()
         players = []
         for player in all_player:
-            if player.name == player_name:
+            if player.name[:3] == name[:3]:
                 players.append(player)
         return players
     
     def get_player(self, player_id):
-        all_players = self.data_wrapper.get_all_players()
+        all_players = self.get_all_players()
         for player in all_players:
             if player.id == player_id:
                 return player

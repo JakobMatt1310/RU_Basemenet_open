@@ -1,10 +1,10 @@
 from logic.player_logic import Player_Logic
 from model.player import Player
 from ui.input_validators import *
-from print_layouts import *
+from ui.print_layouts import *
 
 
-class Mod_Player_UI:
+class Player_UI:
     Menu_selection = {"Current Menu": "Player Menu", 
                     "View Players": ">>> Shows a list of all the players", 
                     "Edit Player": ">>> Gives options to edit a players details"
@@ -22,71 +22,90 @@ class Mod_Player_UI:
             command = command.lower()
             if command == "b":
                 print("going back")
-                return "b"
+                return
             elif command == "q":
-                print("quitting")
+                print("Goodbye")
+                return "q"
             elif command == "1":
-                self.logic_wrapper.get_all_players()
+                players = self.logic_wrapper.get_all_players()
+                teams = self.logic_wrapper.team_id_for_player()
+                view_players(players, teams)
+            elif command == "2":
+                self.edit_player()
             else:
                 print("invalid input, try again")
 
+
     def edit_player(self):
         return_command = ""
+        player_selected_by_id = False
         while True:
             if return_command != "back":
-                player_to_edit = input("Please enter the name of the player you want to edit: ")
-                players_with_name = self.logic_wrapper.get_players_by_name(player_to_edit)
-                count = 1
-                id_list = []
-                print("{:<18}{:<20}{}".format("Player ID", "Player Name", "SSN"))
-                for player in players_with_name:
-                    print("{}. {:<15}{:<17}{}".format(count, player.id, player.name, player.ssn))
-                    id_list.append(player.id)
-                    count+=1
-                selection = input("Select player by id: ")
-                if selection == 'b':
+                print_enter_name_to_edit()
+                player_selected_by_id = False
+                name = input("Please enter the name of the player you want to edit: ")
+                player_name_list = self.logic_wrapper.get_player_by_name(name)
+                if name == 'b':
                     print("Going back")
                     return
-                elif selection in id_list:
-                    player_to_edit = self.logic_wrapper.get_player(selection)
-                    break
-                else:
-                    ("The player id you entered is invalid, please try again.")
-                
-                
             else:
                 return_command = ""
-            if player_to_edit != None:
-        #-----------------Vantar Print Menu-----------------#
-                #print_player_edit_menu(player_to_edit)
-                edit_info = input("Enter option to edit: ")
-                if edit_info == 'b':
-                    print("Going back")
-                    return
-                elif edit_info == '1':
-                    player_to_edit.name = self.change_player_name(player_to_edit)
-                    print(f"Player name changed to {player_to_edit.name}.")
-                    return_command = "back"
-                elif edit_info == '2':
-                    player_to_edit.ssn = self.change_player_ssn(player_to_edit)
-                    print(f"Player name changed to {player_to_edit.ssn}.")
-                    return_command = "back"
-                elif edit_info == '3':
-                    player_to_edit.phone = self.change_player_phone(player_to_edit)
-                    print(f"Player phone number changed to {player_to_edit.phone}.")
-                    return_command = "back"
-                elif edit_info == '4':
-                    player_to_edit.email = self.change_player_email(player_to_edit)
-                    print(f"Player email changed to {player_to_edit.email}")
-                    return_command = "back"
-                elif edit_info == '5':
-                    player_to_edit.address = self.change_player_address(player_to_edit)
-                    print(f"Player address changed to {player_to_edit.address}")
+                
+            if len(player_name_list) != 0 and player_selected_by_id == False:
+                selection = self.print_players(player_name_list)
+
+                try:
+                    selection = int(selection)
+                    if selection <= len(player_name_list):
+                        player_to_edit = player_name_list[int(selection)-1]
+                        player_selected_by_id = True
+                except :
+                    print("The player id you entered is invalid, please try again.")
                     return_command = "back"
             else:
-                print("Player doesn't exist, try again.")
+                print("Name does not exist in our database, plase try again")
+                
+            if player_selected_by_id == True:
+                print_player_edit_menu(player_to_edit)
+                return_command, player_selected_by_id = self.edit_player_menu(player_to_edit, player_selected_by_id) 
+
+    def print_players(self, player_name_list):
+        print("{:<18}{:<20}{}".format("Player ID", "Player Name", "SSN"))
+        for i, player in enumerate(player_name_list):
+            print("{:<15}{:<17}{}".format(i+1, player.name, player.ssn))
+        return input("Select player by id: ")        
     
-    def change_player_name(self, player_to_edit):
+            
+                
+                
+    def edit_player_menu(self, player: classmethod, player_selected_by_id: bool) -> str:
+        edit_info = input("Enter option to edit: ")
+        if edit_info == 'b':
+            print("Going back")
+            player_selected_by_id = False
+            return "b", player_selected_by_id 
+        elif edit_info == '1':
+            player.name = self.change_player_name()
+            self.logic_wrapper.edit_player(player)
+            return "back", player_selected_by_id 
+        elif edit_info == '2':
+            player.ssn = self.change_player_ssn()
+            self.logic_wrapper.edit_player(player)
+            return "back", player_selected_by_id     
+        elif edit_info == '3':
+            player.phone = self.change_player_phone()
+            self.logic_wrapper.edit_player(player)
+            return "back", player_selected_by_id     
+        elif edit_info == '4':
+            player.email = self.change_player_email()
+            self.logic_wrapper.edit_player(player)
+            return "back", player_selected_by_id     
+        elif edit_info == '5':
+            player.address = self.change_player_address()
+            self.logic_wrapper.edit_player(player)
+            return "back", player_selected_by_id     
+            
+    def change_player_name(self):
         """Asks for player name until it's valid
 
         Returns:
@@ -97,7 +116,7 @@ class Mod_Player_UI:
             try:
                 validate_name(player_name)
                 break
-            except TeamNameLengthException:
+            except NameLengthException:
                 print("Name to long or to short")
             except:
                 print("Something went wrong, please try again.")

@@ -225,7 +225,7 @@ def edit_menu_selected_association(association: classmethod, teams: list):
     return input("\033[0mEnter selection and press enter: ")
 
 def edit_association_only_menu(association: classmethod, teams: list):
-    """prints out the edit menu, for tournament, association, team and player"""
+    """prints out the edit menu for association"""
     
     
     clear_screen()
@@ -242,6 +242,27 @@ def edit_association_only_menu(association: classmethod, teams: list):
 
     print_border()
     return input("\033[0mEnter selection and press enter: ")
+
+def print_player_edit_menu(player: classmethod):
+    """prints out the edit menu for a player"""
+    
+    
+    clear_screen()
+    print("\033[1;33;40m", end="")
+    print_border_half()
+    print_empty_line_half()
+    print(f"{' ':30}{X}{'Editing player ->  ' + player.name:^{HALF_WIDTH-2}}{X}") # prints out name of current menu selected
+    print_empty_line_half()
+    print(f"{' ':<30}{X:<8}{'   Options':<{25}}{'Current':<26}{X}")
+    print(f"{' ':<30}{X:<8}{'1. Change name: ':<{25}}{player.name:<26}{X}")
+    print(f"{' ':<30}{X:<8}{'2. Change ssn: ':<{25}}{player.ssn:<26}{X}")
+    print(f"{' ':<30}{X:<8}{'3. Change phone number':<{25}}{player.phone:<26}{X}")
+    print(f"{' ':<30}{X:<8}{'4. Change email':<{25}}{player.email:<26}{X}")
+    print(f"{' ':<30}{X:<8}{'5. Change address':<{25}}{player.address:<26}{X}")
+    print_empty_line_half()
+    print(f"{' ':<30}{X:<12}{BACK[0]:<{47}}{X}")
+    print_border_half()
+    print("\033[0m")
 
 def view_tournaments(tournaments: classmethod):
     clear_screen()
@@ -322,6 +343,17 @@ def print_edit_menu_team(team_to_edit: classmethod):
     print(f"{' ':<30}{X:<12}{'3. Change captain':<{25}}{team_to_edit.captain_name:<22}{X}")
     print_empty_line_half()
     print(f"{' ':<30}{X:<12}{BACK[0]:<{47}}{X}")
+    print_border_half()
+    print("\033[0m")
+
+def print_enter_name_to_edit():
+    clear_screen()
+    print("\033[1;33;40m", end="")
+    print_border_half()
+    print_empty_line_half()
+    print(f"{' ':30}{X}{'Enter a name to edit':^{HALF_WIDTH-2}}{X}") # prints out name of current menu selected
+    print_empty_line_half()
+    print(f"{' ':<30}{X:<4}{BACK[0]:<{55}}{X}")
     print_border_half()
     print("\033[0m")
 

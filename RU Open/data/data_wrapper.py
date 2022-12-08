@@ -68,6 +68,9 @@ class Data_Wrapper():
     def update_team_association(self, team_to_edit):
         #Team to edit er með breytt association nafn og association id
         return self.team_data.update_team_association(team_to_edit)
+    
+    def edit_player(self, player):
+        return self.player_data.update_player_name(player)
 
 
 
