@@ -33,3 +33,13 @@ class Associations_Data():
                              'name': association.association_name,
                              'phone': association.association_phone,
                              'address': association.association_address})
+
+    def overwrite_list(self, some_list):
+        # open the CSV file in write mode
+        with open("test.csv", "w", newline="") as file:
+            # create a CSV writer object
+            writer = csv.writer(file)
+
+            # write the data to the CSV file
+            for row in my_list:
+                writer.writerow(row)

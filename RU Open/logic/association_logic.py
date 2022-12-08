@@ -42,7 +42,7 @@ class Association_Logic:
 
     def get_association(self):
         get_association = self.data_wrapper.get_all_associations()
-        association_input = "2"
+        association_input = []
         if association_input in get_association:
             return association_input
         else:
