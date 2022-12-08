@@ -40,13 +40,12 @@ class Association_Logic:
                 return True
         return None
 
-    def get_association(self):
-        get_association = self.data_wrapper.get_all_associations()
-        association_input = []
-        if association_input in get_association:
-            return association_input
-        else:
-            return ValueError
+    def get_association(self, association_to_edit):
+        all_associations = self.get_all_associations()
+        for association in all_associations:
+            if association_to_edit == association.association_name:
+                return association
+        return None
     
     def edit_association(self):
         self.data_wrapper.edit_association()
