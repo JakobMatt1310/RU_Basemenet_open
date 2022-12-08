@@ -1,4 +1,4 @@
-tournamend_id,name,address,start_date,end_date,organizer,organizer_number
+tournament_id,name,address,start_date,end_date,organizer,organizer_number
 Landsbankamótið,Kópavogi 2,,,,,,,,
 Pæjumótið,Vestmanneyjum 5,,,,,,,,
 Shellmótið,Vestmanneyjum 6,,,,,,,,
