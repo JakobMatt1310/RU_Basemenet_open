@@ -6,7 +6,7 @@ from ui.moderator_menu.captain.captain_ui import Captain_UI
 # from statistics_ui import Statistics_UI
 from ui.moderator_menu.tournament_menu.tournament_ui import Tournament_UI
 from logic.logic_wrapper import Logic_Wrapper
-from ui.print_layouts import print_current_menu, view_association, view_players, view_teams
+from ui.print_layouts import print_current_menu, view_association, view_players, view_teams, print_access_denied
 
 class MainMenu_UI:
     Menu_selection = {"Current Menu": "Main Menu", 
@@ -54,9 +54,7 @@ class MainMenu_UI:
                     if back_method == "q":
                         return "q"
                 else:
-                    print(f"{'-'*60:^120}")
-                    print(f"{'Invalid password for Moderator':^120}")
-                    print(f"{'-'*60:^120}")
+                    print_access_denied()
                     time.sleep(2.0)
 
             elif command == "2":
@@ -67,9 +65,7 @@ class MainMenu_UI:
                     if back_method == "q":
                         return "q"
                 else:
-                    print(f"{'-'*60:^120}")
-                    print(f"{'Invalid social security number for Captain':^120}")
-                    print(f"{'-'*60:^120}")
+                    print_access_denied()
                     time.sleep(2.0)
 
             elif command == "3":

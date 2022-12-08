@@ -72,8 +72,8 @@ class Logic_Wrapper:
     def validate_association_name_with_all(self, name):
         return self.association_logic.validate_association_name_with_all(name)
 
-    def get_association(self):
-        return self.association_logic.get_association()
+    def get_association(self, association_to_edit):
+        return self.association_logic.get_association(association_to_edit)
     
     def edit_association(self):
         return self.association_logic.edit_association()
