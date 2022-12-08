@@ -46,7 +46,30 @@ def clear_screen():
     """Clears the screen, prints header and 1 empty line"""
     os.system('cls')
     print_header_logo()
-    
+
+def print_access_denied():
+    text = ["    __ _  ___ ___ ___  ___ ___  ", 
+            "   / _` |/ __/ __/ _ \/ __/ __| ", 
+            '  | (_| | (_| (_|  __/\__ \__ \ ', 
+            "   \__,_|\___\___\___||___/___/ ", 
+            "    | |          (_)        | | ",
+            "  __| | ___ _ __  _  ___  __| | ",
+            " / _` |/ _ \ '_ \| |/ _ \/ _` | ",
+            "| (_| |  __/ | | | |  __/ (_| | ",
+            " \__,_|\___|_| |_|_|\___|\__,_| "]
+    clear_screen()
+    print("\033[1;32;40m", end="")
+    print_border()
+    print_empty_line()
+    print_empty_line()
+    for line in text:
+        print(f"{X}", end="")
+        print(f"\033[31m{line:^{WIDTH-2}}", end="")
+        print(f"\033[32m{X}")
+    print_empty_line()
+    print_empty_line()
+    print_border()
+
 def print_current_menu(dict_to_print: dict):
     """Prints a listed menu, with numbering and explination
     argument needs to be dict"""
@@ -76,7 +99,7 @@ def print_current_menu(dict_to_print: dict):
     print_empty_line()
     print_border()
     print("\033[0m") 
-    
+
 def view_players(player: list, teams: dict):
     clear_screen()
     time.sleep(0.5)
