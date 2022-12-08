@@ -41,13 +41,19 @@ class Player_Logic:
                 return player
         return False
 
-    def get_player(self, player_name):
+    def get_players_by_name(self, player_name):
         all_player = self.data_wrapper.get_all_players()
         players = []
         for player in all_player:
             if player.name == player_name:
                 players.append(player)
         return players
+    
+    def get_player(self, player_id):
+        all_players = self.data_wrapper.get_all_players()
+        for player in all_players:
+            if player.id == player_id:
+                return player
 
 
     def view_player_stats(self):
