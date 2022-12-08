@@ -1,5 +1,5 @@
 class Tournament():
-    def __init__(self, id="", tournament_name="", tournament_address="", organizer="", organizer_number="", start_date="", end_date=""):
+    def __init__(self, id="", tournament_name="", tournament_address="", start_date="", end_date="", organizer="", organizer_number=""):
         '''Constructor for the Tournament class'''
         self.id = id
         self.tournament_name = tournament_name          # Name of the tournament
@@ -11,4 +11,4 @@ class Tournament():
 
     def __str__(self):
         '''Returns a string representation of the tournament object'''
-        return f"Tournament name: {self.tournament_name:>5}, Address: {self.tournament_address:>5}, Starting date: {self.start_date:>5}, End_date: {self.end_date:>5}, Number of games played: {self.game_count:>5}, Number of teams submitted to tournament: {self.teams_submitted:>5}, Game ID: {self.game_id:>5}, Game type: {self.game_type:>5}, Leg number: {self.leg_nr:>5}, Player ID: {self.player_id:>5}"
+        return f"Tournament ID: {self.id}, Tournament name: {self.tournament_name:>5}, Address: {self.tournament_address:>5}, Starting date: {self.start_date:>5}, End date: {self.end_date:>5}, Organizer: {self.organizer:>5}, Organizer number: {self.organizer_number:>5}"
