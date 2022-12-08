@@ -44,8 +44,9 @@ class Player_Logic:
     def get_player(self,player):
         all_player = self.data_wrapper.get_all_players()
         player_input = player
+        players = []
         if player_input in all_player:
-            return player_input
+            return players.append(player_input)
         else:
             return ValueError
 
