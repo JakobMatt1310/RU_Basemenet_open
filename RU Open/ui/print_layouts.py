@@ -246,7 +246,7 @@ def edit_association_only_menu(association: classmethod, teams: list):
 def view_tournaments(tournaments: None):
     """Hér vil ég fá get all tournaments og......???"""
     for tournament in tournaments:
-        print('pleeeeehhh',tournament)
+        print(tournament)
     
 def print_current_team_player_list(players: list, team_name: str):
     """Previews the players that will be added to current team
