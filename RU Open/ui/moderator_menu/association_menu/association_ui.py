@@ -33,9 +33,9 @@ class Association_UI:
             elif command == "2":
                 association = Association()
                 while True:
-                    association.association_name = input("Enter the name of the association: ")
-                    association.association_phone = input("Enter the phone number for the association: ")
-                    association.association_address = input("Enter the address of the association: ")
+                    association.association_name = self.new_association_name()
+                    association.association_phone = self.new_association_phone()
+                    association.association_address = self.new_association_address()
                     try:
                         validate_association_name(association.association_name)
                         # check_phone_length(association.association_phone)
@@ -171,9 +171,9 @@ class Association_UI:
     def new_association_phone(self, rename=0):
         while True:
             if rename == 0:            
-                association_phone = input("Enter the phone of the association (max 30 char): ")
+                association_phone = input("Enter the phone of the association (7 digits): ")
             else:
-                association_phone = input("Enter the desired new phone for the association (max 30 char): ")
+                association_phone = input("Enter the desired new phone for the association (7 digits): ")
             try:
                 validate_phonenumber(association_phone)
                 break
@@ -186,9 +186,9 @@ class Association_UI:
     def new_association_address(self, rename=0):
         while True:
             if rename == 0:            
-                association_address = input("Enter the address of the association (max 30 char): ")
+                association_address = input("Enter the address of the association (Street name and number): ")
             else:
-                association_address = input("Enter the desired new address for the association (max 30 char): ")
+                association_address = input("Enter the desired new address for the association (Street name and number): ")
             try:
                 validate_home_address(association_address)
                 break
