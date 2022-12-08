@@ -8,33 +8,41 @@ from model.team import Team
 from ui.input_validators import *
 
 class Captain_UI:
-    Menu_selection = {"Current Menu": "Captain Menu", 
-                    "Register points": ">>> Register points for a match"}    
-                    
-    def __init__(self, logic_connection):
-        self.logic_wrapper = logic_connection
 
+                    
+    def __init__(self, logic_connection, team):
+        self.logic_wrapper = logic_connection
+        self.team = team
+        team_name = team.team_name
+        self.Menu_selection = { "Current Menu": "Captain Menu", 
+                                "Register points for "+ team_name: ">>> Register points for a match"}   
     def menu_output(self):
         print_current_menu(self.Menu_selection)
                    
     def input_prompt(self):
         while True:
             self.menu_output()
-            command = "1"#input("Enter your command: ")
+            command = input("Enter your command: ")
             command = command.lower()
             if command == "b":
                 print("Going back")
                 return
             elif command == "1":
-                self.register_points()
+                self.register_points(self.team)
             elif command == "q":
                 return "q"
             else:
                 print("invalid input, try again")
 
-    def register_points(self):
+    def register_points(self, team):
+        print("YOU HAVE REGISTERED POINTS")
+        print()
+        print()
+        print()
+        input("Press enter to return")
+        return
         #Fixa hvernig stig eru skráð
-        pass
+      
         
         # home_team = Team("1","Victorious Secret","ÍBV","Isiah Oliver","6")
         # away_team = Team("8","Kiss My Ace","Fram","Amya Graves","4")

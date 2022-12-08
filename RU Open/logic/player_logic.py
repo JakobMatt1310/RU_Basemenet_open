@@ -1,6 +1,5 @@
 # from data.player_data import Player_Data
 # from model.player import Player
-from logic.team_logic import Team_Logic
 
 
 class Player_Logic:
@@ -12,7 +11,7 @@ class Player_Logic:
         
     def team_id_for_player(self):
         """creates a dictionary that has keys as team_id and values as teamname"""
-        all_teams = Team_Logic.get_all_teams(self)
+        all_teams = self.data_wrapper.get_all_teams()
         team_id_dict = {}
 
         for id in all_teams:
@@ -70,21 +69,16 @@ class Player_Logic:
                 players_of_team.append(p)
         return players_of_team
     
-    def all_captains(self):
+    def all_captains(self, ssn):
         #líklega virkar ekki
-        all_teams = self.data_wrapper.read_all_teams(self)
+        all_teams = self.data_wrapper.get_all_teams()
         all_players = self.get_all_players()
-        captain_list = []
-        captain_list_all = []
-        for captains in all_teams:
-            if captains.id != "":
-                captain_list.append(captains)
-
-        for c in captain_list:
-            if c in all_players:
-                captain_list_all.append(c)
-        return captain_list_all
-                
+        for player in all_players:
+            if ssn == player.ssn:
+                for team in all_teams:
+                    if player.name == team.captain_name and player.team_id == team.id:
+                        return team
+        return False
         
 
             

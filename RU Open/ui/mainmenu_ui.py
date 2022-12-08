@@ -1,7 +1,7 @@
-
+import time
 # from player_model_dummy import Player
 from ui.moderator_menu.moderator_ui import Moderator_UI
-# from captain_menu.captain_ui import Captain_UI
+from ui.moderator_menu.captain.captain_ui import Captain_UI
 # from teams_ui import Teams_View_UI
 # from statistics_ui import Statistics_UI
 from ui.moderator_menu.tournament_menu.tournament_ui import Tournament_UI
@@ -22,7 +22,21 @@ class MainMenu_UI:
 
     def menu_output(self):
         print_current_menu(self.Menu_selection)
-
+  
+    def ask_for_mod_password(self):
+        password = input("Please enter password: ")
+        mod_password = self.logic_wrapper.get_moderator_password()
+        if password == mod_password:
+            return True
+        return False
+  
+    def ask_for_captain_password(self):
+        ssn = input("Enter captains social security number ")
+        captains_team = self.logic_wrapper.all_captains(ssn)
+        if captains_team != False:
+            return captains_team
+        return False    
+  
     def input_prompt(self):
         while True:
             self.menu_output()
@@ -33,16 +47,30 @@ class MainMenu_UI:
                 break
 
             elif command == "1":
-                menu = Moderator_UI(self.logic_wrapper)
-                back_method = menu.input_prompt()
-                if back_method == "q":
-                    return "q"
+                valid = self.ask_for_mod_password()
+                if valid == True:
+                    menu = Moderator_UI(self.logic_wrapper)
+                    back_method = menu.input_prompt()
+                    if back_method == "q":
+                        return "q"
+                else:
+                    print(f"{'-'*60:^120}")
+                    print(f"{'Invalid password for Moderator':^120}")
+                    print(f"{'-'*60:^120}")
+                    time.sleep(2.0)
 
-            # elif command == "2":
-            #     menu = Captain_UI(self.logic_wrapper)
-            #     back_method = menu.input_prompt()
-            #     if back_method == "q":
-            #         return "q"
+            elif command == "2":
+                valid = self.ask_for_captain_password()
+                if valid != False:
+                    menu = Captain_UI(self.logic_wrapper, valid)
+                    back_method = menu.input_prompt()
+                    if back_method == "q":
+                        return "q"
+                else:
+                    print(f"{'-'*60:^120}")
+                    print(f"{'Invalid social security number for Captain':^120}")
+                    print(f"{'-'*60:^120}")
+                    time.sleep(2.0)
 
             elif command == "3":
                 players = self.logic_wrapper.get_all_players()

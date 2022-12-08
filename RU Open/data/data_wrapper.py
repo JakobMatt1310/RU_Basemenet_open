@@ -3,6 +3,7 @@ from data.player_data import Player_Data
 from data.tournaments_data import Tournaments_Data
 from data.associations_data import Associations_Data
 from data.teams_data import Teams_Data
+from data.moderator_data import Mod_password
 
 class Data_Wrapper():
     def __init__(self):
@@ -12,8 +13,14 @@ class Data_Wrapper():
         self.tournament_data = Tournaments_Data()
         self.association_data = Associations_Data()
         self.team_data = Teams_Data()
+        self.mod_password = Mod_password()
+        
 
 #------------------Get---------------------------------------------#
+
+    def get_moderator_password(self):
+        return self.mod_password.read_password()
+
     def get_all_users(self):
         '''Gets all users'''
         return self.user_data.read_all_users()
@@ -71,6 +78,9 @@ class Data_Wrapper():
     
     def edit_player(self, player):
         return self.player_data.update_player_name(player)
+    
+    def update_password(self, password):
+        return self.mod_password.update_password(password)
 
 
 
