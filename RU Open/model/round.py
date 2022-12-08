@@ -2,18 +2,10 @@ class Round:
     def __init__(self, match_id="",
                 round_nr="",
                 gamemode="",
-                home_leg1="0",
-                home_leg2="0",
-                away_leg1="0",
-                away_leg2="0",
-                home_player1="none",
-                home_player2="none",
-                home_player3="none",
-                home_player4="none", 
-                away_player1="none", 
-                away_player2="none", 
-                away_player3="none", 
-                away_player4="none"):
+                home_leg1="0", home_leg2="0",
+                away_leg1="0", away_leg2="0",
+                home_player1="none", home_player2="none", home_player3="none", home_player4="none", 
+                away_player1="none", away_player2="none", away_player3="none", away_player4="none"):
         self.round_nr = round_nr
         self.match_id = match_id
         self.home_leg1 = home_leg1

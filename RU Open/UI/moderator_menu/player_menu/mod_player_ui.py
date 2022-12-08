@@ -34,18 +34,21 @@ class Player_UI:
         while True:
             if return_command != "back":
                 player_to_edit = input("Please enter the name of the player you want to edit: ")
-                player_to_edit = self.logic_wrapper.get_player(player_to_edit)
+                players_with_name = self.logic_wrapper.get_player(player_to_edit)
+                for player in players_with_name:
+                    print(player.name, player.id)
             else:
                 return_command = ""
             if player_to_edit != None:
         #-----------------Vantar Print Menu-----------------#
-                print_edit_menu_player(player_to_edit)
+                #print_player_edit_menu(player_to_edit)
                 edit_info = input("Enter option to edit: ")
                 if edit_info == 'b':
                     print("Going back")
                     return
                 elif edit_info == '1':
                     return_command = self.change_player_name(player_to_edit)
+                    player_to_edit.name = self.new_player_name()
                 elif edit_info == '2':
                     return_command = self.change_player_ssn(player_to_edit)
                 elif edit_info == '3':
@@ -58,7 +61,6 @@ class Player_UI:
                 print("Player doesn't exist, try again.")
     
     def change_player_name(self, player_to_edit):
-        new_player_name = self.new_player_name()
         """Asks for player name until it's valid
 
         Returns:

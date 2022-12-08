@@ -26,7 +26,7 @@ class Player_Logic:
         for player in all_players:
             if player.name != "":
                 player_list.append(player)
-                return player_list
+        return player_list
     
     def update_player(self):
         self.data_wrapper.update_player()
@@ -41,13 +41,14 @@ class Player_Logic:
                 return player
         return False
 
-    def get_player(self,player):
+    def get_player(self, player_name):
         all_player = self.data_wrapper.get_all_players()
-        player_input = player
-        if player_input in all_player:
-            return player_input
-        else:
-            return ValueError
+        players = []
+        for player in all_player:
+            if player.name == player_name:
+                players.append(player)
+        return players
+
 
     def view_player_stats(self):
         return self.data_wrapper.view_player_stats()
