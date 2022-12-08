@@ -104,7 +104,7 @@ def view_players(player: list, teams: dict):
     print("\033[32m", end="")
     print(f"{' ':30}{(X*60):<60}")
     time.sleep(0.1) 
-    print(f"{' ':30}{X:<59}{X}") 
+    print(f"{' ':30}{X:<59}{X}")
     time.sleep(0.1)
     print(f"{' ':30}{X}{'Viewing all players':^58}{X}")    
     time.sleep(0.1)

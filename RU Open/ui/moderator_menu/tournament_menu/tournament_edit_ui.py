@@ -185,12 +185,12 @@ class Tournament_editing_UI:
             str: Organizers phonenumber
         """
         while True:
-            organizer_number = input("Enter the organizers new phone number: ")
+            organizer_nr = input("Enter the organizers new phone number: ")
             try:
-                validate_phonenumber(organizer_number)
+                validate_phonenumber(organizer_nr)
                 break
             except PhoneNumberException:
                 print("Input incorrect, please try again.")
             except:
                 print("Something went wrong, please try again.")
-        return organizer_number
+        return organizer_nr
