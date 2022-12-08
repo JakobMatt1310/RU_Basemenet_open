@@ -1,6 +1,7 @@
 class Tournament():
-    def __init__(self, tournament_name="", tournament_address="", organizer="", organizer_number="", start_date="", end_date=""):
+    def __init__(self, id="", tournament_name="", tournament_address="", organizer="", organizer_number="", start_date="", end_date=""):
         '''Constructor for the Tournament class'''
+        self.tournament
         self.tournament_name = tournament_name          # Name of the tournament
         self.tournament_address = tournament_address    # Address of the tournament
         self.start_date = start_date                    # Starting date of the tournament

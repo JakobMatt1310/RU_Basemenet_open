@@ -34,7 +34,8 @@ class Player_UI:
         while True:
             if return_command != "back":
                 player_to_edit = input("Please enter the name of the player you want to edit: ")
-                player_to_edit = self.logic_wrapper.get_players_with_name(player_to_edit)
+                players_with_name = self.logic_wrapper.get_player(player_to_edit)
+                print(players_with_name)
             else:
                 return_command = ""
             if player_to_edit != None:

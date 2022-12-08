@@ -41,7 +41,7 @@ class Player_Logic:
                 return player
         return False
 
-    def get_player(self,player_name):
+    def get_player(self, player_name):
         all_player = self.data_wrapper.get_all_players()
         players = []
         for player in all_player:
