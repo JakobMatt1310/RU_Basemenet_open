@@ -14,41 +14,32 @@ class Tournaments_Data():
         with open(self.file_name, newline='', encoding="utf-8") as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                ret_list.append(Tournament(row["name"], 
+                ret_list.append(Tournament(row["tournament_id"], 
+                                           row["name"], 
                                            row["address"], 
-                                           row["start_date"], 
-                                           row["end_date"],
-                                           row["game_count"], 
-                                           row["teams_submitted"], 
-                                           row["game_id"], 
-                                           row["game_type"], 
-                                           row["leg_nr"], 
-                                           row["player_id"]))
+                                           row["start_date"],
+                                           row["end_date"], 
+                                           row["organizer"], 
+                                           row["organizer_number"]))
         return ret_list
 
     def create_tournament(self, tournament):
         '''Creates a new tournament in the file'''
         #þarf að bæta við tournament ID hérna eins og fyrir players eða teams
         with open(self.file_name, 'a', newline='', encoding="utf-8") as csvfile:
-            fieldnames = ["name",
+            fieldnames = ["tournament_id",
+                          "name",
                           "address",
                           "start_date",
                           "end_date",
-                          "game_count",
-                          "teams_submitted",
-                          "game_id",
-                          "game_type",
-                          "leg_nr",
-                          "player_id"]
+                          "organizer",
+                          "organizer_number"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
-            writer.writerow({'name': tournament.tournament_name,
+            writer.writerow({'tournament_id': tournament.id,
+                             'name': tournament.tournament_name,
                              'address': tournament.tournament_address,
                              'start_date': tournament.start_date,
                              'end_date': tournament.end_date,
-                             'game_count': tournament.game_count,
-                             'teams_submitted': tournament.teams_submitted,
-                             'game_id': tournament.game_id,
-                             'game_type': tournament.game_type,
-                             'leg_nr': tournament.leg_nr,
-                             'player_id': tournament.player_id})
+                             'organizer': tournament.organizer,
+                             'organizer_number': tournament.organizer_number})
