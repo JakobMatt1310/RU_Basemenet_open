@@ -23,7 +23,7 @@ class Tournaments_Data():
                                            row["organizer_number"]))
         return ret_list
 
-    def create_tournament(self, tournament):
+    def create_tournament(self, tournament: Tournament):
         '''Creates a new tournament in the file'''
         #þarf að bæta við tournament ID hérna eins og fyrir players eða teams
         with open(self.file_name, 'a', newline='', encoding="utf-8") as csvfile:
