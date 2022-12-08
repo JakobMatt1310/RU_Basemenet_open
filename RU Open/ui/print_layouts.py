@@ -245,7 +245,7 @@ def edit_menu_selected_association(association: classmethod, teams: list):
     print_border()
     return input("\033[0mEnter selection and press enter: ")
 
-def edit_association_only_menu(association: classmethod, teams: list):
+def edit_association_only_menu(association: classmethod):
     """prints out the edit menu for association"""
     
     

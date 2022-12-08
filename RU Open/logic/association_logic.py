@@ -49,3 +49,12 @@ class Association_Logic:
     
     def edit_association(self):
         self.data_wrapper.edit_association()
+
+    def update_association_name(self, association_to_edit):
+        return self.data_wrapper.update_association_name(association_to_edit)
+    
+    def update_association_phone(self, association_to_edit):
+        return self.data_wrapper.update_association_phone(association_to_edit)
+
+    def update_association_address(self, association_to_edit):
+        return self.data_wrapper.update_association_address(association_to_edit)
