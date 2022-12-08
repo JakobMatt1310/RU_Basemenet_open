@@ -34,12 +34,28 @@ class Associations_Data():
                              'phone': association.association_phone,
                              'address': association.association_address})
 
-    def overwrite_list(self, some_list):
-        # open the CSV file in write mode
-        with open("test.csv", "w", newline="") as file:
-            # create a CSV writer object
-            writer = csv.writer(file)
 
-            # write the data to the CSV file
-            for row in my_list:
-                writer.writerow(row)
+
+    def update_association_name(self, association_to_edit: Association):
+        '''Updates association name'''
+        found = False
+        #new_association_name = association_to_edit.association_name
+        get_all_associations = self.get_all_associations()
+        with open(self.file_name, 'w', newline='', encoding="utf-8") as csvfile:
+            fieldnames = ["id", 
+                          "name", 
+                          "phone",  
+                          "address"]
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writeheader()
+            for association in get_all_associations:
+                if association.id == association_to_edit.id:
+                    association.association_name = association_to_edit.association_name
+                    found = True
+                writer.writerow({'id': association.id,
+                                'name': association.association_name,
+                                'phone': association.association_phone,
+                                'address': association.association_address})
+            if found == True:
+                return found
+
