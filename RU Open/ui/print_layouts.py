@@ -301,7 +301,8 @@ def view_tournaments(tournaments: classmethod):
     time.sleep(0.5) 
     
 # "address","start_date","end_date","game_count","teams_submitted","game_id","game_type","leg_nr","player_id"
-
+    #Sorta tournemnts eftir dagsetning vinstramegin og hægramegin
+    #Vinstramegin verður "finished" hægtamegin verður"þ.að se er í gangi eða á eftir að byrja"
     print_border()
     print_empty_line()
     print(f"{X:<13}{'Tournament: ':<30}{'Address':<32}{'Tel. no.':<21}{'Number of teams':<19}{X:>5}")

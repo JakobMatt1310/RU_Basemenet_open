@@ -1,4 +1,3 @@
-from data.user_data import User_Data
 from data.player_data import Player_Data
 from data.tournaments_data import Tournaments_Data
 from data.associations_data import Associations_Data
@@ -10,7 +9,6 @@ from data.match_data import Match_Data
 class Data_Wrapper():
     def __init__(self):
         '''Constructor for the Data_Wrapper class'''
-        self.user_data = User_Data()
         self.player_data = Player_Data()
         self.tournament_data = Tournaments_Data()
         self.association_data = Associations_Data()
@@ -49,9 +47,6 @@ class Data_Wrapper():
         return self.match_data.read_all_matches()
 
 #------------------Create------------------------------------------#
-    def create_user(self, user):
-        '''Creates a new user'''
-        return self.user_data.create_user(user)
 
     def create_player(self, player):
         '''Creates a new player'''
