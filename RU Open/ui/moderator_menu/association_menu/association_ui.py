@@ -100,7 +100,7 @@ class Association_UI:
         confirm_name = input(f"The team will be renamed {new_association_name}. Would you like to confirm (yes/no)?  ").lower()
         while True:
             if confirm_name == 'yes':
-                association_to_edit.association_name = new_association_name
+                association_to_edit.name = new_association_name
                 success = self.logic_wrapper.update_association_name(association_to_edit)
                 if success == True:
                     print(f"Association name has successfully been updated to {new_association_name}")
@@ -119,7 +119,7 @@ class Association_UI:
         confirm_name = input(f"The phone number will be changed to {new_association_phone}. Would you like to confirm (yes/no)?  ").lower()
         while True:
             if confirm_name == 'yes':
-                association_to_edit.association_phone = new_association_phone
+                association_to_edit.phone = new_association_phone
                 success = self.logic_wrapper.update_association_phone(association_to_edit)
                 if success == True:
                     print(f"Association phone number has successfully been updated to {new_association_phone}")
@@ -133,12 +133,12 @@ class Association_UI:
                 print('Invalid input, please answer with "yes" or "no"')
 
     
-    def change_association_address(self, association_to_edit):
+    def change_association_address(self, association_to_edit: Association):
         new_association_address = self.new_association_address(1)
         confirm_name = input(f"The address will be changed to {new_association_address}. Would you like to confirm (yes/no)?  ").lower()
         while True:
             if confirm_name == 'yes':
-                association_to_edit.association_address = new_association_address
+                association_to_edit.address = new_association_address
                 success = self.logic_wrapper.update_association_address(association_to_edit)
                 if success == True:
                     print(f"Association address has successfully been updated to {new_association_address}")
