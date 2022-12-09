@@ -13,7 +13,7 @@ class Match:
         print(f"Tournament id: {self.tournament_id}\nMatch id: {self.match_id}\n{'':<20}Home Team {self.home_team_id:>14} - {self.away_team_id:<14} Away Team")
     
 
-#oli = Match('1', '18', 'Stjarnan', 'Selfoss', '28.12.2022', '17:10')
-#oli.function() 
-#oli = Match('1', '18', 'Stjarnan', 'Selfoss')
-#oli.function() 
+# oli = Match('1', '18', 'Stjarnan', 'Selfoss', '28.12.2022', '17:10')
+# oli.function() 
+# oli = Match('1', '18', 'Stjarnan', 'Selfoss')
+# oli.function() 
