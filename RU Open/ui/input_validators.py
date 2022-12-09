@@ -119,7 +119,7 @@ def validate_start_date(start_date, current_date):
     #these check if the day is legal with respect to the current date
     if start_date.year < current_date.year:
         raise StartDateException
-    if start_date.month < current_date.month and start_date.year < current_date.year:
+    if start_date.month < current_date.month and start_date.year <= current_date.year:
         raise StartDateException
     if start_date.day < current_date.day and start_date.month <= current_date.month and start_date.year <= current_date.year:
         raise StartDateException
