@@ -48,7 +48,15 @@ class Tournament_UI:
         
         
         
-        
+    def view_all_tournaments(self):
+        tournaments_all = self.logic_wrapper.get_all_tournaments()
+        view_tournaments(tournaments_all)
+        tournament = self.validate_is_digit(tournaments_all)
+        if tournament == "b":
+            return
+        else:
+            self.print_current_tournament(tournament)
+            input("Press enter to return")     
         
     def input_prompt(self):
         
@@ -66,14 +74,8 @@ class Tournament_UI:
                 return "q"
             
             elif command == "1":
-                tournaments_all = self.logic_wrapper.get_all_tournaments()
-                view_tournaments(tournaments_all)
-                tournament = self.validate_is_digit(tournaments_all)
-                if tournament == "b":
-                    return
-                else:
-                    self.print_current_tournament(tournament)
-                    input("Press enter to return")
+                self.view_all_tournaments()
+                
 
                 
 

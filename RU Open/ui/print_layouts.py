@@ -16,7 +16,7 @@ QUIT_PROG = ["q. Quit Program", ">>> Select if you want to quit program"]
 
 def print_header_logo():
     """Prints the header with title printed"""
-    print("\033[1;32;40m", end="")
+    print("\033[32m", end="")
     print_border()
     print_empty_line()   
     logo_text = "RU Basement Open"
@@ -59,7 +59,7 @@ def print_access_denied():
             "| (_| |  __/ | | | |  __/ (_| | ",
             " \__,_|\___|_| |_|_|\___|\__,_| "]
     clear_screen()
-    print("\033[1;32;40m", end="")
+    print("\033[32m", end="")
     print_border()
     print_empty_line()
     print_empty_line()
@@ -78,7 +78,7 @@ def print_current_menu(dict_to_print: dict):
     
 
     clear_screen()
-    print("\033[1;32;40m", end="")
+    print("\033[32m", end="")
     menu_name = dict_to_print['Current Menu']
     print_border()
     print_empty_line()
@@ -160,7 +160,7 @@ def view_players(player: list, teams: dict):
 def view_teams(teams_list: list):
     clear_screen()
     time.sleep(0.5)
-    print("\033[1;32;40m", end="")
+    print("\033[32m", end="")
     print(f"{' ':30}{(X*60):<60}")
     time.sleep(0.1) 
     print(f"{' ':30}{X:<59}{X}") 
@@ -204,7 +204,7 @@ def edit_menu_selected_team(team: classmethod, ):
 def view_association(associations: classmethod, teams_dict: dict):
     """Hér vil ég fá get all associations og get all teams"""
     clear_screen()
-    print("\033[1;32;40m", end="")
+    print("\033[32m", end="")
     time.sleep(0.5)
     print(f"{' ':30}{(X*60):<60}") 
     time.sleep(0.1)
@@ -282,7 +282,7 @@ def print_player_edit_menu(player: classmethod):
     
     
     clear_screen()
-    print("\033[1;33;40m", end="")
+    print("\033[32m", end="")
     print_border_half()
     print_empty_line_half()
     print(f"{' ':30}{X}{'Editing player ->  ' + player.name:^{HALF_WIDTH-2}}{X}") # prints out name of current menu selected
@@ -352,7 +352,7 @@ def print_current_tournament_layout(tournament, teams_and_players):
     
 def view_tournaments(tournaments: classmethod):
     clear_screen()
-    print("\033[1;32;40m", end="")
+    print("\033[32m", end="")
     time.sleep(0.5)
     print(f"{' ':30}{(X*60):<60}") 
     time.sleep(0.1)
@@ -388,7 +388,7 @@ def print_current_team_player_list(players: list, team_name: str):
         team_name (str): 
     """
     clear_screen()
-    print("\033[1;33;40m", end="")
+    print("\033[32m", end="")
     print_border_half()
     print_empty_line_half()
     print(f"{' ':30}{X}{'Assigned players to team -> ' + team_name:^{HALF_WIDTH-2}}{X}") # prints out name of current menu selected
@@ -419,7 +419,7 @@ def print_current_team_player_list(players: list, team_name: str):
 
 def print_edit_menu_team(team_to_edit: classmethod):
     clear_screen()
-    print("\033[1;33;40m", end="")
+    print("\033[32m", end="")
     print_border_half()
     print_empty_line_half()
     print(f"{' ':30}{X}{'Editing team ->  ' + team_to_edit.name:^{HALF_WIDTH-2}}{X}") # prints out name of current menu selected
@@ -435,7 +435,7 @@ def print_edit_menu_team(team_to_edit: classmethod):
 
 def print_edit_menu_association(association: classmethod):
     clear_screen()
-    print("\033[1;33;40m", end="")
+    print("\033[32m", end="")
     print_border_half()
     print_empty_line_half()
     print(f"{' ':30}{X}{'Editing Association ->  ' + association.name:^{HALF_WIDTH-2}}{X}") # prints out name of current menu selected
@@ -451,7 +451,7 @@ def print_edit_menu_association(association: classmethod):
 
 def print_enter_name_to_edit():
     clear_screen()
-    print("\033[1;33;40m", end="")
+    print("\033[32m", end="")
     print_border_half()
     print_empty_line_half()
     print(f"{' ':30}{X}{'Enter a name to edit':^{HALF_WIDTH-2}}{X}") # prints out name of current menu selected
@@ -481,7 +481,7 @@ def print_tournament_info(tournament):
 
 def print_teams_to_add_to_tourney(teams):
 
-    print("\033[1;33;40m")
+    print("\033[32m", end="")
     print_border_half()
     print_empty_line_half()
     for i, team in enumerate(teams, 1):
@@ -494,7 +494,7 @@ def print_teams_to_add_to_tourney(teams):
     
 def print_teams_to_add_to_tourney_empty():
 
-    print("\033[1;33;40m")
+    print("\033[32m", end="")
     print_border_half()
     print_empty_line_half()
     print(f"{' ':30}{X}{'No teams available':^58}{X}")
@@ -506,7 +506,7 @@ def print_teams_to_add_to_tourney_empty():
     pass
    
 def print_available_tournaments(tournaments):
-    print("\033[1;33;40m")
+    print("\033[32m", end="")
     print_border_half()
     print_empty_line_half()
     for i, tourney in enumerate(tournaments, 1):
