@@ -70,7 +70,7 @@ class Associations_editing_UI:
                 list_of_teams = self.logic_wrapper.get_all_teams()
                 team_to_delete = input("Please enter the name of the team that you want to remove: ")
                 if team_to_delete in list_of_teams:
-                    print("Removing this team will delete all players within the association.")
+                    print("Removing this team will delete all players within the team.")
                     confirm = input("Are you sure you want to remove this team? (yes/no)").islower()
                     while True:
                         if confirm == 'yes':
@@ -91,36 +91,41 @@ class Associations_editing_UI:
                     while True:
                         if confirm_name == 'yes':
                             association_to_change.association_name = new_association
+                            self.logic_wrapper.update_association_name(association_to_change)
                             break
                         elif confirm_name =='no':
                             print("No changes made, returning to editing menu.")
                             break
                         else:
                             print('Invalid input, please answer with "yes" or "no"')
+                            confirm_name = input(f"The association will be renamed {new_association}. Confirm (yes/no): ").islower()
                 elif edit_info == '2':
                     new_association_number = input("Please enter a new phone number for the association: ")
                     confirm_number = input(f"The new phone number of the association will be {new_association_number}. Confirm (yes/no): ").islower()
                     while True:
                         if confirm_number == 'yes':
                             association_to_change.association_phone = new_association_number
+                            self.logic_wrapper.update_association_phone(association_to_change)
                             break
                         elif confirm_number =='no':
                             print("No changes made, returning to editing menu.")
                             break
                         else:
                             print('Invalid input, please answer with "yes" or "no"')
+                            confirm_number = input(f"The new phone number of the association will be {new_association_number}. Confirm (yes/no): ").islower()
                 elif edit_info == '3':
                     while True:
                         new_association_address = input("Please enter a new address for the association: ")
                         confirm_address = input(f"The new association address will be {new_association_address}. Confirm (yes/no): ").islower()
                         if confirm_address == 'yes':
                             association_to_change.association_address = new_association_address
+                            self.logic_wrapper.update_association_address(association_to_change)
                             break
                         elif confirm_address =='no':
                             print("No changes made, returning to editing menu.")
                             break
                         else:
                             print('Invalid input, please answer with "yes" or "no"')
-
+                            confirm_address = input(f"The new association address will be {new_association_address}. Confirm (yes/no): ").islower()
             else:
                 print("Invalid input, please try again.")
