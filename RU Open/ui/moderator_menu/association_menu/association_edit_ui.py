@@ -1,4 +1,4 @@
-from association import Association
+from model.association import Association
 from model.team import Team
 from model.player import Player
 from logic.logic_wrapper import Logic_Wrapper

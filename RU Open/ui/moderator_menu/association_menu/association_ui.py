@@ -114,7 +114,7 @@ class Association_UI:
                 print('Invalid input, please answer with "yes" or "no"')
 
     
-    def change_association_phone(self, association_to_edit: Association):
+    def change_association_phone(self, association_to_edit):
         new_association_phone = self.new_association_phone(1)
         confirm_name = input(f"The phone number will be changed to {new_association_phone}. Would you like to confirm (yes/no)?  ").lower()
         while True:
@@ -133,7 +133,7 @@ class Association_UI:
                 print('Invalid input, please answer with "yes" or "no"')
 
     
-    def change_association_address(self, association_to_edit: Association):
+    def change_association_address(self, association_to_edit):
         new_association_address = self.new_association_address(1)
         confirm_name = input(f"The address will be changed to {new_association_address}. Would you like to confirm (yes/no)?  ").lower()
         while True:

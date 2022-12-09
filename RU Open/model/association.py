@@ -1,5 +1,6 @@
 class Association():
-    def __init__(self, id="",
+    def __init__(self, 
+                 id="",
                  name="",
                  phone="",
                  address=""):
