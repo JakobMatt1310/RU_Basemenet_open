@@ -2,6 +2,7 @@ from data.player_data import Player_Data
 from data.tournaments_data import Tournaments_Data
 from data.associations_data import Associations_Data
 from data.teams_data import Teams_Data
+from data.rounds_data import Rounds_Data
 # from data.rounds_data import Rounds_Data
 from data.moderator_data import Mod_password
 from data.match_data import Match_Data
@@ -14,7 +15,7 @@ class Data_Wrapper():
         self.tournament_data = Tournaments_Data()
         self.association_data = Associations_Data()
         self.team_data = Teams_Data()
-        # self.rounds_data = Rounds_Data()
+        self.rounds_data = Rounds_Data()
         self.mod_password_data = Mod_password()
         self.match_data = Match_Data
         self.teams_in_tourneys_data = Teams_In_Tourneys_Data()
@@ -67,6 +68,9 @@ class Data_Wrapper():
     
     def create_match(self, match):
         return self.match_data.create_match(match)
+
+    def create_round(self, round):
+        return self.rounds_data.create_round(round)
 
     def add_team_to_tournament(self, tournament_name, team_id):
         '''Creates a connection between a team and a tournament essentially adding the team to a tournament'''

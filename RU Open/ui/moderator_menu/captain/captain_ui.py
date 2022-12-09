@@ -54,8 +54,16 @@ class Captain_UI:
             
 
     def register_points(self, match):
+        teams = self.logic_wrapper.get_all_teams()
+        for team in teams:
+            if match.home_team_id == team.id:
+                self.home_team = team
+            if match.home_away_id == team.id:
+                self.away_team = team
+
         while True:
             round = Round()
+
             
 
         return

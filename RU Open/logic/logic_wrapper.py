@@ -1,6 +1,7 @@
 from logic.association_logic import Association_Logic
 from logic.player_logic import Player_Logic 
 from logic.team_logic import Team_Logic
+from logic.round_logic import Round_Logic
 # from logic.statistic_logic import Statistic_Logic
 from logic.tournament_logic import Tournament_Logic
 from data.data_wrapper import Data_Wrapper
@@ -17,6 +18,7 @@ class Logic_Wrapper:
         self.tournament_logic = Tournament_Logic(self.data_wrapper)
         self.mod_pass_logic = Mod_Pass_Logic(self.data_wrapper)
         self.match_logic = Match_logic(self.data_wrapper)
+        self.round_logic = Round_Logic(self.data_wrapper)
         
 #------------------mod_pass_Logic----------------------------------#
     def get_moderator_password(self):
@@ -188,3 +190,8 @@ class Logic_Wrapper:
 
     def add_team_to_tourney(self, tournament_name, team_id):
         return self.tournament_logic.add_team_to_tourney(tournament_name, team_id)
+
+#------------------------Round Logic------------------------------------#
+
+    def create_round(self, round):
+        return self.round_logic.create_round(round)
