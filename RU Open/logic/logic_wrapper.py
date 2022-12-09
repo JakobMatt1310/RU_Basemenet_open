@@ -26,7 +26,7 @@ class Logic_Wrapper:
         return self.mod_pass_logic.update_password(password)    
 
 #------------------match_Logic-------------------------------------#
-    def create_match (self, match):
+    def create_match(self, match):
         return self.match_logic.create_match(match)    
     
     def update_match(self, password):

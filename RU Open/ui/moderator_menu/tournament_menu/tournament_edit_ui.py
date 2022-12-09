@@ -1,9 +1,12 @@
 from tournament_ui import Tournament
 from model.team import Team
 from model.player import Player
+from model.match import Match
 from logic.logic_wrapper import Logic_Wrapper
 from ui.print_layouts import *
 from ui.input_validators import *
+from datetime import date
+from model.datetime import DateTime
 
 
 class Tournament_editing_UI:
@@ -11,11 +14,14 @@ class Tournament_editing_UI:
                     "Add team": ">>> Choose a team to compete in the tournament",
                     "Remove team": ">>> Removes a team from the tournament",
                     "Edit Tournament Details": ">>> Make changes to details in the tournament",
-                    "Create Match": ">>> Create a match inside a tournament"}    
+                    "Create Matches": ">>> Makes the user create matches in the tournament"}    
     #Create a tournament
     #
     def __init__(self, logic_connection):
+        self.today = date.today()
         self.logic_wrapper = logic_connection
+        self.date = DateTime(self.today.day, self.today.month, self.today.year)
+
 
     def menu_output(self):
         print_current_menu(self.Menu_selection)
@@ -33,7 +39,7 @@ class Tournament_editing_UI:
                 
                 available_tournaments = self.logic_wrapper.get_all_tournaments()
                 print_available_tournaments(available_tournaments)
-                selection = input("Select a team to add: ")
+                selection = input("Select a tournament to add teams to: ")
                 if selection.isdigit() == True:
                     selection = int(selection) - 1
                 if selection <= len(available_tournaments):
@@ -47,6 +53,18 @@ class Tournament_editing_UI:
                 self.remove_team(tournament_to_update.id)
             elif command == "3":
                 self.edit_tournament()
+            elif command == "4":
+                available_tournaments = self.logic_wrapper.get_all_tournaments()
+                print_available_tournaments(available_tournaments)
+                selection = input("Select a tournament to create matches in: ")
+                if selection.isdigit() == True:
+                    selection = int(selection) - 1
+                if selection <= len(available_tournaments):
+                    tournament_to_add_matches = self.logic_wrapper.get_tournament(available_tournaments[selection])
+                else:
+                    print("Invalid input")
+                self.create_matches(tournament_to_add_matches)
+            
     
 #   #  def edit_tournament(self):
 #         '''Brings up a mini menu to edit a tournaments details'''
@@ -79,7 +97,48 @@ class Tournament_editing_UI:
 #                     return_command = self.change_tourney_organizer_number(tourney_to_edit)
 #             else:
 #                 print("Tourney doesn't exist, try again.")
+    def create_matches(self, tournament):
+        teamids_in_tourney = self.logic_wrapper.get_teams_in_tourney(tournament)
+        teams_to_play = self.logic_wrapper.get_teams_by_id(teamids_in_tourney)
+        for i in range(len(teams_to_play)):
+            for j in range(i+1, len(teams_to_play)):
+                match = Match
+                match.tournament_id = tournament.id
+                match.home_team_id = teams_to_play[i].id
+                match.away_team_id = teams_to_play[j].id
+                match.date = self.match_date()
+                match.time = '0'
 
+
+                self.logic_wrapper.create_match(match)
+    
+    def match_date(self):
+        while True:
+            date = input("Please enter the first day of the tournament (dd.mm.yyyy): ")
+            if date == "c":
+                return True, "none"
+            dots = 0
+            valid = False
+            for letter in date:
+                if letter == ".":
+                    dots += 1
+            if dots == 2:
+                if date[0:2].isdigit():
+                    if date[3:5].isdigit():
+                        if date[7:11].isdigit():
+                            valid = True
+                            date = date.strip().split(".")
+            if valid == True:   
+                try:
+                    date_obj = DateTime(int(date[0]),int(date[1]),int(date[2]))
+                    validate_start_date(date_obj, self.date)
+                    return False, date
+                except StartDateException:
+                    print("Date entered is not valid, please try again")
+                except :
+                    print("An error occoured, please try again")
+            else: 
+                print("Invalid.")
     
     def add_teams(self, tournament):
         while True:
