@@ -19,7 +19,7 @@ class Associations_Data():
                                             row["address"]))
         return ret_list
 
-    def create_association(self, association: Association):
+    def create_association(self, association):
         '''Creates a new association in the file'''
         association.id = len(self.read_all_associations()) + 1    
         with open(self.file_name, 'a', newline='', encoding="utf-8") as csvfile:
@@ -36,7 +36,7 @@ class Associations_Data():
 
 
 
-    def update_association_name(self, association_to_edit: Association):
+    def update_association_name(self, association_to_edit):
         '''Updates association name'''
         found = False
         get_all_associations = self.read_all_associations()
@@ -60,7 +60,7 @@ class Associations_Data():
 
     
 
-    def update_association_phone(self, association_to_edit: Association):
+    def update_association_phone(self, association_to_edit):
         '''Updates association phone'''
         found = False
         get_all_associations = self.read_all_associations()
@@ -84,7 +84,7 @@ class Associations_Data():
 
 
 
-    def update_association_address(self, association_to_edit: Association):
+    def update_association_address(self, association_to_edit):
         '''Updates association address'''
         found = False
         get_all_associations = self.read_all_associations()

@@ -82,15 +82,15 @@ class Associations_editing_UI:
                         else:
                             print('Invalid input, please answer with "yes" or "no" ')
             elif command == '3':
-                association_name = input("Please enter the new name of the association you want to make changes to: ")
-                association_to_change = self.logic_wrapper.get_association(association_name)
+                association = input("Please enter the new name of the association you want to make changes to: ")
+                association_to_change = self.logic_wrapper.get_association(association)
                 edit_info = input("What details would you like to make changes to? (1. Association Name // 2. Phone Number // 3. Address): ").islower()
                 if edit_info == '1':
-                    new_association_name = input("Please enter a new name for the association: ")
-                    confirm_name = input(f"The association will be renamed {new_association_name}. Confirm (yes/no): ").islower()
+                    new_association = input("Please enter a new name for the association: ")
+                    confirm_name = input(f"The association will be renamed {new_association}. Confirm (yes/no): ").islower()
                     while True:
                         if confirm_name == 'yes':
-                            association_to_change.association_name = new_association_name
+                            association_to_change.association_name = new_association
                             break
                         elif confirm_name =='no':
                             print("No changes made, returning to editing menu.")
