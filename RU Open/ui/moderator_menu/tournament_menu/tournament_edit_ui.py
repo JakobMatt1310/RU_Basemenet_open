@@ -43,7 +43,7 @@ class Tournament_editing_UI:
                 if selection.isdigit() == True:
                     selection = int(selection) - 1
                 if selection <= len(available_tournaments):
-                    tournament_to_update = self.logic_wrapper.get_tournament(available_tournaments[selection])
+                    tournament_to_update = available_tournaments[selection]
                 else:
                     print("Invalid input")
                 self.add_teams(tournament_to_update)

@@ -21,7 +21,7 @@ class Tournament_Logic:
     def get_all_tournaments(self):
         return self.data_wrapper.get_all_tournaments()
 
-    def get_tournament(self):
+    def get_tournament(self, tournament_to_edit):
         return self.data_wrapper.get_tournament()
         
     def create_player(self, player):
