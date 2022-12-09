@@ -17,10 +17,10 @@ class Teams_UI:
     
     def create_new_team(self):
         team = Team()
-        team.team_name = self.new_team_name()
+        team.name = self.new_team_name()
         team.association_name = self.association_name()
         self.logic_wrapper.create_team(team)
-        self.print_current_team_player_list([" "], team.team_name)
+        self.print_current_team_player_list([" "], team.name)
         for i in range(3): # moredator has to create 4 players and select a captain
             player_list = []
             player = Player()

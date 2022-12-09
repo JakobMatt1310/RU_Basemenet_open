@@ -30,9 +30,9 @@ class Teams_Data():
                           "association_id"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writerow({'id': team.id, 
-                            'name': team.team_name, 
-                            'association': team.association_name, 
-                            'captain': team.captain_name, 
+                            'name': team.name, 
+                            'association': team.association, 
+                            'captain': team.captain, 
                             'association_id': team.association_id})
 
     def update_team_name(self, team_to_edit):
@@ -50,12 +50,12 @@ class Teams_Data():
             writer.writeheader()
             for team in read_all_teams:
                 if team.id == team_to_edit.id:
-                    team.team_name = new_team_name
+                    team.name = new_team_name
                     found = True
                 writer.writerow({'id': team.id,
-                                'name': team.team_name,
-                                'association': team.association_name,
-                                'captain': team.captain_name,
+                                'name': team.name,
+                                'association': team.association,
+                                'captain': team.captain,
                                 'association_id': team.association_id})
             if found == True:
                 return found
@@ -75,12 +75,12 @@ class Teams_Data():
             writer.writeheader()
             for team in read_all_teams:
                 if team.id == team_to_edit.id:
-                    team.association_name = new_association
+                    team.association = new_association
                     found = True
                 writer.writerow({'id': team.id,
-                                'name': team.team_name,
-                                'association': team.association_name,
-                                'captain': team.captain_name,
+                                'name': team.name,
+                                'association': team.association,
+                                'captain': team.captain,
                                 'association_id': team.association_id})
             if found == True:
                 return found
@@ -100,12 +100,12 @@ class Teams_Data():
             writer.writeheader()
             for team in read_all_teams:
                 if team.id == team_to_edit.id:
-                    team.captain_name = new_captain
+                    team.captain = new_captain
                     found = True
                 writer.writerow({'id': team.id,
-                                'name': team.team_name,
-                                'association': team.association_name,
-                                'captain': team.captain_name,
+                                'name': team.name,
+                                'association': team.association,
+                                'captain': team.captain,
                                 'association_id': team.association_id})
             if found == True:
                 return found

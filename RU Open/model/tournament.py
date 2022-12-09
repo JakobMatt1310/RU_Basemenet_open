@@ -7,7 +7,7 @@ class Tournament():
         self.start_date = start_date                    # Starting date of the tournament
         self.end_date = end_date                        # End date of the tournament
         self.organizer = organizer
-        self.organizer_nr = organizer_number
+        self.organizer_number = organizer_number
 
     def __str__(self):
         '''Returns a string representation of the tournament object'''

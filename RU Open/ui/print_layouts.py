@@ -155,7 +155,7 @@ def view_teams(teams_list: list):
 
     for el in teams_list:
     
-        print(f"{X:<7}{el.team_name:<{THIRD_WIDTH}}{el.association_name:<{THIRD_WIDTH}}{el.captain_name:<{THIRD_WIDTH-8}}{X}")    
+        print(f"{X:<7}{el.name:<{THIRD_WIDTH}}{el.association:<{THIRD_WIDTH}}{el.captain:<{THIRD_WIDTH-8}}{X}")    
 
         time.sleep(0.01)    
     
@@ -171,11 +171,11 @@ def edit_menu_selected_team(team: classmethod, ):
     print("\033[32m", end="")
     print_border()
     print_empty_line()
-    print(f"{X}{team.association_name+' - '+team.team_name:^{WIDTH-2}}{X}")
+    print(f"{X}{team.association+' - '+team.name:^{WIDTH-2}}{X}")
     print_empty_line()
-    print(f"{X:<{35}}1. {team.team_name:<30}{'//Edit name':<25}{X:>27}")
-    print(f"{X:<{35}}2. {team.association_name:<30}{'//Edit association':<25}{X:>27}")
-    print(f"{X:<{35}}3. {team.captain_name:<30}{'//Edit captain':<25}{X:>27}")
+    print(f"{X:<{35}}1. {team.name:<30}{'//Edit name':<25}{X:>27}")
+    print(f"{X:<{35}}2. {team.association:<30}{'//Edit association':<25}{X:>27}")
+    print(f"{X:<{35}}3. {team.captain:<30}{'//Edit captain':<25}{X:>27}")
     print(f"{X:<{35}}4. {'Players':<30}{'//Edit players ':<25}{X:>27}")
     print_empty_line()
     print(f"{X:<{35}}{back[0]:<{33}}{back[1]:<{25}}{X:>{21}}")
@@ -201,16 +201,16 @@ def view_association(associations: classmethod, teams_dict: dict):
     print_border()
     print_empty_line()
     print(f"{X:<13}{'Name':<30}{'Street address':<32}{'Tel. no.':<21}{'Number of teams':<19}{X:>5}")
-    associations.sort(key = lambda x : x.association_name)
+    associations.sort(key = lambda x : x.name)
     for element in associations:
-        phone_no = element.association_phone[0:3] +'-'+ element.association_phone[3:]
-        home_address = element.association_address
+        phone_no = element.phone[0:3] +'-'+ element.phone[3:]
+        home_address = element.address
         try:
             no_of_teams = teams_dict[element.id]
         except KeyError:
             no_of_teams = 0
             
-        print(f"{X:<13}{element.association_name:<30}{home_address:<32}{phone_no:<21}{no_of_teams:<19}{X:>5}")    
+        print(f"{X:<13}{element.name:<30}{home_address:<32}{phone_no:<21}{no_of_teams:<19}{X:>5}")    
         time.sleep(0.1)    
 
     
@@ -230,9 +230,9 @@ def edit_menu_selected_association(association: classmethod, teams: list):
     print_empty_line()
     print(f"{X:<{35}}1. {'Add team':<30}{'// Add teams to association':<25}{X:>25}")
     print(f"{X:<{35}}2. {'Remove team':<30}{'// Add teams to association':<25}{X:>25}")
-    print(f"{X:<{35}}3. {association.association_name:<30}{'// Edit name':<25}{X:>27}")
-    print(f"{X:<{35}}4. {association.association_phone:<30}{'// Edit phone number':<25}{X:>27}")
-    print(f"{X:<{35}}5. {association.association_address:<30}{'// Edit address':<25}{X:>27}")
+    print(f"{X:<{35}}3. {association.name:<30}{'// Edit name':<25}{X:>27}")
+    print(f"{X:<{35}}4. {association.phone:<30}{'// Edit phone number':<25}{X:>27}")
+    print(f"{X:<{35}}5. {association.address:<30}{'// Edit address':<25}{X:>27}")
     print_empty_line()
     print(f"{X:<{35}}{back[0]:<{33}}{back[1]:<{25}}{X:>{21}}")
 
@@ -247,11 +247,11 @@ def edit_association_only_menu(association: classmethod):
     print("\033[32m", end="")
     print_border()
     print_empty_line()
-    print(f"{X}{association.association_name:^{WIDTH-2}}{X}")
+    print(f"{X}{association.name:^{WIDTH-2}}{X}")
     print_empty_line()
-    print(f"{X:<{30}}1. {association.association_name:<30}{'// Edit name':<25}{X:>32}")
-    print(f"{X:<{30}}2. {association.association_phone:<30}{'// Edit phone number':<25}{X:>32}")
-    print(f"{X:<{30}}3. {association.association_address:<30}{'// Edit address':<25}{X:>32}")
+    print(f"{X:<{30}}1. {association.name:<30}{'// Edit name':<25}{X:>32}")
+    print(f"{X:<{30}}2. {association.phone:<30}{'// Edit phone number':<25}{X:>32}")
+    print(f"{X:<{30}}3. {association.address:<30}{'// Edit address':<25}{X:>32}")
     print_empty_line()
     print(f"{X:<{30}}{BACK[0]:<{33}}{BACK[1]:<{25}}{X:>{26}}")
 
@@ -300,9 +300,9 @@ def view_tournaments(tournaments: classmethod):
     print_border()
     print_empty_line()
     print(f"{X:<13}{'Tournament: ':<30}{'Address':<32}{'Tel. no.':<21}{'Number of teams':<19}{X:>5}")
-    tournaments.sort(key = lambda x : x.tournament_name)
+    tournaments.sort(key = lambda x : x.name)
     for element in tournaments:
-        print(f"{X:<13}{element.tournament_name:<30}{element.tournament_address:<32}{' ':<21}{' ':<19}{X:>5}")    
+        print(f"{X:<13}{element.name:<30}{element.address:<32}{' ':<21}{' ':<19}{X:>5}")    
         time.sleep(0.01)    
 
     print_empty_line()

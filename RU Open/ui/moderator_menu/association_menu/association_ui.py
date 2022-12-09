@@ -33,13 +33,13 @@ class Association_UI:
             elif command == "2":
                 association = Association()
                 while True:
-                    association.association_name = self.new_association_name()
-                    association.association_phone = self.new_association_phone()
-                    association.association_address = self.new_association_address()
+                    association.name = self.new_association_name()
+                    association.phone = self.new_association_phone()
+                    association.address = self.new_association_address()
                     try:
-                        validate_association_name(association.association_name)
-                        # check_phone_length(association.association_phone)
-                        # check_phone_isdigit(association.association_phone)
+                        validate_association_name(association.name)
+                        # check_phone_length(association.phone)
+                        # check_phone_isdigit(association.phone)
                         
                         break
                     except AssociationNameLengthException:

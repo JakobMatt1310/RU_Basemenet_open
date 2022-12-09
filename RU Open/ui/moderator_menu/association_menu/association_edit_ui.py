@@ -29,16 +29,16 @@ class Associations_editing_UI:
             elif command == "1":
                 team = Team()
                 while True:
-                    team.team_name = input("Enter the name of the team: ")
+                    team.name = input("Enter the name of the team: ")
                     try:
-                        validate_team_name(team.team_name)
+                        validate_team_name(team.name)
                         break
                     except TeamNameLengthException:
                         print("name was too short or too long (Must be 3-35 characters long.")
                     except:
                         print("some error")
-                team.association_name = input("Enter the name of the association this team should belong to: ")
-                team.captain_name = input("Enter the name of the teams captain: ")
+                team.association = input("Enter the name of the association this team should belong to: ")
+                team.captain = input("Enter the name of the teams captain: ")
                 self.logic_wrapper.create_team(team)
                 print("You must now add 4 players to the team to make it valid, otherwise the team will be deleted.")
                 continue_or_no = input("Would you like to continue? (yes/no): ").islower()
@@ -82,15 +82,15 @@ class Associations_editing_UI:
                         else:
                             print('Invalid input, please answer with "yes" or "no" ')
             elif command == '3':
-                association_name = input("Please enter the new name of the association you want to make changes to: ")
-                association_to_change = self.logic_wrapper.get_association(association_name)
+                association = input("Please enter the new name of the association you want to make changes to: ")
+                association_to_change = self.logic_wrapper.get_association(association)
                 edit_info = input("What details would you like to make changes to? (1. Association Name // 2. Phone Number // 3. Address): ").islower()
                 if edit_info == '1':
-                    new_association_name = input("Please enter a new name for the association: ")
-                    confirm_name = input(f"The association will be renamed {new_association_name}. Confirm (yes/no): ").islower()
+                    new_association = input("Please enter a new name for the association: ")
+                    confirm_name = input(f"The association will be renamed {new_association}. Confirm (yes/no): ").islower()
                     while True:
                         if confirm_name == 'yes':
-                            association_to_change.association_name = new_association_name
+                            association_to_change.association_name = new_association
                             break
                         elif confirm_name =='no':
                             print("No changes made, returning to editing menu.")

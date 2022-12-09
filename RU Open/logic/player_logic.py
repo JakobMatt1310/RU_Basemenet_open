@@ -13,7 +13,7 @@ class Player_Logic:
         team_id_dict = {}
 
         for id in all_teams:
-            tmp_dict = {id.id: id.team_name}
+            tmp_dict = {id.id: id.name}
             team_id_dict.update(tmp_dict)
         return team_id_dict
 
@@ -74,7 +74,7 @@ class Player_Logic:
         for player in all_players:
             if ssn == player.ssn:
                 for team in all_teams:
-                    if player.name == team.captain_name and player.team_id == team.id:
+                    if player.name == team.captain and player.team_id == team.id:
                         return team
         return False
         

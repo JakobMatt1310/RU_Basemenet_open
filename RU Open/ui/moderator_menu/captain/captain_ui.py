@@ -13,7 +13,7 @@ class Captain_UI:
     def __init__(self, logic_connection, team):
         self.logic_wrapper = logic_connection
         self.team = team
-        team_name = team.team_name
+        team_name = team.name
         self.Menu_selection = { "Current Menu": "Captain Menu", 
                                 "Register points for "+ team_name: ">>> Register points for a match"}   
     def menu_output(self):

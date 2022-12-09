@@ -36,14 +36,14 @@ class Association_Logic:
     def validate_association_name_with_all(self, name):
         all_associations = self.get_all_associations()
         for association in all_associations:
-            if name == association.association_name:
+            if name == association.name:
                 return True
         return None
 
     def get_association(self, association_to_edit):
         all_associations = self.get_all_associations()
         for association in all_associations:
-            if association_to_edit == association.association_name:
+            if association_to_edit == association.name:
                 return association
         return None
     

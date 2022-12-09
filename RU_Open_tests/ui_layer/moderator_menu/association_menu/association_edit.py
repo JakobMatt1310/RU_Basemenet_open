@@ -29,9 +29,9 @@ class Associations_editing_UI:
             elif command == "1":
                 team = Team()
                 while True:
-                    team.team_name = input("Enter the name of the team: ")
+                    team.name = input("Enter the name of the team: ")
                     try:
-                        validate_team_name(team.team_name)
+                        validate_team_name(team.name)
                         break
                     except TeamNameLengthException:
                         print("name was too short or too long (Must be 3-35 characters long.")
