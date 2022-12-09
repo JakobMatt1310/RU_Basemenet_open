@@ -40,7 +40,7 @@ class MainMenu_UI:
     def input_prompt(self):
         while True:
             self.menu_output()
-            command = "1"#input("Enter your command: ").lower()
+            command = input("Enter your command: ").lower()
 
             if command == "q":
                 print("Goodbye")
@@ -58,7 +58,7 @@ class MainMenu_UI:
                     time.sleep(2.0)
 
             elif command == "2":
-                valid = self.ask_for_captain_password()
+                valid = True#self.ask_for_captain_password()
                 if valid != False:
                     menu = Captain_UI(self.logic_wrapper, valid)
                     back_method = menu.input_prompt()

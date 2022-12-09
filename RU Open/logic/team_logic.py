@@ -91,10 +91,11 @@ class Team_Logic:
         """Gets allt teams in id_list"""
         all_teams = self.get_all_teams()
         teams_list = []
-        for id in team_ids:
-            for team in all_teams:
+        for team in all_teams:
+            for id in team_ids:
                 if id == team.id:
                     teams_list.append(team)
+                    break
         return teams_list
     
     def get_teams_not_in_id_list(self, team_ids: list):
@@ -102,11 +103,16 @@ class Team_Logic:
         all_teams = self.get_all_teams()
         teams_list = []
         for team in all_teams:
+            team_found = False
             if len(team_ids) == 0:
                 teams_list.append(team)
             else:
                 for id in team_ids:
-                    if id != team.id:
-                        teams_list.append(team)
+                    if id == team.id:
+                        team_found = True
+                        break
+                        
+                if team_found == False:
+                    teams_list.append(team)
         return teams_list
    

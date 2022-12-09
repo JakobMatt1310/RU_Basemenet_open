@@ -42,17 +42,17 @@ class Tournament_UI:
                 view_tournaments(tournaments_all)
 
             elif command == "2":
-                tournament = Tournament("6", "tourney 2022","location 0","['14', '12', '2022']","['15', '12', '2022']","Sighvatur","9876543")
-                self.add_teams(tournament)
-                # self.create_new_tournament()
+                # tournament = Tournament("6", "tourney 2022","location 0","['14', '12', '2022']","['15', '12', '2022']","Sighvatur","9876543")
+                # self.add_teams(tournament)
+                self.create_new_tournament()
             
             elif command == "3":
                 print("edit the tournament")
                 pass
 
-            elif command == "4":
-                # prenta lista af tournaments sem eru til en ekki búið að skrá neinar niðurstöður a.k.a. tournaments sem má eyða.
-                self.logic_wrapper.remove_tournament(tournament)
+            # elif command == "4":
+            #     # prenta lista af tournaments sem eru til en ekki búið að skrá neinar niðurstöður a.k.a. tournaments sem má eyða.
+            #     self.logic_wrapper.remove_tournament(tournament)
                 
             else:
                 print("invalid input, try again")
@@ -164,56 +164,59 @@ class Tournament_UI:
             except:
                 print("An error occoured, please try again")
 
-    # def create_new_tournament(self):
-    #     tournament = Tournament()
-    #     print(f"{'c. Cancel creating new tournament': ^120}")
+    def create_new_tournament(self):
+        tournament = Tournament()
+        print(f"{'c. Cancel creating new tournament': ^120}")
         
 
-    #     while True:
-    #         cancel, tournament.name = self.tournament_name()
-    #         if cancel == True:
-    #             return
-    #         cancel, tournament.address = self.tournament_address()
-    #         if cancel == True:
-    #             return
-    #         cancel, tournament.start_date = self.tournament_start_date()
-    #         if cancel == True:
-    #             return
-    #         cancel, tournament.end_date = self.tournament_end_date(tournament.start_date)
-    #         if cancel == True:
-    #             return
-    #         cancel, tournament.organizer = self.tournament_organizer()
-    #         if cancel == True:
-    #             return
-    #         cancel, tournament.organizer_number = self.tournament_organizer_phonenumber()
-    #         if cancel == True:
-    #             return
-    #         else:
-    #             break
+        while True:
+            cancel, tournament.name = self.tournament_name()
+            if cancel == True:
+                return
+            cancel, tournament.address = self.tournament_address()
+            if cancel == True:
+                return
+            cancel, tournament.start_date = self.tournament_start_date()
+            if cancel == True:
+                return
+            cancel, tournament.end_date = self.tournament_end_date(tournament.start_date)
+            if cancel == True:
+                return
+            cancel, tournament.organizer = self.tournament_organizer()
+            if cancel == True:
+                return
+            cancel, tournament.organizer_number = self.tournament_organizer_phonenumber()
+            if cancel == True:
+                return
+            else:
+                break
             
             
         
-    #     self.logic_wrapper.create_tournament(tournament)
-    #     print_tournament_info(tournament)
-    #     ask_add_teams = input("Would you like to add teams to the tournament right away? (yes/no): ")
-    #     if ask_add_teams == 'yes':
-    #         self.add_teams(tournament)
-    #     else:
-    #         return
+        self.logic_wrapper.create_tournament(tournament)
+        print_tournament_info(tournament)
+        ask_add_teams = input("Would you like to add teams to the tournament right away? (yes/no): ")
+        if ask_add_teams == 'yes':
+            self.add_teams(tournament)
+        else:
+            return
     
     def add_teams(self, tournament):
-        add_another = 'yes'
-        while add_another == 'yes':
+        while True:
             available_teams = self.logic_wrapper.teams_not_in_tourney(tournament)
             if len(available_teams) != 0:
                 print_teams_to_add_to_tourney(available_teams)
             else:
                 print_teams_to_add_to_tourney_empty()
+                input("Press enter to go back")
+                break
             selection = input("Select a team to add: ")
+            if selection == "b":
+                break
             if selection.isdigit() == True:
                 selection = int(selection) - 1
                 if selection <= len(available_teams):
-                    self.logic_wrapper.add_team_to_tourney(tournament.name, available_teams[selection].id)
+                    self.logic_wrapper.add_team_to_tourney(tournament, available_teams[selection])
                 else:
                     print("Invalid input")
             else:
