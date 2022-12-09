@@ -5,6 +5,7 @@ from ui.print_layouts import *  # print_current_menu
 from ui.input_validators import *
 from datetime import date
 from model.datetime import DateTime
+from ui.moderator_menu.tournament_menu.tournament_edit_ui import Tournament_editing_UI
 
 
 class Tournament_UI:
@@ -82,8 +83,10 @@ class Tournament_UI:
                 self.create_new_tournament()
             
             elif command == "3":
-                print("edit the tournament")
-                pass
+                menu = Tournament_editing_UI(self.logic_wrapper)
+                back_method = menu.input_prompt()
+                if back_method == "b":
+                    return
 
             # elif command == "4":
             #     # prenta lista af tournaments sem eru til en ekki búið að skrá neinar niðurstöður a.k.a. tournaments sem má eyða.

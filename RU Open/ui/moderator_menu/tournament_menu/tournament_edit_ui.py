@@ -1,4 +1,4 @@
-from tournament_ui import Tournament
+from model.tournament import Tournament
 from model.team import Team
 from model.player import Player
 from model.match import Match
