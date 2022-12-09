@@ -19,6 +19,6 @@ class Teams_In_Tourneys_Data():
     def create_team_in_tourney(self, tournament: classmethod, team: classmethod):
         '''Add team to tournament in the file teams_in_tourneys.csv, one team at a time'''
         with open(self.file_name, 'a', newline='', encoding="utf-8") as csvfile:
-            fieldnames = ["torunament_name", "team_id"]
+            fieldnames = ["tournament_name", "team_id"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-            writer.writerow({'Tournament name': tournament.__name__, 'Team ID': team.id})
+            writer.writerow({'tournament_name': tournament.name, 'team_id': team.id})
