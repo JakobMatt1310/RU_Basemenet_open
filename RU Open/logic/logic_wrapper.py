@@ -127,6 +127,9 @@ class Logic_Wrapper:
 
     def get_team_stats(self):
         return self.team_logic.get_team_stats()
+    
+    def get_team_by_id(self, team_id):
+        return self.team_logic.get_team_by_id(team_id)
 
     def get_team(self, team_to_edit):
         return self.team_logic.get_team(team_to_edit)

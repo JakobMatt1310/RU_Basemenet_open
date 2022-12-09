@@ -86,6 +86,13 @@ class Team_Logic:
             if team_to_add == team.team_name:
                 teams_list.append(team)
         return teams_list
+
+    def get_team_by_id(self, team_id):
+        """Gets allt teams in id_list"""
+        all_teams = self.get_all_teams()
+        for team in all_teams:
+            if team_id == team.id:
+                return team
     
     def get_teams_by_id(self, team_ids: list):
         """Gets allt teams in id_list"""
