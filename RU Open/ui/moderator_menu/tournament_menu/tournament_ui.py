@@ -42,7 +42,7 @@ class Tournament_UI:
                 view_tournaments(tournaments_all)
 
             elif command == "2":
-                tournament = Tournament("tourney 2022","location 0","['14', '12', '2022']","['15', '12', '2022']","Sighvatur","9876543")
+                tournament = Tournament("6", "tourney 2022","location 0","['14', '12', '2022']","['15', '12', '2022']","Sighvatur","9876543")
                 self.add_teams(tournament)
                 # self.create_new_tournament()
             
@@ -209,9 +209,9 @@ class Tournament_UI:
                 print_teams_to_add_to_tourney(available_teams)
             else:
                 print_teams_to_add_to_tourney_empty()
-            selection = input("Please select a team to add to the tournament: ")
+            selection = input("Select a team to add: ")
             if selection.isdigit() == True:
-                selection = int(selection)
+                selection = int(selection) - 1
                 if selection <= len(available_teams):
                     self.logic_wrapper.add_team_to_tourney(tournament.name, available_teams[selection].id)
                 else:
