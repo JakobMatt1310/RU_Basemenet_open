@@ -10,10 +10,11 @@ from ui.input_validators import *
 class Captain_UI:
 
                     
-    def __init__(self, logic_connection, team):
+    # def __init__(self, logic_connection, team): -- ÞETTA Á AÐ VERA FINAL
+    def __init__(self, logic_connection):
         self.logic_wrapper = logic_connection
-        self.team = team
-        team_name = team.name
+        self.team = "blabla"
+        team_name = "blabla"
         self.Menu_selection = { "Current Menu": "Captain Menu", 
                                 "Register points for "+ team_name: ">>> Register points for a match"}   
     def menu_output(self):
@@ -35,7 +36,7 @@ class Captain_UI:
                 print("invalid input, try again")
 
     def register_points(self, team):
-        print("YOU HAVE REGISTERED POINTS")
+        print("Here you will be able to register")
         print()
         print()
         print()

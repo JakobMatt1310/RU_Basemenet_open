@@ -304,6 +304,57 @@ def print_player_edit_menu(player: classmethod):
     print_border_half()
     print("\033[0m")
 
+def print_current_tournament_layout(tournament, teams_and_players):
+    clear_screen()
+    print("\033[32m", end="")
+    time.sleep(0.5)
+    print(f"{' ':30}{(X*60):<60}") 
+    time.sleep(0.1)
+    print(f"{' ':30}{X:<59}{X}") 
+    time.sleep(0.1)
+    viewing = 'Viewing ' + tournament.name
+    print(f"{' ':30}{X}{viewing:^58}{X}")    
+    time.sleep(0.1)
+    print(f"{' ':30}{X:<59}{X}") 
+    time.sleep(0.1)
+    print(f"{' ':30}{(X*60):<60}")
+    time.sleep(0.5) 
+    if len(teams_and_players) == 0:
+        print_border()
+        print_empty_line()
+        print(f"{X}", end="")
+        print(f"\033[31m{'Tournament currently has no active matches':^118}", end="")
+        print(f"\033[32m{X}")
+    else:
+        print_border()
+        print_empty_line()
+        for i, team in enumerate(teams_and_players, 1):
+            print_empty_line()
+            print_empty_line()
+            print(f"{X:<6}{i}. Team name ~~>> ",end="")
+            print(f"\033[33m{team[0].name:<40}", end="")
+            print(f"\033[32m{X:>56}")
+            print_empty_line()
+            print(f"{X:<6}{'Name':<30}{'Phone':<10}{'SSN':<14}{'Address':<30}{'Role':<20}{X:>10}")
+            player_list = []
+            for player in team[1]:
+                if player.name == team[0].captain:
+                    player_list.insert(0, player)
+                else:
+                    player_list.append(player)
+            for i, player in enumerate(player_list):
+                if i == 0:
+                    print(f"{X:<6}{player.name:<30}{player.phone:<10}{player.ssn:<14}{player.address:<30}{'Captain':<20}{X:>10}")
+                else: 
+                    print(f"{X:<6}{player.name:<30}{player.phone:<10}{player.ssn:<14}{player.address:<30}{'Player':<20}{X:>10}")
+            time.sleep(0.01)    
+        print_empty_line()
+        print_empty_line()
+        print_border()
+
+    print_empty_line()
+    print_border() 
+    print("\033[0m")
 def view_tournaments(tournaments: classmethod):
     clear_screen()
     print("\033[1;32;40m", end="")
@@ -324,15 +375,18 @@ def view_tournaments(tournaments: classmethod):
     #Vinstramegin verður "finished" hægtamegin verður"þ.að se er í gangi eða á eftir að byrja"
     print_border()
     print_empty_line()
-    print(f"{X:<13}{'Tournament: ':<30}{'Address':<32}{'Tel. no.':<21}{'Number of teams':<19}{X:>5}")
-    tournaments.sort(key = lambda x : x.name)
-    for element in tournaments:
-        print(f"{X:<13}{element.name:<30}{element.address:<32}{' ':<21}{' ':<19}{X:>5}")    
+    print(f"{X:<6}{'ID':<7}{'Tournament: ':<30}{'Address':<32}{'Start date':<21}{'End date':<19}{X:>5}")
+    # tournaments.sort(key = lambda x : x.name)
+    for i, element in enumerate(tournaments, 1):
+        start_date = element.start_date[2:4]+'.'+element.start_date[8:10]+'.'+element.start_date[14:18]
+        end_date = element.end_date[2:4]+'.'+element.end_date[8:10]+'.'+element.end_date[14:18]
+        
+        print(f"{X:<6}{i:<7}{element.name:<30}{element.address:<32}{start_date:<21}{end_date:<19}{X:>5}")    
         time.sleep(0.01)    
 
     print_empty_line()
     print_border() 
-    input("\033[0m Press Enter to go back: ")
+    print("\033[0m")
     
 def print_current_team_player_list(players: list, team_name: str):
     """Previews the players that will be added to current team
