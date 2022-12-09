@@ -65,9 +65,9 @@ class Captain_UI:
                 
         for i in range(1, 5):
             self.register_round_501(i,  match, captains_home_team, captains_away_team)
-        self.register_round_301(i,  match, captains_home_team, captains_away_team)
-        self.register_round_C(i,  match, captains_home_team, captains_away_team)
-        self.register_round_4man_501(i,  match, captains_home_team, captains_away_team)
+        self.register_round_301(match, captains_home_team, captains_away_team)
+        self.register_round_C(match, captains_home_team, captains_away_team)
+        self.register_round_4man_501(match, captains_home_team, captains_away_team)
         
 
 
@@ -76,6 +76,7 @@ class Captain_UI:
         
         round = Round()
         round.match_id = match.match_id
+        round.round_nr = round_nr
         round.gamemode = "501"
         players_in_team = self.print_players_in_team(captains_home_team)
         selection = input(f"Please select the player who played in the round no {round_nr} (501 single): ")
@@ -132,9 +133,10 @@ class Captain_UI:
         self.logic_wrapper.create_round(round)
                 
                 
-    def register_round_301(self, round_nr, match, captains_home_team, captains_away_team):
+    def register_round_301(self, match, captains_home_team, captains_away_team):
         round = Round()
         round.match_id = match.match_id
+        round.round_nr = 6
         round.gamemode = "301"
         print("Home team")
         players_in_team = self.print_players_in_team(captains_home_team)
@@ -182,9 +184,10 @@ class Captain_UI:
 
         self.logic_wrapper.create_round(round)
                          
-    def register_round_C(self, round_nr, match, captains_home_team, captains_away_team):
+    def register_round_C(self, match, captains_home_team, captains_away_team):
         round = Round()
         round.match_id = match.match_id
+        round.round_nr = 6
         round.gamemode = "C"
         print("Home team")
         players_in_team = self.print_players_in_team(captains_home_team)
@@ -233,9 +236,10 @@ class Captain_UI:
 
         self.logic_wrapper.create_round(round)
                            
-    def register_round_4man_501(self, round_nr, match, captains_home_team, captains_away_team):
+    def register_round_4man_501(self, match, captains_home_team, captains_away_team):
         round = Round()
         round.match_id = match.match_id
+        round.round_nr = 7
         round.gamemode = "501"
         print("Home team")
         players_in_team = self.print_players_in_team(captains_home_team)

@@ -14,3 +14,21 @@ match_id, round_nr, gamemode, home_p1, home_p2, home_p3, home_p4, home_leg1, hom
 1,1,301,1,0,1,1,none,none,Lucille Huber,Jayce Barton,none,none,Ashanti Combs,Dickerson
 1,1,C,1,1,1,0,Bailee Ward,Yaritza Parker,none,none,Gianna Wilkinson,Paul Perry,none,none
 1,1,501,1,0,1,1,Bailee Ward,Yaritza Parker,Lucille Huber,Jayce Barton,Gianna Wilkinson,Paul Perry,Ashanti Combs,Dickerson
+1,1,501,0,0,1,1,Bailee Ward,none,none,none,Gianna Wilkinson,none,none,none
+1,1,501,1,1,0,0,Yaritza Parker,none,none,none,Paul Perry,none,none,none
+1,1,501,1,0,1,1,Lucille Huber,none,none,none,Ashanti Combs,none,none,none
+1,1,501,1,1,1,0,Jayce Barton,none,none,none,Dickerson,none,none,none
+1,1,501,1,1,0,0,Bailee Ward,none,none,none,Gianna Wilkinson,none,none,none
+1,1,501,1,0,1,1,Yaritza Parker,none,none,none,Paul Perry,none,none,none
+1,1,501,1,0,1,1,Lucille Huber,none,none,none,Ashanti Combs,none,none,none
+1,1,501,1,1,1,0,Jayce Barton,none,none,none,Dickerson,none,none,none
+1,1,301,1,0,1,1,none,none,Lucille Huber,Jayce Barton,none,none,Ashanti Combs,Dickerson
+1,1,C,1,1,0,0,Bailee Ward,Yaritza Parker,none,none,Gianna Wilkinson,Paul Perry,none,none
+1,1,501,1,1,0,0,Bailee Ward,Yaritza Parker,Lucille Huber,Jayce Barton,Gianna Wilkinson,Paul Perry,Ashanti Combs,Dickerson
+1,1,501,1,1,0,0,Bailee Ward,none,none,none,Gianna Wilkinson,none,none,none
+1,2,501,1,0,1,1,Yaritza Parker,none,none,none,Paul Perry,none,none,none
+1,3,501,1,0,1,1,Lucille Huber,none,none,none,Ashanti Combs,none,none,none
+1,4,501,1,1,1,0,Jayce Barton,none,none,none,Dickerson,none,none,none
+1,6,301,1,1,0,0,none,none,Lucille Huber,Jayce Barton,none,none,Ashanti Combs,Dickerson
+1,6,C,0,0,1,1,Bailee Ward,Yaritza Parker,none,none,Gianna Wilkinson,Paul Perry,none,none
+1,7,501,1,0,1,1,Bailee Ward,Yaritza Parker,Lucille Huber,Jayce Barton,Gianna Wilkinson,Paul Perry,Ashanti Combs,Dickerson
