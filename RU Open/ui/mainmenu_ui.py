@@ -40,14 +40,14 @@ class MainMenu_UI:
     def input_prompt(self):
         while True:
             self.menu_output()
-            command = "1"#input("Enter your command: ").lower()
+            command = input("Enter your command: ").lower()
 
             if command == "q":
                 print("Goodbye")
                 break
 
             elif command == "1":
-                valid = True#self.ask_for_mod_password()
+                valid = self.ask_for_mod_password()
                 if valid == True:
                     menu = Moderator_UI(self.logic_wrapper)
                     back_method = menu.input_prompt()

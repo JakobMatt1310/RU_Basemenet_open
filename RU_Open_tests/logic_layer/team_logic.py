@@ -33,7 +33,7 @@ class Team_Logic:
     def get_team(self, team_to_edit):
         all_teams = self.get_all_teams()
         for team in all_teams:
-            if team_to_edit == team.team_name:
+            if team_to_edit == team.name:
                 return team
         return None
 

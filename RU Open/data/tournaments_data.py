@@ -36,7 +36,7 @@ class Tournaments_Data():
                           "organizer_nr"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
-            writer.writerow({'tournament_id': tournament.id,
+            writer.writerow({'id': tournament.id,
                              'name': tournament.name,
                              'address': tournament.address,
                              'start_date': tournament.start_date,

@@ -22,7 +22,7 @@ class Tournament_UI:
         print_current_menu(self.Menu_selection)
 
     def input_prompt(self):
-        
+        today = date.today()
         today_formated = today.strftime("%d %B, %Y")
         print(today_formated)
         while True:

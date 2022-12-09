@@ -85,7 +85,7 @@ class Teams_UI:
         while True:
             all_associations = self.logic_wrapper.get_all_associations()
             for i, association in enumerate(all_associations, 1):
-                print(f"{i}. {association.association_name}")
+                print(f"{i}. {association.name}")
             while True:
                 selection = input("Please enter the number of the new association: ")
                 if selection.isdigit() == False:
@@ -141,11 +141,11 @@ class Teams_UI:
         """Creates a new team, when selected Moderator HAS to create a team, with all four players and a captain.
         """
         team = Team()
-        team.team_name = self.new_team_name()
-        team.association_name = self.association_name()
+        team.name = self.new_team_name()
+        team.association = self.association_name()
         
         self.logic_wrapper.create_team(team)
-        print_current_team_player_list([" "], team.team_name)
+        print_current_team_player_list([" "], team.name)
         player_list = []
         for i in range(4): # Moderator has to create 4 players and select a captain
             player = Player()
@@ -158,12 +158,12 @@ class Teams_UI:
                         
             self.logic_wrapper.create_player(player)
             player_list.append(player.name)
-            print_current_team_player_list(player_list, team.team_name)
+            print_current_team_player_list(player_list, team.name)
             
         while True:
             selection = input("Select player to be captain for team: ")
             if selection == "1" or selection == "2" or selection == "3" or selection == "4":
-                team.captain_name = player_list[int(selection)-1]
+                team.captain = player_list[int(selection)-1]
                 success = self.logic_wrapper.update_team_captain(team)
                 if success == True:
                     return "back"
@@ -176,24 +176,24 @@ class Teams_UI:
     def new_team_name(self, rename=0):
         while True:
             if rename == 0:            
-                team_name = input("Enter the name of the team (max 30 char): ")
+                team = input("Enter the name of the team (max 30 char): ")
             else:
-                team_name = input("Enter the desired new name for the team (max 30 char): ")
+                team = input("Enter the desired new name for the team (max 30 char): ")
             try:
-                validate_team_name(team_name)
+                validate_team_name(team)
                 break
             except TeamNameLengthException:
                 print("Name was too long or to short")
             except:
                 print("Something went wrong, please try again.")
-        return team_name
+        return team
                 
     def association_name(self):
         while True:
-            association_name = input("Enter the association this team should belong to (max 30 char): ")
+            association = input("Enter the association this team should belong to (max 30 char): ")
             try:
-                validate_association_name(association_name)
-                test = self.logic_wrapper.validate_association_name_with_all(association_name)
+                validate_association_name(association)
+                test = self.logic_wrapper.validate_association_name_with_all(association)
                 if test == True:
                     break
                 else:
@@ -202,7 +202,7 @@ class Teams_UI:
                 print("Name to long or to short")
             except:
                 print("Something went wrong, please try again.")
-        return association_name
+        return association
 
 
 #---------------Player validation-------------------#
@@ -215,15 +215,15 @@ class Teams_UI:
             str: name of player
         """
         while True:
-            player_name = input("Enter the name of the player(max 30 char): ")
+            player = input("Enter the name of the player(max 30 char): ")
             try:
-                validate_name(player_name)
+                validate_name(player)
                 break
             except TeamNameLengthException:
                 print("Name to long or to short")
             except:
                 print("Something went wrong, please try again.")
-        return player_name
+        return player
     
     def new_player_ssn(self):
         """Asks for player social security number until it's valid
@@ -253,15 +253,15 @@ class Teams_UI:
             str: Players phonenumber
         """
         while True:
-            phone_number = input("Enter the players phone number: ")
+            phone = input("Enter the players phone number: ")
             try:
-                validate_phonenumber(phone_number)
+                validate_phonenumber(phone)
                 break
             except TeamNameLengthException:
                 print("Input incorrect, please try again.")
             except:
                 print("Something went wrong, please try again.")
-        return phone_number
+        return phone
     
     def new_player_email(self):
         """Asks for player email address, asks until it's valid
