@@ -100,9 +100,9 @@ class Teams_UI:
                 else:
                     if 0 < int(selection) <= len(all_associations):
                         new_association = all_associations[int(selection) - 1]
-                        confirm_association = input(f"Change team association to -> {new_association.association_name}. Confirm (yes/no): ").lower()
+                        confirm_association = input(f"Change team association to -> {new_association.name}. Confirm (yes/no): ").lower()
                         if confirm_association == 'yes':
-                            team_to_edit.association_id, team_to_edit.association_name = new_association.id, new_association.association_name
+                            team_to_edit.association_id, team_to_edit.association = new_association.id, new_association.name
                             self.logic_wrapper.update_team_association(team_to_edit)
                             return "back"
                         elif confirm_association =='no':
@@ -124,7 +124,7 @@ class Teams_UI:
             else:
                 if 0 < int(new_captain) <= len(players_in_team):
                     new_captain = players_in_team[int(new_captain)-1].name
-                    team_to_edit.captain_name = new_captain
+                    team_to_edit.captain = new_captain
                     success = self.logic_wrapper.update_team_captain(team_to_edit)
                     if success == True:
                         print(f"Team captain has successfully been updated to {new_captain}")

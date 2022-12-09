@@ -60,7 +60,7 @@ class Teams_Data():
 
     def update_team_association(self, team_to_edit):
         '''Updates team association'''
-        new_association = team_to_edit.association_name
+        new_association = team_to_edit.association
         read_all_teams = self.read_all_teams()
         with open(self.file_name, 'w', newline='', encoding="utf-8") as csvfile:
             fieldnames = ["id", 
@@ -83,7 +83,7 @@ class Teams_Data():
 
     def update_team_captain(self, team_to_edit):
         '''Updates team captain'''
-        new_captain = team_to_edit.captain_name
+        new_captain = team_to_edit.captain
         read_all_teams = self.read_all_teams()
         with open(self.file_name, 'w', newline='', encoding="utf-8") as csvfile:
             fieldnames = ["id", 
@@ -101,5 +101,4 @@ class Teams_Data():
                                 'association': team.association,
                                 'captain': team.captain,
                                 'association_id': team.association_id})
-
             return True
