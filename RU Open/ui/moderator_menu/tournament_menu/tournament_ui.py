@@ -21,6 +21,34 @@ class Tournament_UI:
     def menu_output(self):
         print_current_menu(self.Menu_selection)
 
+    def validate_is_digit(self, all_tournaments):
+            selection = input("Press enter to go back, or select a tournament ID to view more detailed. ")
+            if selection == "":
+                pass
+            else:
+                if selection.isdigit() == True:
+                    selection = int(selection) - 1
+                    if selection <= len(all_tournaments):
+                        selected_tournament = all_tournaments[selection]
+                        return selected_tournament
+                    else:
+                        print("Invalid input")
+                        return "b"
+                else:
+                    print("Invalid input")
+                    return "b"
+    def print_current_tournament(self, tournament):
+        teams_in_tourney = self.logic_wrapper.teams_in_tourney(tournament)
+        teams_and_players = []
+        for team in teams_in_tourney:
+            players = self.logic_wrapper.get_all_players_of_team(team)
+            teams_and_players.append([team, players])
+        print_current_tournament_layout(tournament, teams_and_players)
+        
+        
+        
+        
+        
     def input_prompt(self):
         
         today_formated = self.today.strftime("%d %B, %Y")
@@ -38,8 +66,15 @@ class Tournament_UI:
             
             elif command == "1":
                 tournaments_all = self.logic_wrapper.get_all_tournaments()
-                # teams_no = self.logic_wrapper.teams_in_association()
                 view_tournaments(tournaments_all)
+                tournament = self.validate_is_digit(tournaments_all)
+                if tournament == "b":
+                    return
+                else:
+                    self.print_current_tournament(tournament)
+                    input("Press enter to return")
+
+                
 
             elif command == "2":
                 # tournament = Tournament("6", "tourney 2022","location 0","['14', '12', '2022']","['15', '12', '2022']","Sighvatur","9876543")
