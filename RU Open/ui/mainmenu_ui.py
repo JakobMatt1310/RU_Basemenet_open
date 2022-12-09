@@ -31,7 +31,7 @@ class MainMenu_UI:
         return False
   
     def ask_for_captain_password(self):
-        ssn = input("Enter captains social security number ")
+        ssn = '0402781920' # input("Enter captains social security number ") <<<<<------ MUNA A AD LAGA FYRIR SKIL
         captains_team = self.logic_wrapper.all_captains(ssn)
         if captains_team != False:
             return captains_team
@@ -58,7 +58,7 @@ class MainMenu_UI:
                     time.sleep(2.0)
 
             elif command == "2":
-                valid = True#self.ask_for_captain_password()
+                valid = self.ask_for_captain_password()
                 if valid != False:
                     menu = Captain_UI(self.logic_wrapper, valid)
                     back_method = menu.input_prompt()

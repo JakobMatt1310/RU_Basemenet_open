@@ -9,7 +9,6 @@ from ui.input_validators import *
 
 class Captain_UI:
 
-                    
     def __init__(self, logic_connection, team):
         self.logic_wrapper = logic_connection
         self.team = team
@@ -35,29 +34,37 @@ class Captain_UI:
                 print("invalid input, try again")
 
     def register_points(self, team):
-        print("YOU HAVE REGISTERED POINTS")
-        print()
-        print()
-        print()
-        input("Press enter to return")
-        return
+        pass
+        # players_home_team = self.logic_wrapper.get_all_players_of_team(team)
+        # players_away_team = self.logic_wrapper.get_all_players_of_team(team)
+        
+        # print(f"{'ID. Home team':<30} : ID. Away team")
+        
+        # for k in range(1,5):
+            
+        #     print()
+        #     # print(f"{players_home_team[].id}. {players_home_team[k].name:<30} : {players_away_team.id}. {players_away_team[k].name}")
+
+        # match_result = []
+
+        # # for i in range(4):
+
+        # print()
+        # print("home_player_id;Leg1;Leg2;Leg2;Leg1;Away_player_id")
+        # print()
+        # print("45;0;1;1;1;23")
+        # results = input(f"Enter resulst for round {k+1} in 501 as shown in example above").split(";")
+        
+        # match_result[:] = (results[0])
+
+        # print("YOU HAVE REGISTERED POINTS")
+        # print()
+        # print()
+        # print()
+        # input("Press enter to return")
+        # return
+        
         #Fixa hvernig stig eru skráð
       
-        
         # home_team = Team("1","Victorious Secret","ÍBV","Isiah Oliver","6")
         # away_team = Team("8","Kiss My Ace","Fram","Amya Graves","4")
-        # players_home_team = self.logic_wrapper.get_all_players_of_team(home_team)
-        # players_away_team = self.logic_wrapper.get_all_players_of_team(away_team)
-        # match_result = []
-        # for i in range(4):
-        #     print(f"{'ID. Home team':<30} : ID. Away team")
-        #     print()
-        #     for k in range(4):
-        #         print(f"{players_home_team[k].id}. {players_home_team[k].name:<30} : {players_away_team[k].id}. {players_away_team[k].name}")
-        #     print()
-        #     print("home_player_id;Leg1;Leg2;Leg2;Leg1;Away_player_id")
-        #     print()
-        #     print("45;0;1;1;1;23")
-        #     results = input(f"Enter resulst for round {i+1} in 501 as shown in example above").split(";")
-            
-        #     match_result[i] = Round(results[0])
