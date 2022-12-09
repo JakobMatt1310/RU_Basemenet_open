@@ -116,7 +116,7 @@ class Tournament_editing_UI:
     
     def match_date(self, home_team, away_team):
         while True:
-            date = input(f"Please enter the date for {home_team.name} VS {away_team.name} (dd.mm.yyyy): ")
+            date = input(f"Please enter the date for the {home_team.name} VS {away_team.name} match (dd.mm.yyyy): ")
             if date == "c":
                 return True, "none"
             dots = 0
