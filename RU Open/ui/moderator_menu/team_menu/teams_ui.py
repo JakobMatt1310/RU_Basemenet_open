@@ -209,7 +209,7 @@ class Teams_UI:
                 if test == True:
                     break
                 else:
-                    print("Name already exists, please choose another name")
+                    print(f"Association {association} not found! Try again.")
             except TeamNameLengthException:
                 print("Name to long or to short")
             except:
