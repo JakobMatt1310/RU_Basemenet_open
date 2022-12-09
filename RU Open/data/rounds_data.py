@@ -5,7 +5,7 @@ class Rounds_Data():
     round_count = 0
 
     def __init__(self):
-        self.file_name = "RU Open/files/teams.csv"
+        self.file_name = "RU Open/files/rounds.csv"
         
         Rounds_Data.round_count += 1
         self.round_count = Rounds_Data.round_count

@@ -52,7 +52,9 @@ class Tournament_UI:
         tournaments_all = self.logic_wrapper.get_all_tournaments()
         view_tournaments(tournaments_all)
         tournament = self.validate_is_digit(tournaments_all)
-        if tournament == "b":
+        if tournament == None:
+            return
+        elif tournament == "b":
             return
         else:
             self.print_current_tournament(tournament)

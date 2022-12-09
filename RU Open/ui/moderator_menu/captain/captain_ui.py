@@ -41,8 +41,7 @@ class Captain_UI:
                     if selection.isdigit() == True:
                         selection = int(selection) - 1
                         if selection <= len(available_matches):
-                            match_to_fill_out = available_matches[selection]
-                            self.register_points(self, match_to_fill_out)
+                            self.register_points(available_matches[selection])
                             break
                         else:
                             print("Invalid input")
@@ -59,40 +58,235 @@ class Captain_UI:
         teams = self.logic_wrapper.get_all_teams()
         for team in teams:
             if match.home_team_id == team.id:
-                captains_team = team
+                captains_home_team = team
+                
             if match.away_team_id == team.id:
-                captains_team = team
-        count = 1
-        self.register_round_1(self, count,  match)
-        count += 1
-        self.register_round_1(self, match)
+                captains_away_team = team
+                
+        for i in range(1, 5):
+            self.register_round_501(i,  match, captains_home_team, captains_away_team)
+        self.register_round_301(i,  match, captains_home_team, captains_away_team)
+        self.register_round_C(i,  match, captains_home_team, captains_away_team)
+        self.register_round_4man_501(i,  match, captains_home_team, captains_away_team)
+        
 
 
-        # round 1
+
+    def register_round_501(self, round_nr, match, captains_home_team, captains_away_team):
+        
+        round = Round()
+        round.match_id = match.match_id
+        round.gamemode = "501"
+        players_in_team = self.print_players_in_team(captains_home_team)
+        selection = input(f"Please select the player who played in the round no {round_nr} (501 single): ")
+        if selection == "b":
+            return
+        if selection.isdigit() == True:
+            selection = int(selection) - 1
+            if selection <= len(players_in_team):
+                round.home_player1 = players_in_team[selection].name
+        legs_won = int(input(f"How many legs did {round.home_player1} win? (0-2): "))
         while True:
-            round = Round()
-            round.match_id = match.id
-            players_in_team = self.print_players_in_team(captains_team)
-            selection = input("Please select the player who played in the first round (501 single): ")
-            if selection == "b":
-                return
-            if selection.isdigit() == True:
-                selection = int(selection) - 1
-                if selection <= len(players_in_team):
-                    round.home_player1 = players_in_team[selection].name
-            legs_won = int(input(f"How many legs did {round.home_player1} win? (0-2)"))
             if legs_won in range(0, 3):
                 if legs_won == 0:
-                    round.home_leg1 == '0'
-                    round.home_leg2 == '0'
+                    round.home_leg1 = '0'
+                    round.home_leg2 = '0'
+                    break
                 elif legs_won == 1:
-                    round.home_leg1 == '1'
-                    round.home_leg2 == '0'
+                    round.home_leg1 = '1'
+                    round.home_leg2 = '0'
+                    break
                 elif legs_won == 2:
-                    round.home_leg1 == '1'
-                    round.home_leg2 == '1'
+                    round.home_leg1 = '1'
+                    round.home_leg2 = '1'
+                    break
             else:
                 print("Invalid input, must be 0, 1 or 2 legs won.")
+        players_in_team = self.print_players_in_team(captains_away_team)
+        selection = input(f"Please select the player who played in the round no {round_nr} (501 single): ")
+        if selection == "b":
+            return
+        if selection.isdigit() == True:
+            selection = int(selection) - 1
+            if selection <= len(players_in_team):
+                round.away_player1 = players_in_team[selection].name
+        legs_won = int(input(f"How many legs did {round.away_player1} win? (0-2): "))
+        while True:
+            if legs_won in range(0, 3):
+                if legs_won == 0:
+                    round.away_leg1 = '0'
+                    round.away_leg2 = '0'
+                    break
+                elif legs_won == 1:
+                    round.away_leg1 = '1'
+                    round.away_leg2 = '0'
+                    break
+                elif legs_won == 2:
+                    round.away_leg1 = '1'
+                    round.away_leg2 = '1'
+                    break
+            else:
+                print("Invalid input, must be 0, 1 or 2 legs won.")
+        
+
+        self.logic_wrapper.create_round(round)
+                
+                
+    def register_round_301(self, round_nr, match, captains_home_team, captains_away_team):
+        round = Round()
+        round.match_id = match.match_id
+        round.gamemode = "301"
+        print("Home team")
+        players_in_team = self.print_players_in_team(captains_home_team)
+        print("Away team")
+        players_in_away_team = self.print_players_in_team(captains_away_team)
+        round.home_player3 = players_in_team[2].name
+        round.home_player4 = players_in_team[3].name
+        round.away_player3 = players_in_away_team[2].name
+        round.away_player4 = players_in_away_team[3].name
+        legs_won = int(input(f"How many legs did the home team win in 301 match? (0-2): "))
+        while True:
+            if legs_won in range(0, 3):
+                if legs_won == 0:
+                    round.home_leg1 = '0'
+                    round.home_leg2 = '0'
+                    break
+                elif legs_won == 1:
+                    round.home_leg1 = '1'
+                    round.home_leg2 = '0'
+                    break
+                elif legs_won == 2:
+                    round.home_leg1 = '1'
+                    round.home_leg2 = '1'
+                    break
+            else:
+                print("Invalid input, must be 0, 1 or 2 legs won.")
+        legs_won = int(input(f"How many legs did the away team win in 301 match? (0-2): "))
+        while True:
+            if legs_won in range(0, 3):
+                if legs_won == 0:
+                    round.away_leg1 = '0'
+                    round.away_leg2 = '0'
+                    break
+                elif legs_won == 1:
+                    round.away_leg1 = '1'
+                    round.away_leg2 = '0'
+                    break
+                elif legs_won == 2:
+                    round.away_leg1 = '1'
+                    round.away_leg2 = '1'
+                    break
+            else:
+                print("Invalid input, must be 0, 1 or 2 legs won.")
+        
+
+        self.logic_wrapper.create_round(round)
+                         
+    def register_round_C(self, round_nr, match, captains_home_team, captains_away_team):
+        round = Round()
+        round.match_id = match.match_id
+        round.gamemode = "C"
+        print("Home team")
+        players_in_team = self.print_players_in_team(captains_home_team)
+        print("Away team")
+        players_in_away_team = self.print_players_in_team(captains_away_team)
+        round.home_player1 = players_in_team[0].name
+        round.home_player2 = players_in_team[1].name
+        round.away_player1 = players_in_away_team[0].name
+        round.away_player2 = players_in_away_team[1].name
+        legs_won = int(input(f"How many legs did the home team win in Cricket match? (0-2): "))
+        while True:
+            if legs_won in range(0, 3):
+                if legs_won == 0:
+                    round.home_leg1 = '0'
+                    round.home_leg2 = '0'
+                    break
+                elif legs_won == 1:
+                    round.home_leg1 = '1'
+                    round.home_leg2 = '0'
+                    break
+                elif legs_won == 2:
+                    round.home_leg1 = '1'
+                    round.home_leg2 = '1'
+                    break
+            else:
+                print("Invalid input, must be 0, 1 or 2 legs won.")
+                
+        legs_won = int(input(f"How many legs did the away team win in Cricket match? (0-2): "))
+        while True:
+            if legs_won in range(0, 3):
+                if legs_won == 0:
+                    round.away_leg1 = '0'
+                    round.away_leg2 = '0'
+                    break
+                elif legs_won == 1:
+                    round.away_leg1 = '1'
+                    round.away_leg2 = '0'
+                    break
+                elif legs_won == 2:
+                    round.away_leg1 = '1'
+                    round.away_leg2 = '1'
+                    break
+            else:
+                print("Invalid input, must be 0, 1 or 2 legs won.")
+        
+
+        self.logic_wrapper.create_round(round)
+                           
+    def register_round_4man_501(self, round_nr, match, captains_home_team, captains_away_team):
+        round = Round()
+        round.match_id = match.match_id
+        round.gamemode = "501"
+        print("Home team")
+        players_in_team = self.print_players_in_team(captains_home_team)
+        print("Away team")
+        players_in_away_team = self.print_players_in_team(captains_away_team)
+        round.home_player1 = players_in_team[0].name
+        round.home_player2 = players_in_team[1].name
+        round.home_player3 = players_in_team[2].name
+        round.home_player4 = players_in_team[3].name
+        round.away_player1 = players_in_away_team[0].name
+        round.away_player2 = players_in_away_team[1].name
+        round.away_player3 = players_in_away_team[2].name
+        round.away_player4 = players_in_away_team[3].name
+        legs_won = int(input(f"How many legs did the home team win in 4man 501 match? (0-2): "))
+        while True:
+            if legs_won in range(0, 3):
+                if legs_won == 0:
+                    round.home_leg1 = '0'
+                    round.home_leg2 = '0'
+                    break
+                elif legs_won == 1:
+                    round.home_leg1 = '1'
+                    round.home_leg2 = '0'
+                    break
+                elif legs_won == 2:
+                    round.home_leg1 = '1'
+                    round.home_leg2 = '1'
+                    break
+            else:
+                print("Invalid input, must be 0, 1 or 2 legs won.")
+                
+        legs_won = int(input(f"How many legs did the away team win in 4man 501 match? (0-2): "))
+        while True:
+            if legs_won in range(0, 3):
+                if legs_won == 0:
+                    round.away_leg1 = '0'
+                    round.away_leg2 = '0'
+                    break
+                elif legs_won == 1:
+                    round.away_leg1 = '1'
+                    round.away_leg2 = '0'
+                    break
+                elif legs_won == 2:
+                    round.away_leg1 = '1'
+                    round.away_leg2 = '1'
+                    break
+            else:
+                print("Invalid input, must be 0, 1 or 2 legs won.")
+        
+
+        self.logic_wrapper.create_round(round)
             
             
     def print_players_in_team(self, team):
