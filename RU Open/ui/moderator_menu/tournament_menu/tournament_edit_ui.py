@@ -106,15 +106,17 @@ class Tournament_editing_UI:
                 match.tournament_id = tournament.id
                 match.home_team_id = teams_to_play[i].id
                 match.away_team_id = teams_to_play[j].id
-                match.date = self.match_date()
+                home_team = self.logic_wrapper.get_team_by_id(teams_to_play[i])
+                away_team = self.logic_wrapper.get_team_by_id(teams_to_play[j])
+                match.date = self.match_date(home_team, away_team)
                 match.time = '0'
 
 
                 self.logic_wrapper.create_match(match)
     
-    def match_date(self):
+    def match_date(self, home_team, away_team):
         while True:
-            date = input("Please enter the first day of the tournament (dd.mm.yyyy): ")
+            date = input(f"Please enter the date for the {home_team.name} VS {away_team.name} match (dd.mm.yyyy): ")
             if date == "c":
                 return True, "none"
             dots = 0
