@@ -23,6 +23,16 @@ class Tournament_Logic:
 
     def get_tournament(self):
         return self.data_wrapper.get_tournament()
+        
+    def create_player(self, player):
+        self.data_wrapper.create_player(player)
+    
+    def add_team_to_tourney(self, tournament_name, team_id):
+        self.data_wrapper.add_team_to_tournament(tournament_name, team_id)
+    
+    def remove_team_from_tourney(self):
+        pass
+
     
      #def get_tournament(self):
     #    all_tournaments = self.data_wrapper.get_all_tournaments()
