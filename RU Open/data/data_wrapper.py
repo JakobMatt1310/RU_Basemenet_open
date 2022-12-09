@@ -44,7 +44,7 @@ class Data_Wrapper():
     def get_all_matches(self):
         return self.match_data.read_all_matches()
     
-    def get_all_teams_in_tourneys(self):
+    def get_teams_in_tourney(self):
         return self.teams_in_tourneys_data.read_all_teams_in_tourneys()
 
 
