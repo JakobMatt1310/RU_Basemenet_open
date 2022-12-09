@@ -40,7 +40,8 @@ class Tournament_UI:
                 view_tournaments(tournaments_all)
 
             elif command == "2":
-                self.create_new_tournament()
+                self.add_teams('1')
+                # self.create_new_tournament()
             
             elif command == "3":
                 print("edit the tournament")
@@ -68,7 +69,6 @@ class Tournament_UI:
             except TournamentNameExists:
                 print("Name already exists, try another name (different year f.x.)")
         
-    
     def tournament_address(self):
         while True:
             address = input("Enter the address of the tournament: ")
@@ -200,6 +200,8 @@ class Tournament_UI:
     def add_teams(self, tournament_id):
         add_another = 'yes'
         while add_another == 'yes':
+            all_teams = self.logic_wrapper.get_all_teams()
+            print_all_teams(all_teams)
             team_to_add = input("Please enter the name of the team you want to add to the tournament: ")
             teams_list = self.logic_wrapper.get_teams_by_name(team_to_add)
             

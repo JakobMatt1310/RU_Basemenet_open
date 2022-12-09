@@ -116,12 +116,6 @@ def view_players(player: list, teams: dict):
     print_empty_line()
     print(f"{X:<7}{'Name':<22}{'Team':<24}{'DoB (d/m/y)':<16}{'Tel. no.':<16}{'Email address':<34}{X}")
     player.sort(key = lambda x : x.name)
-    if len(player) > 100:
-        population = len(player) * 0.00001
-    elif len(player) > 30:
-        population = len(player) * 0.001
-    else:
-        population = len(player) * 0.01
         
     for element in player:
         if element.ssn[4:6] <'22':
@@ -132,7 +126,7 @@ def view_players(player: list, teams: dict):
         phone_no = element.phone[0:3] +'-'+ element.phone[3:]
         player_team = teams[element.team_id]
         print(f"{X:<7}{element.name:<22}{player_team:<24}{date_of_birth:<16}{phone_no:<16}{element.email:<34}{X}")    
-        time.sleep(population)    
+        time.sleep(0.0001)    
 
    
     print_empty_line()
