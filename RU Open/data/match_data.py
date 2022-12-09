@@ -33,12 +33,12 @@ class Match_Data():
                           "time"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
-            writer.writerow({'tournament_id': match.id,
-                             'name': match.tournament_id,
-                             'address': match.home_team_id,
-                             'start_date': match.away_team_id,
-                             'end_date': match.date,
-                             'organizer': match.time})
+            writer.writerow({'id': match.id,
+                             'tournament_id': match.tournament_id,
+                             'home_team_id': match.home_team_id,
+                             'away_team_id': match.away_team_id,
+                             'date': match.date,
+                             'time': match.time})
     
     def update_match(self, match: classmethod, match_to_update):
         '''Creates a new tournament in the file'''
@@ -59,9 +59,9 @@ class Match_Data():
                     match.date = match_to_update.date
                     match.time = match_to_update.time
                     
-                writer.writerow({'tournament_id': match.id,
-                                'name': match.tournament_id,
-                                'address': match.home_team_id,
-                                'start_date': match.away_team_id,
-                                'end_date': match.date,
-                                'organizer': match.time})
+                writer.writerow({'id': match.id,
+                                'tournament_id': match.tournament_id,
+                                'home_team_id': match.home_team_id,
+                                'away_team_id': match.away_team_id,
+                                'date': match.date,
+                                'time': match.time})

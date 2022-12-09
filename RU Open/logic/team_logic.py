@@ -57,7 +57,7 @@ class Team_Logic:
     def delete_team(self):
         self.data_wrapper.delete_team()
         
-    def teams_in_tourney(self, team, tournament):
+    def teams_in_tourney(self, tournament):
         """Gets all the teams that are registered to the tournament"""
         teams_tourney = self.data_wrapper.get_all_teams_in_tourneys()
         teams_id = []
