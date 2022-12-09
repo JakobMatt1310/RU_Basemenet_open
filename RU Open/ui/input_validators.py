@@ -88,9 +88,15 @@ class EndDateException(Exception):
     pass
 
 def validate_start_date(start_date, current_date):
+    months_with_30_days = [4,6,9,11]
+    months_with_28_days = [2]
     if start_date.month > 12 or start_date.month < 1:
         raise StartDateException
-    if start_date.day > 31 or start_date.day < 1:
+    if (start_date.day > 28 or start_date.day < 1) and start_date.month in months_with_28_days:
+        raise StartDateException
+    elif (start_date.day > 30 or start_date.day < 1) and start_date.month in months_with_30_days:
+        raise StartDateException
+    elif start_date.day > 31 or start_date.day < 1:
         raise StartDateException
     if start_date.year < current_date.year:
         raise StartDateException
@@ -100,6 +106,9 @@ def validate_start_date(start_date, current_date):
         raise StartDateException
 
 def validate_end_date(start_date, end_date):
+    months_with_30_days = [4,6,9,11]
+    months_with_31_days = [1,3,5,7,8,10,12]
+    months_with_28_days = [2]
     if end_date.month > 12 or end_date.month < 1:
         raise EndDateException
     if end_date.day > 31 or end_date.day < 1:
