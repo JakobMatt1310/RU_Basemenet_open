@@ -13,20 +13,21 @@ class Tournament_UI:
                     "Create Tournament": ">>> Creates a tournament",
                     "Edit Tournament": ">>> Modify menu for a tournament"}
     def __init__(self, logic_connection):
-        today = date.today()
+        self.today = date.today()
         self.logic_wrapper = logic_connection
         self.logic_wrapper = Logic_Wrapper()
-        self.date = DateTime(today.day, today.month, today.year)
+        self.date = DateTime(self.today.day, self.today.month, self.today.year)
 
     def menu_output(self):
         print_current_menu(self.Menu_selection)
 
     def input_prompt(self):
         
-        today_formated = today.strftime("%d %B, %Y")
+        today_formated = self.today.strftime("%d %B, %Y")
         print(today_formated)
         while True:
             self.menu_output()
+            
             command = input("Enter your command: ").lower()
             if command == "b":
                 return
@@ -56,7 +57,7 @@ class Tournament_UI:
         name = input("Enter the name of the tournament: ")
         if name == "c":
             return True, "none"
-        all_names = self.logic_wrapper.get_all_associations()
+        all_names = self.logic_wrapper.get_all_tournaments()
         try:
             valid = validate_tournament_name(name, all_names)
         except TournamentNameLengthException:
@@ -132,6 +133,7 @@ class Tournament_UI:
 
     def create_new_tournament(self):
         tournament = Tournament()
+        print(f"{'c. Cancel creating new tournament': ^120}")
         
 
         while True:

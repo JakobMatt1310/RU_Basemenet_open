@@ -22,7 +22,7 @@ class Captain_UI:
     def input_prompt(self):
         while True:
             self.menu_output()
-            command = input("Enter your command: ")
+            command = input("Enter your command: ").lower()
             command = command.lower()
             if command == "b":
                 print("Going back")

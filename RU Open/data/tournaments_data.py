@@ -20,7 +20,7 @@ class Tournaments_Data():
                                            row["start_date"],
                                            row["end_date"], 
                                            row["organizer"], 
-                                           row["organizer_nr"]))
+                                           row["organizer_number"]))
         return ret_list
 
     def create_tournament(self, tournament: Tournament):
@@ -33,7 +33,7 @@ class Tournaments_Data():
                           "start_date",
                           "end_date",
                           "organizer",
-                          "organizer_nr"]
+                          "organizer_number"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
             writer.writerow({'tournament_id': tournament.id,
@@ -42,4 +42,4 @@ class Tournaments_Data():
                              'start_date': tournament.start_date,
                              'end_date': tournament.end_date,
                              'organizer': tournament.organizer,
-                             'organizer_nr': tournament.organizer_nr})
+                             'organizer_number': tournament.organizer_nr})
