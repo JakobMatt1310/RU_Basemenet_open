@@ -69,8 +69,6 @@ class Captain_UI:
         self.register_round_C(i,  match, captains_home_team, captains_away_team)
         self.register_round_4man_501(i,  match, captains_home_team, captains_away_team)
         
-
-
     def register_round_501(self, round_nr, match, captains_home_team, captains_away_team):
         
         round = Round()
@@ -286,7 +284,6 @@ class Captain_UI:
         
 
         self.logic_wrapper.create_round(round)
-            
             
     def print_players_in_team(self, team):
         players_in_team = self.logic_wrapper.get_all_players_of_team(team)

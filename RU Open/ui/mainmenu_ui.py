@@ -29,7 +29,7 @@ class MainMenu_UI:
         return False
   
     def ask_for_captain_password(self):
-        ssn = '0402781920' # input("Enter captains social security number ") <<<<<------ MUNA A AD LAGA FYRIR SKIL
+        ssn = input("Enter captains social security number ") 
         captains_team = self.logic_wrapper.all_captains(ssn)
         if captains_team != False:
             return captains_team
@@ -45,7 +45,7 @@ class MainMenu_UI:
                 break
 
             elif command == "1":
-                valid = True#self.ask_for_mod_password()
+                valid = self.ask_for_mod_password()
                 if valid == True:
                     menu = Moderator_UI(self.logic_wrapper)
                     back_method = menu.input_prompt()
