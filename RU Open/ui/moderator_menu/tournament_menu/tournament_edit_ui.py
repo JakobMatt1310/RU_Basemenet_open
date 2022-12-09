@@ -10,7 +10,8 @@ class Tournament_editing_UI:
     Menu_selection = {"Current Menu": "Tournament", 
                     "Add team": ">>> Choose a team to compete in the tournament",
                     "Remove team": ">>> Removes a team from the tournament",
-                    "Edit Tournament Details": ">>> Make changes to details in the tournament"}    
+                    "Edit Tournament Details": ">>> Make changes to details in the tournament",
+                    "Create Match": ">>> Create a match inside a tournament"}    
     #Create a tournament
     #
     def __init__(self, logic_connection):
@@ -29,9 +30,17 @@ class Tournament_editing_UI:
                 print("Goodbye")
                 return "q"
             elif command == "1":
-                add_to_tournament = input("Please enter the name of the tournament you would like to add teams to: ")
-                tournament_to_update = self.logic_wrapper.get_tournament(add_to_tournament)
-                self.add_teams(tournament_to_update.id)
+                
+                available_tournaments = self.logic_wrapper.get_all_tournaments()
+                print_available_tournaments(available_tournaments)
+                selection = input("Select a team to add: ")
+                if selection.isdigit() == True:
+                    selection = int(selection) - 1
+                if selection <= len(available_tournaments):
+                    tournament_to_update = self.logic_wrapper.get_tournament(available_tournaments[selection])
+                else:
+                    print("Invalid input")
+                self.add_teams(tournament_to_update)
             elif command == "2":
                 remove_from_tournament = input("Please enter the name of the tournament you would like to remove a team from: ")
                 tournament_to_update = self.logic_wrapper.get_tournament(remove_from_tournament)
@@ -71,33 +80,27 @@ class Tournament_editing_UI:
 #             else:
 #                 print("Tourney doesn't exist, try again.")
 
-    def add_teams(self, tournament_id):
-        '''Adds a team to the pool of teams competing in the chosen tournament'''
-        add_another = 'yes'
-        while add_another == 'yes':
-            team_to_add = input("Please enter the name of the team you want to add to the tournament: ")
-            teams_list = self.logic_wrapper.get_teams_by_name(team_to_add)
-            
-            id_list = []
-            print("{:<18}{:<20}{}".format("Team ID", "Team Name"))
-            for team in teams_list:
-                print("{:<15}{:<17}".format(team.id, team.name))
-                id_list.append(team.id)
-            if len(id_list) == 1:
-                selection = id_list[0]
-                team_to_add = self.logic_wrapper.get_team(selection)
-                self.logic_wrapper.add_team_to_tourney(tournament_id, team_to_add.id)
-                add_another = ("Would you like to add another team? (yes/no): ")
-            else:  
-                selection = input("Select team by id: ")
-                if selection == 'b':
-                    print("Going back")
-                    return
-                elif selection in id_list:
-                    team_to_add = self.logic_wrapper.get_team(selection)
-                    break
+    
+    def add_teams(self, tournament):
+        while True:
+            available_teams = self.logic_wrapper.teams_not_in_tourney(tournament)
+            if len(available_teams) != 0:
+                print_teams_to_add_to_tourney(available_teams)
+            else:
+                print_teams_to_add_to_tourney_empty()
+                input("Press enter to go back")
+                break
+            selection = input("Select a team to add: ")
+            if selection == "b":
+                break
+            if selection.isdigit() == True:
+                selection = int(selection) - 1
+                if selection <= len(available_teams):
+                    self.logic_wrapper.add_team_to_tourney(tournament, available_teams[selection])
                 else:
-                    ("The team id you entered is invalid, please try again.")
+                    print("Invalid input")
+            else:
+                print("Invalid input")
 
     def remove_team(self, tournament_id):
         '''Removes a team from the chosen tournament'''
