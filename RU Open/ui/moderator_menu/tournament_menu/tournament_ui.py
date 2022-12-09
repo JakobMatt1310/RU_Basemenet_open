@@ -191,7 +191,7 @@ class Tournament_UI:
             
         
         self.logic_wrapper.create_tournament(tournament)
-        ask_add_teams = input("Would you like to add teams to the tourney right away? (yes/no): ")
+        ask_add_teams = input("Would you like to add teams to the tournament right away? (yes/no): ")
         if ask_add_teams == 'yes':
             self.add_teams(tournament.id)
         else:

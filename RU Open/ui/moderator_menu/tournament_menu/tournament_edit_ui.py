@@ -179,7 +179,7 @@ class Tournament_editing_UI:
         return organizer_name
 
     def change_organizer_number(self):
-        """Asks for organizer phonenumber until it's a valid phone number
+        """Asks for organizer phone number until it's a valid phone number
 
         Returns:
             str: Organizers phonenumber
