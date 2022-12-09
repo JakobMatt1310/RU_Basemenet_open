@@ -28,17 +28,13 @@ class Associations_Data():
                           "phone",
                           "address"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-
             writer.writerow({'id': association.id,
                              'name': association.name,
                              'phone': association.phone,
                              'address': association.address})
 
-
-
     def update_association_name(self, association_to_edit):
         '''Updates association name'''
-        found = False
         get_all_associations = self.read_all_associations()
         with open(self.file_name, 'w', newline='', encoding="utf-8") as csvfile:
             fieldnames = ["id", 
@@ -50,19 +46,14 @@ class Associations_Data():
             for association in get_all_associations:
                 if association.id == association_to_edit.id:
                     association.name = association_to_edit.name
-                    found = True
                 writer.writerow({'id': association.id,
                                 'name': association.name,
                                 'phone': association.phone,
                                 'address': association.address})
-            if found == True:
-                return found
-
-    
+            return True
 
     def update_association_phone(self, association_to_edit):
         '''Updates association phone'''
-        found = False
         get_all_associations = self.read_all_associations()
         with open(self.file_name, 'w', newline='', encoding="utf-8") as csvfile:
             fieldnames = ["id", 
@@ -74,19 +65,14 @@ class Associations_Data():
             for association in get_all_associations:
                 if association.id == association_to_edit.id:
                     association.phone = association_to_edit.phone
-                    found = True
                 writer.writerow({'id': association.id,
                                 'name': association.name,
                                 'phone': association.phone,
                                 'address': association.address})
-            if found == True:
-                return found   
-
-
+            return True
 
     def update_association_address(self, association_to_edit):
         '''Updates association address'''
-        found = False
         get_all_associations = self.read_all_associations()
         with open(self.file_name, 'w', newline='', encoding="utf-8") as csvfile:
             fieldnames = ["id", 
@@ -98,10 +84,8 @@ class Associations_Data():
             for association in get_all_associations:
                 if association.id == association_to_edit.id:
                     association.address = association_to_edit.address
-                    found = True
                 writer.writerow({'id': association.id,
                                 'name': association.name,
                                 'phone': association.phone,
                                 'address': association.address})
-            if found == True:
-                return found   
+            return True

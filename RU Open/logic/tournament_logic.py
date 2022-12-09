@@ -23,7 +23,7 @@ class Tournament_Logic:
 
     def get_tournament(self):
         return self.data_wrapper.get_tournament()
-
+        
     def create_player(self, player):
         self.data_wrapper.create_player(player)
     
