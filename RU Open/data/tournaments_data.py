@@ -25,7 +25,7 @@ class Tournaments_Data():
 
     def create_tournament(self, tournament: Tournament):
         '''Creates a new tournament in the file'''
-        tournament.id = len(self.read_all_players()) + 1
+        tournament.id = len(self.read_all_tournaments()) + 1
         with open(self.file_name, 'a', newline='', encoding="utf-8") as csvfile:
             fieldnames = ["id",
                           "name",
@@ -36,7 +36,7 @@ class Tournaments_Data():
                           "organizer_number"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
-            writer.writerow({'tournament_id': tournament.id,
+            writer.writerow({'id': tournament.id,
                              'name': tournament.name,
                              'address': tournament.address,
                              'start_date': tournament.start_date,
