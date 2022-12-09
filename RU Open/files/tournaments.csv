@@ -5,3 +5,5 @@ id,name,address,start_date,end_date,organizer,organizer_number
 4,Shellmotid,Vestmaneyjum 1,"['10', '12', '2022']","['12', '12', '2022']",Hjortur,8385757
 5,tourney,stykkishólmur 1,"['13', '12', '2022']","['15', '12', '2022']",Siggi,7997799
 6,tourney 2022,location 0,"['14', '12', '2022']","['15', '12', '2022']",sdfkljsdf,9876543
+7,Brad's darts,Skor 12,"['11', '12', '2023']","['22', '12', '2023']",Brad Pitt,4444444
+8,Liv's tour,Bullseye 2,"['08', '11', '2023']","['11', '11', '2023']",Liv Suzuki,1020304

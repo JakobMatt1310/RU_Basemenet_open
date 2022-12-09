@@ -83,7 +83,7 @@ class Associations_Data():
             writer.writeheader()
             for association in get_all_associations:
                 if association.id == association_to_edit.id:
-                    association.address = association_to_edit.address
+                    association.address = association_to_edit.association_address
                 writer.writerow({'id': association.id,
                                 'name': association.name,
                                 'phone': association.phone,

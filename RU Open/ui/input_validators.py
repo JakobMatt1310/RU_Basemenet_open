@@ -94,9 +94,9 @@ def validate_start_date(start_date, current_date):
         raise StartDateException
     if start_date.year < current_date.year:
         raise StartDateException
-    if start_date.month < current_date.month:
+    #if start_date.month < current_date.month:
         raise StartDateException
-    if start_date.day < current_date.day:
+    #if start_date.day < current_date.day:
         raise StartDateException
 
 def validate_end_date(start_date, end_date):

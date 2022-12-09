@@ -415,6 +415,8 @@ def print_teams_to_add_to_tourney(teams):
     for i, team in enumerate(teams, 1):
         print(f"{' ':30}{X:<15}{i}. {team.name:<41}{X}")
     print_empty_line_half()
+    print(f"{' ':30}{X:<15}{BACK[0]:<44}{X}")
+    print_empty_line_half()
     print_border_half()
     print("\033[0m")
     
@@ -423,7 +425,7 @@ def print_teams_to_add_to_tourney_empty():
     print("\033[1;33;40m")
     print_border_half()
     print_empty_line_half()
-    print(f"{' ':30}{X}{'No teams available':^60}{X}")
+    print(f"{' ':30}{X}{'No teams available':^58}{X}")
     print_empty_line_half()
     print_border_half()
     print("\033[0m")
