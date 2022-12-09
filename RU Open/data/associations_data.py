@@ -30,9 +30,9 @@ class Associations_Data():
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
             writer.writerow({'id': association.id,
-                             'name': association.association_name,
-                             'phone': association.association_phone,
-                             'address': association.association_address})
+                             'name': association.name,
+                             'phone': association.phone,
+                             'address': association.address})
 
 
 
@@ -49,12 +49,12 @@ class Associations_Data():
             writer.writeheader()
             for association in get_all_associations:
                 if association.id == association_to_edit.id:
-                    association.association_name = association_to_edit.association_name
+                    association.name = association_to_edit.name
                     found = True
                 writer.writerow({'id': association.id,
-                                'name': association.association_name,
-                                'phone': association.association_phone,
-                                'address': association.association_address})
+                                'name': association.name,
+                                'phone': association.phone,
+                                'address': association.address})
             if found == True:
                 return found
 
@@ -73,12 +73,12 @@ class Associations_Data():
             writer.writeheader()
             for association in get_all_associations:
                 if association.id == association_to_edit.id:
-                    association.association_phone = association_to_edit.association_phone
+                    association.phone = association_to_edit.phone
                     found = True
                 writer.writerow({'id': association.id,
-                                'name': association.association_name,
-                                'phone': association.association_phone,
-                                'address': association.association_address})
+                                'name': association.name,
+                                'phone': association.phone,
+                                'address': association.address})
             if found == True:
                 return found   
 
@@ -97,11 +97,11 @@ class Associations_Data():
             writer.writeheader()
             for association in get_all_associations:
                 if association.id == association_to_edit.id:
-                    association.association_address = association_to_edit.association_address
+                    association.address = association_to_edit.address
                     found = True
                 writer.writerow({'id': association.id,
-                                'name': association.association_name,
-                                'phone': association.association_phone,
-                                'address': association.association_address})
+                                'name': association.name,
+                                'phone': association.phone,
+                                'address': association.address})
             if found == True:
                 return found   
