@@ -16,7 +16,7 @@ class Associations_editing_UI:
 
     def menu_output(self):
         print_current_menu(self.Menu_selection)
-
+        
     def input_prompt(self):
         while True:
             self.menu_output()
@@ -31,18 +31,37 @@ class Associations_editing_UI:
             elif command == '2':
                 self.delete_team_from_association()
             elif command == '3':
-                association = input("Please enter the new name of the association you want to make changes to: ")
-                association_to_change = self.logic_wrapper.get_association(association)
-                edit_info = input("What details would you like to make changes to? (1. Association Name // 2. Phone Number // 3. Address): ").islower()
-                if edit_info == '1':
-                    self.change_association_name(association_to_change)
-                elif edit_info == '2':
-                    self.change_association_number(association_to_change)
-                elif edit_info == '3':
-                    self.change_association_address(association_to_change)
+                self.edit_association()
             else:
                 print("Invalid input, please try again.")
-    
+           
+
+
+    def edit_association(self):
+        while True:
+            all_associations = self.print_associations()
+            selection = input("Please select the association you want to make changes to: ")
+            if selection == "b":
+                return
+            if selection.isdigit() == True:
+                selection = int(selection) - 1
+                if selection <= len(all_associations):
+                    association_to_change = all_associations[selection]
+                    break
+                else:
+                    print("Invalid input")
+            else:
+                print("Invalid input")
+        print_edit_menu_association(association_to_change)
+        edit_info = input("Select what you want to change. ").islower()
+        if edit_info == '1':
+            self.change_association_name(association_to_change)
+        elif edit_info == '2':
+            self.change_association_number(association_to_change)
+        elif edit_info == '3':
+            self.change_association_address(association_to_change)
+            
+
     def add_team_to_association(self):
         team = Team()
         team.name = self.new_team_name()

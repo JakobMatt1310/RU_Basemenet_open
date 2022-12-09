@@ -43,6 +43,8 @@ class Player_UI:
             if return_command != "back":
                 print_enter_name_to_edit()
                 player_selected_by_id = False
+                all_players = self.logic_wrapper.get_all_players()
+                print_name_players(all_players)
                 name = input("Please enter the name of the player you want to edit: ")
                 player_name_list = self.logic_wrapper.get_player_by_name(name)
                 if name == 'b':

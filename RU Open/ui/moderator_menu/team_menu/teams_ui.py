@@ -43,8 +43,20 @@ class Teams_UI:
         return_command = ""
         while True:
             if return_command != "back":
-                team_to_edit = input("Please enter the name of the team you want to edit: ")
-                team_to_edit = self.logic_wrapper.get_team(team_to_edit)
+                all_teams = self.logic_wrapper.get_all_teams()
+                for i, team in enumerate(all_teams, 1):
+                    print(f"{i}. {team.name}")
+                selection = input("Please select the team you want to edit: ")
+                if selection == "b":
+                    break
+                if selection.isdigit() == True:
+                    selection = int(selection) - 1
+                    if selection <= len(all_teams):
+                        team_to_edit = all_teams[selection]
+                    else:
+                        print("Invalid input")
+                else:
+                    print("Invalid input")
             else:
                 return_command = ""
             if team_to_edit != None:
@@ -63,11 +75,11 @@ class Teams_UI:
                 print("Team doesn't exist, try again.")
                 
     def change_team_name(self, team_to_edit):    
-        new_team_name = self.new_team_name(1)
+        new_team_name = self.new_team_name()
         confirm_name = input(f"The team will be renamed {new_team_name}. Would you like to confirm (yes/no)?  ").lower()
         while True:
             if confirm_name == 'yes':
-                team_to_edit.team_name = new_team_name
+                team_to_edit.name = new_team_name
                 success = self.logic_wrapper.update_team_name(team_to_edit)
                 if success == True:
                     print(f"Team name has successfully been updated to {new_team_name}")

@@ -37,7 +37,7 @@ class Teams_Data():
 
     def update_team_name(self, team_to_edit):
         '''Updates team name'''
-        new_team_name = team_to_edit.team_name
+        new_team_name = team_to_edit.name
         read_all_teams = self.read_all_teams()
         with open(self.file_name, 'w', newline='', encoding="utf-8") as csvfile:
             fieldnames = ["id", 
