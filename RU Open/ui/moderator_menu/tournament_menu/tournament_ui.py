@@ -13,20 +13,21 @@ class Tournament_UI:
                     "Create Tournament": ">>> Creates a tournament",
                     "Edit Tournament": ">>> Modify menu for a tournament"}
     def __init__(self, logic_connection):
-        today = date.today()
+        self.today = date.today()
         self.logic_wrapper = logic_connection
         self.logic_wrapper = Logic_Wrapper()
-        self.date = DateTime(today.day, today.month, today.year)
+        self.date = DateTime(self.today.day, self.today.month, self.today.year)
 
     def menu_output(self):
         print_current_menu(self.Menu_selection)
 
     def input_prompt(self):
-        today = date.today()
-        today_formated = today.strftime("%d %B, %Y")
+        
+        today_formated = self.today.strftime("%d %B, %Y")
         print(today_formated)
         while True:
             self.menu_output()
+            
             command = input("Enter your command: ").lower()
             if command == "b":
                 return
@@ -53,85 +54,116 @@ class Tournament_UI:
                 print("invalid input, try again")
 
     def tournament_name(self):
-        name = input("Enter the name of the tournament: ")
-        if name == "c":
-            return True, "none"
-        all_names = self.logic_wrapper.get_all_associations()
-        try:
-            valid = validate_tournament_name(name, all_names)
-        except TournamentNameLengthException:
-            print("Name to long, try again")
-        except TournamentNameExists:
-            print("Name already exists, try another name (different year f.x.)")
-        if valid == True:
-            return False, name
+        all_names = self.logic_wrapper.get_all_tournaments()
+        while True:
+            name = input("Enter the name of the tournament: ")
+            if name == "c":
+                return True, "none"
+            try:
+                validate_tournament_name(name, all_names)
+                return False, name
+                
+            except TournamentNameLengthException:
+                print("Name to long, try again")
+            except TournamentNameExists:
+                print("Name already exists, try another name (different year f.x.)")
         
     
     def tournament_address(self):
-        address = input("Enter the address of the tournament: ")
-        if address == "c":
-            return True, "none"
-        try:
-            self.logic_wrapper.validate_home_address(address)
-            return False, address
-        except HomeAddressException:
-            print("Street address invalid, please try again")
+        while True:
+            address = input("Enter the address of the tournament: ")
+            if address == "c":
+                return True, "none"
+            try:
+                validate_home_address(address)
+                return False, address
+            except HomeAddressException:
+                print("Street address invalid, please try again")
     
     def tournament_start_date(self):
-        date = input("Please enter the first day of the tournament (dd.mm.yyyy): ").strip().split(".")
-        if date == "c":
-            return True, "none"
-        try:
-            date = DateTime(date[0],date[1],date[2])
-            self.logic_wrapper.validate_start_date(date, self.date)
-            return False, date
-        except StartDateException:
-            print("Date entered is not valid, please try again")
-        except :
-            print("An error occoured, please try again")
-        
-    def tournament_end_date(self, start_date):
-        date = input("Now enter the final day of the tournament (dd.mm.yyyy): ")
-        if date == "c":
-            return True, "none"
-        try:
-            date = DateTime(date[0],date[1],date[2])
-            self.logic_wrapper.validate_end_date(start_date, date)
-            return False, date
-        except EndDateException:
-            print("Invalid date, please try again")
-        except :
-            print("An error occoured, please try again")
+        while True:
+            date = input("Please enter the first day of the tournament (dd.mm.yyyy): ")
+            if date == "c":
+                return True, "none"
+            dots = 0
+            valid = False
+            for letter in date:
+                if letter == ".":
+                    dots += 1
+            if dots == 2:
+                if date[0:2].isdigit():
+                    if date[3:5].isdigit():
+                        if date[7:11].isdigit():
+                            valid = True
+                            date = date.strip().split(".")
+            if valid == True:   
+                try:
+                    date_obj = DateTime(int(date[0]),int(date[1]),int(date[2]))
+                    validate_start_date(date_obj, self.date)
+                    return False, date
+                except StartDateException:
+                    print("Date entered is not valid, please try again")
+                except :
+                    print("An error occoured, please try again")
+            else: 
+                print("Invalid.")
+            
+    def tournament_end_date(self, s_date):
+        while True:
+            date = input("Now enter the final day of the tournament (dd.mm.yyyy): ")
+            if date == "c":
+                return True, "none"
+            dots = 0
+            valid = False
+            for letter in date:
+                if letter == ".":
+                    dots += 1
+            if dots == 2:
+                if date[0:2].isdigit():
+                    if date[3:5].isdigit():
+                        if date[7:11].isdigit():
+                            valid = True
+                            date = date.strip().split(".")
+            if valid == True:  
+                try:
+                    end_date = DateTime(int(date[0]),int(date[1]),int(date[2]))
+                    start_date = DateTime(int(s_date[0]),int(s_date[1]),int(s_date[2]))
+                    validate_end_date(start_date, end_date)
+                    return False, date
+                except EndDateException:
+                    print("Invalid date, please try again")
+                except :
+                    print("An error occoured, please try again")
     
     def tournament_organizer(self):
-        name = input("Enter the name of the tournament organizer: ")
-        if name == "c":
-            return True, "none"
-        try:
-            self.logic_wrapper.validate_name(name)
-            return False, name
-        except NameLengthException:
-            print("Name too short or too long, please try again(max 30 char)")
-        except:
-            print("An error occoured, please try again")
+        while True:
+            name = input("Enter the name of the tournament organizer: ")
+            if name == "c":
+                return True, "none"
+            try:
+                validate_name(name)
+                return False, name
+            except NameLengthException:
+                print("Name too short or too long, please try again(max 30 char)")
+            except:
+                print("An error occoured, please try again")
     
     def tournament_organizer_phonenumber(self):
-        number = input("Please enter a phone number where the organizer may be reached")
-        if number == "c":
-            return True, "none"
-        try:
-            self.logic_wrapper.validate_phonenumber(number)
-            return False, number
-        except PhoneNumberException:
-            print("Phone-number invalid, please try again")
-        except:
-            print("An error occoured, please try again")
-        
-        
-    
+        while True:
+            number = input("Enter organizer phonenumber: ")
+            if number == "c":
+                return True, "none"
+            try:
+                validate_phonenumber(number)
+                return False, number
+            except PhoneNumberException:
+                print("Phone-number invalid, please try again")
+            except:
+                print("An error occoured, please try again")
 
     def create_new_tournament(self):
         tournament = Tournament()
+        print(f"{'c. Cancel creating new tournament': ^120}")
         
 
         while True:
@@ -154,7 +186,7 @@ class Tournament_UI:
             if cancel == True:
                 return
             else:
-                return
+                break
             
             
         
