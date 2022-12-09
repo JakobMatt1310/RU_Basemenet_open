@@ -87,32 +87,60 @@ class StartDateException(Exception):
 class EndDateException(Exception):
     pass
 
+def is_leap_year(year):
+  if year % 4 == 0:
+    if year % 100 == 0:
+      if year % 400 == 0:
+        return True
+      else:
+        return False
+    else:
+      return True
+  else:
+    return False
+
 def validate_start_date(start_date, current_date):
     months_with_30_days = [4,6,9,11]
     months_with_28_days = [2]
+
+    #these check if the day is actually a real day
     if start_date.month > 12 or start_date.month < 1:
         raise StartDateException
-    if (start_date.day > 28 or start_date.day < 1) and start_date.month in months_with_28_days:
+    if (start_date.day > 28 or start_date.day < 1) and start_date.month in months_with_28_days and (is_leap_year(start_date.year) == False):  
         raise StartDateException
     elif (start_date.day > 30 or start_date.day < 1) and start_date.month in months_with_30_days:
         raise StartDateException
     elif start_date.day > 31 or start_date.day < 1:
         raise StartDateException
+    if (start_date.day > 29 or start_date.day < 1) and start_date.month in months_with_28_days and (is_leap_year(start_date.year) == True):  
+        raise StartDateException
+    
+
+    #these check if the day is legal with respect to the current date
     if start_date.year < current_date.year:
         raise StartDateException
     if start_date.month < current_date.month and start_date.year < current_date.year:
         raise StartDateException
-    if start_date.day < current_date.day and start_date.month < current_date.month and start_date.year < current_date.year:
+    if start_date.day < current_date.day and start_date.month <= current_date.month and start_date.year <= current_date.year:
         raise StartDateException
 
 def validate_end_date(start_date, end_date):
     months_with_30_days = [4,6,9,11]
-    months_with_31_days = [1,3,5,7,8,10,12]
     months_with_28_days = [2]
+
+    #these check if the day is actually a real day
     if end_date.month > 12 or end_date.month < 1:
         raise EndDateException
-    if end_date.day > 31 or end_date.day < 1:
+    if (end_date.day > 28 or end_date.day < 1) and end_date.month in months_with_28_days and (is_leap_year(end_date.year) == False):  
         raise EndDateException
+    elif (end_date.day > 30 or end_date.day < 1) and end_date.month in months_with_30_days:
+        raise EndDateException
+    elif end_date.day > 31 or end_date.day < 1:
+        raise EndDateException
+    if (end_date.day > 29 or end_date.day < 1) and end_date.month in months_with_28_days and (is_leap_year(end_date.year) == True):  
+        raise EndDateException
+
+    #these check if the day is legal with respect tos starting date
     if start_date.year > end_date.year:
         raise EndDateException
     if start_date.month > end_date.month and start_date.year > end_date.year:
