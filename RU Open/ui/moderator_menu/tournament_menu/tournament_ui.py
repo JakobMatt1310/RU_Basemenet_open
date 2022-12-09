@@ -150,7 +150,7 @@ class Tournament_UI:
     
     def tournament_organizer_phonenumber(self):
         while True:
-            number = input("Enter organizer phonenumber: ")
+            number = input("Enter organizer phone number: ")
             if number == "c":
                 return True, "none"
             try:
