@@ -226,7 +226,7 @@ def edit_menu_selected_association(association: classmethod, teams: list):
     print("\033[32m", end="")
     print_border()
     print_empty_line()
-    print(f"{X}{association.association_name:^{WIDTH-2}}{X}")
+    print(f"{X}{association.name:^{WIDTH-2}}{X}")
     print_empty_line()
     print(f"{X:<{35}}1. {'Add team':<30}{'// Add teams to association':<25}{X:>25}")
     print(f"{X:<{35}}2. {'Remove team':<30}{'// Add teams to association':<25}{X:>25}")

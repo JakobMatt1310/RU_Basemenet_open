@@ -11,7 +11,9 @@ class Match_logic:
         return self.data_wrapper.create_match(match)
     
     def update_match(self, match):
-        return self.data_wrapper.update_match(match)    
+        return self.data_wrapper.update_match(match)  
+
+    def generate_matches(self, tournament)
 
 
     

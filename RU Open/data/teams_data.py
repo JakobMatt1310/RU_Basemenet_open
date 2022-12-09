@@ -101,5 +101,4 @@ class Teams_Data():
                                 'association': team.association,
                                 'captain': team.captain,
                                 'association_id': team.association_id})
-
             return True
