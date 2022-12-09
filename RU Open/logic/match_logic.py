@@ -16,5 +16,14 @@ class Match_logic:
     def generate_matches(self, tournament):
         pass
 
+    def get_matches_by_team_id(self, team_id):
+        all_matches = self.get_all_matches()
+        ret_list = []
+        for match in all_matches:
+            if match.home_team_id == team_id or match.away_team_id == team_id:
+                ret_list.append(match)
+                
+        return ret_list
+       
 
     

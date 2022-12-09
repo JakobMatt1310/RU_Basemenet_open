@@ -16,7 +16,7 @@ class Data_Wrapper():
         self.team_data = Teams_Data()
         # self.rounds_data = Rounds_Data()
         self.mod_password_data = Mod_password()
-        self.match_data = Match_Data
+        self.match_data = Match_Data()
         self.teams_in_tourneys_data = Teams_In_Tourneys_Data()
 
 

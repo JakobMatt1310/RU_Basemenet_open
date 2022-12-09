@@ -13,8 +13,8 @@ class Captain_UI:
                     
     def __init__(self, logic_connection, team):
         self.logic_wrapper = logic_connection
-        self.team = "blabla"
-        team_name = "blabla"
+        self.team = team
+        team_name = team.name
         self.Menu_selection = { "Current Menu": "Captain Menu", 
                                 "Register points for "+ team_name: ">>> Register points for a match"}   
     def menu_output(self):
@@ -34,7 +34,7 @@ class Captain_UI:
                 # player.team_id á að vera captain id
                 # team_id = 1
                 while True:
-                    available_matches = self.print_matches('1')
+                    available_matches = self.print_matches(self.team)
                     selection = input("Please select the match you want register points to: ")
                     if selection == "b":
                         return
@@ -60,13 +60,13 @@ class Captain_UI:
 
         return
     
-    def print_matches(self, team_id):
-        available_matches = self.logic_wrapper.get_matches_by_team_id(team_id)
+    def print_matches(self, team):
+        available_matches = self.logic_wrapper.get_matches_by_team_id(team.id)
         print()
         for i, match in enumerate(available_matches, 1):
             home_team = self.logic_wrapper.get_team_by_id(match.home_team_id)
             away_team = self.logic_wrapper.get_team_by_id(match.away_team_id)
-            print(f"{i}. {home_team} VS {away_team}")
+            print(f"{i}. {home_team.name} VS {away_team.name}")
         print()
         return available_matches
         #Fixa hvernig stig eru skráð

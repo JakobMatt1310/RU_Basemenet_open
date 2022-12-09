@@ -34,6 +34,9 @@ class Logic_Wrapper:
     
     def get_all_matches(self):
         return self.match_logic.get_all_matches()
+    
+    def get_matches_by_team_id(self, team_id):
+        return self.match_logic.get_matches_by_team_id(team_id)
 
 #------------------Player_Logic------------------------------------#
     def create_player(self, player):

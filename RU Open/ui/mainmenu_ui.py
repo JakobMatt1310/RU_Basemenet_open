@@ -60,8 +60,7 @@ class MainMenu_UI:
             elif command == "2":
                 valid = self.ask_for_captain_password()
                 if valid != False:
-                    menu = Captain_UI(self.logic_wrapper)
-                    #menu = Captain_UI(self.logic_wrapper, valid) -- ÞETTA Á AÐ VERA FINAL, VALID ER FYURIR KENNITÖLU
+                    menu = Captain_UI(self.logic_wrapper, valid)
                     back_method = menu.input_prompt()
                     if back_method == "q":
                         return "q"
