@@ -7,8 +7,7 @@ class Rounds_Data():
     def __init__(self):
         self.file_name = "RU Open/files/rounds.csv"
         
-        Rounds_Data.round_count += 1
-        self.round_count = Rounds_Data.round_count
+
 
     def read_all_rounds(self):
         '''Reads all rounds from file'''
