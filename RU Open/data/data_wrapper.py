@@ -5,6 +5,7 @@ from data.teams_data import Teams_Data
 # from data.rounds_data import Rounds_Data
 from data.moderator_data import Mod_password
 from data.match_data import Match_Data
+from data.teams_in_tourneys_data import Teams_In_Tourneys_Data
 
 class Data_Wrapper():
     def __init__(self):
@@ -16,7 +17,8 @@ class Data_Wrapper():
         # self.rounds_data = Rounds_Data()
         self.mod_password_data = Mod_password()
         self.match_data = Match_Data
-        
+        self.teams_in_tourneys_data = Teams_In_Tourneys_Data()
+
 
 #------------------Get---------------------------------------------#
 
@@ -41,6 +43,10 @@ class Data_Wrapper():
     
     def get_all_matches(self):
         return self.match_data.read_all_matches()
+    
+    def get_all_teams_in_tourneys(self):
+        return self.teams_in_tourneys_data.read_all_teams_in_tourneys()
+
 
 #------------------Create------------------------------------------#
     def create_player(self, player):
@@ -65,6 +71,7 @@ class Data_Wrapper():
     def add_team_to_tournament(self, tournament_name, team_id):
         '''Creates a connection between a team and a tournament essentially adding the team to a tournament'''
         return self.tournament_data.create_tourney_team_connection(tournament_name, team_id)
+
 
 #------------------Update------------------------------------------#
     def update_team_captain(self, team_to_edit):
@@ -105,14 +112,6 @@ class Data_Wrapper():
 
     def update_association_address(self, association_to_update):
         return self.association_data.update_association_address(association_to_update)
-
-
-
-
-
-
-
-
 
 
 # #------------------Main--------------------------------------------#
