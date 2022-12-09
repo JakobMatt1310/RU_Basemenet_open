@@ -472,7 +472,7 @@ def print_tournament_info(tournament):
     print_empty_line()
     print(f"{X}{tournament.name:^118}{X}")
     print_empty_line()
-    print(f"{X}{'Location':<30}{'Start date -> End date':<40}{'Organizer, phone no.':<30}{X}")
+    print(f"{X:<10}{'Location':<30}{'Start date -> End date':<40}{'Organizer, phone no.':<30}{X:>10}")
     print(f"{X:<10}{tournament.address:<30}{date:<40}{organizer:<30}{X:>10}")
     #id,name,address,[start_date],[end_date],organizer,organizer_number
     print_empty_line()

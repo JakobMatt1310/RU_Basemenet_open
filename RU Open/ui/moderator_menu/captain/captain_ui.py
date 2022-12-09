@@ -71,7 +71,6 @@ class Captain_UI:
         
 
 
-
     def register_round_501(self, round_nr, match, captains_home_team, captains_away_team):
         
         round = Round()
@@ -85,8 +84,8 @@ class Captain_UI:
             selection = int(selection) - 1
             if selection <= len(players_in_team):
                 round.home_player1 = players_in_team[selection].name
-        legs_won = int(input(f"How many legs did {round.home_player1} win? (0-2): "))
         while True:
+            legs_won = int(input(f"How many legs did {round.home_player1} win? (0-2): "))
             if legs_won in range(0, 3):
                 if legs_won == 0:
                     round.home_leg1 = '0'
@@ -110,8 +109,8 @@ class Captain_UI:
             selection = int(selection) - 1
             if selection <= len(players_in_team):
                 round.away_player1 = players_in_team[selection].name
-        legs_won = int(input(f"How many legs did {round.away_player1} win? (0-2): "))
         while True:
+            legs_won = int(input(f"How many legs did {round.away_player1} win? (0-2): "))
             if legs_won in range(0, 3):
                 if legs_won == 0:
                     round.away_leg1 = '0'
@@ -130,8 +129,7 @@ class Captain_UI:
         
 
         self.logic_wrapper.create_round(round)
-                
-                
+                              
     def register_round_301(self, round_nr, match, captains_home_team, captains_away_team):
         round = Round()
         round.match_id = match.match_id
@@ -144,8 +142,8 @@ class Captain_UI:
         round.home_player4 = players_in_team[3].name
         round.away_player3 = players_in_away_team[2].name
         round.away_player4 = players_in_away_team[3].name
-        legs_won = int(input(f"How many legs did the home team win in 301 match? (0-2): "))
         while True:
+            legs_won = int(input(f"How many legs did the home team win in 301 match? (0-2): "))
             if legs_won in range(0, 3):
                 if legs_won == 0:
                     round.home_leg1 = '0'
@@ -161,8 +159,9 @@ class Captain_UI:
                     break
             else:
                 print("Invalid input, must be 0, 1 or 2 legs won.")
-        legs_won = int(input(f"How many legs did the away team win in 301 match? (0-2): "))
+        
         while True:
+            legs_won = int(input(f"How many legs did the away team win in 301 match? (0-2): "))
             if legs_won in range(0, 3):
                 if legs_won == 0:
                     round.away_leg1 = '0'
@@ -194,8 +193,8 @@ class Captain_UI:
         round.home_player2 = players_in_team[1].name
         round.away_player1 = players_in_away_team[0].name
         round.away_player2 = players_in_away_team[1].name
-        legs_won = int(input(f"How many legs did the home team win in Cricket match? (0-2): "))
         while True:
+            legs_won = int(input(f"How many legs did the home team win in 4man 501 match? (0-2): "))
             if legs_won in range(0, 3):
                 if legs_won == 0:
                     round.home_leg1 = '0'
@@ -212,8 +211,8 @@ class Captain_UI:
             else:
                 print("Invalid input, must be 0, 1 or 2 legs won.")
                 
-        legs_won = int(input(f"How many legs did the away team win in Cricket match? (0-2): "))
         while True:
+            legs_won = int(input(f"How many legs did the away team win in 301 match? (0-2): "))
             if legs_won in range(0, 3):
                 if legs_won == 0:
                     round.away_leg1 = '0'
@@ -249,8 +248,8 @@ class Captain_UI:
         round.away_player2 = players_in_away_team[1].name
         round.away_player3 = players_in_away_team[2].name
         round.away_player4 = players_in_away_team[3].name
-        legs_won = int(input(f"How many legs did the home team win in 4man 501 match? (0-2): "))
         while True:
+            legs_won = int(input(f"How many legs did the home team win in 4man 501 match? (0-2): "))
             if legs_won in range(0, 3):
                 if legs_won == 0:
                     round.home_leg1 = '0'
@@ -267,8 +266,8 @@ class Captain_UI:
             else:
                 print("Invalid input, must be 0, 1 or 2 legs won.")
                 
-        legs_won = int(input(f"How many legs did the away team win in 4man 501 match? (0-2): "))
         while True:
+            legs_won = int(input(f"How many legs did the away team win in 4man 501 match? (0-2): "))
             if legs_won in range(0, 3):
                 if legs_won == 0:
                     round.away_leg1 = '0'

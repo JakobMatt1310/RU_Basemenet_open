@@ -13,7 +13,7 @@ class Tournament_editing_UI:
     Menu_selection = {"Current Menu": "Tournament", 
                     "Add team": ">>> Choose a team to compete in the tournament",
                     #"Remove team": ">>> Removes a team from the tournament",
-                    "Edit Tournament Details": ">>> Make changes to details in the tournament",
+                    # "Edit Tournament Details": ">>> Make changes to details in the tournament",
                     "Create Matches": ">>> Makes the user create matches in the tournament"}    
     #Create a tournament
     #
@@ -39,7 +39,9 @@ class Tournament_editing_UI:
                 
                 available_tournaments = self.logic_wrapper.get_all_tournaments()
                 print_available_tournaments(available_tournaments)
-                selection = input("Select a tournament to add teams to: ")
+                selection = input("Select a tournament to add teams to: ").lower()
+                if selection == "b":
+                    return 
                 if selection.isdigit() == True:
                     selection = int(selection) - 1
                 if selection <= len(available_tournaments):
@@ -51,9 +53,9 @@ class Tournament_editing_UI:
                 # remove_from_tournament = input("Please enter the name of the tournament you would like to remove a team from: ")
                 # tournament_to_update = self.logic_wrapper.get_tournament(remove_from_tournament)
                 # self.remove_team(tournament_to_update.id)
+            # elif command == "2":
+            #     self.edit_tournament()
             elif command == "2":
-                self.edit_tournament()
-            elif command == "3":
                 available_tournaments = self.logic_wrapper.get_all_tournaments()
                 print_available_tournaments(available_tournaments)
                 selection = input("Select a tournament to create matches in: ")
