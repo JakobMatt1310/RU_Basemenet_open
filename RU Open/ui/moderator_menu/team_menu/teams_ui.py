@@ -42,6 +42,7 @@ class Teams_UI:
     def edit_a_team(self):
         return_command = ""
         while True:
+            team_to_edit = None
             if return_command != "back":
                 all_teams = self.logic_wrapper.get_all_teams()
                 for i, team in enumerate(all_teams, 1):
@@ -71,6 +72,8 @@ class Teams_UI:
                     return_command = self.change_team_association(team_to_edit)
                 elif edit_info == '3':
                     return_command = self.edit_team_captain(team_to_edit)
+                else:
+                    print("Invalid command")
             else:
                 print("Team doesn't exist, try again.")
                 
