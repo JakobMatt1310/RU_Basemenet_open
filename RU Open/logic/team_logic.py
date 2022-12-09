@@ -64,12 +64,4 @@ class Team_Logic:
             if team_to_add == team.team_name:
                 teams_list.append(team)
         return teams_list
-    
-    def add_team_to_tourney(self):
-        pass
-    
-    def remove_team_from_tourney(self):
-        pass
-
-
-    
+   

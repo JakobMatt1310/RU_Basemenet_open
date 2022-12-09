@@ -177,5 +177,5 @@ class Logic_Wrapper:
     def get_all_players(self):
         return self.player_logic.get_all_players()
 
-    def create_team(self, team):
-        return self.team_logic.create_team(team)
+    def add_team_to_tourney(self, tournament_name, team_id):
+        return self.tournament_logic.add_team_to_tourney(tournament_name, team_id)
