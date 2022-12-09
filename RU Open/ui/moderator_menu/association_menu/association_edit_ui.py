@@ -81,6 +81,7 @@ class Associations_editing_UI:
                             break
                         else:
                             print('Invalid input, please answer with "yes" or "no" ')
+                            confirm = input("Are you sure you want to remove this team? (yes/no)").islower()
             elif command == '3':
                 association = input("Please enter the new name of the association you want to make changes to: ")
                 association_to_change = self.logic_wrapper.get_association(association)
