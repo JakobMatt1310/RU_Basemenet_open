@@ -1,6 +1,6 @@
 import os
 import time
-import random
+from random import randint
 
 WIDTH = 120 # Default width of the program
 HALF_WIDTH = int(WIDTH/2)
@@ -530,7 +530,7 @@ def print_enter_name_to_edit():
     print("\033[0m")
 
 def define_start():
-    return random.randint(1,4)
+    return randint(1,4)
 
 def small_menu_setup(team_to_edit: classmethod):
     clear_screen()
