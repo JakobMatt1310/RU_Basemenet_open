@@ -54,15 +54,56 @@ class Captain_UI:
             
 
     def register_points(self, match):
+        '''Cycles through the list of all teams to find our team 
+        and checks if our team is home or away for this match'''
         teams = self.logic_wrapper.get_all_teams()
         for team in teams:
             if match.home_team_id == team.id:
-                self.home_team = team
-            if match.awat_team_id == team.id:
-                self.away_team = team
+                captains_team = team
+            if match.away_team_id == team.id:
+                captains_team = team
+        count = 1
+        self.register_round_1(self, count,  match)
+        count += 1
+        self.register_round_1(self, match)
 
+
+        # round 1
         while True:
             round = Round()
+            round.match_id = match.id
+            players_in_team = self.print_players_in_team(captains_team)
+            selection = input("Please select the player who played in the first round (501 single): ")
+            if selection == "b":
+                return
+            if selection.isdigit() == True:
+                selection = int(selection) - 1
+                if selection <= len(players_in_team):
+                    round.home_player1 = players_in_team[selection].name
+            legs_won = int(input(f"How many legs did {round.home_player1} win? (0-2)"))
+            if legs_won in range(0, 3):
+                if legs_won == 0:
+                    round.home_leg1 == '0'
+                    round.home_leg2 == '0'
+                elif legs_won == 1:
+                    round.home_leg1 == '1'
+                    round.home_leg2 == '0'
+                elif legs_won == 2:
+                    round.home_leg1 == '1'
+                    round.home_leg2 == '1'
+            else:
+                print("Invalid input, must be 0, 1 or 2 legs won.")
+            
+            
+    def print_players_in_team(self, team):
+        players_in_team = self.logic_wrapper.get_all_players_of_team(team)
+        print()
+        for i, player in enumerate(players_in_team, 1):
+            print(f"{i}. {player.name}")
+        print()
+        return players_in_team
+
+            
 
             
 
