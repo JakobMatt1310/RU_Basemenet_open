@@ -1,4 +1,5 @@
 from model.player import Player
+from model.round import Round
 import time
 from ui.print_layouts import (  print_current_menu, 
                                 print_current_team_player_list, 
@@ -27,20 +28,47 @@ class Captain_UI:
             if command == "b":
                 print("Going back")
                 return
-            elif command == "1":
-                self.register_points(self.team)
             elif command == "q":
                 return "q"
+            elif command == "1":
+                # player.team_id á að vera captain id
+                # team_id = 1
+                while True:
+                    available_matches = self.print_matches('1')
+                    selection = input("Please select the match you want register points to: ")
+                    if selection == "b":
+                        return
+                    if selection.isdigit() == True:
+                        selection = int(selection) - 1
+                        if selection <= len(available_matches):
+                            match_to_fill_out = available_matches[selection]
+                            self.register_points(self, match_to_fill_out)
+                            break
+                        else:
+                            print("Invalid input")
+                    else:
+                        print("Invalid input")
             else:
                 print("invalid input, try again")
 
-    def register_points(self, team):
-        print("YOU HAVE REGISTERED POINTS")
-        print()
-        print()
-        print()
-        input("Press enter to return")
+            
+
+    def register_points(self, match):
+        while True:
+            round = Round()
+            
+
         return
+    
+    def print_matches(self, team_id):
+        available_matches = self.logic_wrapper.get_matches_by_team_id(team_id)
+        print()
+        for i, match in enumerate(available_matches, 1):
+            home_team = self.logic_wrapper.get_team_by_id(match.home_team_id)
+            away_team = self.logic_wrapper.get_team_by_id(match.away_team_id)
+            print(f"{i}. {home_team} VS {away_team}")
+        print()
+        return available_matches
         #Fixa hvernig stig eru skráð
       
         

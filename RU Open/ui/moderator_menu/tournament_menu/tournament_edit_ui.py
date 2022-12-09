@@ -12,7 +12,7 @@ from model.datetime import DateTime
 class Tournament_editing_UI:
     Menu_selection = {"Current Menu": "Tournament", 
                     "Add team": ">>> Choose a team to compete in the tournament",
-                    "Remove team": ">>> Removes a team from the tournament",
+                    #"Remove team": ">>> Removes a team from the tournament",
                     "Edit Tournament Details": ">>> Make changes to details in the tournament",
                     "Create Matches": ">>> Makes the user create matches in the tournament"}    
     #Create a tournament
@@ -47,13 +47,13 @@ class Tournament_editing_UI:
                 else:
                     print("Invalid input")
                 self.add_teams(tournament_to_update)
+            #elif command == "2":
+                # remove_from_tournament = input("Please enter the name of the tournament you would like to remove a team from: ")
+                # tournament_to_update = self.logic_wrapper.get_tournament(remove_from_tournament)
+                # self.remove_team(tournament_to_update.id)
             elif command == "2":
-                remove_from_tournament = input("Please enter the name of the tournament you would like to remove a team from: ")
-                tournament_to_update = self.logic_wrapper.get_tournament(remove_from_tournament)
-                self.remove_team(tournament_to_update.id)
-            elif command == "3":
                 self.edit_tournament()
-            elif command == "4":
+            elif command == "3":
                 available_tournaments = self.logic_wrapper.get_all_tournaments()
                 print_available_tournaments(available_tournaments)
                 selection = input("Select a tournament to create matches in: ")
@@ -163,32 +163,32 @@ class Tournament_editing_UI:
             else:
                 print("Invalid input")
 
-    def remove_team(self, tournament_id):
-        '''Removes a team from the chosen tournament'''
-        while True:
-            team_to_remove = input("Please enter the name of the team you want to remove from the tournament: ")
-            teams_list = self.logic_wrapper.get_teams_by_name(team_to_remove)
+    # def remove_team(self, tournament_id):
+    #     '''Removes a team from the chosen tournament'''
+    #     while True:
+    #         team_to_remove = input("Please enter the name of the team you want to remove from the tournament: ")
+    #         teams_list = self.logic_wrapper.get_teams_by_name(team_to_remove)
         
-            id_list = []
-            print("{:<18}{:<20}{}".format("Team ID", "Team Name"))
-            for team in teams_list:
-                print("{:<15}{:<17}".format(team.id, team.name))
-                id_list.append(team.id)
-            if len(id_list) == 1:
-                selection = id_list[0]
-                team_to_remove = self.logic_wrapper.get_team(selection)
-                self.logic_wrapper.remove_team_from_tourney(tournament_id, team_to_remove.id)
-                break
-            else:  
-                selection = input("Select team by id: ")
-                if selection == 'b':
-                    print("Going back")
-                    return
-                elif selection in id_list:
-                    team_to_remove = self.logic_wrapper.get_team(selection)
-                    break
-                else:
-                    ("The team id you entered is invalid, please try again.")
+    #         id_list = []
+    #         print("{:<18}{:<20}{}".format("Team ID", "Team Name"))
+    #         for team in teams_list:
+    #             print("{:<15}{:<17}".format(team.id, team.name))
+    #             id_list.append(team.id)
+    #         if len(id_list) == 1:
+    #             selection = id_list[0]
+    #             team_to_remove = self.logic_wrapper.get_team(selection)
+    #             self.logic_wrapper.remove_team_from_tourney(tournament_id, team_to_remove.id)
+    #             break
+    #         else:  
+    #             selection = input("Select team by id: ")
+    #             if selection == 'b':
+    #                 print("Going back")
+    #                 return
+    #             elif selection in id_list:
+    #                 team_to_remove = self.logic_wrapper.get_team(selection)
+    #                 break
+    #             else:
+    #                 ("The team id you entered is invalid, please try again.")
 
     def change_tourney_name(self):
         """Asks for tournament name until it's valid
