@@ -1,6 +1,6 @@
 import os
 import time
-from random import randint
+import random
 
 WIDTH = 120 # Default width of the program
 HALF_WIDTH = int(WIDTH/2)
@@ -71,34 +71,6 @@ def print_access_denied():
     print_empty_line()
     print_border()
 
-# def print_current_menu(dict_to_print: dict):
-#     """Prints a listed menu, with numbering and explination
-#     argument needs to be dict"""
-    
-
-#     clear_screen()
-#     print("\033[1;32;40m", end="")
-#     menu_name = dict_to_print['Current Menu']
-#     start = define_start()
-#     print_border()
-#     print_empty_line()
-#     print(f"{X}{menu_name:^{WIDTH-2}}{X}") # prints out name of current menu selected
-#     print_empty_line()
-#     keys = [key for key in dict_to_print.keys()]
-#     values = [value for value in dict_to_print.values()]
-#     for index, element in enumerate(keys[1:], start): #element no 0 in all dicts are the same
-#         selection = str(index)+'. '+element
-#         text = values[start]
-#         print(f"{X:<{MENU_PAD}}{selection:<{MENU_LEN}}{text:<{MENU_LEN}}{X:>{MENU_PAD}}")
-    
-#     print_empty_line()
-#     if values[0] != "Main Menu": # Do not display go back if current menu is main menu
-#         print(f"{X:<{MENU_PAD}}{BACK[0]:<{MENU_LEN}}{BACK[1]:<{MENU_LEN}}{X:>{MENU_PAD}}")
-#     print(f"{X:<{MENU_PAD}}{QUIT_PROG[0]:<{MENU_LEN}}{QUIT_PROG[1]:<{MENU_LEN}}{X:>{MENU_PAD}}")
-    
-#     print_empty_line()
-#     print_border()
-#     print("\033[0m") //////// BACKUP
 
 def print_current_menu(dict_to_print: dict):
     """Prints a listed menu, with numbering and explination
@@ -108,16 +80,15 @@ def print_current_menu(dict_to_print: dict):
     clear_screen()
     print("\033[1;32;40m", end="")
     menu_name = dict_to_print['Current Menu']
-    start = define_start()
     print_border()
     print_empty_line()
     print(f"{X}{menu_name:^{WIDTH-2}}{X}") # prints out name of current menu selected
     print_empty_line()
     keys = [key for key in dict_to_print.keys()]
     values = [value for value in dict_to_print.values()]
-    for index, element in enumerate(keys[1:], start): #element no 0 in all dicts are the same
+    for index, element in enumerate(keys[1:], 1): #element no 0 in all dicts are the same
         selection = str(index)+'. '+element
-        text = values[start]
+        text = values[index]
         print(f"{X:<{MENU_PAD}}{selection:<{MENU_LEN}}{text:<{MENU_LEN}}{X:>{MENU_PAD}}")
     
     print_empty_line()
@@ -172,7 +143,6 @@ def view_players(player: list, teams: dict):
     print_empty_line()
     print(f"{X:<7}{'Name':<22}{'Team':<24}{'DoB (d/m/y)':<16}{'Tel. no.':<16}{'Email address':<34}{X}")
     player.sort(key = lambda x : x.name)
-        
     for element in player:
         if element.ssn[4:6] <'22':
             year = '20' + element.ssn[4:6]
@@ -183,17 +153,13 @@ def view_players(player: list, teams: dict):
         player_team = teams[element.team_id]
         print(f"{X:<7}{element.name:<22}{player_team:<24}{date_of_birth:<16}{phone_no:<16}{element.email:<34}{X}")    
         time.sleep(0.0001)    
-
-   
     print_empty_line()
     print_border() 
-
     input("\033[0m Press Enter to go back: ")
 
 def view_teams(teams_list: list):
     clear_screen()
     time.sleep(0.5)
-
     print("\033[1;32;40m", end="")
     print(f"{' ':30}{(X*60):<60}")
     time.sleep(0.1) 
@@ -208,47 +174,14 @@ def view_teams(teams_list: list):
     print_border()
     print(f"{X:<7}{'Team name':<{THIRD_WIDTH}}{'Team association':<{THIRD_WIDTH}}{'Team captain':<{THIRD_WIDTH-8}}{X}")
     print(f"{X:<30}{(DASH*60):60}{X:>30}")                             #Seperation line with dashes --------
-
     for el in teams_list:
-    
-        print(f"{X:<7}{el.name:<{THIRD_WIDTH}}{el.association:<{THIRD_WIDTH}}{el.captain:<{THIRD_WIDTH-8}}{X}")    
-
+        print(f"{X:<7}{el.name:<{THIRD_WIDTH}}{el.association:<{THIRD_WIDTH}}{el.captain:<{THIRD_WIDTH-8}}{X}")   
         time.sleep(0.01)    
-    
     print_empty_line()
     print_border() 
     print("\033[0m")
     input("Press Enter to go back: ")
 
-# def view_teams(teams_list: list):
-#     clear_screen()
-#     time.sleep(0.5)
-
-#     print("\033[1;32;40m", end="")
-#     print(f"{' ':30}{(X*60):<60}")
-#     time.sleep(0.1) 
-#     print(f"{' ':30}{X:<59}{X}") 
-#     time.sleep(0.1) 
-#     print(f"{' ':30}{X}{'Viewing all teams':^58}{X}")    
-#     time.sleep(0.1)
-#     print(f"{' ':30}{X:<59}{X}") 
-#     time.sleep(0.1)
-#     print(f"{' ':30}{(X*60):<60}")
-#     time.sleep(0.5)
-#     print_border()
-#     print(f"{X:<7}{'Team name':<{THIRD_WIDTH}}{'Team association':<{THIRD_WIDTH}}{'Team captain':<{THIRD_WIDTH-8}}{X}")
-#     print(f"{X:<30}{(DASH*60):60}{X:>30}")                             #Seperation line with dashes --------
-
-#     for el in teams_list:
-    
-#         print(f"{X:<7}{el.name:<{THIRD_WIDTH}}{el.association:<{THIRD_WIDTH}}{el.captain:<{THIRD_WIDTH-8}}{X}")    
-
-#         time.sleep(0.01)    
-    
-#     print_empty_line()
-#     print_border() 
-#     print("\033[0m")
-#     input("Press Enter to go back: ") //////////// Backup
     
 def edit_menu_selected_team(team: classmethod, ):
     """prints out the edit menu, for tournament, association, team and player"""
@@ -412,10 +345,11 @@ def print_current_tournament_layout(tournament, teams_and_players):
         print_empty_line()
         print_empty_line()
         print_border()
-
     print_empty_line()
     print_border() 
     print("\033[0m")
+    
+    
 def view_tournaments(tournaments: classmethod):
     clear_screen()
     print("\033[1;32;40m", end="")
@@ -430,10 +364,7 @@ def view_tournaments(tournaments: classmethod):
     time.sleep(0.1)
     print(f"{' ':30}{(X*60):<60}")
     time.sleep(0.5) 
-    
-# "address","start_date","end_date","game_count","teams_submitted","game_id","game_type","leg_nr","player_id"
-    #Sorta tournemnts eftir dagsetning vinstramegin og hægramegin
-    #Vinstramegin verður "finished" hægtamegin verður"þ.að se er í gangi eða á eftir að byrja"
+
     print_border()
     print_empty_line()
     print(f"{X:<6}{'ID':<7}{'Tournament: ':<30}{'Address':<32}{'Start date':<21}{'End date':<19}{X:>5}")
@@ -529,24 +460,6 @@ def print_enter_name_to_edit():
     print_border_half()
     print("\033[0m")
 
-def define_start():
-    return randint(1,4)
-
-def small_menu_setup(team_to_edit: classmethod):
-    clear_screen()
-    print("\033[1;33;40m", end="")
-    # print_border_half()
-    # print_empty_line_half()
-    # print(f"{' ':30}{X}{'Assigned players to team -> ' + team_to_edit.name:^{HALF_WIDTH-2}}{X}") # prints out name of current menu selected
-    # print_empty_line_half()
-    # print(f"{' ':<30}{X:<15}{'1. ' + players[0]:<{44}}{X}")
-    # print_empty_line_half()
-    # print_empty_line_half()
-    # print_empty_line_half()
-    # print_empty_line_half()
-    # print_border_half()
-    print("\033[0m")
-# print_current_team_player_list(["joi joa",  "siggi sigg", "benni bull"], "eitthvað")
 
 def print_tournament_info(tournament):
     organizer = tournament.organizer + ', '+tournament.organizer_number
@@ -603,16 +516,4 @@ def print_available_tournaments(tournaments):
     print_empty_line_half()
     print_border_half()
     print("\033[0m")
-                            
-# def print_available_tournaments(tournaments):
-#     print("\033[1;33;40m")
-#     print_border_half()
-#     print_empty_line_half()
-#     for i, tourney in enumerate(tournaments, 1):
-#         print(f"{' ':30}{X:<15}{i}. {tourney.name:<41}{X}")
-#     print_empty_line_half()
-#     print(f"{' ':30}{X:<15}{BACK[0]:<44}{X}")
-#     print_empty_line_half()
-#     print_border_half()
-#     print("\033[0m")   //////// Backup
                             

@@ -174,8 +174,8 @@ class Logic_Wrapper:
     def get_all_tournaments(self):
         return self.tournament_logic.get_all_tournaments()
 
-    def get_tournament(self):
-        return self.tournament_logic.get_tournament()
+    def get_tournament(self, tournament):
+        return self.tournament_logic.get_tournament(tournament)
     
     def create_player(self, player):
         return self.player_logic.create_player(player)
