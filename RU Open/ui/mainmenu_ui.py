@@ -1,8 +1,6 @@
 import time
-# from player_model_dummy import Player
 from ui.moderator_menu.moderator_ui import Moderator_UI
 from ui.moderator_menu.captain.captain_ui import Captain_UI
-# from teams_ui import Teams_View_UI
 # from statistics_ui import Statistics_UI
 from ui.moderator_menu.tournament_menu.tournament_ui import Tournament_UI
 from logic.logic_wrapper import Logic_Wrapper
@@ -15,7 +13,7 @@ class MainMenu_UI:
                     "Player": ">>> View all players registered", 
                     "Teams": ">>> Select teams to view all registered teams", 
                     "Association": ">>> View all registered associations", 
-                    "Statistics": ">>> View statistics for teams and players", 
+                    #"Statistics": ">>> View statistics for teams and players", 
                     "Tournaments": ">>> View all registered Tournaments"}    
     def __init__(self):
         self.logic_wrapper = Logic_Wrapper()
@@ -87,13 +85,10 @@ class MainMenu_UI:
             #     menu = Statistics_UI(self.logic_wrapper)
             #     back_method = menu.input_prompt()
             #     if back_method == "q":
-            #         return "q"
+            #         return "q"-
 
-            elif command == "7":
-                menu = Tournament_UI(self.logic_wrapper)
-                back_method = menu.input_prompt()
-                if back_method == "q":
-                    return "q"
+            elif command == "6":
+                Tournament_UI(self.logic_wrapper).view_all_tournaments()
 
             else:
                 print("invalid input, try again")
