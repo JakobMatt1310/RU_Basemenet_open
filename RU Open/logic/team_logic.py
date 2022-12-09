@@ -5,13 +5,8 @@ class Team_Logic:
         self.data_wrapper = data_connection
 
     def create_team(self, team):
-        teams = self.data_wrapper.create_team(self, team)
-        team_input = team
-        if team_input in teams:
-            return ValueError
-        else:
-            self.data_wrapper.create_team(self, team)
-            return True
+        self.data_wrapper.create_team(team)
+
 
     def validate_team_entry(self):
         return self.data_wrapper.validate_team_entry()
