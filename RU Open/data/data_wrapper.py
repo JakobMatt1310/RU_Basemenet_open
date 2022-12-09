@@ -70,7 +70,7 @@ class Data_Wrapper():
 
     def add_team_to_tournament(self, tournament_name, team_id):
         '''Creates a connection between a team and a tournament essentially adding the team to a tournament'''
-        return self.tournament_data.create_tourney_team_connection(tournament_name, team_id)
+        return self.teams_in_tourneys_data.create_team_in_tourney(tournament_name, team_id)
 
 
 #------------------Update------------------------------------------#
