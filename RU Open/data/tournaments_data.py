@@ -42,4 +42,4 @@ class Tournaments_Data():
                              'start_date': tournament.start_date,
                              'end_date': tournament.end_date,
                              'organizer': tournament.organizer,
-                             'organizer_number': tournament.organizer_nr})
+                             'organizer_number': tournament.organizer_number})

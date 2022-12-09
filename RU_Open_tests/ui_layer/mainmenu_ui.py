@@ -1,5 +1,5 @@
 
-# from player_model_dummy import Player
+# from model.player_model_dummy import Player
 from moderator_menu.moderator_menu import Moderator_UI
 from captain_menu.captain_ui import Captain_UI
 from teams_ui import Teams_View_UI
