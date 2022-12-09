@@ -74,7 +74,7 @@ class Captain_UI:
         for i, match in enumerate(available_matches, 1):
             home_team = self.logic_wrapper.get_team_by_id(match.home_team_id)
             away_team = self.logic_wrapper.get_team_by_id(match.away_team_id)
-            print(f"{i}. {home_team} VS {away_team}")
+            print(f"{i}. {home_team.name} VS {away_team.name}")
         print()
         return available_matches
         #Fixa hvernig stig eru skráð
