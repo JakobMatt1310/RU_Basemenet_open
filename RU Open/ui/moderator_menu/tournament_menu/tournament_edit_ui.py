@@ -39,37 +39,37 @@ class Tournament_editing_UI:
             elif command == "3":
                 self.edit_tournament()
     
-    def edit_tournament(self):
-        '''Brings up a mini menu to edit a tournaments details'''
-        return_command = ""
-        while True:
-            if return_command != "back":
-                tourney_to_edit = input("Please enter the name of the tournament you want to edit: ")
-                tourney_to_edit = self.logic_wrapper.get_tourney(tourney_to_edit)
-            else:
-                return_command = ""
-            if tourney_to_edit != None:
-                print_edit_menu_team(tourney_to_edit)
-                edit_info = input("Enter option to edit: ")
-                if edit_info == 'b':
-                    print("Going back")
-                    return
+#   #  def edit_tournament(self):
+#         '''Brings up a mini menu to edit a tournaments details'''
+#         return_command = ""
+#         while True:
+#             if return_command != "back":
+#                 tourney_to_edit = input("Please enter the name of the tournament you want to edit: ")
+#                 tourney_to_edit = self.logic_wrapper.get_tourney(tourney_to_edit)
+#             else:
+#                 return_command = ""
+#             if tourney_to_edit != None:
+#                 print_edit_menu_team(tourney_to_edit)
+#                 edit_info = input("Enter option to edit: ")
+#                 if edit_info == 'b':
+#                     print("Going back")
+#                     return
 
-                elif edit_info == '1':
-                    tourney_to_edit.name = self.change_tourney_name(tourney_to_edit)
-                    print(f"Player name changed to {tourney_to_edit.name}.")
-                    return_command = "back"
-                elif edit_info == '2':
-                    tourney_to_edit.address = self.change_tourney_address(tourney_to_edit)
-                    print(f"Player name changed to {tourney_to_edit.name}.")
-                    return_command = "back"
-                elif edit_info == '3':
-                    tourney_to_edit.organizer = self.change_tourney_organizer(tourney_to_edit)
-                    print(f"Player name changed to {tourney_to_edit.organizer}.")
-                elif edit_info == '4':
-                    return_command = self.change_tourney_organizer_number(tourney_to_edit)
-            else:
-                print("Tourney doesn't exist, try again.")
+#                 elif edit_info == '1':
+#                     tourney_to_edit.name = self.change_tourney_name(tourney_to_edit)
+#                     print(f"Player name changed to {tourney_to_edit.name}.")
+#                     return_command = "back"
+#                 elif edit_info == '2':
+#                     tourney_to_edit.address = self.change_tourney_address(tourney_to_edit)
+#                     print(f"Player name changed to {tourney_to_edit.name}.")
+#                     return_command = "back"
+#                 elif edit_info == '3':
+#                     tourney_to_edit.organizer = self.change_tourney_organizer(tourney_to_edit)
+#                     print(f"Player name changed to {tourney_to_edit.organizer}.")
+#                 elif edit_info == '4':
+#                     return_command = self.change_tourney_organizer_number(tourney_to_edit)
+#             else:
+#                 print("Tourney doesn't exist, try again.")
 
     def add_teams(self, tournament_id):
         '''Adds a team to the pool of teams competing in the chosen tournament'''

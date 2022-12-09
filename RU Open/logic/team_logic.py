@@ -56,3 +56,20 @@ class Team_Logic:
 
     def delete_team(self):
         self.data_wrapper.delete_team()
+
+    def get_teams_by_name(self, team_to_add):
+        all_teams = self.get_all_teams()
+        teams_list = []
+        for team in all_teams:
+            if team_to_add == team.team_name:
+                teams_list.append(team)
+        return teams_list
+    
+    def add_team_to_tourney(self):
+        pass
+    
+    def remove_team_from_tourney(self):
+        pass
+
+
+    
