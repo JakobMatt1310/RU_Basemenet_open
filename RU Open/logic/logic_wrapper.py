@@ -151,6 +151,12 @@ class Logic_Wrapper:
 
     def delete_team(self):
         return self.team_logic.delete_team()
+    
+    def teams_in_tourney(self, tournament):
+        return self.team_logic.teams_in_tourney(tournament)
+    
+    def teams_not_in_tourney(self, tournament):
+        return self.team_logic.teams_not_in_tourney(tournament)
 
 #------------------Tournament_Logic------------------------------------#
     def create_tournament(self, tournament):

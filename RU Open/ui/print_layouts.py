@@ -389,4 +389,45 @@ def small_menu_setup(team_to_edit: classmethod):
     print("\033[0m")
 # print_current_team_player_list(["joi joa",  "siggi sigg", "benni bull"], "eitthvað")
 
+def print_tournament_info(tournament):
+    organizer = tournament.organizer + ', '+tournament.organizer_number
+    start_date = ".".join(tournament.start_date)
+    end_date = ".".join(tournament.end_date)
+    date = start_date + ' -> ' +end_date
+    clear_screen()
+    print("\033[32m", end="")
+    print_border()
+    print_empty_line()
+    print(f"{X}{tournament.name:^118}{X}")
+    print_empty_line()
+    print(f"{X}{'Location':<30}{'Start date -> End date':<40}{'Organizer, phone no.':<30}{X}")
+    print(f"{X:<10}{tournament.address:<30}{date:<40}{organizer:<30}{X:>10}")
+    #id,name,address,[start_date],[end_date],organizer,organizer_number
+    print_empty_line()
+    print_border()
+    print("\033[0m")
+
+def print_teams_to_add_to_tourney(teams):
+
+    print("\033[1;33;40m",)
+    print_border_half()
+    print_empty_line_half()
+    for i, team in enumerate(teams, 1):
+        print(f"{' ':30}{X:<15}{i}. {team.name:<43}{X}")
+    print_empty_line_half()
+    print_border_half()
+    print("\033[0m")
+    
+def print_teams_to_add_to_tourney_empty():
+
+    print("\033[1;33;40m",)
+    print_border_half()
+    print_empty_line_half()
+    print(f"{' ':30}{'No teams available'^60}{X}")
+    print_empty_line_half()
+    print_border_half()
+    print("\033[0m")
+    
+    
+    pass
                            

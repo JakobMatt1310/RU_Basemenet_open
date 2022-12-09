@@ -56,6 +56,28 @@ class Team_Logic:
 
     def delete_team(self):
         self.data_wrapper.delete_team()
+        
+    def teams_in_tourney(self, team, tournament):
+        """Gets all the teams that are registered to the tournament"""
+        teams_tourney = self.data_wrapper.get_teams_in_tourney()
+        teams_id = []
+        for tourney in teams_tourney:
+            if tournament.name == tourney.tournament_name:
+                teams_id.append(tourney.team_id)
+        ret_list = self.get_teams_by_id(teams_id)
+        return ret_list
+    
+    def teams_not_in_tourney(self, tournament):
+        """Gets all teams that are not registered to the tournament"""
+        teams_tourney = self.data_wrapper.get_teams_in_tourney()
+        teams_id = []
+        for tourney in teams_tourney:
+            if tournament.name == tourney.tournament_name:
+                teams_id.append(tourney.team_id)
+        ret_list = self.get_teams_not_in_id_list(teams_id)
+        return ret_list
+        
+        
 
     def get_teams_by_name(self, team_to_add):
         all_teams = self.get_all_teams()
@@ -63,5 +85,25 @@ class Team_Logic:
         for team in all_teams:
             if team_to_add == team.team_name:
                 teams_list.append(team)
+        return teams_list
+    
+    def get_teams_by_id(self, team_ids: list):
+        """Gets allt teams in id_list"""
+        all_teams = self.get_all_teams()
+        teams_list = []
+        for id in team_ids:
+            for team in all_teams:
+                if id == team.id:
+                    teams_list(team)
+        return teams_list
+    
+    def get_teams_not_in_id_list(self, team_ids: list):
+        """Gets all teams that are not on the id list"""
+        all_teams = self.get_all_teams()
+        teams_list = []
+        for id in team_ids:
+            for team in all_teams:
+                if id != team.id:
+                    teams_list(team)
         return teams_list
    
