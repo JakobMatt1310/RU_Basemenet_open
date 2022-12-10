@@ -79,8 +79,29 @@ Unnum allir jafnt og þétt yfir daginn. Óli vann í print layouts, Emil og Hj�
 Þetta var mjög góður dagur, kláruðum mikið og erum kominn með grunn í data layer þannig að við getum sótt players og teams með ids á báðu. Næst á dagskrá er að búa til associations og setja association ids á teams og halda áfram í að vinna með uis og options þar semsagt gera allt virkt sem er í boði á UI inu.
 
 
-# 03.12.22
+# 05.12.22
 
 ## Hverjir unnu þennan dag: Emil, Gunnar, Hjörtur, Jakob, Ólafur, Þórarinn
 
 Hjörtur vann í tournaments, Emil vann í stigaskráningu, Gunnar og Þórarinn í Logic layer, Óli í print layouts og hjálpa til með annað, Jakob vann í UI.
+
+# 06.12.22
+
+## Hverjir unnu þennan dag: Emil, Gunnar, Hjörtur, Jakob, Ólafur, Þórarinn
+Vorum að klára að koma tournament registration upp 
+
+# 07.12.22
+
+## Hverjir unnu þennan dag: Emil, Gunnar, Hjörtur, Jakob, Ólafur, Þórarinn
+Kláruðum að tournaments
+
+# 08.12.22
+
+## Hverjir unnu þennan dag: Emil, Gunnar, Hjörtur, Jakob, Ólafur, Þórarinn
+Unnum í að fullkomna teams og players, löguðum data layer villur
+
+# 09.12.22
+
+## Hverjir unnu þennan dag: Emil, Gunnar, Hjörtur, Jakob, Ólafur, Þórarinn
+
+Allir voru að debugga og voru ógeðslega duglegir. Þórarinn og Gunnar unnu í skýslunni
